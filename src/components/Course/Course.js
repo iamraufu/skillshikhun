@@ -1,13 +1,16 @@
 import React from 'react';
 import Navbar from '../Shared/Navbar/Navbar';
 
-const Admission = () => {
+const Course = (props) => {
+
+    const name = props.name;
+
     return (
         <div>
             <Navbar />
-            <h2 className='mt-5 text-center'>Admission</h2>
+           <h1 className="mt-5 text-center">{name}</h1>
         </div>
     );
 };
 
-export default Admission;
+export default Course;

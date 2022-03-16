@@ -3,7 +3,13 @@ import webinar from '../../images/webinar.png';
 
 const Hero = () => {
     return (
-        <div className='container bg-dark'>
+        <div className='container'>
+            <img src={webinar} className='img-fluid' alt="free webinar" />
+            <img src={webinar} className='img-fluid' alt="free webinar" />
+            <img src={webinar} className='img-fluid' alt="free webinar" />
+            <img src={webinar} className='img-fluid' alt="free webinar" />
+            <img src={webinar} className='img-fluid' alt="free webinar" />
+            <img src={webinar} className='img-fluid' alt="free webinar" />
             <img src={webinar} className='img-fluid' alt="free webinar" />
         </div>
     );
