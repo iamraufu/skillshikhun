@@ -5,7 +5,7 @@ const Contact = () => {
     return (
         <div>
         <Navbar />
-            <h2 className='text-center mt-5'>Contact</h2>
+            <h2 style={{marginTop:'5rem'}} className='text-center'>Contact</h2>
         </div>
     );
 };

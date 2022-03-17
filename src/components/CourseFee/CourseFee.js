@@ -5,7 +5,7 @@ const CourseFee = () => {
     return (
         <div>
             <Navbar />
-            <h2 className='mt-5 text-center'>CourseFee</h2>
+            <h2 style={{marginTop:'5rem'}} className='text-center'>CourseFee</h2>
         </div>
     );
 };

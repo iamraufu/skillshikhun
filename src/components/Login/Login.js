@@ -5,7 +5,7 @@ const Login = () => {
     return (
         <div>
             <Navbar />
-            <h2 className='mt-5 text-center'>Login</h2>
+            <h2 style={{marginTop:'5rem'}} className='text-center'>Login</h2>
         </div>
     );
 };

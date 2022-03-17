@@ -5,7 +5,7 @@ const Admission = () => {
     return (
         <div>
             <Navbar />
-            <h2 className='mt-5 text-center'>Admission</h2>
+            <h2 style={{marginTop:'5rem'}} className='text-center'>Admission</h2>
         </div>
     );
 };
