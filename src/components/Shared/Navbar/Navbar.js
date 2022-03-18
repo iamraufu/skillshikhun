@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import './Navbar.css';
+import './Navbar.css';
 import logo from '../../../images/logo.png';
 
 const Navbar = () => {
     return (
-        <div className="fixed-top">
+        <div style={{backgroundColor:'white'}} className="fixed-top">
             <div style={{ height: '80px' }} className="container-xl">
 
                 <nav className="navbar navbar-expand-lg navbar-light mt-1">
@@ -23,17 +23,17 @@ const Navbar = () => {
 
                         <div style={{ width: '10%' }} className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">
-                                <Link className="nav-link" to="/digital-marketing">ডিজিটাল মার্কেটিং</Link>
-                                <Link className="nav-link" to="/video-editing">ভিডিও এডিটিং</Link>
-                                <Link className="nav-link" to="/web-development">ওয়েব ডেভেলপমেন্ট</Link>
-                                <Link className="nav-link" to="/graphics-design">গ্রাফিক্স ডিজাইন</Link>
-                                <Link className="nav-link" to="/course-fee">কোর্স ফী</Link>
-                                <Link className="nav-link" to="/admission">অ্যাডমিশন</Link>
-                                <Link className="nav-link" to="/contact">যোগাযোগ</Link>
+                                <Link className="nav-link nav-item" to="/digital-marketing">ডিজিটাল মার্কেটিং</Link>
+                                <Link className="nav-link nav-item" to="/video-editing">ভিডিও এডিটিং</Link>
+                                <Link className="nav-link nav-item" to="/web-development">ওয়েব ডেভেলপমেন্ট</Link>
+                                <Link className="nav-link nav-item" to="/graphics-design">গ্রাফিক্স ডিজাইন</Link>
+                                <Link className="nav-link nav-item" to="/course-fee">কোর্স ফী</Link>
+                                <Link className="nav-link nav-item" to="/admission">অ্যাডমিশন</Link>
+                                <Link className="nav-link nav-item" to="/contact">যোগাযোগ</Link>
                             </div>
                         </div>
 
-                        <Link className="text-decoration-none text-danger d-none d-lg-block" to="/login">🚀 Login</Link>
+                        <Link className="text-decoration-none text-danger d-none d-lg-block " to="/login"><button className='login-btn-lg'>🚀 Login</button></Link>
 
                     </div>
                 </nav>

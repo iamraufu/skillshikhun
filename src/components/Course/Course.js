@@ -9,13 +9,14 @@ const Course = (props) => {
     const course = courseData.find(course => course.name === name);
 
     return (
-        <div>
+        <div style={{backgroundColor:'#f8f9fa'}}>
             <Navbar />
-            <h1 style={{ marginTop: '5rem' }} className="text-center">{name}</h1>
+            <h1 style={{ marginTop: '5rem' }} className="text-center py-3">{course.title}</h1>
+            
             <div className="container">
                 {
                     course.outline.map(course => <div>
-                        <li>{course.subtitle}</li>
+                        <li className='fw-bold'>{course.subtitle}</li>
                         <p>{course.brief}</p>
                     </div>)
                 }
