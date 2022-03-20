@@ -5,7 +5,7 @@ import logo from '../../../images/logo.png';
 
 const Navbar = () => {
     return (
-        <div style={{backgroundColor:'white'}} className="fixed-top">
+        <div style={{ backgroundColor: 'white' }} className="fixed-top">
             <div style={{ height: '80px' }} className="container-xl">
 
                 <nav className="navbar navbar-expand-lg navbar-light mt-1">
