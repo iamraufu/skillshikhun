@@ -15,14 +15,14 @@ const Course = (props) => {
 
             <div className="container">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-lg-6">
                         <div className="card">
                             <h1>{course.alt_title}</h1>
-                            <iframe width="100%" height="355" src={course.source} title={course.slug} style={{ borderRadius: '15px' }} allowFullScreen></iframe>
+                            <iframe className='p-2' width="100%" height="355" src={course.source} title={course.slug} style={{ borderRadius: '20px'}} allowFullScreen></iframe>
                             <p>২ মাস এর কোর্স - ২৪ টি লাইভ ক্লাস</p>
                         </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-lg-6">
                         <h2 className='fw-bold'>এই কোর্সটি কাদের জন্য?</h2>
                         <p>{course.description}</p>
                         <h2 className='fw-bold'>এই কোর্সে আপনি কি শিখবেন?</h2>
@@ -34,17 +34,17 @@ const Course = (props) => {
                         {
                             course.featureBonus.map(item => <li>{item.item}</li>)
                         }
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div className="accordion accordion-flush" id="accordionFlushExample">
                             {
                                 course.outline.map(item =>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="flush-heading">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapse">
+                                    <div className="accordion-item mt-2">
+                                        <h2 className="accordion-header" id={`flush-heading${item.id}`}>
+                                            <button className="accordion-button collapsed fw-bold bg-muted" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
                                                 {item.subtitle}
                                             </button>
                                         </h2>
-                                        <div id="flush-collapse" class="accordion-collapse collapse" aria-labelledby="flush-heading" data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">{item.brief}
+                                        <div id={`flush-collapse${item.id}`} className="accordion-collapse collapse" aria-labelledby={`flush-heading${item.id}`} data-bs-parent="#accordionFlushExample">
+                                            <div className="accordion-body">{item.brief}
                                             </div>
                                         </div>
                                     </div>
@@ -55,15 +55,6 @@ const Course = (props) => {
 
                 </div>
             </div>
-
-            {/* <div className="container">
-                {
-                    course.outline.map(course => <div>
-                        <li className='fw-bold'>{course.subtitle}</li>
-                        <p>{course.brief}</p>
-                    </div>)
-                }
-            </div> */}
         </div>
     );
 };
