@@ -1,0 +1,60 @@
+.course-title {
+    background-color: #b94a8f;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 46px;
+}
+
+.alt-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.btn-demo {
+    background-color: #b94a8f;
+    color: #f8f9fa;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 1px;
+    border: none;
+    width: 94%;
+}
+
+.btn-demo:hover {
+    background-color: #666699;
+    color: #f8f9fa;
+}
+
+.btn-buy {
+    background-color: #b94a8f;
+    color: #f8f9fa;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 1px;
+    border: none;
+    width: 94%;
+}
+
+.btn-buy:hover {
+    background-color: #666699;
+    color: #f8f9fa;
+}
+
+.feature-list {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 1px;
+    border: none;
+    width: 94%;
+    list-style-type: none;
+}
