@@ -12,20 +12,21 @@
 }
 
 .btn-demo {
-    background-color: #b94a8f;
-    color: #f8f9fa;
+    background-color: transparent;
+    /* background-color: #b94a8f; */
+    color: #b94a8f;
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
     border-radius: 5px;
     padding: 10px;
     margin: 1px;
-    border: none;
+    border: 1px solid #b94a8f;
     width: 94%;
 }
 
 .btn-demo:hover {
-    background-color: #666699;
+    background-color: #b94a8f;
     color: #f8f9fa;
 }
 
@@ -49,7 +50,7 @@
 
 .feature-list {
     font-size: 16px;
-    font-weight: 600;
+    /* font-weight: 600; */
     line-height: 20px;
     border-radius: 5px;
     padding: 10px;
