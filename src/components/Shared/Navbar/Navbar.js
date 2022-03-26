@@ -15,8 +15,8 @@ const Navbar = () => {
                             <span className="navbar-toggler-icon"></span>
                         </button>
 
-                        <Link to='/' className='mx-auto d-block'>
-                            <img src={logo} className='img-fluid' width={100} alt="Skill শিখুন" />
+                        <Link onClick={() => { window.scrollTo(0, 0); }} to='/' className='mx-auto d-block'>
+                            <img src={logo} className='img-fluid' width={100} alt="Skill শিখুন" loading="lazy" />
                         </Link>
 
                         <Link className="text-decoration-none text-warning d-lg-none" to="/login">Login</Link>
@@ -27,7 +27,6 @@ const Navbar = () => {
                                 <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/video-editing">ভিডিও এডিটিং</Link>
                                 <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/web-development">ওয়েব ডেভেলপমেন্ট</Link>
                                 <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/graphics-design">গ্রাফিক্স ডিজাইন</Link>
-                                <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/course-fee">কোর্স ফী</Link>
                                 <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/admission">অ্যাডমিশন</Link>
                                 <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/contact">যোগাযোগ</Link>
                             </div>

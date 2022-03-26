@@ -1,0 +1,21 @@
+.featured-container {
+    background-color: rgb(243, 245, 249);
+}
+
+.see-details {
+    background-color: transparent;
+    color: #343b6d;
+    border-radius: 10px;
+    padding: 6px 10px;
+    font-size: 14px;
+    line-height: 27px;
+    font-weight: 400;
+    outline: none;
+    border: 1px solid #5468ff;
+    text-decoration: none;
+}
+
+.see-details:hover {
+    background-color: #5468ff;
+    color: #f8f9fa;
+}

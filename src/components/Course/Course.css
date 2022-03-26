@@ -9,6 +9,7 @@
     font-size: 20px;
     font-weight: 600;
     line-height: 20px;
+    color: #343b6d;
 }
 
 .btn-demo {
@@ -49,13 +50,14 @@
 }
 
 .feature-list {
-    font-size: 16px;
-    /* font-weight: 600; */
-    line-height: 20px;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 27px;
     border-radius: 5px;
     padding: 10px;
     margin: 1px;
     border: none;
     width: 94%;
     list-style-type: none;
+    color: #54595f;
 }

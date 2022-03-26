@@ -13,8 +13,9 @@
     color: #f8f9fa !important;
 }
 
-.nav-item:nth-last-child(-n+3):hover {
+.nav-item:nth-last-child(-n+2):hover {
     background-color: #212529 !important;
 }
 
-.login-btn-lg {}
+
+/* .login-btn-lg {} */
