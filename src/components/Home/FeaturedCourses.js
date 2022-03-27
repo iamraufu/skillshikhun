@@ -15,9 +15,9 @@ const FeaturedCourses = () => {
                                 <div key={course.id} className='col-xl-3 col-md-6 col-md-3 my-5'>
                                     <div style={{ border: '1px solid #dde7f3',borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
                                         <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
-                                        <div className="bg-white py-4">
+                                        <div style={{height:'200px'}} className="bg-white py-4">
                                             <h3 style={{ fontSize: '20px', lineHeight: '30px', fontWeight: '600', color: '#354895' }} className='px-3'>{course.title}</h3>
-                                            <p className='px-3 text-justify text-black'>{course.short_description}</p>
+                                            <p style={{textAlign:'justify'}} className='px-3 text-black'>{course.short_description}</p>
                                         </div>
 
                                         <div style={{ justifyContent: 'space-between',backgroundColor:'rgb(236,238,255)' }} className="d-flex py-3">
