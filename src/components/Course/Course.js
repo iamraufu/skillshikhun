@@ -73,7 +73,7 @@ const Course = (props) => {
                         <div className="payment-container mt-5">
                             <h2 style={{ fontSize: '36px', fontWeight: '600', lineHeight: '36px', color: '#434257' }} className='my-5 text-center'>পেমেন্ট এর পদ্ধতি</h2>
                             <img className='img-fluid mx-auto d-block mb-5' width={400} src={paymentMethods} alt="payment methods" loading="lazy" />
-                            <h4 style={{ fontSize: '17px', lineHeight: '27px', fontWeight: '700', color: '#54595f' }}>ওয়েবসাইটের মাধ্যমে ভর্তি</h4>
+                            <h3 style={{ fontSize: '17px', lineHeight: '27px', fontWeight: '700', color: '#54595f' }}>ওয়েবসাইটের মাধ্যমে ভর্তি</h3>
                             <ul style={{ fontSize: '17px', lineHeight: '27px', fontWeight: '400', color: '#54595f' }} className='my-4'>
                                 <li>আপনার কাঙ্ক্ষিত কোর্সের নিচে <b>“এখনই ভর্তি হয়ে যান”</b> অপশনে ক্লিক করুন</li>
                                 <li>আপনার স্ক্রীনে দেখানো ফর্মটি প্রয়োজনীয় তথ্য দিয়ে পূরণ করুন</li>
