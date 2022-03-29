@@ -19,7 +19,7 @@ const Navbar = () => {
                             <img src={logo} className='img-fluid' width={100} alt="Skill শিখুন" loading="lazy" />
                         </Link>
 
-                        <Link className="text-decoration-none text-warning d-lg-none" to="/login">Login</Link>
+                        <Link className="text-decoration-none btn btn-outline-success d-lg-none" to="/login">লগ ইন/সাইন আপ</Link>
 
                         <div style={{ width: '10%' }} className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">
@@ -32,7 +32,7 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        <Link className="text-decoration-none text-danger d-none d-lg-block " to="/login"><button className='login-btn-lg'>🚀 Login</button></Link>
+                        <Link className="text-decoration-none text-danger d-none d-lg-block" to="/login"><button className='login-btn-lg btn-dark btn'>লগ ইন/ সাইন আপ</button></Link>
 
                     </div>
                 </nav>

@@ -1,0 +1,40 @@
+.login-container {
+    padding-top: 16rem;
+}
+
+.submit-btn {
+    background-color: rgb(84, 104, 255);
+    border-radius: 15px;
+    color: white;
+    justify-content: center;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+
+/* .logo-container {
+    background-image: url(https://skillshikhun.com/wp-content/uploads/2022/01/cropped-cropped-main-Logo-png-e1643562825750.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+} */
+
+@media screen and (max-width: 1199px) {
+    .login-container {
+        padding-top: 14rem;
+    }
+    .login-container h1 {
+        font-size: 27px !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .login-container {
+        padding-top: 14rem;
+    }
+    .login-container h1 {
+        font-size: 20px !important;
+    }
+}
