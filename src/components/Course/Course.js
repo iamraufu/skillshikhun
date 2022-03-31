@@ -1,10 +1,10 @@
 import React from 'react';
 import './Course.css';
-import Navbar from '../Shared/Navbar/Navbar';
 import courseData from '../../data/course/courseData.js';
 import courseFee from '../../images/course-fee.png'
 import { Link } from 'react-router-dom';
 import paymentMethods from '../../images/payment-methods.png';
+const Navbar = React.lazy(() => import ('../Shared/Navbar/Navbar'));
 
 const Course = (props) => {
 

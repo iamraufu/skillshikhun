@@ -8,7 +8,7 @@ const Hero = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">
-                        <img src={webinar} className='img-fluid hero-image' alt="free webinar" loading="lazy" />
+                        <img src={webinar} width={'100%'} className='img-fluid hero-image' alt="free webinar" loading="lazy" />
                     </div>
                     <div className="col-md-6">
                         <h2 className='text-white hero-text'><span style={{ color: '#b94a8f' }}>স্কিল শিখুন</span> এর সাথে আপনার ক্যারিয়ারের সুযোগগুলি প্রসারিত করুন !</h2>

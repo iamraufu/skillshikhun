@@ -1,6 +1,10 @@
 import React, { lazy, Suspense } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
+import AuthProvider from './context/AuthProvider';
+import Dashboard from './components/Dashboard/Dashboard';
+import NotFound from './components/NotFound/NotFound';
+import PrivateOutlet  from './components/PrivateOutlet/PrivateOutlet';
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -14,7 +18,8 @@ function App() {
     </div>
 
   return (
-    <Suspense fallback={renderLoader()}>
+    <AuthProvider>
+      <Suspense fallback={renderLoader()}>
       <Routes>
         <Route exact path="/" element={<Home />} />
 
@@ -25,11 +30,17 @@ function App() {
 
         <Route path="/admission" element={<Admission />} />
         <Route path="/contact" element={<Contact />} />
-
         <Route path="/login" element={<Login />} />
+
+        <Route path="/" element={<PrivateOutlet />}>
+          <Route path="dashboard" element={<Dashboard />} /> 
+        </Route>
+
+        <Route path="/*" element={<NotFound />} />
 
       </Routes>
     </Suspense>
+    </AuthProvider>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../Shared/Navbar/Navbar';
+const Navbar = React.lazy(() => import ('../Shared/Navbar/Navbar'));
 
 const Contact = () => {
     return (

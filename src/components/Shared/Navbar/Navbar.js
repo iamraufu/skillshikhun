@@ -2,8 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../../images/logo.png';
+import useAuth from '../../../hooks/useAuth';
 
 const Navbar = () => {
+
+    const {user} = useAuth();
+
     return (
         <div style={{ backgroundColor: 'white' }} className="fixed-top">
             <div style={{ height: '80px' }} className="container-xl">
@@ -19,7 +23,7 @@ const Navbar = () => {
                             <img src={logo} className='img-fluid' width={100} alt="Skill শিখুন" loading="lazy" />
                         </Link>
 
-                        <Link className="text-decoration-none btn btn-outline-success d-lg-none" to="/login">লগ ইন/সাইন আপ</Link>
+                        <Link className="text-decoration-none text-black d-lg-none fw-bold" to="/login">লগ-ইন</Link>
 
                         <div style={{ width: '10%' }} className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">
@@ -32,7 +36,9 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        <Link className="text-decoration-none text-danger d-none d-lg-block" to="/login"><button className='login-btn-lg btn-dark btn'>লগ ইন/ সাইন আপ</button></Link>
+                        {
+                            user.email? <Link className="text-decoration-none text-danger d-none d-lg-block" to="/dashboard"><button className='login-btn-lg btn-dark btn'>ড্যাশবোর্ড</button></Link>: <Link className="text-decoration-none text-danger d-none d-lg-block" to="/login"><button className='login-btn-lg btn-dark btn'>লগ ইন/ সাইন আপ</button></Link>
+                        }
 
                     </div>
                 </nav>

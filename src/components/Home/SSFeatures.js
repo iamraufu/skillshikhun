@@ -41,7 +41,7 @@ const SSFeatures = () => {
                                 <div style={{backgroundColor:'rgb(243,245,249)',borderRadius:'20px'}} className='py-3'>
                                     <img style={{borderRadius:"15px"}} src={feature.image} width={120} alt={feature.title} className='img-fluid mx-auto d-block mt-3' loading="lazy" />
                                     <div className="mt-4">
-                                        <h5 style={{fontSize:'20px', lineHeight:'30px', fontWeight:'600', color:'#343b6d'}} className="text-center">{feature.title}</h5>
+                                        <h3 style={{fontSize:'20px', lineHeight:'30px', fontWeight:'600', color:'#343b6d'}} className="text-center">{feature.title}</h3>
                                         <p style={{fontSize:'16px', lineHeight:'24px', fontWeight:'500', color:'#454c7e'}} className="text-center px-4">{feature.description}</p>
                                     </div>
                                 </div>
