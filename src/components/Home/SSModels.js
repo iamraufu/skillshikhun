@@ -33,7 +33,7 @@ const SSModels = () => {
                         <div className="">
                             <h2 style={{ fontSize: '28px', lineHeight: '48px', fontWeight: '600', color: '#343b6d', backgroundColor: 'rgba(208,222,239,0.8)', padding: '16px', borderTopRightRadius: '20px', borderTopLeftRadius: '20px' }} className='text-center'>মডেল - ২</h2>
                             <div style={{ marginTop: '-10px', borderBottomRightRadius: '20px', borderBottomLeftRadius: '20px' }} className="bg-white py-5">
-                                <img style={{ borderRadius: '15px' }} src="https://tmtlandscaping.com/wp-content/uploads/et_temp/Landscape-Placeholder-Image-35759_1080x675.jpg" alt="video-lesson" width={'85%'} loading="lazy" className='img-fluid mx-auto d-block' />
+                                <img style={{ borderRadius: '15px' }} src="https://tmtlandscaping.com/wp-content/uploads/et_temp/Landscape-Placeholder-Image-35759_1080x675.jpg" alt="live-class" width={'85%'} loading="lazy" className='img-fluid mx-auto d-block' />
                                 <div style={{fontSize:'18px',lineHeight:'31px',fontWeight:'500',color:'#454c7e'}} className="row ps-5 pt-5">
                                     <div className="col-md-6">
                                         <p>⚡️ লাইভ ক্লাস</p>

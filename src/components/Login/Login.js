@@ -132,12 +132,23 @@
 import React from 'react';
 import './Login.css';
 import useAuth from '../../hooks/useAuth';
-import flag from '../../images/bdFlag.png';
+import { useLocation, useNavigate } from 'react-router-dom';
+// import flag from '../../images/bdFlag.png';
 const Navbar = React.lazy(() => import ('../Shared/Navbar/Navbar'));
 
 const Login = () => {
 
-    const { signInUsingGoogle } = useAuth();
+    let navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
+
+  
+  const { signInUsingGoogle,user } = useAuth();
+  if(user.email){
+
+      navigate(from,{replace:true})
+  }  
     
     return (
         <div>
@@ -158,6 +169,7 @@ const Login = () => {
                 </div>
             </div> */}
             <button style={{marginTop:'16rem'}} className='btn btn-success mx-auto d-block' onClick={signInUsingGoogle}>Google Sign In</button>
+            
             
         </div>
     );
