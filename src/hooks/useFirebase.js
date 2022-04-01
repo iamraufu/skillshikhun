@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Firebase/firebase.initialize";
-import { getAuth, signInWithPopup, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
-// import Swal from 'sweetalert2';
+import { getAuth, signInWithPopup, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
 
 initializeAuthentication();
 
@@ -16,6 +15,8 @@ const useFirebase = () => {
     const auth = getAuth();
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+    const facebookProvider = new FacebookAuthProvider();
 
     const signInUsingGoogle = () => {
         signInWithPopup(auth, googleProvider)
@@ -26,6 +27,26 @@ const useFirebase = () => {
             setError(error.message);
         })
     }
+
+    const signInUsingGithub = () => {
+        signInWithPopup(auth, githubProvider)
+          .then(result => {
+            setUser(result.user);
+          })
+          .catch(error => {
+            setError(error.message);
+          });
+      }
+    
+      const signInUsingFacebook = () => {
+        signInWithPopup(auth, facebookProvider)
+        .then(result => {
+            setUser(result.user);
+          })
+          .catch(error => {
+            setError(error.message);
+          });
+      }
 
     const handleEmailChange = e => {
         setEmail(e.target.value);
@@ -54,11 +75,6 @@ const useFirebase = () => {
         sendPasswordResetEmail(auth, email)
             .then(result => {
                 console.log(result);
-                // Swal.fire(
-                //     'Check Email!',
-                //     'Password Reset Link Sent!',
-                //     'success'
-                //   )
             })
     }
 
@@ -85,6 +101,8 @@ const useFirebase = () => {
         user,
         error,
         signInUsingGoogle,
+        signInUsingGithub,
+        signInUsingFacebook,
         logOut,
         processLogin, 
         handleEmailChange, 

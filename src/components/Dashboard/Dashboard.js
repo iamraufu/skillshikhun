@@ -11,7 +11,7 @@ const Dashboard = () => {
     return (
         <div>
             <Navbar />
-            <div className="" style={{ backgroundColor: '#f3f5f9' }}>
+            <div className="" style={{ backgroundColor: '#f3f5f9',height:'100vh' }}>
 
                 <h1 style={{ paddingTop: '16rem',fontSize:'32px',lineHeight:'46px',color:'#343b6d',fontWeight:'700' }} className='text-center'>Welcome <span style={{fontSize:'36px',lineHeight:'52px',color:'#b94a8f',fontWeight:'600'}} className=''>{name}</span>! to Dashboard</h1>
                 <h2 className='text-center mt-5'>Your email address is: <span className='text-info'>{email}</span></h2>

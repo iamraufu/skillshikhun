@@ -134,22 +134,26 @@ import './Login.css';
 import useAuth from '../../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
 // import flag from '../../images/bdFlag.png';
-const Navbar = React.lazy(() => import ('../Shared/Navbar/Navbar'));
+import google from '../../images/google.png';
+import github from '../../images/github.png';
+import facebook from '../../images/facebook.png';
+const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
 const Login = () => {
 
     let navigate = useNavigate();
-  let location = useLocation();
+    let location = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
+    let from = location.state?.from?.pathname || "/";
 
-  
-  const { signInUsingGoogle,user } = useAuth();
-  if(user.email){
 
-      navigate(from,{replace:true})
-  }  
-    
+    const { signInUsingGoogle, signInUsingGithub, signInUsingFacebook, user } = useAuth();
+
+    if (user.email) {
+
+        navigate(from, { replace: true })
+    }
+
     return (
         <div>
             <Navbar />
@@ -168,9 +172,22 @@ const Login = () => {
 
                 </div>
             </div> */}
-            <button style={{marginTop:'16rem'}} className='btn btn-success mx-auto d-block' onClick={signInUsingGoogle}>Google Sign In</button>
-            
-            
+            <div className="d-flex">
+                <div className="mx-auto d-block">
+                <button style={{ marginTop: '16rem' }} className='btn' onClick={signInUsingGoogle}>
+                    <img width={60} src={google} alt="login with google" />
+                </button>
+                {/* <button style={{ marginTop: '16rem' }} className='btn' onClick={signInUsingGithub}>
+                    <img width={50} src={github} alt="login with google" />
+                </button>
+                <button style={{ marginTop: '16rem' }} className='btn' onClick={signInUsingFacebook}>
+                    <img width={50} src={facebook} alt="login with google" />
+                </button> */}
+                </div>
+            </div>
+
+
+
         </div>
     );
 };

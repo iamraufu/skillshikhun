@@ -23,10 +23,22 @@ const Navbar = () => {
                             <img src={logo} className='img-fluid' width={100} alt="Skill শিখুন" loading="lazy" />
                         </Link>
 
-                        <Link className="text-decoration-none text-black d-lg-none fw-bold" to="/login">লগ-ইন</Link>
+                        {
+                            user.email? 
+                            <Link className="text-decoration-none text-danger d-lg-none" to="/dashboard"><button className='login-btn-lg btn-dark btn'>ড্যাশবোর্ড</button></Link> :
+                            <Link className="text-decoration-none text-black d-lg-none fw-bold" to="/login">লগ-ইন</Link>
+                        }
 
                         <div style={{ width: '10%' }} className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">
+                            {
+                                user.email ?
+                                <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">
+                            <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/courses">কোর্স সমূহ</Link>
+                                <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/admission">অ্যাডমিশন</Link>
+                                <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/contact">যোগাযোগ</Link>
+                            </div>
+                                 : 
+                                 <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">
                                 <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/digital-marketing">ডিজিটাল মার্কেটিং</Link>
                                 <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/video-editing">ভিডিও এডিটিং</Link>
                                 <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/web-development">ওয়েব ডেভেলপমেন্ট</Link>
@@ -34,6 +46,7 @@ const Navbar = () => {
                                 <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/admission">অ্যাডমিশন</Link>
                                 <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/contact">যোগাযোগ</Link>
                             </div>
+                            }
                         </div>
 
                         {
