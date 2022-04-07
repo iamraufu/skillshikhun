@@ -9,7 +9,7 @@ const AllCourses = () => {
         <div className="courses-container py-5">
             <Navbar />
             <div className='container'>
-                <h2 style={{ fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '600' }} className='pt-5 mt-5'>আমাদের লাইভ কোর্সসমূহ</h2>
+                <h2 style={{ fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '600' }} className='pt-5 mt-5 ps-2'>আমাদের লাইভ কোর্সসমূহ</h2>
                 <div className="row">
                     {
                         courseData.map(course => {

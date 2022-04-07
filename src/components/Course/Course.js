@@ -29,7 +29,7 @@ const Course = (props) => {
                             <p style={{ fontSize: '20px', lineHeight: '20px', fontWeight: '600' }} className='pt-3 text-center text-black'>{course.duration}</p>
                             <img src={courseFee} className='img-fluid mx-auto d-block pb-3' width={330} alt="Course Fee" loading="lazy" />
                             <div className="row pb-4">
-                                <button className='btn-demo mx-auto d-block'>একটি ফ্রি ক্লাস করে দেখুন &#8594;</button>
+                                <Link to='/demo-class' className='text-decoration-none'><button className='btn-demo mx-auto d-block'>একটি ফ্রি ক্লাস করে দেখুন &#8594;</button></Link>
                                 <button className='btn-buy mx-auto d-block mt-2'>এখনই ভর্তি হয়ে যান &#8594;</button>
                                 <ul className='pt-3'>
                                     {course.feature_alt.map(item => <li style={{ textAlign: 'justify' }} className='feature-list' key={item.key}>✔️ {item.item}</li>)}

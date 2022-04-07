@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import NotFound from './components/NotFound/NotFound';
 import PrivateOutlet  from './components/PrivateOutlet/PrivateOutlet';
 import AllCourses from './components/AllCourses/AllCourses';
+import DemoClass from './components/DemoClass/DemoClass';
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -33,6 +34,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/courses" element={<AllCourses />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/demo-class" element={<DemoClass />} />
 
         <Route path="/" element={<PrivateOutlet />}>
           <Route path="dashboard" element={<Dashboard />} /> 

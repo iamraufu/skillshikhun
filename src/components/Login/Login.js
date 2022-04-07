@@ -135,8 +135,8 @@ import useAuth from '../../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
 // import flag from '../../images/bdFlag.png';
 import google from '../../images/google.png';
-import github from '../../images/github.png';
-import facebook from '../../images/facebook.png';
+// import github from '../../images/github.png';
+// import facebook from '../../images/facebook.png';
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
 const Login = () => {
@@ -147,7 +147,10 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
 
 
-    const { signInUsingGoogle, signInUsingGithub, signInUsingFacebook, user } = useAuth();
+    const { signInUsingGoogle, 
+        // signInUsingGithub, 
+        // signInUsingFacebook, 
+        user } = useAuth();
 
     if (user.email) {
 
@@ -157,34 +160,34 @@ const Login = () => {
     return (
         <div>
             <Navbar />
-            {/* <div style={{ height: '100vh', backgroundColor: 'rgb(243, 245, 249)' }} className="">
+            <div style={{ height: '100vh', backgroundColor: 'rgb(243, 245, 249)' }} className="">
                 <div className="container login-container">
-               
-                        <div className=" mx-auto d-block">
-                            <h1 style={{ fontSize: '32px', lineHeight: '48px', color: '#323862', fontWeight: '700' }} className='pt-5 text-center'>ফ্রি রেজিস্ট্রেশন অথবা সাইন ইন করতে <br /> আপনার ব্যবহৃত মোবাইল নম্বরটি দেন</h1>
-                            <div className="d-flex mt-5 mx-auto d-block justify-content-center">
-                                <img src={flag} width={50} className='img-fluid' alt="flag" loading="lazy" />
-                                <span style={{ fontSize: '20px', lineHeight: '30px', color: '#4b5563', fontWeight: '400', backgroundColor: 'white' }} className='pt-1 px-2'>+88</span>
-                                <input className='form w-50' type="tel" name='phone' id='phone' aria-describedby='phone' autoComplete='off' maxLength='11' style={{ fontSize: '18px', lineHeight: '27px', color: '#8288b2', fontWeight: '400', backgroundColor: 'white', border: 'none', focus: 'red' }} placeholder='আপনার মােবাইল নম্বর দেন' />
-                            </div>
-                            <button className='submit-btn mt-5'>এগিয়ে যান</button>
+                    {/* <div className=" mx-auto d-block">
+                        <h1 style={{ fontSize: '32px', lineHeight: '48px', color: '#323862', fontWeight: '700' }} className='pt-5 text-center'>ফ্রি রেজিস্ট্রেশন অথবা সাইন ইন করতে <br /> আপনার ব্যবহৃত মোবাইল নম্বরটি দেন</h1>
+                        <div className="d-flex mt-5 mx-auto d-block justify-content-center">
+                            <img src={flag} width={50} className='img-fluid' alt="flag" loading="lazy" />
+                            <span style={{ fontSize: '20px', lineHeight: '30px', color: '#4b5563', fontWeight: '400', backgroundColor: 'white' }} className='pt-1 px-2'>+88</span>
+                            <input className='form w-50' type="tel" name='phone' id='phone' aria-describedby='phone' autoComplete='off' maxLength='11' style={{ fontSize: '18px', lineHeight: '27px', color: '#8288b2', fontWeight: '400', backgroundColor: 'white', border: 'none', focus: 'red' }} placeholder='আপনার মােবাইল নম্বর দেন' />
                         </div>
+                        <button className='submit-btn mt-5'>এগিয়ে যান</button>
+                    </div> */}
 
                 </div>
-            </div> */}
-            <div className="d-flex">
-                <div className="mx-auto d-block">
-                <button style={{ marginTop: '16rem' }} className='btn' onClick={signInUsingGoogle}>
-                    <img width={60} src={google} alt="login with google" />
-                </button>
-                {/* <button style={{ marginTop: '16rem' }} className='btn' onClick={signInUsingGithub}>
-                    <img width={50} src={github} alt="login with google" />
+                <div className="d-flex">
+                    <div className="mx-auto d-block">
+                        <button style={{ marginTop: '16rem',backgroundColor:'rgb(243, 245, 249)' }} className='btn' onClick={signInUsingGoogle}>
+                            <img width={60} src={google} alt="login with google" loading="lazy" />
+                        </button>
+                        {/* <button style={{ marginTop: '16rem' }} className='btn' onClick={signInUsingGithub}>
+                    <img width={50} src={github} alt="login with google" loading="lazy" />
                 </button>
                 <button style={{ marginTop: '16rem' }} className='btn' onClick={signInUsingFacebook}>
-                    <img width={50} src={facebook} alt="login with google" />
+                    <img width={50} src={facebook} alt="login with google" loading="lazy" />
                 </button> */}
+                    </div>
                 </div>
             </div>
+
 
 
 

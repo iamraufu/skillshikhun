@@ -50,7 +50,7 @@ const Navbar = () => {
                         </div>
 
                         {
-                            user.email? <Link className="text-decoration-none text-danger d-none d-lg-block" to="/dashboard"><button className='login-btn-lg btn-dark btn'>ড্যাশবোর্ড</button></Link>: <Link className="text-decoration-none text-danger d-none d-lg-block" to="/login"><button className='login-btn-lg btn-dark btn'>লগ ইন/ সাইন আপ</button></Link>
+                            user.email? <Link onClick={()=>{window.scrollTo(0, 0);}} className="text-decoration-none text-danger d-none d-lg-block" to="/dashboard"><button className='login-btn-lg btn-dark btn'>ড্যাশবোর্ড</button></Link>: <Link className="text-decoration-none text-danger d-none d-lg-block" to="/login"><button className='login-btn-lg btn-dark btn'>লগ ইন/ সাইন আপ</button></Link>
                         }
 
                     </div>

@@ -22,6 +22,7 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
         .then(result => {
             setUser(result.user);
+            registerUser(result.user);
         })
         .catch(error => {
             setError(error.message);
@@ -95,7 +96,23 @@ const useFirebase = () => {
         //eslint-disable-next-line
     }, [])
 
+    const registerUser = (user)=>{
+        const name = user.displayName;
+        const email = user.email;
+        const phone = user.phoneNumber;
+        const photo = user.photoURL;
 
+        const newUser = {name,email,phone,photo};
+
+        fetch('http://localhost:5000/addUser',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newUser)
+        })
+        .then(res => res.json())
+    }
 
     return {
         user,

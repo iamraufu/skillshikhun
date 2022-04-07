@@ -1,3 +1,16 @@
+.hero-container {
+    background-image: url('../../images/waves.svg');
+    background-position: center;
+    /* background-size: auto; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90vh
+}
+
+.underline {
+    width: 160px;
+}
+
 .hero-text {
     font-size: 36px;
     line-height: 52px;
@@ -23,6 +36,7 @@
     padding: 10px;
     width: 30%;
     margin: 0 0 2rem 5rem;
+    text-decoration: none;
 }
 
 .hero-demo-btn:hover {
@@ -45,6 +59,9 @@
         line-height: 30px;
         margin: 0 0 2rem 5rem;
     }
+    .underline {
+        width: 140px;
+    }
 }
 
 @media (max-width: 1199px) {
@@ -57,6 +74,9 @@
         font-size: 20px;
         line-height: 30px;
         margin: 0 0 2rem 5rem;
+    }
+    .underline {
+        width: 115px;
     }
 }
 
@@ -73,6 +93,10 @@
     }
     .hero-demo-btn {
         width: 40%;
+    }
+    .underline {
+        width: 160px;
+        margin-top: -10rem;
     }
 }
 
