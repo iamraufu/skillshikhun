@@ -1,15 +1,15 @@
 import React from 'react';
 import './Course.css';
 import courseData from '../../data/course/courseData.js';
-import courseFee from '../../images/course-fee.png'
+// import courseFee from '../../images/course-fee.png';
 import { Link } from 'react-router-dom';
 import paymentMethods from '../../images/payment-methods.png';
-const Navbar = React.lazy(() => import ('../Shared/Navbar/Navbar'));
+const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
 const Course = (props) => {
 
     const name = props.name;
-    const color = props.color;
+    // const color = props.color;
 
     const course = courseData.find(course => course.name === name);
     const otherCourses = [courseData.filter(otherCourses => otherCourses.name !== name)];
@@ -18,27 +18,60 @@ const Course = (props) => {
         <div style={{ backgroundColor: '#f8f9fa' }}>
             <Navbar />
 
-            <h1 style={{ marginTop: '5rem', backgroundColor: color }} className="text-center py-3 course-title text-white">{course.title}</h1>
-
+            {/* <h1 style={{ marginTop: '5rem', backgroundColor: color }} className="text-center py-3 course-title text-white">{course.title}</h1> */}
+            {/* <h1 style={{marginTop:'5rem'}} className="text-center py-3 text-white">কোর্স মডিউল</h1> */}
             <div className="container py-5">
                 <div className="row">
                     <div className="col-lg-6">
-                        <div style={{ backgroundColor: 'white', top: '120px', borderRadius: '25px' }} className="position-sticky">
-                            <h2 className='alt-title text-center py-4'>{course.alt_title}</h2>
-                            <iframe className='p-2' width="100%" height="355" src={`${course.source}?controls=0`} title={course.slug} style={{ borderRadius: '20px' }} allowFullScreen srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${course.source}?controls=0><img src=${course.image} alt=${course.alt_title}><span>▶</span></a>`}></iframe>
-                            <p style={{ fontSize: '20px', lineHeight: '20px', fontWeight: '600' }} className='pt-3 text-center text-black'>{course.duration}</p>
-                            <img src={courseFee} className='img-fluid mx-auto d-block pb-3' width={330} alt="Course Fee" loading="lazy" />
-                            <div className="row pb-4">
-                                <Link to='/demo-class' className='text-decoration-none'><button className='btn-demo mx-auto d-block'>একটি ফ্রি ক্লাস করে দেখুন &#8594;</button></Link>
-                                <button className='btn-buy mx-auto d-block mt-2'>এখনই ভর্তি হয়ে যান &#8594;</button>
-                                <ul className='pt-3'>
+                        {/* <h2 style={{marginTop:'5rem'}} className='text-center pt-3'>{course.alt_title}</h2> */}
+                        <div style={{
+                            // backgroundColor: 'white', 
+                            top: '120px', borderRadius: '25px'
+                        }} className="position-sticky">
+                            <h2 className='text-center course-alt-title'>{course.alt_title}</h2>
+                            <div className="responsive-embed-youtube">
+                                <iframe className='' width="100%"
+                                    // height="355" 
+                                    height='auto'
+                                    src={`${course.source}?controls=0`} title={course.slug} style={{ borderRadius: '22px' }} allowFullScreen
+
+                                    srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${course.source}?controls=0><img src=${course.image} alt=${course.alt_title} loading="lazy"><span>▶</span></a>`}
+
+                                ></iframe>
+                            </div>
+                            {/* <p style={{ fontSize: '20px', lineHeight: '20px', fontWeight: '600' }} className='pt-5 text-center text-black'>{course.course_duration} মাস এর কোর্স - {course.total_classes} টি লাইভ ক্লাস</p> */}
+                            {/* <img src={courseFee} className='img-fluid mx-auto d-block pb-3' width={330} alt="Course Fee" loading="lazy" /> */}
+                            {/* <h3 className='text-center text-danger fs-4'><span className='text-black'>কোর্স ফি &#2547;</span><strike style={{ color: 'red', textDecoration: 'lineThrough' }}><span className='text-black'>{course.regular_price}</span></strike> <span className='text-success fw-bold'><span className='text-black'>&#2547;</span>{course.offer_price}</span></h3> */}
+                            <div className="row mt-4">
+                                <div className="d-flex">
+                                    <div className="col-md-6">
+                                        <p className='text-center'>কোর্সটি করেছেন <br /><span className='fw-bold'>{course.course_done}</span></p>
+                                        <p className='text-center'>নেক্সট ব্যাচ <br />
+                                        <span className='fw-bold'>TIMER WILL GO HERE</span>
+                                        </p>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <p className='text-center'>সময় লাগবে <br /> <span className='fw-bold'>{course.course_duration} মাস</span> </p>
+                                        <p className='text-center'>লাইভ ক্লাস সংখ্যা <br />
+                                        <span className='fw-bold'>{course.total_classes} টি</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-md-6 mt-1">
+                                    <Link to='/demo-class' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3'>একটি ফ্রি ক্লাস করে দেখুন &#8594;</button></Link>
+                                </div>
+                                <div className="col-md-6 mt-1">
+                                    <button className='btn-buy mx-auto d-block p-3'>এখনই ভর্তি হয়ে যান &#8594;</button>
+                                </div>
+                                {/* <ul className='pt-3'>
                                     {course.feature_alt.map(item => <li style={{ textAlign: 'justify' }} className='feature-list' key={item.key}>✔️ {item.item}</li>)}
-                                </ul>
+                                </ul> */}
+
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-6">
-                        <h2 style={{ color: '#343b6d' }} className='fw-bold'>এই কোর্সটি কাদের জন্য?</h2>
+                        {/* <h2 style={{ color: '#343b6d' }} className='fw-bold'>এই কোর্সটি কাদের জন্য?</h2>
                         <p style={{ color: '#454c7e', textAlign: 'justify' }}>{course.description}</p>
                         <h2 style={{ color: '#343b6d' }} className='fw-bold'>এই কোর্সে আপনি কি শিখবেন?</h2>
                         <ul>
@@ -52,11 +85,12 @@ const Course = (props) => {
                             {
                                 course.featureBonus.map(item => <li key={item.id} style={{ color: '#454c7e' }}>{item.item}</li>)
                             }
-                        </ul>
-                        <div className="accordion accordion-flush" id="accordionFlushExample">
+                        </ul> */}
+                        <h2 style={{ marginTop: '3.5rem' }} className="text-center py-3">কোর্স মডিউল</h2>
+                        <div style={{ height: '56vh', overflow: 'auto' }} className="accordion accordion-flush" id="accordionFlushExample">
                             {
                                 course.outline.map(item =>
-                                    <div style={{ border: 'none' }} className="accordion-item mt-2" key={item.id}>
+                                    <div style={{ border: 'none' }} className="accordion-item m-2" key={item.id}>
                                         <h2 className="accordion-header" id={`flush-heading${item.id}`}>
                                             <button style={{ backgroundColor: '#f1f1f1', borderRadius: '10px' }} className="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
                                                 <span className='pe-2'>&#43;</span>{item.subtitle}
@@ -69,6 +103,22 @@ const Course = (props) => {
                                     </div>
                                 )}
                         </div>
+
+                        <h2 style={{ color: '#343b6d' }} className='fw-bold mt-5'>এই কোর্সটি কাদের জন্য ?</h2>
+                        <p style={{ color: '#454c7e', textAlign: 'justify' }}>{course.description}</p>
+                        {/* <h2 style={{ color: '#343b6d' }} className='fw-bold'>এই কোর্সে আপনি কি শিখবেন?</h2>
+                        <ul>
+                            {
+                                course.features.map(item => <li key={item.id} style={{ color: '#454c7e', textAlign: 'justify' }}>{item.item}</li>)
+                            }
+                        </ul>
+                        <p className='fw-bold' style={{ color: '#454c7e', textAlign: 'justify' }}>{course.featuresDescription}</p>
+                        <p style={{ color: '#343b6d' }} className='fw-bold'>এছাড়াও থাকছে</p>
+                        <ul>
+                            {
+                                course.featureBonus.map(item => <li key={item.id} style={{ color: '#454c7e' }}>{item.item}</li>)
+                            }
+                        </ul> */}
 
                         <div className="payment-container mt-5">
                             <h2 style={{ fontSize: '36px', fontWeight: '600', lineHeight: '36px', color: '#434257' }} className='my-5 text-center'>পেমেন্ট এর পদ্ধতি</h2>

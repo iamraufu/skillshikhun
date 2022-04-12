@@ -20,6 +20,6 @@
     color: #f8f9fa;
 }
 
-.price {
-    font-family: 'Baloo Da 2', cursive;
+.featured-courses:hover {
+    transform: translateY(-15px);
 }

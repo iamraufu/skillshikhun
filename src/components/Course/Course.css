@@ -5,6 +5,10 @@
     line-height: 46px;
 }
 
+.course-alt-title {
+    margin-top: 3rem;
+}
+
 .alt-title {
     font-size: 20px;
     font-weight: 600;
@@ -12,27 +16,42 @@
     color: #343b6d;
 }
 
+.responsive-embed-youtube {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    padding-top: 25px;
+}
+
+.responsive-embed-youtube iframe {
+    position: absolute;
+    width: 100%!important;
+    height: 100%!important;
+}
+
 .btn-demo {
     background-color: transparent;
     /* background-color: #b94a8f; */
-    color: #b94a8f;
+    /* color: #b94a8f; */
+    color: #f8f9fa;
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
     border-radius: 5px;
     padding: 10px;
     margin: 1px;
-    border: 1px solid #b94a8f;
+    border: 1px solid #12348d;
+    background-color: #12348d;
     width: 97%;
 }
 
 .btn-demo:hover {
-    background-color: #b94a8f;
+    background-color: #081c4f;
     color: #f8f9fa;
 }
 
 .btn-buy {
-    background-color: #b94a8f;
+    background-color: rgb(72, 199, 116);
     color: #f8f9fa;
     font-size: 16px;
     font-weight: 600;
@@ -45,7 +64,7 @@
 }
 
 .btn-buy:hover {
-    background-color: #666699;
+    background-color: rgb(58, 166, 96);
     color: #f8f9fa;
 }
 
@@ -61,3 +80,33 @@
     list-style-type: none;
     color: #54595f;
 }
+
+
+/* 
+@media (max-width: 1399px) {
+    .embedded-video {
+        width: 100%;
+        height: 36.2vh;
+    }
+}
+
+@media (max-width: 1199px) {
+    .embedded-video {
+        width: 100%;
+        height: 36.2vh;
+    }
+}
+
+@media (max-width: 991px) {
+    .embedded-video {
+        width: 100%;
+        height: 36.2vh;
+    }
+}
+
+@media (max-width: 767px) {
+    .embedded-video {
+        width: 100%;
+        height: 36.2vh;
+    }
+} */

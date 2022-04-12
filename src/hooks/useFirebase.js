@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Firebase/firebase.initialize";
-import { getAuth, signInWithPopup, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, FacebookAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
 
 initializeAuthentication();
 
@@ -15,12 +15,12 @@ const useFirebase = () => {
     const auth = getAuth();
 
     const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
 
     const signInUsingGoogle = () => {
         signInWithPopup(auth, googleProvider)
         .then(result => {
+            console.log(result);
             setUser(result.user);
             registerUser(result.user);
         })
@@ -28,23 +28,15 @@ const useFirebase = () => {
             setError(error.message);
         })
     }
-
-    const signInUsingGithub = () => {
-        signInWithPopup(auth, githubProvider)
-          .then(result => {
-            setUser(result.user);
-          })
-          .catch(error => {
-            setError(error.message);
-          });
-      }
     
       const signInUsingFacebook = () => {
         signInWithPopup(auth, facebookProvider)
         .then(result => {
             setUser(result.user);
+            // registerUser(result.user);
           })
           .catch(error => {
+              console.log(error);
             setError(error.message);
           });
       }
@@ -118,8 +110,8 @@ const useFirebase = () => {
         user,
         error,
         signInUsingGoogle,
-        signInUsingGithub,
         signInUsingFacebook,
+        registerUser,
         logOut,
         processLogin, 
         handleEmailChange, 

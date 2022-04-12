@@ -4,7 +4,7 @@
     /* background-size: auto; */
     background-size: cover;
     background-repeat: no-repeat;
-    height: 90vh
+    height: 100vh;
 }
 
 .underline {
@@ -114,5 +114,10 @@
     .hero-demo-btn {
         width: 50%;
         margin: 0 0 2rem 0;
+    }
+    .hero-image {
+        width: 70%;
+        margin: 0 auto;
+        display: block;
     }
 }

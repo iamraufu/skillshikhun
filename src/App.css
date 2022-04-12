@@ -1,5 +1,6 @@
 * {
-    font-family: 'Hind Siliguri', sans-serif !important;
+    /* font-family: 'Hind Siliguri', sans-serif !important; */
+    font-family: 'Baloo Da 2', cursive;
     transition: all .3s ease;
 }
 
@@ -8,9 +9,27 @@
     background-color: #13338b;
 }
 
-.price {
-    font-family: 'Baloo Da 2', cursive;
+::-webkit-scrollbar {
+    width: 10px;
 }
+
+ ::-webkit-scrollbar-track {
+    background: #605478;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #b94a8f;
+    border-radius: 20px;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #653dae;
+}
+
+
+/* .price {
+    font-family: 'Baloo Da 2', cursive;
+} */
 
 
 /* 

@@ -4,16 +4,21 @@ import logoText from '../../images/logoText.png';
 // import underline from '../../images/underline.png';
 import heroFront from '../../images/hero-front.png';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 const Hero = () => {
+
+    AOS.init({duration : 1000})
+
     return (
         <div style={{ marginTop: '8vh' }} className='hero-container'>
             <div className="container">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div data-aos='zoom-in' className="col-sm-4 col-md-6">
                         <img src={heroFront} style={{width:'700'}} className='img-fluid hero-image' alt="free webinar" loading="lazy" />
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-sm-8 col-md-6">
                         <h2 className='text-white hero-text'>
                             {/* <span style={{ color: '#b94a8f' }}>স্কিল শিখুন</span>  */}
                             <img src={logoText} width={200} className='img-fluid pe-2' alt="logo text" loading="lazy" />
