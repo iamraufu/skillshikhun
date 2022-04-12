@@ -19,6 +19,7 @@ const courseData = [
         regular_price:'৯,৯৯৯',
         offer_price:'৬০০০',
         course_done:'১৮৬,১১৮',
+        next_batch:'জুন',
         image: videoImage,
         feature_alt:[
             {
@@ -205,6 +206,7 @@ const courseData = [
         regular_price:'৯,৯৯৯',
         offer_price:'৬০০০',
         course_done:'১৮১,২১৬',
+        next_batch:'জুন',
         image: digitalImage,
         feature_alt:[
             {
@@ -361,6 +363,7 @@ const courseData = [
         regular_price:'৯,৯৯৯',
         offer_price:'৬০০০',
         course_done:'১১১,৬১৬',
+        next_batch:'মে',
         image:graphicsImage,
         feature_alt:[
             {
@@ -552,6 +555,7 @@ const courseData = [
         regular_price:'৯,৯৯৯',
         offer_price:'৬০০০',
         course_done:'১১৮,২১৬',
+        next_batch:'মে',
         image: webImage,
         feature_alt:[
             {

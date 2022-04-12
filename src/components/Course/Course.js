@@ -1,7 +1,10 @@
 import React from 'react';
 import './Course.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers, faClock, faCalendarDays, faPhone, faCheck } from '@fortawesome/free-solid-svg-icons';
 import courseData from '../../data/course/courseData.js';
 // import courseFee from '../../images/course-fee.png';
+import live from '../../images/liveClass.svg';
 import { Link } from 'react-router-dom';
 import paymentMethods from '../../images/payment-methods.png';
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
@@ -28,7 +31,7 @@ const Course = (props) => {
                             // backgroundColor: 'white', 
                             top: '120px', borderRadius: '25px'
                         }} className="position-sticky">
-                            <h2 className='text-center course-alt-title'>{course.alt_title}</h2>
+                            <h2 className='text-center course-alt-title fw-bold'>{course.alt_title}</h2>
                             <div className="responsive-embed-youtube">
                                 <iframe className='' width="100%"
                                     // height="355" 
@@ -42,31 +45,96 @@ const Course = (props) => {
                             {/* <p style={{ fontSize: '20px', lineHeight: '20px', fontWeight: '600' }} className='pt-5 text-center text-black'>{course.course_duration} মাস এর কোর্স - {course.total_classes} টি লাইভ ক্লাস</p> */}
                             {/* <img src={courseFee} className='img-fluid mx-auto d-block pb-3' width={330} alt="Course Fee" loading="lazy" /> */}
                             {/* <h3 className='text-center text-danger fs-4'><span className='text-black'>কোর্স ফি &#2547;</span><strike style={{ color: 'red', textDecoration: 'lineThrough' }}><span className='text-black'>{course.regular_price}</span></strike> <span className='text-success fw-bold'><span className='text-black'>&#2547;</span>{course.offer_price}</span></h3> */}
-                            <div className="row mt-4">
-                                <div className="d-flex">
-                                    <div className="col-md-6">
-                                        <p className='text-center'>কোর্সটি করেছেন <br /><span className='fw-bold'>{course.course_done}</span></p>
-                                        <p className='text-center'>নেক্সট ব্যাচ <br />
-                                        <span className='fw-bold'>TIMER WILL GO HERE</span>
-                                        </p>
+                            <div style={{
+                                marginTop: '-1rem', backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec'
+                                // , boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19)' 
+                            }} className="">
+                                <div className="row mt-4 p-3 pb-5">
+                                    <div className="d-flex py-3">
+                                        <div className="col-md-6">
+                                        <p style={{marginLeft:'-2rem'}} className='fs-4 text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</p>
+                                            {/* <h2 style={{ textDecoration: 'underline', cursor: 'pointer' }} className='fs-4 ms-2'>প্রোমো কোড</h2> */}
+                                        </div>
+                                        <div className="col-md-6">
+                                            <h2 style={{ textAlign: 'right' }} className='fs-3 me-2 fw-bold'>&#2547; ৩,০০০/মাস</h2>
+                                        </div>
                                     </div>
-                                    <div className="col-md-6">
-                                        <p className='text-center'>সময় লাগবে <br /> <span className='fw-bold'>{course.course_duration} মাস</span> </p>
-                                        <p className='text-center'>লাইভ ক্লাস সংখ্যা <br />
-                                        <span className='fw-bold'>{course.total_classes} টি</span>
-                                        </p>
+                                    <div className="d-flex py-2">
+                                        <div className="col-md-6">
+                                            <div className="d-flex justify-content-center">
+                                                <div className="mt-2 me-2 fs-4">
+                                                    <FontAwesomeIcon icon={faUsers} />
+                                                </div>
+                                                <div className="">
+                                                    <p className='text-center'> কোর্সটি করেছেন<br /><span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-warning'>{course.course_done}</span></p>
+                                                </div>
+                                            </div>
+
+                                            <div className="d-flex justify-content-center">
+                                                <div className="mt-3 me-2 fs-4">
+                                                    <FontAwesomeIcon icon={faCalendarDays} />
+                                                </div>
+                                                <div className="">
+                                                    <p className='text-center mt-2'> নেক্সট ব্যাচ<br /><span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-danger'>TIMER WILL GO HERE</span></p>
+                                                </div>
+                                            </div>
+
+
+                                            {/* <div className="d-flex justify-content-center">
+                                                <div className="mt-2 me-2 fs-4">
+                                                    <FontAwesomeIcon icon={faCalendarDays} />
+                                                </div>
+                                                <div className="">
+                                                    <p className='text-center mt-3'><FontAwesomeIcon className='fs-2 me-2' icon={faCalendarDays} /> জুন ২০২২ ব্যাচ এ ভর্তি চলছে<br />
+                                                        <span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-danger text-white'>TIMER WILL GO HERE</span>
+                                                    </p>
+                                                </div>
+                                            </div> */}
+
+                                            {/* <p className='text-center'><FontAwesomeIcon icon={faCalendarDays} /> নেক্সট ব্যাচ <br />
+                                            <span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-danger text-white'>TIMER WILL GO HERE</span>
+                                        </p> */}
+                                        </div>
+                                        <div className="col-md-6">
+                                            <div className="d-flex justify-content-center">
+                                                <div className="mt-2 me-2 fs-4">
+                                                    <FontAwesomeIcon icon={faClock} />
+                                                </div>
+                                                <div className="">
+                                                    <p className='text-center'> সময় লাগবে<br /><span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-warning'>{course.course_duration} মাস</span></p>
+                                                </div>
+                                            </div>
+
+                                            <div className="d-flex justify-content-center">
+                                                <div className="mt-2 me-2 fs-4">
+                                                    {/* <FontAwesomeIcon icon={faUsers} /> */}
+                                                </div>
+                                                <div className="">
+                                                    <p className='text-center'><img src={live} className='img-fluid pe-1' width={40} alt="live class" /> লাইভ ক্লাস সংখ্যা<br /><span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-warning ms-4'>{course.total_classes} টি</span></p>
+                                                </div>
+                                            </div>
+
+                                            {/* <p className='text-center'><FontAwesomeIcon icon={faClock} /> সময় লাগবে<br /> <span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-warning'>{course.course_duration} মাস</span> </p> */}
+
+                                            {/* <p className='text-center'><img src={live} className='img-fluid pe-1' width={35} alt="live class" />
+                                            লাইভ ক্লাস সংখ্যা<br />
+                                            <span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-warning'>{course.total_classes} টি</span>
+                                        </p> */}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col-md-6 mt-1">
-                                    <Link to='/demo-class' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3'>একটি ফ্রি ক্লাস করে দেখুন &#8594;</button></Link>
-                                </div>
-                                <div className="col-md-6 mt-1">
-                                    <button className='btn-buy mx-auto d-block p-3'>এখনই ভর্তি হয়ে যান &#8594;</button>
-                                </div>
-                                {/* <ul className='pt-3'>
+                                    <h2 style={{ textDecoration: 'underline', cursor: 'pointer' }} className='fs-4 ms-2 text-center my-3'>প্রোমো কোড</h2>
+                                    {/* <p className='fs-4 ms-2 fw-bold text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</p> */}
+                                    <div className="col-md-6 mt-1">
+                                        <Link to='/demo-class' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3'>একটি ফ্রি ক্লাস করে দেখুন &#8594;</button></Link>
+                                    </div>
+                                    <div className="col-md-6 mt-1">
+                                        <button className='btn-buy mx-auto d-block p-3'>এখনই ভর্তি হয়ে যান &#8594;</button>
+                                    </div>
+                                    {/* <ul className='pt-3'>
                                     {course.feature_alt.map(item => <li style={{ textAlign: 'justify' }} className='feature-list' key={item.key}>✔️ {item.item}</li>)}
                                 </ul> */}
-
+                                    <p className='text-center mt-3'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -86,13 +154,13 @@ const Course = (props) => {
                                 course.featureBonus.map(item => <li key={item.id} style={{ color: '#454c7e' }}>{item.item}</li>)
                             }
                         </ul> */}
-                        <h2 style={{ marginTop: '3.5rem' }} className="text-center py-3">কোর্স মডিউল</h2>
+                        <h2 style={{ marginTop: '3.5rem' }} className="text-center py-3 fw-bold">কোর্স মডিউল</h2>
                         <div style={{ height: '56vh', overflow: 'auto' }} className="accordion accordion-flush" id="accordionFlushExample">
                             {
                                 course.outline.map(item =>
                                     <div style={{ border: 'none' }} className="accordion-item m-2" key={item.id}>
                                         <h2 className="accordion-header" id={`flush-heading${item.id}`}>
-                                            <button style={{ backgroundColor: '#f1f1f1', borderRadius: '10px' }} className="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
+                                            <button style={{ backgroundColor: '#f1f1f1', borderRadius: '10px' }} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
                                                 <span className='pe-2'>&#43;</span>{item.subtitle}
                                             </button>
                                         </h2>
@@ -104,8 +172,16 @@ const Course = (props) => {
                                 )}
                         </div>
 
-                        <h2 style={{ color: '#343b6d' }} className='fw-bold mt-5'>এই কোর্সটি কাদের জন্য ?</h2>
-                        <p style={{ color: '#454c7e', textAlign: 'justify' }}>{course.description}</p>
+                        <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="mt-5">
+                            {/* <h2 style={{ color: '#343b6d' }} className='mt-3 fw-bold text-center'>এই কোর্সটি কাদের জন্য ?</h2>
+                            <p style={{ color: '#454c7e', textAlign: 'justify' }}>{course.description}</p> */}
+                            <h2 style={{ color: '#343b6d' }} className='fw-bold text-center mt-3'>এই কোর্সে আপনি কি শিখবেন?</h2>
+                        <ul className='p-4'>
+                            {
+                                course.features.map(item => <li key={item.id} style={{ color: '#454c7e', textAlign: 'justify', listStyle:'none' }} className="mt-2" ><FontAwesomeIcon icon={faCheck} /> {item.item}</li>)
+                            }
+                        </ul>
+                        </div>
                         {/* <h2 style={{ color: '#343b6d' }} className='fw-bold'>এই কোর্সে আপনি কি শিখবেন?</h2>
                         <ul>
                             {

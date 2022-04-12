@@ -33,21 +33,20 @@
     background-color: transparent;
     /* background-color: #b94a8f; */
     /* color: #b94a8f; */
-    color: #f8f9fa;
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
     border-radius: 5px;
     padding: 10px;
     margin: 1px;
-    border: 1px solid #12348d;
-    background-color: #12348d;
+    border: 1px solid #ffc107;
+    /* background-color: #12348d; */
     width: 97%;
 }
 
 .btn-demo:hover {
-    background-color: #081c4f;
-    color: #f8f9fa;
+    background-color: #ffc107;
+    /* color: #f8f9fa; */
 }
 
 .btn-buy {
