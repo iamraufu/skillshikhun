@@ -9,6 +9,8 @@
     background-color: #13338b;
 }
 
+
+/* 
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -24,7 +26,7 @@
 
  ::-webkit-scrollbar-thumb:hover {
     background: #653dae;
-}
+} */
 
 
 /* .price {

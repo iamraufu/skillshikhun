@@ -5,8 +5,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import google from '../../images/google.png';
 import facebook from '../../images/facebook.png';
 import { useForm } from "react-hook-form";
-// import OTPVerification from './OTPVerification';
+import Swal from 'sweetalert2';
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
+
+let phone = 123;
+let password = 'skillshikhun';
 
 const Login = () => {
 
@@ -51,20 +54,29 @@ const Login = () => {
 
     const { register, handleSubmit } = useForm();
     const { register: register2, handleSubmit: handleSubmit2 } = useForm();
+    const { register: register3, handleSubmit: handleSubmit3 } = useForm();
 
+    // submit function for phone number taking
     const onSubmit = data => {
-        console.log(flag);
+        phone = data.phone;
+
         if (flag === true) {
-            // document.getElementById('submit_btn').style.backgroundColor  = 'rgb(84, 104, 255)';
-            // document.querySelector('#submit_btn').innerHTML = "অপেক্ষা করুন...";
             OTPGenerate(data);
+        }
+        else {
+            // call login function by taking password and match password and login 
+            // login(data);
         }
     }
 
     // submit function for otp verification
-    const onSubmit2 = data => {
-        OTPVerification(data);
-        // OTPInputHandler();
+    const onSubmit2 = async data => {
+        await OTPVerification(data);
+    }
+
+    // submit function for password taking
+    const onSubmit3 = data => {
+        password = data.password;
     }
 
     const OTPGenerate = (data) => {
@@ -74,7 +86,6 @@ const Login = () => {
         document.getElementById('submit_btn').style.backgroundColor = 'grey';
         const phone_number = data.phone;
         const otp = Math.floor(Math.random() * 9000 + 1000);
-        // OTPSave(phone_number, otp);
         console.log("OTP is " + otp);
         console.log("Your Phone number is: " + phone_number);
 
@@ -83,7 +94,8 @@ const Login = () => {
             otp: otp
         }
 
-        fetch('http://localhost:5000/registerUser', {
+        // send otp to user
+        fetch('http://localhost:5000/api/send-otp', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -91,84 +103,278 @@ const Login = () => {
             body: JSON.stringify(OTPDetails)
         })
             .then(res => res.json())
+            .then(data =>
+                console.log(data)
+            )
+
+        // registerUser(OTPDetails);
 
         document.getElementById('otp_verification_container').style.display = 'block';
     }
 
-    // function for OTP verification
-    const OTPVerification = (data) => {
-        console.log(data)
-        const otp = data.otp;
 
-        fetch('http://localhost:5000/otp/:phone')
+    // function for OTP verification
+    const OTPVerification = (otpData) => {
+        console.log(otpData)
+        const otp = otpData.otp;
+
+        // var requestOptions = {
+        //     method: 'GET'
+        // };
+
+        // fetch(`http://localhost:5000/otp/${phone}`, requestOptions)
+        //     .then(response => response.text())
+        //     .then(result => {
+        //         const resData = JSON.parse(result);
+        //         const tempOtp = resData.otp;
+        //         if (otp === tempOtp) {
+        //             document.getElementById('otp_verification_container').style.display = 'none';
+        //             document.getElementById('password_input_container').style.display = 'block';
+
+        //             // console.log(user) // user is undefined
+        //             // if (!user.phone) {
+        //             //     registerUser(phone, password);
+        //             // }
+        //             // else {
+        //             //     login();
+        //             // }
+
+        //             Swal.fire(
+        //                 'OTP ভেরিফিকেশন সফল হয়েছে!',
+        //                 'আপনার রেজিস্ট্রেশন প্রক্রিয়া সম্পন্ন হয়েছে!',
+        //                 'success'
+        //             )
+
+        //             navigate('/dashboard');
+
+        //         } else {
+        //             Swal.fire(
+        //                 'আপনার OTP টি ভুল!',
+        //                 'অনুগ্রহ করে আবার চেষ্টা করুন!',
+        //                 'error'
+        //             )
+        //             navigate('/dashboard');
+        //         }
+        //     })
+
+        fetch('http://localhost:5000/api/otp-verification', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                phone: phone,
+                otp: otp
+            })
+        })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                if (data.otp === otp) {
-                    fetch('http://localhost:5000/validateUser', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ phone: data.phone })
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log(data);
-                            if (data.valid) {
-                                console.log("User is valid");
-                                signInUsingGoogle(data.user);
-                            }
-                        })
+                console.log(data)
+                if (data.status === true) {
+                    document.getElementById('otp_verification_container').style.display = 'none';
+                    document.getElementById('password_input_container').style.display = 'block';
+                    Swal.fire(
+                        'OTP ভেরিফিকেশন সফল হয়েছে!',
+                        'আপনার রেজিস্ট্রেশন প্রক্রিয়া সম্পন্ন হয়েছে!',
+                        'success'
+                    )
+                    navigate('/dashboard');
                 }
-            })
+                else {
+                    Swal.fire(
+                        'আপনার OTP টি ভুল!',
+                        'অনুগ্রহ করে আবার চেষ্টা করুন!',
+                        'error'
+                    )
+                    navigate('/dashboard');
+                }
+
+
+                // fetch('http://localhost:5000/validateUser', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json'
+                //     },
+                //     body: JSON.stringify({
+                //         phone: phone,
+                //         otp: otp
+                //     })
+                // })
+                //     .then(res => res.json())
+                //     .then(result => {
+                //         console.log(result)
+                // validateUser(phone,otp);
+
+                // .catch(error => console.log('error', error));
+                phone = null;
+                password = '';
+
+            }
+            )
     }
 
-    // function OTPInputHandler() {
-    //     var container = document.getElementById("otp_verification_container")[0];
-    //     container.onkeyup = function (e) {
-    //         var target = e.srcElement;
-    //         var maxLength = parseInt(target.attributes["maxlength"].value, 10);
-    //         var myLength = target.value.length;
-    //         if (myLength >= maxLength) {
-    //             var next = target;
-    //             while (next = next.nextElementSibling) {
-    //                 if (next == null)
-    //                     break;
-    //                 if (next.tagName.toLowerCase() === "input") {
-    //                     next.focus();
-    //                     break;
-    //                 }
-    //             }
-    //         }
+
+    // register user through otp verification
+    // const registerUser = (otpDetailsData) => {
+
+    //     const otpDetails = {
+    //         phone: otpDetailsData.phone,
+    //         otp: otpDetailsData.otp
     //     }
+
+    //     fetch('http://localhost:5000/registerUser', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(otpDetails)
+    //     })
+    //         .then(res => res.json())
+    //         .then(result => {
+    //             console.log(result)
+    //             // if (result.success) {
+    //             //     Swal.fire(
+    //             //         'আপনার রেজিস্ট্রেশন প্রক্রিয়া সম্পন্ন হয়েছে!',
+    //             //         'আপনার রেজিস্ট্রেশন প্রক্রিয়া সম্পন্ন হয়েছে!',
+    //             //         'success'
+    //             //     )
+    //             //     navigate('/dashboard');
+    //             // } else {
+    //             //     Swal.fire(
+    //             //         'আপনার রেজিস্ট্রেশন প্রক্রিয়া সম্পন্ন হয়েছে!',
+    //             //         'আপনার রেজিস্ট্রেশন প্রক্রিয়া সম্পন্ন হয়েছে!',
+    //             //         'success'
+    //             //     )
+    //             //     navigate('/dashboard');
+    //             // }
+    //         })
     // }
 
-    // const OTPVerify = (phone, otp) => {
-    //     console.log("hit");
-    //     const phoneNumber = phone;
-    //     const otp_number = otp;
 
-    //     const user = {
-    //         phone: phoneNumber
+    // validate user through OTP verification
+    // const validateUser = (phone, otp) => {
+    //         fetch('http://localhost:5000/validateUser', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({
+    //                 phone: phone,
+    //                 otp: otp
+    //             })
+    //         })
+    //             .then(res => res.json())
+    //             .then(result => {
+    //                 console.log(result)
+    //                 if (result.status === true) {
+    //                     if (result.message === 'User already exists') {
+    //                         loginUser();
+    //                     }
+    //                     // Swal.fire(
+    //                     //     'আপনার রেজিস্ট্রেশন সফল হয়েছে!',
+    //                     //     'আপনার রেজিস্ট্রেশন প্রক্রিয়া সম্পন্ন হয়েছে!',
+    //                     //     'success'
+    //                     // )
+    //                     // navigate('/dashboard');
+    //                 } else {
+    //                     Swal.fire(
+    //                         'আপনার রেজিস্ট্রেশন ব্যর্থ হয়েছে!',
+    //                         'অনুগ্রহ করে আবার চেষ্টা করুন!',
+    //                         'error'
+    //                     )
+    //                     navigate('/dashboard');
+    //                 }
+    //             })
     //     }
 
-    //     fetch(`http://localhost:5000/otp/${phoneNumber}`)
+
+    // const registerUser = (data) => {
+    //     console.log(data); // data is phone number coming null
+    //     const userDetails = {
+    //         password: data.password,
+    //         phone: phone
+    //     }
+
+    //     console.log(userDetails);
+    //     fetch('http://localhost:5000/registerUserThroughOTP', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(userDetails)
+    //     })
     //         .then(res => res.json())
     //         .then(data => {
-    //             if (otp_number === data.otp) {
-    //                 console.log('OTP Verified');
-    //                 // registerUser(user);
-    //                 fetch('http://localhost:5000/registerUserThroughOTP', {
-    //                     method: 'POST',
-    //                     headers: {
-    //                         'Content-Type': 'application/json'
-    //                     },
-    //                     body: JSON.stringify(user)
-    //                 })
-    //                     .then(res => res.json())
+    //             console.log(data);
+
+    //         })
+    // }
+
+    // login function for verifying phone number and password
+    // const loginUser = () => {
+    //     fetch('http://localhost:5000/loginUser', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             phone: phone,
+    //             password: password
+    //         })
+    //     })
+    //         .then(res => res.json())
+    //         .then(result => {
+    //             console.log(result)
+    //             if (result.status === true) {
+    //                 Swal.fire(
+    //                     'আপনার লগইন সফল হয়েছে!',
+    //                     'আপনার রেজিস্ট্রেশন প্রক্রিয়া সম্পন্ন হয়েছে!',
+    //                     'success'
+    //                 )
+    //                 navigate('/dashboard');
+    //             } else {
+    //                 Swal.fire(
+    //                     'আপনার লগইন ব্যর্থ হয়েছে!',
+    //                     'অনুগ্রহ করে আবার চেষ্টা করুন!',
+    //                     'error'
+    //                 )
+    //                 navigate('/dashboard');
     //             }
-    //         });
+    //         })
+    // }
+
+
+
+    // const login = (data) => {
+    //     console.log(data);
+    //     const loginDetails = { phone, password }
+    //     console.log(loginDetails);
+    //     fetch('http://localhost:5000/loginUser', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(loginDetails)
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             if (data.status === 'success') {
+    //                 Swal.fire(
+    //                     'লগিন সফল!',
+    //                     'আপনার লগিন প্রক্রিয়া সম্পন্ন হয়েছে!',
+    //                     'success'
+    //                 )
+    //                 navigate('/dashboard');
+    //             } else {
+    //                 Swal.fire(
+    //                     'আপনার ফোন নম্বর বা পাসওয়ার্ড টি ভুল!',
+    //                     'অনুগ্রহ করে আবার চেষ্টা করুন!',
+    //                     'error'
+    //                 )
+    //                 navigate('/dashboard');
+    //             }
+    //         })
     // }
 
     return (
@@ -176,7 +382,7 @@ const Login = () => {
             <Navbar />
             <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)' }} className="">
                 <div className="container login-container">
-                    <div className="mx-auto d-block">
+                    <div id='otp_login_container' style={{ display: 'block' }} className="mx-auto d-block">
                         <h1 style={{ fontSize: '32px', lineHeight: '48px', color: '#323862', fontWeight: '700' }} className='pt-5 text-center'>ফ্রি রেজিস্ট্রেশন অথবা সাইন ইন করতে <br /> আপনার ব্যবহৃত মোবাইল নম্বরটি দিন</h1>
                         <div className="d-flex mt-5 mx-auto d-block justify-content-center">
 
@@ -198,6 +404,20 @@ const Login = () => {
                         </div>
                     </div>
 
+                    {/* input field for collecting password */}
+                    <div id="password_input_container" style={{ display: 'none' }}>
+                        <h1 style={{ fontSize: '32px', lineHeight: '48px', color: '#323862', fontWeight: '700' }} className='pt-5 text-center'>আপনার পাসওয়ার্ড দিন</h1>
+                        <div className="d-flex mt-5 mx-auto d-block justify-content-center">
+
+                            <form onSubmit={handleSubmit3(onSubmit3)}>
+
+                                <input style={{ maxWidth: '400px' }} className='form-control form mx-auto d-block' type="password" autoComplete="off" {...register3("password", { required: true })} />
+
+                                <button style={{ maxWidth: '400px' }} className='otp-submit-btn mt-5 mx-auto d-block text-white'
+                                >এগিয়ে যান</button>
+                            </form>
+                        </div>
+                    </div>
 
                     {/* div for verifying OTP */}
                     <div id='otp_verification_container' style={{ display: 'none' }}>

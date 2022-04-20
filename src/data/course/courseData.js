@@ -2,6 +2,10 @@ import videoImage from '../../images/full-stack-video-editing.png';
 import digitalImage from '../../images/full-stack-digital-marketing.png';
 import webImage from '../../images/full-stack-web-development.png';
 import graphicsImage from '../../images/full-stack-graphic-design.png';
+import ve_i from '../../images/ve_i.png';
+import dm_i from '../../images/dm_i.png';
+import wd_i from '../../images/wd_i.png';
+import gd_i from '../../images/gd_i.png';
 
 const courseData = [
     {
@@ -18,8 +22,12 @@ const courseData = [
         total_classes:'২৪',
         regular_price:'৯,৯৯৯',
         offer_price:'৬০০০',
+        offer_price_per_month:'৩০০০',
         course_done:'১৮৬,১১৮',
         next_batch:'জুন',
+        course_instructor:'সাব্বির আহমেদ',
+        instructor_designation:'',
+        instructor_image: ve_i,
         image: videoImage,
         feature_alt:[
             {
@@ -205,8 +213,12 @@ const courseData = [
         total_classes:'২৪',
         regular_price:'৯,৯৯৯',
         offer_price:'৬০০০',
+        offer_price_per_month:'৩০০০',
         course_done:'১৮১,২১৬',
         next_batch:'জুন',
+        course_instructor:'আতাউল হোসেন',
+        instructor_designation:'ব্যাচেলর অব মিডিয়া স্টাডিজ এন্ড জারনালিজম - উনিভারসিটি অব লিবারেল আর্টস বাংলাদেশ, কো - ফাউন্ডার, স্কিল শিখুন, কো - ফাউন্ডার, স্টেপ টু ডিজিটাল',
+        instructor_image: dm_i,
         image: digitalImage,
         feature_alt:[
             {
@@ -362,8 +374,12 @@ const courseData = [
         total_classes:'৩৬',
         regular_price:'৯,৯৯৯',
         offer_price:'৬০০০',
+        offer_price_per_month:'২০০০',
         course_done:'১১১,৬১৬',
         next_batch:'মে',
+        course_instructor:'সায়মা বিবি',
+        instructor_designation:'',
+        instructor_image: gd_i,
         image:graphicsImage,
         feature_alt:[
             {
@@ -554,8 +570,12 @@ const courseData = [
         total_classes:'৩৬',
         regular_price:'৯,৯৯৯',
         offer_price:'৬০০০',
+        offer_price_per_month:'২০০০',
         course_done:'১১৮,২১৬',
         next_batch:'মে',
+        course_instructor:'ইফতিখার রহমান',
+        instructor_designation:'',
+        instructor_image: wd_i,
         image: webImage,
         feature_alt:[
             {

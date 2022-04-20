@@ -31,7 +31,7 @@ const Navbar = () => {
 
                         <div style={{ width: '10%' }} className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             {
-                                user.email ?
+                                user.email?
                                 <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">
                             <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/courses">কোর্স সমূহ</Link>
                                 <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/admission">অ্যাডমিশন</Link>

@@ -2,7 +2,8 @@ import React from 'react';
 import './Hero.css';
 import logoText from '../../images/logoText.png';
 // import underline from '../../images/underline.png';
-import heroFront from '../../images/hero-front.png';
+// import heroFront from '../../images/hero-front.png';
+import landingFront from '../../images/landing-front.svg';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import "aos/dist/aos.css";
@@ -16,7 +17,7 @@ const Hero = () => {
             <div className="container">
                 <div className="row">
                     <div data-aos='zoom-in' className="col-sm-4 col-md-6">
-                        <img src={heroFront} style={{width:'700'}} className='img-fluid hero-image' alt="free webinar" loading="lazy" />
+                        <img src={landingFront} className='img-fluid hero-image mt-5' alt="free webinar" loading="lazy" />
                     </div>
                     <div className="col-sm-8 col-md-6">
                         <h2 className='text-white hero-text'>

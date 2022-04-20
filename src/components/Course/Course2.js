@@ -1,61 +1,18 @@
-// import React, { useState } from 'react';
-// import './Course.css';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faUsers, faClock, faCalendarDays, faPhone, faCheck, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
-// import courseData from '../../data/course/courseData.js';
-// import live from '../../images/liveClass.svg';
-// import { Link } from 'react-router-dom';
-// import paymentMethods from '../../images/payment-methods.png';
-// import CourseCard from './CourseCard';
-// const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
-// const Footer = React.lazy(() => import('../Shared/Footer/Footer'));
-
-// const Course = (props) => {
-
-//     const CourseName = props.name;
-
-//     const [isOpen, setIsOpen] = useState(false);
-
-//     const course = courseData.find(course => course.name === CourseName);
-//     const otherCourses = [courseData.filter(otherCourses => otherCourses.name !== CourseName)];
-
-//     return (
-//         <div style={{ backgroundColor: '#f8f9fa' }}>
-//             <Navbar />
-//             <div className="container">
-
-//                 {/* Course Top Left Section Goes Here */}
-//                 <section style={{marginTop:'5.5rem'}}>
-//                     <div className="row">
-//                         <div className="col-sm-6">
-//                             <CourseCard course = {course} />
-//                         </div>
-//                         <div className="col-sm-6">
-
-//                         </div>
-//                     </div>
-//                 </section>
-
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Course;
-
 import React, { useState } from 'react';
 import './Course.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faClock, faCalendarDays, faPhone, faCheck, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import courseData from '../../data/course/courseData.js';
+// import courseFee from '../../images/course-fee.png';
 import live from '../../images/liveClass.svg';
 import { Link } from 'react-router-dom';
 import paymentMethods from '../../images/payment-methods.png';
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
-const Course = (props) => {
+const Course2 = (props) => {
 
     const name = props.name;
+    // const color = props.color;
 
     const course = courseData.find(course => course.name === name);
     const otherCourses = [courseData.filter(otherCourses => otherCourses.name !== name)];
@@ -71,24 +28,51 @@ const Course = (props) => {
         <div style={{ backgroundColor: '#f8f9fa' }}>
             <Navbar />
 
+            {/* <h1 style={{ marginTop: '5rem', backgroundColor: color }} className="text-center py-3 course-title text-white">{course.title}</h1> */}
+            {/* <h1 style={{marginTop:'5rem'}} className="text-center py-3 text-white">কোর্স মডিউল</h1> */}
             <div className="container py-5">
                 <div className="row">
-                    <div className="col-lg-6">
-                        <div style={{top: '120px', borderRadius: '25px'}} className="position-sticky">
+                    <div className="col-sm-6">
+                        {/* <h2 style={{marginTop:'5rem'}} className='text-center pt-3'>{course.alt_title}</h2> */}
+                        <div style={{
+                            // backgroundColor: 'white', 
+                            top: '120px', borderRadius: '25px'
+                        }} className="position-sticky">
                             <h2 style={{fontSize:'22px'}} className='text-center course-alt-title fw-bold'>{course.alt_title}</h2>
                             <div className="responsive-embed-youtube">
-                                <iframe className='' width="100%" height='auto' src={`${course.source}?controls=0`} title={course.slug} style={{borderRadius: '22px' }} allowFullScreen srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${course.source}?controls=0><img src=${course.image} alt=${course.alt_title} loading="lazy"><span>▶</span></a>`}
+                                <iframe className='' width="100%"
+                                    // height="355" 
+                                    height='auto'
+                                    src={`${course.source}?controls=0`} title={course.slug} style={{ borderRadius: '22px' }} allowFullScreen
+
+                                    srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${course.source}?controls=0><img src=${course.image} alt=${course.alt_title} loading="lazy"><span>▶</span></a>`}
+
                                 ></iframe>
                             </div>
-                        
-                            <div style={{marginTop: '-1rem', backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec'}} className="container">
+                            {/* <p style={{ fontSize: '20px', lineHeight: '20px', fontWeight: '600' }} className='pt-5 text-center text-black'>{course.course_duration} মাস এর কোর্স - {course.total_classes} টি লাইভ ক্লাস</p> */}
+                            {/* <img src={courseFee} className='img-fluid mx-auto d-block pb-3' width={330} alt="Course Fee" loading="lazy" /> */}
+                            {/* <h3 className='text-center text-danger fs-4'><span className='text-black'>কোর্স ফি &#2547;</span><strike style={{ color: 'red', textDecoration: 'lineThrough' }}><span className='text-black'>{course.regular_price}</span></strike> <span className='text-success fw-bold'><span className='text-black'>&#2547;</span>{course.offer_price}</span></h3> */}
+                            <div style={{
+                                marginTop: '-1rem', backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec'
+                                // , boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19)' 
+                            }} className="container-fluid">
                                 <div className="row py-5">
                                     <div className="d-flex py-3">
-                                        <div className="col-lg-6">
-                                            <h2 style={{ fontSize: '20px', lineHeight: '24px'}} className='text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
+                                        <div className="col-md-6">
+                                            <p
+                                                style={{ 
+                                                    // marginLeft: '-2rem' , 
+                                                    fontSize: '20px'
+                                                    , lineHeight: '30px'
+                                                    
+                                                }} 
+                                                className='fs-4 text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</p>
+                                            {/* <h2 style={{ textDecoration: 'underline', cursor: 'pointer' }} className='fs-4 ms-2'>প্রোমো কোড</h2> */}
                                         </div>
-                                        <div className="col-lg-6">
-                                            <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.offer_price_per_month}/মাস</h2>
+                                        <div className="col-md-6">
+                                            <h2
+                                                style={{ textAlign: 'right' }}
+                                                className='fs-3 me-2 fw-bold'>&#2547; {course.offer_price_per_month}/মাস</h2>
                                         </div>
                                     </div>
                                     <div className="d-flex py-2">
@@ -110,6 +94,22 @@ const Course = (props) => {
                                                     <p style={{fontSize:'14px', lineHeight:'22px'}} className='text-center mt-2'> নেক্সট ব্যাচ<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize:'16px', lineHeight:'24px' }} className='fw-bold px-3'>{course.next_batch} ২০২২</span></p>
                                                 </div>
                                             </div>
+
+
+                                            {/* <div className="d-flex justify-content-center">
+                                                <div className="mt-2 me-2 fs-4">
+                                                    <FontAwesomeIcon icon={faCalendarDays} />
+                                                </div>
+                                                <div className="">
+                                                    <p className='text-center mt-3'><FontAwesomeIcon className='fs-2 me-2' icon={faCalendarDays} /> জুন ২০২২ ব্যাচ এ ভর্তি চলছে<br />
+                                                        <span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-danger text-white'>TIMER WILL GO HERE</span>
+                                                    </p>
+                                                </div>
+                                            </div> */}
+
+                                            {/* <p className='text-center'><FontAwesomeIcon icon={faCalendarDays} /> নেক্সট ব্যাচ <br />
+                                            <span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-danger text-white'>TIMER WILL GO HERE</span>
+                                        </p> */}
                                         </div>
                                         <div className="col-md-6">
                                             <div className="d-flex justify-content-center">
@@ -122,34 +122,64 @@ const Course = (props) => {
                                             </div>
 
                                             <div className="d-flex justify-content-center">
+                                                <div className="mt-2 me-2 fs-4">
+                                                    {/* <FontAwesomeIcon icon={faUsers} /> */}
+                                                </div>
                                                 <div className="">
                                                     <p style={{fontSize:'14px', lineHeight:'22px'}} className='text-center'><img src={live} className='img-fluid pe-1' width={35} alt="live class" /> লাইভ ক্লাস সংখ্যা<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize:'16px', lineHeight:'24px' }} className='fw-bold px-3 ms-4'>{course.total_classes} টি</span></p>
                                                 </div>
                                             </div>
+
+                                            {/* <p className='text-center'><FontAwesomeIcon icon={faClock} /> সময় লাগবে<br /> <span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-warning'>{course.course_duration} মাস</span> </p> */}
+
+                                            {/* <p className='text-center'><img src={live} className='img-fluid pe-1' width={35} alt="live class" />
+                                            লাইভ ক্লাস সংখ্যা<br />
+                                            <span style={{ borderRadius: '15px' }} className='fw-bold px-3 bg-warning'>{course.total_classes} টি</span>
+                                        </p> */}
                                         </div>
                                     </div>
                                     <h2 style={{ textDecoration: 'underline', cursor: 'pointer' }} className='fs-4 ms-2 text-center my-3'>প্রোমো কোড</h2>
+                                    {/* <p className='fs-4 ms-2 fw-bold text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</p> */}
                                     <div className="container">
                                         <div className="row">
                                         <div className="col-md-6 mt-1">
                                             <Link to='/demo-class' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3'>একটি ফ্রি ক্লাস করে দেখুন &#8594;</button></Link>
                                         </div>
                                         <div className="col-md-6 mt-1">
-                                            <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3'>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
+                                            <Link to='/checkout' className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3'>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
                                         </div>
                                         </div>
                                     </div>
+                                    {/* <ul className='pt-3'>
+                                    {course.feature_alt.map(item => <li style={{ textAlign: 'justify' }} className='feature-list' key={item.key}>✔️ {item.item}</li>)}
+                                </ul> */}
                                     <p className='text-center mt-3'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div className="col-lg-6">
+                    <div className="col-sm-6">
+                        {/* <h2 style={{ color: '#343b6d' }} className='fw-bold'>এই কোর্সটি কাদের জন্য?</h2>
+                        <p style={{ color: '#454c7e', textAlign: 'justify' }}>{course.description}</p>
+                        <h2 style={{ color: '#343b6d' }} className='fw-bold'>এই কোর্সে আপনি কি শিখবেন?</h2>
+                        <ul>
+                            {
+                                course.features.map(item => <li key={item.id} style={{ color: '#454c7e', textAlign: 'justify' }}>{item.item}</li>)
+                            }
+                        </ul>
+                        <p className='fw-bold' style={{ color: '#454c7e', textAlign: 'justify' }}>{course.featuresDescription}</p>
+                        <p style={{ color: '#343b6d' }} className='fw-bold'>এছাড়াও থাকছে</p>
+                        <ul>
+                            {
+                                course.featureBonus.map(item => <li key={item.id} style={{ color: '#454c7e' }}>{item.item}</li>)
+                            }
+                        </ul> */}
                         <h2 style={{ marginTop: '3.5rem', fontSize:'22px' }} className="text-center py-3 fw-bold">কোর্স মডিউল</h2>
                         {
                             showMore ?
-                                <div className="accordion accordion-flush" id="accordionFlushExample">
+                                <div
+                                    // style={{ height: '56vh', overflow: 'auto' }} 
+                                    className="accordion accordion-flush" id="accordionFlushExample">
                                     {
                                         course.outline.map(item =>
                                             <div style={{ border: 'none' }} className="accordion-item m-2" key={item.id}>
@@ -166,7 +196,9 @@ const Course = (props) => {
                                         )}
                                     <h5 style={{ cursor: 'pointer' }} className='text-center' onClick={seeMore}>কম দেখতে ক্লিক করুন <FontAwesomeIcon icon={faAngleUp} /></h5>
                                 </div> :
-                                <div className="accordion accordion-flush" id="accordionFlushExample">
+                                <div
+                                    // style={{ height: '56vh', overflow: 'auto' }} 
+                                    className="accordion accordion-flush" id="accordionFlushExample">
                                     {
                                         course.outline.slice(0, 6).map(item =>
                                             <div style={{ border: 'none' }} className="accordion-item m-2" key={item.id}>
@@ -187,6 +219,8 @@ const Course = (props) => {
 
                         {/* What you'll learn in this course */}
                         <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="mt-5">
+                            {/* <h2 style={{ color: '#343b6d' }} className='mt-3 fw-bold text-center'>এই কোর্সটি কাদের জন্য ?</h2>
+                            <p style={{ color: '#454c7e', textAlign: 'justify' }}>{course.description}</p> */}
                             <h2 style={{ color: '#343b6d', fontSize:'22px' }} className='fw-bold text-center mt-3'>এই কোর্সে আপনি কি শিখবেন?</h2>
                             <ul className='p-4'>
                                 {
@@ -210,9 +244,21 @@ const Course = (props) => {
                                 </div>
                             </div>
                         </div>
+                        {/* <h2 style={{ color: '#343b6d' }} className='fw-bold'>এই কোর্সে আপনি কি শিখবেন?</h2>
+                        <ul>
+                            {
+                                course.features.map(item => <li key={item.id} style={{ color: '#454c7e', textAlign: 'justify' }}>{item.item}</li>)
+                            }
+                        </ul>
+                        <p className='fw-bold' style={{ color: '#454c7e', textAlign: 'justify' }}>{course.featuresDescription}</p>
+                        <p style={{ color: '#343b6d' }} className='fw-bold'>এছাড়াও থাকছে</p>
+                        <ul>
+                            {
+                                course.featureBonus.map(item => <li key={item.id} style={{ color: '#454c7e' }}>{item.item}</li>)
+                            }
+                        </ul> */}
 
-                        {/* Payment System */}
-                        {/* <div className="payment-container mt-5">
+                        <div className="payment-container mt-5">
                             <h2 style={{ fontSize: '36px', fontWeight: '600', lineHeight: '36px', color: '#434257' }} className='my-5 text-center'>পেমেন্ট এর পদ্ধতি</h2>
                             <img className='img-fluid mx-auto d-block mb-5' width={400} src={paymentMethods} alt="payment methods" loading="lazy" />
                             <h3 style={{ fontSize: '17px', lineHeight: '27px', fontWeight: '700', color: '#54595f' }}>ওয়েবসাইটের মাধ্যমে ভর্তি</h3>
@@ -229,14 +275,13 @@ const Course = (props) => {
                             <h5 style={{ fontSize: '20px', lineHeight: '30px', fontWeight: '600', color: '#434257' }} className='text-center my-5'>এই কোর্স সম্পর্কে কোনও প্রশ্ন থাকলে আমাদের হেল্পলাইন নম্বর এ যোগাযোগ করুন</h5>
                             <h6 style={{ fontSize: '36px', lineHeight: '36px', fontWeight: '700', color: '#434257' }} className='text-center my-5'>09613823645</h6>
                             <p style={{ fontSize: '20px', lineHeight: '30px', fontWeight: '600', color: '#434257' }} className='text-center mt-5'>আমাদের কাস্টমার সার্ভিস সপ্তাহে ৭ দিন ২৪ ঘণ্টা খোলা থাকে</p>
-                        </div> */}
+                        </div>
                     </div>
 
                 </div>
             </div>
 
-            {/* Other Course Container  */}
-            {/* <div className="container py-5">
+            <div className="container py-5">
                 <h2 style={{ fontSize: '24px', lineHeight: '23px', color: '#343b6d' }} className='fw-bold'>আরো কোর্স</h2>
                 <div className="row">
                     {
@@ -247,15 +292,18 @@ const Course = (props) => {
                                     <h3 style={{ fontSize: '18px', lineHeight: '28px', color: '#343b6d' }} className='fw-bold pt-4 ps-2'>{otherCourse.title}</h3>
 
                                     <div style={{ borderTop: '1px solid #ececec', justifyContent: 'space-between' }} className="d-flex">
-                                        
+                                        {/* <img className='img-fluid pb-3' width={200} src={courseFee} alt="course fee" loading="lazy" /> */}
                                         <h4 style={{ fontSize: '20px', lineHeight: '28px', color: '#454c7e' }} className='ps-2 pt-2 fw-bold'>৳ 2600</h4>
                                         <Link onClick={() => { window.scrollTo(0, 0); }} to={otherCourse.route} className='text-decoration-none'><p style={{ fontSize: '15px', lineHeight: '24px', color: '#b94a8f' }} className='pe-3 pt-2 fw-bold'>বিস্তারিত দেখুন</p></Link>
                                     </div>
                                 </div>
                             </div>
-                        )}
+                        )
+                    }
+
                 </div>
-            </div> */}
+
+            </div>
 
             {/* Display on smaller devices */}
             <div className="container-fluid d-lg-none fixed-bottom bg-white">
@@ -268,4 +316,4 @@ const Course = (props) => {
     );
 };
 
-export default Course;
+export default Course2;
