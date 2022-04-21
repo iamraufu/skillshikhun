@@ -58,9 +58,9 @@ const DemoClass = (props) => {
                             <option value="Video Editing" className='p-2'>ভিডিও এডিটিং</option>
                             <option value="Web Development" className='p-2'>ওয়েব ডেভেলপমেন্ট</option>
                             <option value="Graphics Design" className='p-2'>গ্রাফিক্স ডিজাইন</option> */}
-                            <option value={course.name} 
+                            <option value={course.name || 'Web Development'} 
                             // className='p-2'
-                            >{course.title}</option>
+                            >{course.title || 'ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট'}</option>
                             {otherCourses[0].map(otherCourse =>
                                 <option key={otherCourse.id} value={otherCourse.name} className='p-2 form-select-input'>{otherCourse.title}</option>
                             )}

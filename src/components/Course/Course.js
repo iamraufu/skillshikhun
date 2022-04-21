@@ -52,7 +52,8 @@ import live from '../../images/liveClass.svg';
 import { Link } from 'react-router-dom';
 // import paymentMethods from '../../images/payment-methods.png';
 import DemoClass from '../DemoClass/DemoClass';
-import HowToPayment from './HowToPayment';
+import CourseReview from './CourseReview';
+const HowToPayment = React.lazy(() => import ('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 // const DemoClass = React.lazy(() => import('../DemoClass/DemoClass'));
 
@@ -78,7 +79,7 @@ const Course = (props) => {
                 <div className="row">
                     <div className="col-lg-6">
                         <div style={{ top: '120px', borderRadius: '25px' }} className="position-sticky">
-                            <h2 style={{ fontSize: '22px' }} className='text-center course-alt-title fw-bold'>{course.alt_title}</h2>
+                            <h1 style={{ fontSize: '22px' }} className='text-center course-alt-title fw-bold'>{course.alt_title}</h1>
                             <div className="responsive-embed-youtube">
                                 <iframe className='' width="100%" height='auto' src={`${course.source}?controls=0`} title={course.slug} style={{ borderRadius: '22px' }} allowFullScreen srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${course.source}?controls=0><img src=${course.image} alt=${course.alt_title} loading="lazy"><span>▶</span></a>`}
                                 ></iframe>
@@ -219,6 +220,9 @@ const Course = (props) => {
 
                         {/* How to payment */}
                         <HowToPayment course={course} />
+
+                        {/* Course Review */}
+                        <CourseReview course={course} />
 
                         {/* Payment System */}
                         {/* <div className="payment-container mt-5">

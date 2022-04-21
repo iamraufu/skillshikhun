@@ -10,6 +10,7 @@ const Navbar = () => {
 
     return (
         <div style={{ backgroundColor: 'white' }} className="fixed-top">
+            {/* <div className="bg-danger"><h1 className='text-center'>এই সাইট উন্নয়নাধীন আছে</h1></div> */}
             <div style={{ height: '80px' }} className="container-xl">
 
                 <nav className="navbar navbar-expand-lg navbar-light mt-1">

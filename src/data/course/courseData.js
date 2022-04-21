@@ -27,7 +27,7 @@ const courseData = [
         course_done:'১৮৬,১১৮',
         next_batch:'জুন',
         course_instructor:'সাব্বির আহমেদ',
-        instructor_designation:'',
+        instructor_designation:'Full Stack Web Developer, Freelance Developer, Instructor',
         instructor_image: ve_i,
         image: videoImage,
         feature_alt:[
@@ -381,7 +381,7 @@ const courseData = [
         course_done:'১১১,৬১৬',
         next_batch:'মে',
         course_instructor:'সায়মা বিবি',
-        instructor_designation:'',
+        instructor_designation:'Full Stack Web Developer, Freelance Developer, Instructor',
         instructor_image: gd_i,
         image:graphicsImage,
         feature_alt:[
@@ -563,7 +563,7 @@ const courseData = [
         name: 'Web Development',
         id: 'full-stack-web-development',
         title: 'ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট',
-        slug: 'Full Stack Graphics Design',
+        slug: 'Full Stack Web Development',
         route:'/web-development',
         alt_title: 'ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট (জিরো টু হিরো)',
         description: 'আপনি যদি একজন পেশাদার ওয়েব ডেভেলপার হতে চান বা ওয়েব ডেভেলপমেন্টের এর জগতে নিজেকে প্রতিষ্ঠিত করতে চান তবে এই কোর্সটি আপনারই জন্য। কোর্সটি বিশেষভাবে ডিজাইন করা হয়েছে সমস্ত আধুনিক ওয়েব ডেভেলপমেন্ট টেকনোলজির সমন্বয়ে যে দক্ষতাগুলোর মার্কেটপ্লেস এবং প্রযুক্তি কোম্পানিগুলোর রয়েছে বিশাল চাহিদা।',
@@ -578,7 +578,7 @@ const courseData = [
         course_done:'১১৮,২১৬',
         next_batch:'মে',
         course_instructor:'ইফতিখার রহমান',
-        instructor_designation:'',
+        instructor_designation:'Full Stack Web Developer, Freelance Developer, Instructor',
         instructor_image: wd_i,
         image: webImage,
         feature_alt:[
