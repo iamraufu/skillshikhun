@@ -50,15 +50,18 @@ import { faUsers, faClock, faCalendarDays, faPhone, faCheck, faAngleDown, faAngl
 import courseData from '../../data/course/courseData.js';
 import live from '../../images/liveClass.svg';
 import { Link } from 'react-router-dom';
-import paymentMethods from '../../images/payment-methods.png';
+// import paymentMethods from '../../images/payment-methods.png';
+import DemoClass from '../DemoClass/DemoClass';
+import HowToPayment from './HowToPayment';
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
+// const DemoClass = React.lazy(() => import('../DemoClass/DemoClass'));
 
 const Course = (props) => {
 
     const name = props.name;
 
     const course = courseData.find(course => course.name === name);
-    const otherCourses = [courseData.filter(otherCourses => otherCourses.name !== name)];
+    // const otherCourses = [courseData.filter(otherCourses => otherCourses.name !== name)];
 
     const [showMore, setShowMore] = useState(false);
 
@@ -74,18 +77,18 @@ const Course = (props) => {
             <div className="container py-5">
                 <div className="row">
                     <div className="col-lg-6">
-                        <div style={{top: '120px', borderRadius: '25px'}} className="position-sticky">
-                            <h2 style={{fontSize:'22px'}} className='text-center course-alt-title fw-bold'>{course.alt_title}</h2>
+                        <div style={{ top: '120px', borderRadius: '25px' }} className="position-sticky">
+                            <h2 style={{ fontSize: '22px' }} className='text-center course-alt-title fw-bold'>{course.alt_title}</h2>
                             <div className="responsive-embed-youtube">
-                                <iframe className='' width="100%" height='auto' src={`${course.source}?controls=0`} title={course.slug} style={{borderRadius: '22px' }} allowFullScreen srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${course.source}?controls=0><img src=${course.image} alt=${course.alt_title} loading="lazy"><span>▶</span></a>`}
+                                <iframe className='' width="100%" height='auto' src={`${course.source}?controls=0`} title={course.slug} style={{ borderRadius: '22px' }} allowFullScreen srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${course.source}?controls=0><img src=${course.image} alt=${course.alt_title} loading="lazy"><span>▶</span></a>`}
                                 ></iframe>
                             </div>
-                        
-                            <div style={{marginTop: '-1rem', backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec'}} className="container">
+
+                            <div style={{ marginTop: '-1rem', backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="container">
                                 <div className="row py-5">
                                     <div className="d-flex py-3">
                                         <div className="col-lg-6">
-                                            <h2 style={{ fontSize: '20px', lineHeight: '24px'}} className='text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
+                                            <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
                                         </div>
                                         <div className="col-lg-6">
                                             <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.offer_price_per_month}/মাস</h2>
@@ -95,35 +98,35 @@ const Course = (props) => {
                                         <div className="col-md-6">
                                             <div className="d-flex justify-content-center">
                                                 <div className="mt-2 me-2 fs-4">
-                                                    <FontAwesomeIcon style={{fontSize:'16px',lineHeight:'24px'}} icon={faUsers} />
+                                                    <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faUsers} />
                                                 </div>
                                                 <div className="">
-                                                    <p style={{fontSize:'14px', lineHeight:'22px'}} className='text-center'> কোর্সটি করেছেন<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize:'16px', lineHeight:'24px' }} className='fw-bold px-3'>{course.course_done}</span></p>
+                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> কোর্সটি করেছেন<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_done}</span></p>
                                                 </div>
                                             </div>
 
                                             <div className="d-flex justify-content-center">
                                                 <div className="mt-3 me-2 fs-4">
-                                                    <FontAwesomeIcon style={{fontSize:'16px', lineHeight:'24px'}} icon={faCalendarDays} />
+                                                    <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faCalendarDays} />
                                                 </div>
                                                 <div className="">
-                                                    <p style={{fontSize:'14px', lineHeight:'22px'}} className='text-center mt-2'> নেক্সট ব্যাচ<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize:'16px', lineHeight:'24px' }} className='fw-bold px-3'>{course.next_batch} ২০২২</span></p>
+                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center mt-2'> নেক্সট ব্যাচ<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.next_batch} ২০২২</span></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="col-md-6">
                                             <div className="d-flex justify-content-center">
                                                 <div className="mt-2 me-2 fs-4">
-                                                    <FontAwesomeIcon style={{fontSize:'16px',lineHeight:'24px'}} icon={faClock} />
+                                                    <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faClock} />
                                                 </div>
                                                 <div className="">
-                                                    <p style={{fontSize:'14px', lineHeight:'22px'}} className='text-center'> সময় লাগবে<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize:'16px', lineHeight:'24px' }} className='fw-bold px-3'>{course.course_duration} মাস</span></p>
+                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> সময় লাগবে<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_duration} মাস</span></p>
                                                 </div>
                                             </div>
 
                                             <div className="d-flex justify-content-center">
                                                 <div className="">
-                                                    <p style={{fontSize:'14px', lineHeight:'22px'}} className='text-center'><img src={live} className='img-fluid pe-1' width={35} alt="live class" /> লাইভ ক্লাস সংখ্যা<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize:'16px', lineHeight:'24px' }} className='fw-bold px-3 ms-4'>{course.total_classes} টি</span></p>
+                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'><img src={live} className='img-fluid pe-1' width={35} alt="live class" /> লাইভ ক্লাস সংখ্যা<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3 ms-4'>{course.total_classes} টি</span></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -131,12 +134,12 @@ const Course = (props) => {
                                     <h2 style={{ textDecoration: 'underline', cursor: 'pointer' }} className='fs-4 ms-2 text-center my-3'>প্রোমো কোড</h2>
                                     <div className="container">
                                         <div className="row">
-                                        <div className="col-md-6 mt-1">
-                                            <Link to='/demo-class' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3'>একটি ফ্রি ক্লাস করে দেখুন &#8594;</button></Link>
-                                        </div>
-                                        <div className="col-md-6 mt-1">
-                                            <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3'>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
-                                        </div>
+                                            <div className="col-md-6 mt-1">
+                                                <Link to='/demo-class' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3'>একটি ফ্রি ক্লাস করে দেখুন &#8594;</button></Link>
+                                            </div>
+                                            <div className="col-md-6 mt-1">
+                                                <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3'>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
+                                            </div>
                                         </div>
                                     </div>
                                     <p className='text-center mt-3'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
@@ -144,9 +147,9 @@ const Course = (props) => {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="col-lg-6">
-                        <h2 style={{ marginTop: '3.5rem', fontSize:'22px' }} className="text-center py-3 fw-bold">কোর্স মডিউল</h2>
+                        <h2 style={{ marginTop: '3.5rem', fontSize: '22px' }} className="text-center py-3 fw-bold">কোর্স মডিউল</h2>
                         {
                             showMore ?
                                 <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -187,29 +190,35 @@ const Course = (props) => {
 
                         {/* What you'll learn in this course */}
                         <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="mt-5">
-                            <h2 style={{ color: '#343b6d', fontSize:'22px' }} className='fw-bold text-center mt-3'>এই কোর্সে আপনি কি শিখবেন?</h2>
+                            <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'>এই কোর্সে আপনি কি শিখবেন?</h2>
                             <ul className='p-4'>
                                 {
-                                    course.features.map(item => <li key={item.id} style={{ color: '#454c7e', textAlign: 'justify', listStyle: 'none',fontSize:'16px',lineHeight:'24px',fontWeight:'400' }} className="mt-2" ><FontAwesomeIcon className='text-success' icon={faCheck} /> {item.item}</li>)
+                                    course.features.map(item => <li key={item.id} style={{ color: '#454c7e', textAlign: 'justify', listStyle: 'none', fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className="mt-2" ><FontAwesomeIcon className='text-success' icon={faCheck} /> {item.item}</li>)
                                 }
                             </ul>
                         </div>
 
                         {/* Instructor Profile */}
                         <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="container course-instructor mt-5">
-                            <h2 style={{ color: '#343b6d', fontSize:'22px' }} className='fw-bold text-center mt-3'>ইনস্ট্রাক্টর</h2>
+                            <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'>ইনস্ট্রাক্টর</h2>
                             <div className="d-flex m-2">
                                 <div className="py-2">
-                                <img style={{ borderRadius: '50%' }} src={course.instructor_image} alt={course.course_instructor} className='img-fluid' />
+                                    <img style={{ borderRadius: '50%' }} src={course.instructor_image} alt={course.course_instructor} className='img-fluid' />
                                 </div>
                                 <div className="p-3">
-                                    <h3 style={{fontSize:'18px',lineHeight:'28px'}}>{course.course_instructor}</h3>
+                                    <h3 style={{ fontSize: '18px', lineHeight: '28px' }}>{course.course_instructor}</h3>
                                     {
-                                        course?.instructor_designation ? <p style={{fontSize:'14px',lineHeight:'20px'}}>{course.instructor_designation}</p> : <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, molestias!</p>
+                                        course?.instructor_designation ? <p style={{ fontSize: '14px', lineHeight: '20px' }}>{course.instructor_designation}</p> : <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, molestias!</p>
                                     }
                                 </div>
                             </div>
                         </div>
+
+                        {/* Demo Class Registration Form */}
+                        <DemoClass course={course} />
+
+                        {/* How to payment */}
+                        <HowToPayment course={course} />
 
                         {/* Payment System */}
                         {/* <div className="payment-container mt-5">
@@ -234,6 +243,7 @@ const Course = (props) => {
 
                 </div>
             </div>
+
 
             {/* Other Course Container  */}
             {/* <div className="container py-5">
@@ -261,7 +271,7 @@ const Course = (props) => {
             <div className="container-fluid d-lg-none fixed-bottom bg-white">
                 <div className="my-1">
                     <button className='btn-buy mx-auto d-block p-3'>এখনই ভর্তি হয়ে যান &#8594;</button>
-               </div>
+                </div>
 
             </div>
         </div>
