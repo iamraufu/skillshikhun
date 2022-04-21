@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-            <Hero />
+            {/* <Hero /> */}
             <FeaturedCourses />
             <SSFeatures />
             <SSModels />
