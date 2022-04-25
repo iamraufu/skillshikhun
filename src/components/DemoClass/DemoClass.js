@@ -38,7 +38,7 @@ const DemoClass = (props) => {
     }
 
     return (
-        <section className='demo-class-container'>
+        <section ref={props.refProp} className='demo-class-container'>
             {/* <Navbar /> */}
             <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="container mt-5">
                 {/* <h1 style={{ fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '600' }} className='mt-5 pt-5 text-center'>ডেমো ক্লাস রেজিস্ট্রেশন</h1> */}

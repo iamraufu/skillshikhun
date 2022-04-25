@@ -43,7 +43,7 @@
 
 // export default Course;
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './Course.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faClock, faCalendarDays, faPhone, faCheck, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
@@ -53,7 +53,7 @@ import { Link } from 'react-router-dom';
 // import paymentMethods from '../../images/payment-methods.png';
 import DemoClass from '../DemoClass/DemoClass';
 import CourseReview from './CourseReview';
-const HowToPayment = React.lazy(() => import ('./HowToPayment'));
+const HowToPayment = React.lazy(() => import('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 // const DemoClass = React.lazy(() => import('../DemoClass/DemoClass'));
 
@@ -65,10 +65,17 @@ const Course = (props) => {
     // const otherCourses = [courseData.filter(otherCourses => otherCourses.name !== name)];
 
     const [showMore, setShowMore] = useState(false);
+    const [promoCode, setPromoCode] = useState(false);
+
+    const myRef = useRef(null);
 
     const seeMore = () => {
         setShowMore(false);
         window.scrollTo(0, 0);
+    }
+
+    const handlePromoCode = () =>{ 
+        setPromoCode(true);
     }
 
     return (
@@ -87,7 +94,7 @@ const Course = (props) => {
 
                             <div style={{ marginTop: '-1rem', backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="container">
                                 <div className="row py-5">
-                                    <div className="d-flex py-3">
+                                    <div style={{ justifyContent: 'space-between' }} className="d-flex py-3">
                                         <div className="col-lg-6">
                                             <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
                                         </div>
@@ -95,7 +102,7 @@ const Course = (props) => {
                                             <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.offer_price_per_month}/মাস</h2>
                                         </div>
                                     </div>
-                                    <div className="d-flex py-2">
+                                    <div style={{ justifyContent: 'space-between' }} className="d-flex py-2">
                                         <div className="col-md-6">
                                             <div className="d-flex justify-content-center">
                                                 <div className="mt-2 me-2 fs-4">
@@ -133,10 +140,11 @@ const Course = (props) => {
                                         </div>
                                     </div>
                                     <h2 style={{ textDecoration: 'underline', cursor: 'pointer' }} className='fs-4 ms-2 text-center my-3'>প্রোমো কোড</h2>
+                                    
                                     <div className="container">
                                         <div className="row">
                                             <div className="col-md-6 mt-1">
-                                                <Link to='/demo-class' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3'>একটি ফ্রি ক্লাস করে দেখুন &#8594;</button></Link>
+                                                <Link to='' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3' onClick={()=>myRef.current.scrollIntoView()}>একটি ফ্রি ক্লাস করে দেখুন &#8594;</button></Link>
                                             </div>
                                             <div className="col-md-6 mt-1">
                                                 <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3'>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
@@ -207,7 +215,7 @@ const Course = (props) => {
                                     <img style={{ borderRadius: '50%' }} src={course.instructor_image} alt={course.course_instructor} className='img-fluid' />
                                 </div>
                                 <div className="p-3">
-                                    <h3 style={{ fontSize: '18px', lineHeight: '28px' }}>{course.course_instructor}</h3>
+                                    <h3 style={{ fontSize: '18px', lineHeight: '28px', textAlign: 'justify' }}>{course.course_instructor}</h3>
                                     {
                                         course?.instructor_designation ? <p style={{ fontSize: '14px', lineHeight: '20px' }}>{course.instructor_designation}</p> : <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, molestias!</p>
                                     }
@@ -216,7 +224,7 @@ const Course = (props) => {
                         </div>
 
                         {/* Demo Class Registration Form */}
-                        <DemoClass course={course} />
+                        <DemoClass course={course} refProp={myRef} />
 
                         {/* How to payment */}
                         <HowToPayment course={course} />
@@ -272,8 +280,16 @@ const Course = (props) => {
             </div> */}
 
             {/* Display on smaller devices */}
-            <div className="container-fluid d-lg-none fixed-bottom bg-white">
-                <div className="my-1">
+            <div style={{ boxShadow: '0 3px 10px 3px #0003' }} className="container-fluid d-lg-none fixed-bottom bg-white">
+                <div className="my-2">
+                    <div style={{ justifyContent: 'space-between' }} className="d-flex my-3">
+                        <div className="col-md-6">
+                            <h2 onClick={handlePromoCode} style={{ textDecoration: 'underline', cursor: 'pointer', fontSize: '20px', lineHeight: '24px' }} className=''>প্রোমো কোড</h2>
+                        </div>
+                        <div className="col-md-6">
+                            <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.offer_price_per_month}/মাস</h2>
+                        </div>
+                    </div>
                     <button className='btn-buy mx-auto d-block p-3'>এখনই ভর্তি হয়ে যান &#8594;</button>
                 </div>
 

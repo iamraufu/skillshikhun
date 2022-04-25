@@ -1,7 +1,7 @@
 import React from 'react';
-import recorded_class from '../../images/recorded_class.svg';
-import live_class from '../../images/live_class.svg';
-import tuition_solution from '../../images/tuition_solution.svg';
+import recorded_class from '../../images/recorded_class.png';
+import live_class from '../../images/live_class.png';
+import tuition_solution from '../../images/tuition_solution.png';
 
 const SSModels = () => {
     return (
@@ -18,7 +18,7 @@ const SSModels = () => {
                                 <div style={{fontSize:'18px',lineHeight:'31px',fontWeight:'500',color:'#454c7e'}} className="row pt-5 ps-5">
                                     <div className="col-md-6">
                                         <p>⚡️ ভিডিও লেসন</p>
-                                        <p>⚡️ প্রবলেম সলভিং লেসন</p>
+                                        <p>⚡️ প্রবলেম সলভিং</p>
                                         <p>⚡️ অ্যানালাইসিস</p>
                                     </div>
                                     <div className="col-md-6">

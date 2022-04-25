@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../../images/logo.png';
 import useAuth from '../../../hooks/useAuth';
@@ -8,29 +8,32 @@ const Navbar = () => {
 
     const {user} = useAuth();
 
+    const myRef = useRef(null);
+
     return (
         <div style={{ backgroundColor: 'white' }} className="fixed-top">
-            {/* <div className="bg-danger"><h1 className='text-center'>এই সাইট উন্নয়নাধীন আছে</h1></div> */}
-            <div style={{ height: '80px' }} className="container-xl">
+            <div style={{ height: '75px' }} className="container-xl navbar-container">
 
                 <nav className="navbar navbar-expand-lg navbar-light mt-1">
-                    <div className="container-fluid">
+                    <div className="container-fluid navbar-container">
 
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <button onClick={()=>myRef.current.scrollIntoView()} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
 
                         <Link onClick={() => { window.scrollTo(0, 0); }} to='/' className='mx-auto d-block'>
-                            <img src={logo} className='img-fluid' width={100} alt="Skill শিখুন" loading="lazy" />
+                            <img onClick={()=>{
+                            document.addEventListener('contextmenu', event => event.preventDefault());
+                            }} src={logo} className='img-fluid' width={90} alt="Skill শিখুন" loading="lazy" />
                         </Link>
 
                         {
                             user.email? 
-                            <Link className="text-decoration-none text-danger d-lg-none" to="/dashboard"><button className='login-btn-lg btn-dark btn'>ড্যাশবোর্ড</button></Link> :
-                            <Link className="text-decoration-none text-black d-lg-none fw-bold" to="/login">লগ-ইন</Link>
+                            <Link className="text-decoration-none text-danger d-lg-none" to="/dashboard" onClick={()=>{window.scrollTo(0, 0);}}><button className='login-btn-lg btn-dark btn me-2'>ড্যাশবোর্ড</button></Link> :
+                            <Link className="text-decoration-none text-black d-lg-none fw-bold me-2" to="/login" onClick={()=>{window.scrollTo(0, 0);}}>লগ-ইন</Link>
                         }
 
-                        <div style={{ width: '10%' }} className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div className="collapse navbar-collapse navbar-menu" id="navbarNavAltMarkup">
                             {
                                 user.email?
                                 <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">
@@ -40,12 +43,31 @@ const Navbar = () => {
                             </div>
                                  : 
                                  <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">
-                                <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/digital-marketing">ডিজিটাল মার্কেটিং</Link>
-                                <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/video-editing">ভিডিও এডিটিং</Link>
-                                <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/web-development">ওয়েব ডেভেলপমেন্ট</Link>
-                                <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/graphics-design">গ্রাফিক্স ডিজাইন</Link>
-                                <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/admission">অ্যাডমিশন</Link>
-                                <Link onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/contact">যোগাযোগ</Link>
+                                <NavLink onClick={()=>{window.scrollTo(0, 0);}} 
+                                className="nav-link nav-item" to="/digital-marketing" style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
+                                  })}>ডিজিটাল মার্কেটিং</NavLink>
+                                <NavLink style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
+                                  })} onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/video-editing">ভিডিও এডিটিং</NavLink>
+                                <NavLink style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
+                                  })} onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/web-development">ওয়েব ডেভেলপমেন্ট</NavLink>
+                                <NavLink style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
+                                  })} onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/graphics-design">গ্রাফিক্স ডিজাইন</NavLink>
+                                <NavLink style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
+                                  })} onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/admission">অ্যাডমিশন</NavLink>
+                                <NavLink style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
+                                  })} onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/contact">যোগাযোগ</NavLink>
                             </div>
                             }
                         </div>

@@ -2,10 +2,10 @@ import videoImage from '../../images/full-stack-video-editing.png';
 import digitalImage from '../../images/full-stack-digital-marketing.png';
 import webImage from '../../images/full-stack-web-development.png';
 import graphicsImage from '../../images/full-stack-graphic-design.png';
-import ve_i from '../../images/ve_i.png';
-import dm_i from '../../images/dm_i.png';
-import wd_i from '../../images/wd_i.png';
-import gd_i from '../../images/gd_i.png';
+import ve_i from '../../images/ve_i.jpg';
+import dm_i from '../../images/dm_i.jpg';
+import wd_i from '../../images/wd_i.jpg';
+import gd_i from '../../images/gd_i.jpg';
 
 const courseData = [
     {
@@ -219,7 +219,7 @@ const courseData = [
         course_done:'১৮১,২১৬',
         next_batch:'জুন',
         course_instructor:'আতাউল হোসেন',
-        instructor_designation:'ব্যাচেলর অব মিডিয়া স্টাডিজ এন্ড জারনালিজম - উনিভারসিটি অব লিবারেল আর্টস বাংলাদেশ, কো - ফাউন্ডার, স্কিল শিখুন, কো - ফাউন্ডার, স্টেপ টু ডিজিটাল',
+        instructor_designation:'কো - ফাউন্ডার, স্কিল শিখুন, কো - ফাউন্ডার, স্টেপ টু ডিজিটাল',
         instructor_image: dm_i,
         image: digitalImage,
         feature_alt:[
