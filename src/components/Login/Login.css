@@ -2,8 +2,9 @@
     padding-top: 7rem;
 }
 
-.submit-btn,
-.otp-submit-btn {
+.number-submit-btn,
+.otp-submit-btn,
+.password-submit-btn {
     /* background-color: rgb(84, 104, 255); */
     background-color: grey;
     border-radius: 15px;
@@ -17,6 +18,19 @@
 }
 
 .otp-submit-btn {
+    width: 22%;
+    margin-top: 3px;
+    max-height: 3.3rem;
+}
+
+.password-submit-btn {
+    width: 100%;
+    margin-top: 3px;
+    max-height: 3.3rem;
+}
+
+.otp-submit-btn,
+.password-submit-btn {
     background-color: rgb(84, 104, 255);
 }
 
