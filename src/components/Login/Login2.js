@@ -26,11 +26,11 @@ const Login2 = () => {
     const onSubmit = data => OTPGenerate(data);
 
     const OTPGenerate = (data) => {
-        console.log(data);
+        // console.log(data);
         const phone_number = data.phone;
         const otp = Math.floor(Math.random() * 9000 + 1000);
-        console.log("OTP is " + otp);
-        console.log("Your Phone number is: " + phone_number);
+        // console.log("OTP is " + otp);
+        // console.log("Your Phone number is: " + phone_number);
     }
 
     
@@ -47,20 +47,20 @@ const Login2 = () => {
             // }
             
             if (inputLength < 11) {
-                console.log("Fake")
+                // console.log("Fake")
                 const submit_btn = document.querySelector('#submit_btn');
                 submit_btn.disabled = true;
             }
             if (inputLength === 11) {
-                console.log("Real")
+                // console.log("Real")
                 const submit_btn = document.querySelector('#submit_btn');
                 submit_btn.disabled = true;
                 submit_btn.innerHTML = "Please wait...";
                 onSubmit(OTPGenerate(parseInt(inputValue)));
-                console.log(typeof(inputValue));
+                // console.log(typeof(inputValue));
 
             }
-            console.log(input.value)
+            // console.log(input.value)
         });
         // console.log(e.target.value);
     }

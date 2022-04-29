@@ -1,7 +1,6 @@
 .hero-container {
     background-image: url('../../images/waves.svg');
     background-position: center;
-    /* background-size: auto; */
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -12,14 +11,14 @@
 }
 
 .hero-text {
-    font-size: 36px;
+    font-size: 24px;
     line-height: 52px;
     font-weight: 600;
     /* margin: 10rem 0 0rem 0rem; */
 }
 
 .hero-text-sub {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 38px;
     font-weight: 500;
     /* margin: 0 0 2rem 5rem; */
@@ -45,7 +44,7 @@
 }
 
 .hero-image {
-    width: 100%;
+    width: 65%;
 }
 
 @media (max-width: 1399px) {

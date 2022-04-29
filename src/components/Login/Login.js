@@ -100,7 +100,7 @@ const Login = () => {
         }
 
         // send otp to user
-       await fetch('http://localhost:5000/api/send-otp', {
+       await fetch('https://skillshikhun.herokuapp.com/api/send-otp', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -131,7 +131,7 @@ const Login = () => {
 
         const otp = otpData.otp;
 
-        fetch('http://localhost:5000/api/otp-verification', {
+        fetch('https://skillshikhun.herokuapp.com/api/otp-verification', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -158,7 +158,7 @@ const Login = () => {
     const passwordInput = (passwordData) => {
         const inputtedPassword = passwordData.password;
 
-        fetch('http://localhost:5000/api/password-input', {
+        fetch('https://skillshikhun.herokuapp.com/api/password-input', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -185,7 +185,7 @@ const Login = () => {
     const passwordVerification = (passwordData) => {
         const inputtedPassword = passwordData.password;
 
-        fetch('http://localhost:5000/api/password-input-login', {
+        fetch('https://skillshikhun.herokuapp.com/api/password-input-login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -217,7 +217,7 @@ const Login = () => {
 
     // function for forget password
     const forgetPassword = () => {
-        console.log(phone);
+        // console.log(phone);
     }
 
     return (
@@ -232,11 +232,11 @@ const Login = () => {
                         <div className="d-flex mx-auto d-block justify-content-center mt-3">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="d-flex">
-                                    <span style={{ fontSize: '20px', lineHeight: '30px', color: '#4b5563', fontWeight: '400', backgroundColor: 'white', height: '50px', borderRadius: '5px' }} className='pt-2 px-2'>+88</span>
+                                    <span style={{ fontSize: '16px', lineHeight: '24px', color: '#4b5563', fontWeight: '400', backgroundColor: 'white', height: '50px', borderRadius: '5px',paddingTop:'0.8rem' }} className='px-2'>+88</span>
                                     <input
                                     id = 'number_input'
                                         onChangeCapture={handlePhoneNumberChange}
-                                        className='form-control form mx-auto d-block' type="tel" aria-describedby='phone' autoComplete='off' maxLength='11' style={{ fontSize: '18px', lineHeight: '27px', color: '#8288b2', fontWeight: '400', backgroundColor: 'white', border: 'none', focus: 'red', maxWidth: '400px', height: '50px', marginLeft: '-0.3rem' }}
+                                        className='form-control form mx-auto d-block' type="tel" aria-describedby='phone' autoComplete='off' maxLength='11' style={{ fontSize: '18px', lineHeight: '27px', color: '#8288b2', fontWeight: '400', backgroundColor: 'white', border: 'none', focus: 'red', maxWidth: '400px', height: '50px', marginLeft: '-0.35rem' }}
                                         {...register("phone", { required: true })} placeholder="আপনার মােবাইল নম্বর দিন" />
                                 </div>
 

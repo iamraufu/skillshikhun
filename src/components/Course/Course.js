@@ -62,9 +62,11 @@ const Course = (props) => {
     const name = props.name;
 
     const course = courseData.find(course => course.name === name);
+    // console.log(course);
     // const otherCourses = [courseData.filter(otherCourses => otherCourses.name !== name)];
 
     const [showMore, setShowMore] = useState(false);
+    // eslint-disable-next-line
     const [promoCode, setPromoCode] = useState(false);
 
     const myRef = useRef(null);
@@ -223,11 +225,11 @@ const Course = (props) => {
                             </div>
                         </div>
 
-                        {/* Demo Class Registration Form */}
-                        <DemoClass course={course} refProp={myRef} />
-
                         {/* How to payment */}
                         <HowToPayment course={course} />
+
+                        {/* Demo Class Registration Form */}
+                        <DemoClass course={course} refProp={myRef} />
 
                         {/* Course Review */}
                         <CourseReview course={course} />

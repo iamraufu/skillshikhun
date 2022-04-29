@@ -18,16 +18,16 @@ const Hero = () => {
         <div style={{ marginTop: '8vh' }} className='hero-container'>
             <div className="container">
                 <div className="row">
-                    <div data-aos='zoom-in' className="col-sm-4 col-md-6">
+                    <div data-aos='zoom-in' className="col-xl-8 col-lg-7 col-md-6">
                         <img src={landingFront} className='img-fluid hero-image mt-5' alt="free webinar" loading="lazy" />
                         <h2 className='text-white hero-text'>
-                            <img src={logoText} width={200} className='img-fluid pe-2' alt="logo text" loading="lazy" />
+                            <img src={logoText} width={150} className='img-fluid pe-2' alt="logo text" loading="lazy" />
                             এর সাথে
                             <br />
                             ঘরে বসেই পা বাড়ান ভবিষ্যতের পথে!</h2>
                         <p className='text-white hero-text-sub'>সরাসরি ইন্সট্রাক্টর এর সাথে লাইভ ক্লাসের মাধ্যমে শিখে নিন ক্যারিয়ার ভিত্তিক ভবিষ্যৎ এর সব স্কিল</p>
                     </div>
-                    <div className="col-sm-8 col-md-6 mt-5">
+                    <div className="col-xl-4 col-lg-5 col-md-6 mt-5">
                         <DemoClass course={courseData} />
                     </div>
                 </div>

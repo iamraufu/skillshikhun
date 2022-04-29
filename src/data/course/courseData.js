@@ -28,6 +28,20 @@ const courseData = [
         next_batch:'জুন',
         course_instructor:'সাব্বির আহমেদ',
         instructor_designation:'Full Stack Web Developer, Freelance Developer, Instructor',
+        class_date:[
+            {
+                id:1,
+                date:'2022-05-13'
+            },
+            {
+                id:2,
+                date:'2022-05-27'
+            }
+        ],
+        class_time:'7PM - 8:30PM',
+        class_date_1:'2022-05-13',
+        class_date_2:'2022-05-27',
+        zoom_link:'https://cutt.ly/OGYwUBr',
         instructor_image: ve_i,
         image: videoImage,
         feature_alt:[
@@ -220,6 +234,20 @@ const courseData = [
         next_batch:'জুন',
         course_instructor:'আতাউল হোসেন',
         instructor_designation:'কো - ফাউন্ডার, স্কিল শিখুন, কো - ফাউন্ডার, স্টেপ টু ডিজিটাল',
+        class_date:[
+            {
+                id:1,
+                date:'2022-05-13'
+            },
+            {
+                id:2,
+                date:'2022-05-27'
+            }
+        ],
+        class_time:'4PM - 5:30PM',
+        class_date_1:'2022-05-13',
+        class_date_2:'2022-05-27',
+        zoom_link:'https://cutt.ly/uGYwnaQ',
         instructor_image: dm_i,
         image: digitalImage,
         feature_alt:[
@@ -382,6 +410,20 @@ const courseData = [
         next_batch:'মে',
         course_instructor:'সায়মা বিবি',
         instructor_designation:'Full Stack Web Developer, Freelance Developer, Instructor',
+        class_date:[
+            {
+                id:1,
+                date:'2022-05-20'
+            },
+            {
+                id:2,
+                date:'2022-03-06'
+            }
+        ],
+        class_time:'4PM - 5:30PM',
+        class_date_1:'2022-05-20',
+        class_date_2:'2022-03-06',
+        zoom_link:'https://cutt.ly/hGYwSB2',
         instructor_image: gd_i,
         image:graphicsImage,
         feature_alt:[
@@ -579,6 +621,20 @@ const courseData = [
         next_batch:'মে',
         course_instructor:'ইফতিখার রহমান',
         instructor_designation:'Full Stack Web Developer, Freelance Developer, Instructor',
+        class_date:[
+            {
+                id:1,
+                date:'2022-05-20'
+            },
+            {
+                id:2,
+                date:'2022-03-06'
+            }
+        ],
+        class_time:'4PM - 5:30PM',
+        class_date_1:'2022-05-20',
+        class_date_2:'2022-03-06',
+        zoom_link:'https://cutt.ly/sGYwJxg',
         instructor_image: wd_i,
         image: webImage,
         feature_alt:[

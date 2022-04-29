@@ -20,7 +20,7 @@ const useFirebase = () => {
     const signInUsingGoogle = () => {
         signInWithPopup(auth, googleProvider)
         .then(result => {
-            console.log(result);
+            // console.log(result);
             setUser(result.user);
             registerUser(result.user);
         })
@@ -36,7 +36,7 @@ const useFirebase = () => {
             // registerUser(result.user);
           })
           .catch(error => {
-              console.log(error);
+            //   console.log(error);
             setError(error.message);
           });
       }
@@ -53,10 +53,11 @@ const useFirebase = () => {
         const password = data.password;
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
+                // eslint-disable-next-line
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 setError('');
-                console.log("done")
+                // console.log("done")
 
             })
             .catch(error => {
@@ -67,7 +68,7 @@ const useFirebase = () => {
     const handleResetPassword = (email) => {
         sendPasswordResetEmail(auth, email)
             .then(result => {
-                console.log(result);
+                // console.log(result);
             })
     }
 
@@ -96,7 +97,7 @@ const useFirebase = () => {
 
         const newUser = {name,email,phone,photo};
 
-        fetch('http://localhost:5000/addUser',{
+        fetch('https://skillshikhun.herokuapp.com/addUser',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

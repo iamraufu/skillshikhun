@@ -16,14 +16,8 @@ const Dashboard = () => {
     // const image = user.photoURL;
     const [demoClasses, setDemoClasses] = useState();
 
-    // useEffect(()=>{
-    //     fetch(`http://localhost:5000/demoClasses/email/${email}`)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data);
-    // })
     useEffect(() => {
-        fetch(`http://localhost:5000/demoClasses/email/${email}`)
+        fetch(`https://skillshikhun.herokuapp.com/demoClasses/email/${email}`)
             .then(res => res.json())
             .then(data => setDemoClasses(data))
         // eslint-disable-next-line
