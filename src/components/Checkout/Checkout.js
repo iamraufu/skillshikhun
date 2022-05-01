@@ -3,8 +3,8 @@ import './Checkout.css';
 import { useParams } from 'react-router-dom';
 import Navbar from '../Shared/Navbar/Navbar';
 import courseData from '../../data/course/courseData.js';
-import bkash from '../../images/bkash.webp';
-import payment_medium from '../../images/payment-medium.webp';
+import bkash from '../../images/bkash.jpg';
+import payment_medium from '../../images/payment-medium.jpg';
 import CourseReview from '../Course/CourseReview';
 
 const Checkout = () => {
