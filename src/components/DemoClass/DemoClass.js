@@ -203,7 +203,7 @@ const DemoClass = (props) => {
         <section ref={props.refProp} className='demo-class-container'>
             {/* <Navbar /> */}
             <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="container mt-5">
-                <h1 style={{ fontSize: '22px', color: '#343b6d', fontWeight: '600' }} className='mt-5 text-center'>একটি ফ্রি ক্লাস করে দেখুন</h1>
+                <h1 style={{ fontSize: '22px', color: '#343b6d', fontWeight: '600' }} className='mt-5 text-center'>৩টি ফ্রি ক্লাস বুঝে নিন</h1>
 
                 <div style={{ margin: 'auto' }} className="col-lg-12 col-md-12 col-sm-12 py-3">
 
@@ -246,7 +246,7 @@ const DemoClass = (props) => {
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
-                                <h2 style={{ fontSize: '16px', color: '#343b6d', fontWeight: '600' }} className='mt-2 text-center mx-2'>যে কোর্স এ ভর্তি হতে চাচ্ছেন</h2>
+                                <h2 style={{ fontSize: '16px', color: '#343b6d', fontWeight: '600' }} className='mt-2 text-center mx-2'>যে কোর্সের ফ্রি ক্লাস করতে চাচ্ছেন</h2>
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
@@ -266,7 +266,7 @@ const DemoClass = (props) => {
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
-                                <h2 style={{ fontSize: '16px', color: '#343b6d', fontWeight: '600' }} className='mt-2 text-center mx-2'>ক্লাসের তারিখ বেছে নিন</h2>
+                                <h2 style={{ fontSize: '16px', color: '#343b6d', fontWeight: '600' }} className='mt-2 text-center mx-2'>প্রথম ক্লাসের তারিখ বেছে নিন</h2>
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>

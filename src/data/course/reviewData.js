@@ -14,7 +14,7 @@ const reviewData = [
         image:wd1,
         name:'Nabil Bin Md. Mizan Chowdhury',
         courseName:'Full Stack Web Development',
-        description:'I have Heard and seen so many types website for tech Webn development but Now I can find a Best and Good Website which can gives us best idea about Full stack web development. I wish brother can Gives us more videos about Websites make an attactive. Wish you a best return from Allah. Thank You So much Brother.'
+        description:'I have Heard and seen so many types website for tech Web development but Now I can find a Best and Good Website which can gives us best idea about Full stack web development. I wish brother can Gives us more videos about Websites make an attractive. Wish you a best return from Allah. Thank You So much Brother.'
     },     
     {
         id: 2,

@@ -6,7 +6,7 @@
 }
 
 .course-alt-title {
-    margin-top: 3rem;
+    margin-top: 4.7rem;
 }
 
 .alt-title {
@@ -20,7 +20,7 @@
     position: relative;
     padding-bottom: 56.25%;
     /* 16:9 Aspect Ratio */
-    padding-top: 25px;
+    margin-top: 19px;
 }
 
 .responsive-embed-youtube iframe {
@@ -78,6 +78,10 @@
     width: 94%;
     list-style-type: none;
     color: #54595f;
+}
+
+.other-courses:hover {
+    transform: translateY(-15px);
 }
 
 

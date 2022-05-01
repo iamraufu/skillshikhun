@@ -41,14 +41,14 @@ const Navbar = () => {
                                     color: isActive ? '#f8f9fa' : '#434257',
                                     background: isActive ? '#666699' : '#f4f4f8'
                                   })} className="nav-link nav-item" to="/courses">কোর্স সমূহ</NavLink>
-                                <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
+                                {/* <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
                                     color: isActive ? '#f8f9fa' : '#434257',
                                     background: isActive ? '#666699' : '#f4f4f8'
                                   })} className="nav-link nav-item" to="/admission">অ্যাডমিশন</NavLink>
                                 <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
                                     color: isActive ? '#f8f9fa' : '#434257',
                                     background: isActive ? '#666699' : '#f4f4f8'
-                                  })} className="nav-link nav-item" to="/contact">যোগাযোগ</NavLink>
+                                  })} className="nav-link nav-item" to="/contact">যোগাযোগ</NavLink> */}
                             </div>
                                  : 
                                  <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">
@@ -69,14 +69,14 @@ const Navbar = () => {
                                     color: isActive ? '#f8f9fa' : '#434257',
                                     background: isActive ? '#666699' : '#f4f4f8'
                                   })} onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/graphics-design">গ্রাফিক্স ডিজাইন</NavLink>
-                                <NavLink style={({ isActive }) => ({
+                                {/* <NavLink style={({ isActive }) => ({
                                     color: isActive ? '#f8f9fa' : '#434257',
                                     background: isActive ? '#666699' : '#f4f4f8'
                                   })} onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/admission">অ্যাডমিশন</NavLink>
                                 <NavLink style={({ isActive }) => ({
                                     color: isActive ? '#f8f9fa' : '#434257',
                                     background: isActive ? '#666699' : '#f4f4f8'
-                                  })} onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/contact">যোগাযোগ</NavLink>
+                                  })} onClick={()=>{window.scrollTo(0, 0);}} className="nav-link nav-item" to="/contact">যোগাযোগ</NavLink> */}
                             </div>
                             }
                         </div>
