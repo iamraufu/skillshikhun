@@ -198,6 +198,9 @@ const DemoClass = (props) => {
             .then(res => res.json())
     }
 
+    const warning = () =>{
+        document.getElementById('warning').style.display = 'block';
+    }
 
     return (
         <section ref={props.refProp} className='demo-class-container'>
@@ -213,8 +216,10 @@ const DemoClass = (props) => {
                             <div className="d-flex">
                                 <input id='number_input' onChangeCapture={handlePhoneNumberChange} className='form-input' type="tel" aria-describedby='phone' autoComplete='off' maxLength='11' {...register("phone", { required: true })} placeholder="ফোন নম্বর" />
 
-                                <div id="submit_btn_container">
-                                    <button type='submit' style={{margin:'4px 0 3px 3px'}} id='submit_btn' className='demo-submit-btn'>ওটিপি পাঠান</button>
+                                <div id="submit_btn_container" className='col-xl-4 col-lg-4 col-md-6 col-sm-6'>
+                                    <button type='submit' 
+                                    // style={{margin:'4px 0 3px 3px'}}
+                                    id='submit_btn' className='demo-submit-btn'>ওটিপি পাঠান</button>
                                 </div>
 
                             </div>
@@ -291,7 +296,9 @@ const DemoClass = (props) => {
                             <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register3("classTime")}>
                                 <option value={courseCategory[0].class_time}>{courseCategory[0].class_time}</option>
                             </select>
-
+                            
+                            <p id='warning' style={{display:'none'}} className='text-danger ms-2'>আপনার মোবাইল নম্বর ভেরিফাই করুন</p>
+                            
                             <div id="demo_submit_container"
                                 style={{ display: 'none' }}
                             >
@@ -301,7 +308,7 @@ const DemoClass = (props) => {
                     </div>
 
                 </div>
-                <button id='demo_submit_button' className='form-input-submit-2 mb-4'>একটি ফ্রি ক্লাস বুকিং করে নিন</button>
+                <button onClick={()=> warning() } id='demo_submit_button' className='form-input-submit-2 mb-4'>একটি ফ্রি ক্লাস বুকিং করে নিন</button>
             </div>
         </section>
     );

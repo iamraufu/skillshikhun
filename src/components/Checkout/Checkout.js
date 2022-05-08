@@ -15,22 +15,30 @@ const Checkout = () => {
     const handleSubscription = (type) => {
         if (type === 'full') {
             document.getElementById('full').style.border = "1px solid green";
+            document.getElementById('full').style.backgroundColor = "#f0f7ff";
             document.getElementById('monthly').style.border = "1px solid #dde7f3";
+            document.getElementById('monthly').style.backgroundColor = "transparent";
         }
         else {
             document.getElementById('full').style.border = "1px solid #dde7f3";
+            document.getElementById('full').style.backgroundColor = "transparent";
             document.getElementById('monthly').style.border = "1px solid green";
+            document.getElementById('monthly').style.backgroundColor = "#f0f7ff";
         }
     }
 
     const handlePayment = (type) => {
         if (type === 'bkash') {
             document.getElementById('bkash').style.border = "1px solid green";
+            document.getElementById('bkash').style.backgroundColor = "#f0f7ff";
             document.getElementById('payment_medium').style.border = "1px solid #dde7f3";
+            document.getElementById('payment_medium').style.backgroundColor = "transparent";
         }
         else {
             document.getElementById('bkash').style.border = "1px solid #dde7f3";
+            document.getElementById('bkash').style.backgroundColor = "transparent";
             document.getElementById('payment_medium').style.border = "1px solid green";
+            document.getElementById('payment_medium').style.backgroundColor = "#f0f7ff";
         }
     }
 
@@ -40,7 +48,7 @@ const Checkout = () => {
             <div className="container py-4">
                 <div className="row">
 
-                    <div className="col-lg-6">
+                    <div className="col-lg-6 d-none d-lg-block">
                         <h1 className='fw-bold checkout-title text-center'>আপনি যে কোর্সটি কিনছেন</h1>
 
                         <div style={{ borderRadius: '10px', boxShadow: '0 15px 30px #00000005' }} className="row bg-white p-3">
@@ -56,17 +64,17 @@ const Checkout = () => {
                         </div>
                     </div>
 
-                    <div className="col-lg-6 subscription-container">
+                    <div className="col-lg-6 subscription-container mt-5">
                         <h2 style={{ fontSize: '22px', lineHeight:'26px', fontWeight: '400' }} className='fw-bold mt-5 text-center'>সাবস্ক্রিপশন নির্বাচন করুন</h2>
 
                         {/* div for choosing subscription mode */}
                         <div style={{ borderRadius: '10px', boxShadow: '0 5.44687px 20.4258px #0000000d' }} className="bg-white p-3">
                             <div className="checkout-modes">
                                 <button id='monthly' className='subscription-btn'>
-                                    <div onClick={() => handleSubscription('monthly')} className="p-3 d-flex justify-content-center">
+                                    <div onClick={() => handleSubscription('monthly')} className="p-2 d-flex justify-content-center">
                                         <div className="col-sm-8">
                                             <h3 style={{ fontSize: '18px', lineHeight: '28px', fontWeight: 'bold' }}>{course[0].next_batch} মাসের ফি</h3>
-                                            <p style={{ fontSize: '16px', lineHeight: '28px' }}>মাসিক ভিত্তিতে একমাসের ফি পরিশোধ</p>
+                                            <p style={{ fontSize: '16px', lineHeight: '28px' }}>মাসিক ভিত্তিতে একমাসের ফি</p>
                                         </div>
                                         <div className="col-sm-4">
                                             <h4 style={{ fontSize: '22px', lineHeight: "34px", color: '#3f3f3f', textAlign: 'right' }}>&#2547; {course[0].offer_price_per_month}</h4>
@@ -77,10 +85,10 @@ const Checkout = () => {
 
                             <div className="checkout-modes">
                                 <button id='full' className='subscription-btn mt-3'>
-                                    <div onClick={() => handleSubscription('full')} className="mt-3 p-3 d-flex justify-content-center">
+                                    <div onClick={() => handleSubscription('full')} className="p-2 d-flex justify-content-center">
                                         <div className="col-sm-8">
                                             <h3 style={{ fontSize: '18px', lineHeight: '28px', fontWeight: 'bold' }}>{course[0].course_duration} মাসের ফি</h3>
-                                            <p style={{ fontSize: '16px', lineHeight: '28px' }}>একত্রে {course[0].next_batch} মাস সহ {course[0].course_duration} মাসের ফি পরিশোধ</p>
+                                            <p style={{ fontSize: '16px', lineHeight: '28px' }}>একত্রে {course[0].next_batch} মাস সহ {course[0].course_duration} মাসের ফি</p>
                                         </div>
                                         <div className="col-sm-4">
                                             <h4 style={{ fontSize: '22px', lineHeight: "34px", color: '#3f3f3f', textAlign: 'right' }}>&#2547; {course[0].offer_price}</h4>
@@ -104,22 +112,22 @@ const Checkout = () => {
                     </div>
 
                     <div className="col-lg-6">
-                        <h2 style={{ fontSize: '22px', lineHeight:'26px', fontWeight: '400' }} className='fw-bold mt-5 text-center'>পেমেন্ট মেথড নির্বাচন করুন</h2>
+                        <h2 style={{ fontSize: '22px', lineHeight:'26px', fontWeight: '400' }} className='fw-bold mt-4 text-center'>পেমেন্ট মেথড নির্বাচন করুন</h2>
 
                         {/* div for choosing payment mode */}
-                        <div style={{ borderRadius: '10px', boxShadow: '0 5.44687px 20.4258px #0000000d' }} className="bg-white p-3">
+                        <div style={{ borderRadius: '10px', boxShadow: '0 5.44687px 20.4258px #0000000d', height:'200px' }} className="bg-white p-3">
                             <div className="checkout-modes">
                                 <button id='bkash' className='subscription-btn'>
-                                    <div onClick={() => handlePayment('bkash')} className="p-3 d-flex">
-                                        <img src={bkash} alt="Pay With Bkash" width={300} className='img-fluid mx-auto d-block' />
+                                    <div onClick={() => handlePayment('bkash')} className="d-flex">
+                                        <img src={bkash} alt="Pay With Bkash" width={200} className='img-fluid mx-auto d-block' />
                                     </div>
                                 </button>
                             </div>
 
                             <div className="checkout-modes">
                                 <button id='payment_medium' className='subscription-btn mt-3'>
-                                    <div onClick={() => handlePayment('aamarpay')} className="mt-3 p-3 d-flex">
-                                        <img src={payment_medium} alt="Pay with other medium" width={300} className='img-fluid mx-auto d-block' />
+                                    <div onClick={() => handlePayment('aamarpay')} className="d-flex">
+                                        <img src={payment_medium} alt="Pay with other medium" width={150} className='p-2 img-fluid mx-auto d-block' />
                                     </div>
                                 </button>
                             </div>

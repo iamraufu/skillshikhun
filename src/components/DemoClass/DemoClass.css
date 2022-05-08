@@ -54,6 +54,10 @@ select:focus {
     margin: 0;
 }
 
+#submit_btn_container {
+    margin: 0px 4px 4px 4px;
+}
+
 .demo-submit-btn {
     background-color: #c7434b;
     border-radius: 5px;
@@ -63,6 +67,7 @@ select:focus {
     cursor: pointer;
     margin: 3px;
     height: 3.2rem;
+    width: 100%;
     padding: 2px;
     opacity: 0.9;
     font-size: 14px;

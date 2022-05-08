@@ -41,14 +41,23 @@ const Course = (props) => {
                 <div className="row">
                     <div className="col-lg-6">
                         <h1 style={{ fontSize: '22px' }} className='text-center course-alt-title fw-bold'>{course.alt_title}</h1>
-                        <div style={{ top: '100px', borderRadius: '25px' }} className="position-sticky">
+                        <div style={{ 
+                            // top: '100px', 
+                            borderTopRightRadius: '25px',
+                            borderTopLeftRadius: '25px' }} 
+                            // className="position-sticky"
+                            >
                             <div className="responsive-embed-youtube">
-                                <iframe className='' width="100%" height='auto' src={`${course.source}?controls=0`} title={course.slug} style={{ borderRadius: '22px' }} allowFullScreen srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${course.source}?controls=0><img src=${course.image} alt=${course.alt_title} loading="lazy"><span>▶</span></a>`}
+                                <iframe className='' width="100%" height='auto' src={`${course.source}?controls=0`} title={course.slug} style={{ borderTopRightRadius: '22px', borderTopLeftRadius:'22px'  }} allowFullScreen srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${course.source}?controls=0><img src=${course.image} alt=${course.alt_title} loading="lazy"><span>▶</span></a>`}
                                 ></iframe>
                                 {/* <img src={play} style={{position:'relative', zIndex:1, top:'50%', left:'50%', transform:'translate(-50%, -50%'}} className='img-fluid' width={45} alt={course.slug} /> */}
                             </div>
-                            <div style={{ marginTop: '-1rem', backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="container">
-                                <div className="row py-5">
+                            
+                        </div>
+                        <div style={{backgroundColor: 'white', 
+                        // borderBottomLeftRadius: '15px', borderBottomRightRadius:'15px', 
+                        border: '1px solid #ececec', top:'90px' }} className="container position-sticky">
+                                <div className="row py-3">
                                     <div style={{ justifyContent: 'space-between' }} className="d-flex py-3">
                                         <div className="col-lg-6">
                                             <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
@@ -64,7 +73,7 @@ const Course = (props) => {
                                                     <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faUsers} />
                                                 </div>
                                                 <div className="">
-                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> কোর্সটি করেছেন<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_done}</span></p>
+                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> কোর্সটি করেছেন<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_done} জন</span></p>
                                                 </div>
                                             </div>
 
@@ -94,7 +103,7 @@ const Course = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <h2 style={{ textDecoration: 'underline', cursor: 'pointer' }} className='fs-4 ms-2 text-center my-3'>প্রোমো কোড</h2>
+                                    {/* <h2 style={{ textDecoration: 'underline', cursor: 'pointer' }} className='fs-4 ms-2 text-center my-3'>প্রোমো কোড</h2> */}
 
                                     <div className="container">
                                         <div className="row">
@@ -109,7 +118,6 @@ const Course = (props) => {
                                     <p className='text-center mt-3'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
                                 </div>
                             </div>
-                        </div>
                     </div>
 
                     <div className="col-lg-6">
@@ -194,7 +202,7 @@ const Course = (props) => {
 
 
             {/* Other Course Container  */}
-            <div className="container py-5">
+            <div className="container py-5 d-none d-lg-block">
                 <h2 style={{ fontSize: '24px', lineHeight: '23px', color: '#343b6d' }} className='fw-bold text-center'>আরো কোর্স</h2>
                 <div className="row justify-content-center">
                     {

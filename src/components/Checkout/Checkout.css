@@ -20,10 +20,11 @@
 
 .checkout-modes {
     max-width: 600px;
+    min-height: 72px;
 }
 
 .checkout_course_review_container {
-    margin-top: -8rem;
+    margin-top: -1rem;
 }
 
 #monthly,
@@ -34,7 +35,7 @@
     border-radius: 10px;
     justify-content: space-between;
     width: 100%;
-    min-height: 125px;
+    max-height: 75px;
 }
 
 .btn-buy {

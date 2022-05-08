@@ -295,7 +295,7 @@ const Login = () => {
 
                     <div className="d-flex">
                         <div className="mx-auto d-block">
-                            <button style={{ backgroundColor: 'rgba(255,255,255,0.7)', borderRadius: '10px', border: '1px solid rgb(236,236,236)' }} className='btn mt-5' onClick={signInUsingGoogle}>
+                            <button style={{ backgroundColor: 'rgba(255,255,255,0.7)', borderRadius: '10px', border: '1px solid rgb(236,236,236)' }} className='btn' onClick={signInUsingGoogle}>
                                 <img width={60} src={google} alt="login with google" className='my-1 me-4' loading="lazy" />
                                 <span className='pe-2'>গুগল দিয়ে লগইন করুন</span>
                             </button>
