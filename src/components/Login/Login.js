@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, {
+    // useEffect, 
+    useState
+} from 'react';
 import './Login.css';
 import useAuth from '../../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import google from '../../images/google.png';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
+// import usePhone from '../../hooks/usePhone';
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
 const Login = () => {
@@ -13,11 +17,13 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    const { signInUsingGoogle, user } = useAuth();
+    const { signInUsingGoogle, registerUser, user } = useAuth();
 
     const [phone, setPhone] = useState(123);
     // eslint-disable-next-line
     const [password, setPassword] = useState("");
+    // eslint-disable-next-line
+    const [userName, setUserName] = useState("");
     const [flag, setFlag] = useState(false);
 
     if (user.email) {
@@ -76,6 +82,7 @@ const Login = () => {
 
     // submit function for password taking
     const onSubmit3 = data => {
+        setUserName(data.name);
         setPassword(data.password);
         passwordInput(data);
     }
@@ -90,17 +97,15 @@ const Login = () => {
         submit_btn.disabled = true;
         submit_btn.innerHTML = "অপেক্ষা করুন...";
         document.getElementById('submit_btn').style.backgroundColor = 'grey';
-        
+
         const phone_number = data.phone;
-        const otp = Math.floor(Math.random() * 9000 + 1000);
 
         const OTPDetails = {
-            phone: phone_number,
-            otp: otp
+            phone: phone_number
         }
 
         // send otp to user
-       await fetch('https://skillshikhun.herokuapp.com/api/send-otp', {
+        await fetch('https://skillshikhun.herokuapp.com/api/send-otp', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -120,15 +125,15 @@ const Login = () => {
                 }
             }
             )
-            document.getElementById('submit_btn_container').style.display = 'none';
-            document.getElementById('number_input').disabled = true;
-            document.getElementById('number_change_container').style.display = 'block';
+        document.getElementById('submit_btn_container').style.display = 'none';
+        document.getElementById('number_input').disabled = true;
+        document.getElementById('number_change_container').style.display = 'block';
     }
 
 
     // function for OTP verification
     const OTPVerification = (otpData) => {
-
+        console.log(otpData);
         const otp = otpData.otp;
 
         fetch('https://skillshikhun.herokuapp.com/api/otp-verification', {
@@ -148,6 +153,11 @@ const Login = () => {
                     document.getElementById('password_input_container').style.display = 'block';
                 }
                 else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter a valid OTP',
+                    })
                 }
             }
             )
@@ -157,7 +167,7 @@ const Login = () => {
     // function for password input
     const passwordInput = (passwordData) => {
         const inputtedPassword = passwordData.password;
-
+        const name = passwordData.name;
         fetch('https://skillshikhun.herokuapp.com/api/password-input', {
             method: 'POST',
             headers: {
@@ -165,6 +175,7 @@ const Login = () => {
             },
             body: JSON.stringify({
                 phone: phone,
+                name: name,
                 password: inputtedPassword
             })
         })
@@ -173,6 +184,13 @@ const Login = () => {
                 if (data.status === true) {
                     document.getElementById('password_input_container').style.display = 'none';
                     document.getElementById('password_verification_container').style.display = 'none';
+                    Swal.fire(
+                        `ধন্যবাদ ${name}! রেজিস্ট্রেশন সম্পন্ন হয়েছে`,
+                        'স্কিল শিখুন এ আপনাকে স্বাগতম!',
+                        'success'
+                    )
+                    let phoneUser = { displayName: name, email: '', phoneNumber: phone, photoURL: '', password: inputtedPassword };
+                    registerUser(phoneUser);
                     navigate('/');
                 }
                 else {
@@ -202,7 +220,7 @@ const Login = () => {
                         'লগইন সম্পন্ন হয়েছে!',
                         'স্কিল শিখুন এ আপনাকে স্বাগতম!',
                         'success'
-                        )
+                    )
                     navigate('/');
                 }
                 else {
@@ -218,6 +236,41 @@ const Login = () => {
     // function for forget password
     const forgetPassword = () => {
         // console.log(phone);
+        Swal.fire({
+            title: 'পাসওয়ার্ড ভুলে গেছেন?',
+            text: 'আপনি কি পাসওয়ার্ড ভুলে গেছেন?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'হ্যাঁ, ভুলে গেছি!'
+        }).then((result) => {
+            if (result.value) {
+                fetch('https://skillshikhun.herokuapp.com/api/forget-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        phone: phone
+                    })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.status === true) {
+                            Swal.fire(
+                                'ওটিপি পাঠানো হয়েছে।',
+                                'আপনার নির্দিষ্ট মোবাইল নম্বরে ওটিপি পাঠানো হয়েছে।',
+                                'success'
+                            )
+                        }
+                    })
+                document.getElementById('forget_password_container').style.display = 'none';
+                document.getElementById('password_verification_container').style.display = 'none';
+                document.getElementById('otp_verification_container').style.display = 'block';
+                // OTPVerification();
+            }
+        })
     }
 
     return (
@@ -232,16 +285,16 @@ const Login = () => {
                         <div className="d-flex mx-auto d-block justify-content-center mt-3">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="d-flex">
-                                    <span style={{ fontSize: '16px', lineHeight: '24px', color: '#4b5563', fontWeight: '400', backgroundColor: 'white', height: '50px', borderRadius: '5px',paddingTop:'0.8rem' }} className='px-2'>+88</span>
+                                    <span style={{ fontSize: '16px', lineHeight: '24px', color: '#4b5563', fontWeight: '400', backgroundColor: 'white', height: '50px', borderRadius: '5px', paddingTop: '0.8rem' }} className='px-2'>+88</span>
                                     <input
-                                    id = 'number_input'
+                                        id='number_input'
                                         onChangeCapture={handlePhoneNumberChange}
                                         className='form-control form mx-auto d-block' type="tel" aria-describedby='phone' autoComplete='off' maxLength='11' style={{ fontSize: '18px', lineHeight: '27px', color: '#8288b2', fontWeight: '400', backgroundColor: 'white', border: 'none', focus: 'red', maxWidth: '400px', height: '50px', marginLeft: '-0.35rem' }}
                                         {...register("phone", { required: true })} placeholder="আপনার মােবাইল নম্বর দিন" />
                                 </div>
 
-                                <div id='number_change_container' className="mt-2" style={{display:'none'}}>
-                                    <p onClick={()=> navigate('/dashboard')} style={{textAlign: 'right', fontSize: '13px',lineHeight:'24px', fontWeight: '400',cursor: 'pointer'}}>নাম্বার পরিবর্তন করুন</p>
+                                <div id='number_change_container' className="mt-2" style={{ display: 'none' }}>
+                                    <p onClick={() => navigate('/dashboard')} style={{ textAlign: 'right', fontSize: '13px', lineHeight: '24px', fontWeight: '400', cursor: 'pointer' }}>নাম্বার পরিবর্তন করুন</p>
                                 </div>
 
                                 <div id='submit_btn_container' className="">
@@ -256,19 +309,20 @@ const Login = () => {
                         <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#323862', fontWeight: '700' }} className='mt-3 text-center'>আপনার মোবাইল নম্বরে প্রেরিত ওটিপি দিন</h1>
                         <div className="mx-auto d-block">
                             <form onSubmit={handleSubmit2(onSubmit2)}>
-                                <input style={{ width: '285px', border:'none' }} className='form-control form mx-auto d-block' type="tel" autoComplete="off" maxLength="4" {...register2("otp", { required: true })} onKeyPress={(event, charCode) => { return event.charCode >= 48 && event.charCode <= 57 }} pattern="\d*" />
+                                <input style={{ width: '285px', border: 'none' }} className='form-control form mx-auto d-block' type="tel" autoComplete="off" maxLength="4" {...register2("otp", { required: true })} onKeyPress={(event, charCode) => { return event.charCode >= 48 && event.charCode <= 57 }} pattern="\d*" />
                                 <button style={{ maxWidth: '400px' }} className='otp-submit-btn mt-3 mx-auto d-block text-white'
                                 >এগিয়ে যান</button>
                             </form>
                         </div>
                     </div>
 
-                    {/* div for collecting password */}
+                    {/* div for collecting userName & password */}
                     <div id="password_input_container" style={{ display: 'none' }}>
-                        <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f', fontWeight: '700' }} className='text-center mt-3'>পাসওয়ার্ড</h2>
+                        <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f', fontWeight: '700' }} className='text-center mt-3'>আপনার তথ্য দিন</h2>
                         <div className="d-flex mx-auto d-block justify-content-center">
                             <form onSubmit={handleSubmit3(onSubmit3)}>
-                                <input style={{ width: '285px' }} className='form-control form mx-auto d-block' type="password" autoComplete="off" {...register3("password", { required: true })} />
+                                <input style={{ width: '285px', border: 'none' }} placeholder='আপনার নাম' className='form-control form mx-auto d-block' type="text" autoComplete="off" {...register3("name", { required: true })} />
+                                <input style={{ width: '285px' }} placeholder='পাসওয়ার্ড সেট করুন' className='form-control form mx-auto d-block mt-3' type="password" autoComplete="off" {...register3("password", { required: true })} />
                                 <button style={{ maxWidth: '400px' }} className='password-submit-btn mt-3 mx-auto d-block'
                                 >এগিয়ে যান</button>
                             </form>
@@ -281,12 +335,12 @@ const Login = () => {
                         <div className="d-flex mx-auto d-block justify-content-center">
                             <form onSubmit={handleSubmit4(onSubmit4)}>
                                 <input style={{ width: '285px', border: 'none' }} className='form-control form mx-auto d-block' type="password" autoComplete="off" {...register4("password", { required: true })} />
-                                <p onClick={forgetPassword} className='text-center mt-3 text-primary fw-bold' style={{cursor: 'pointer' }}>পাসওয়ার্ড ভুলে গিয়েছেন?</p>
+                                <p id='forget_password_container' onClick={forgetPassword} className='text-center mt-3 text-primary fw-bold' style={{ cursor: 'pointer' }}>পাসওয়ার্ড ভুলে গিয়েছেন?</p>
                                 <button style={{ maxWidth: '400px' }} className='password-submit-btn mt-3 mx-auto d-block text-white'>এগিয়ে যান</button>
                             </form>
                         </div>
                     </div>
-                    
+
                     <div className="d-flex justify-content-center mt-5">
                         <div className="col-md-3"><hr /></div>
                         <p style={{}} className='fs-5 mx-2 fw-bold'>অথবা</p>

@@ -1,21 +1,16 @@
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Firebase/firebase.initialize";
-import { getAuth, signInWithPopup, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, FacebookAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, sendPasswordResetEmail, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
 
 initializeAuthentication();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
-    //eslint-disable-next-line
-    const [email, setEmail] = useState('');
-    //eslint-disable-next-line
-    const [password, setPassword] = useState('');
 
     const auth = getAuth();
 
     const googleProvider = new GoogleAuthProvider();
-    const facebookProvider = new FacebookAuthProvider();
 
     const signInUsingGoogle = () => {
         signInWithPopup(auth, googleProvider)
@@ -27,42 +22,6 @@ const useFirebase = () => {
         .catch(error => {
             setError(error.message);
         })
-    }
-    
-      const signInUsingFacebook = () => {
-        signInWithPopup(auth, facebookProvider)
-        .then(result => {
-            setUser(result.user);
-            // registerUser(result.user);
-          })
-          .catch(error => {
-            //   console.log(error);
-            setError(error.message);
-          });
-      }
-
-    const handleEmailChange = e => {
-        setEmail(e.target.value);
-    }
-    const handlePasswordChange = e => {
-        setPassword(e.target.value);
-    }
-
-    const processLogin = (data) => {
-        const email = data.email;
-        const password = data.password;
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                // eslint-disable-next-line
-                const user = result.user;
-                // console.log(user);
-                setError('');
-                // console.log("done")
-
-            })
-            .catch(error => {
-                setError(error.message);
-            });
     }
 
     const handleResetPassword = (email) => {
@@ -80,22 +39,23 @@ const useFirebase = () => {
             })
     }
 
-    useEffect(() => {
-        onAuthStateChanged(auth, user => {
-            if (user) {
-                setUser(user);
-            }
-        });
-        //eslint-disable-next-line
-    }, [])
+        useEffect(() => {
+            onAuthStateChanged(auth, user => {
+                if (user) {
+                    setUser(user);
+                }
+            });
+            //eslint-disable-next-line
+        }, [])
 
     const registerUser = (user)=>{
         const name = user.displayName;
         const email = user.email;
         const phone = user.phoneNumber;
         const photo = user.photoURL;
+        const password = user?.password || '';
 
-        const newUser = {name,email,phone,photo};
+        const newUser = {name,email,phone,photo,password};
 
         fetch('https://skillshikhun.herokuapp.com/addUser',{
             method: 'POST',
@@ -111,12 +71,10 @@ const useFirebase = () => {
         user,
         error,
         signInUsingGoogle,
-        signInUsingFacebook,
         registerUser,
         logOut,
-        processLogin, 
-        handleEmailChange, 
-        handlePasswordChange,
+        onAuthStateChanged,
+        getAuth,
         handleResetPassword
     }
 }

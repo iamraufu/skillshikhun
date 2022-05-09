@@ -64,11 +64,12 @@ const DemoClass = (props) => {
         document.getElementById('submit_btn').style.backgroundColor = 'grey';
 
         const phone_number = data.phone;
-        const otp = Math.floor(Math.random() * 9000 + 1000);
+        // const otp = Math.floor(Math.random() * 9000 + 1000);
 
         const OTPDetails = {
-            phone: phone_number,
-            otp: otp
+            phone: phone_number
+            // ,
+            // otp: otp
         }
 
         // send otp to user
@@ -82,7 +83,9 @@ const DemoClass = (props) => {
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
-                document.getElementById('otp_verification_container').style.display = 'block';
+                if(data.status ===true){
+                    document.getElementById('otp_verification_container').style.display = 'block';
+                }
             }
             )
         document.getElementById('submit_btn_container').style.display = 'none';
@@ -308,7 +311,7 @@ const DemoClass = (props) => {
                     </div>
 
                 </div>
-                <button onClick={()=> warning() } id='demo_submit_button' className='form-input-submit-2 mb-4'>একটি ফ্রি ক্লাস বুকিং করে নিন</button>
+                <button onClick={()=> warning() } id='demo_submit_button' className='form-input-submit-2 mb-4'>ফ্রি ক্লাস বুকিং করে নিন</button>
             </div>
         </section>
     );

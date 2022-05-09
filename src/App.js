@@ -8,6 +8,9 @@ import PrivateOutlet  from './components/PrivateOutlet/PrivateOutlet';
 import AllCourses from './components/AllCourses/AllCourses';
 // import DemoClass from './components/DemoClass/DemoClass';
 import Checkout from './components/Checkout/Checkout';
+import Success from './components/Checkout/Success';
+import Fail from './components/Checkout/Fail';
+import Cancel from './components/Checkout/Cancel';
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -35,11 +38,14 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/courses" element={<AllCourses />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/demo-class" element={<DemoClass />} /> */}
-        <Route path="/checkout/:courseId" element={<Checkout />} />
+
+        <Route path="/success" element={<Success />} />
+        <Route path="/fail" element={<Fail />} />
+        <Route path="/cancel" element={<Cancel />} />
 
         <Route path="/" element={<PrivateOutlet />}>
           <Route path="dashboard" element={<Dashboard />} /> 
+        <Route path="/checkout/:courseId" element={<Checkout />} />
         </Route>
 
         <Route path="/*" element={<NotFound />} />
