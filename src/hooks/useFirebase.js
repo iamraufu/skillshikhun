@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Firebase/firebase.initialize";
 import { getAuth, signInWithPopup, sendPasswordResetEmail, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+// import {  useLocation, useNavigate } from "react-router-dom";
 
 initializeAuthentication();
 
 const useFirebase = () => {
+    // eslint-disable-next-line
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
 
@@ -12,22 +14,40 @@ const useFirebase = () => {
 
     const googleProvider = new GoogleAuthProvider();
 
+    // let navigate = useNavigate();
+    // let location = useLocation();
+
     const signInUsingGoogle = () => {
         signInWithPopup(auth, googleProvider)
         .then(result => {
             // console.log(result);
-            setUser(result.user);
             registerUser(result.user);
+            sessionStorage.setItem('token', result.user.uid);
+            // navigate('/dashboard')
+            // window.location.replace('/dashboard')
         })
         .catch(error => {
             setError(error.message);
         })
     }
 
+    // useEffect(()=>{
+    //     if (sessionStorage.getItem('token')) {
+    //         navigate('/dashboard')
+    //     }
+    //     else{
+    //         navigate(location.state?.from?.pathname || "/", { replace: true })
+    //     }
+    // },[])
+
+    // const handleResponse = (res, redirect) =>{
+
+    // }
+
     const handleResetPassword = (email) => {
         sendPasswordResetEmail(auth, email)
             .then(result => {
-                // console.log(result);
+                console.log(result);
             })
     }
 
@@ -35,6 +55,7 @@ const useFirebase = () => {
         signOut(auth)
             .then(() => {
                 setUser({})
+                sessionStorage.clear();
                 window.location.reload();
             })
     }
@@ -55,8 +76,10 @@ const useFirebase = () => {
         const photo = user.photoURL;
         const password = user?.password || '';
 
-        const newUser = {name,email,phone,photo,password};
-
+        const newUser = {name, email, phone, photo, password};
+        localStorage.setItem('user', JSON.stringify(newUser));
+        setUser(newUser);
+        console.log(newUser, 'newUser');
         fetch('https://skillshikhun.herokuapp.com/addUser',{
             method: 'POST',
             headers: {

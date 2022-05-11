@@ -11,10 +11,13 @@ import { Link } from 'react-router-dom';
 const Dashboard = () => {
 
     const { logOut, user } = useAuth();
-    const name = user.displayName;
+    // console.log(user);
+    // const name = user.displayName;
     const email = user.email;
     // const image = user.photoURL;
     const [demoClasses, setDemoClasses] = useState();
+    // const [userNameData, setUserNameData] = useState({});
+    // const [userPhoneData, setUserPhoneData] = useState({})
 
     useEffect(() => {
         fetch(`https://skillshikhun.herokuapp.com/demoClasses/email/${email}`)
@@ -23,13 +26,34 @@ const Dashboard = () => {
         // eslint-disable-next-line
     }, [])
 
+    // useEffect(()=>{
+    //     fetch(`https://skillshikhun.herokuapp.com/users/${name}`)
+    //     .then(res => res.json())
+    //     .then(data => setUserNameData(data))
+    // },[name])
+
+    // useEffect(()=>{ 
+    //     fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
+    //     .then(res => res.json())
+    //     .then(data => setUserPhoneData(data))
+    // },[phone])
+
     return (
         <section>
             <Navbar />
             <div className="" style={{ backgroundColor: '#f3f5f9' }}>
                 <div className="container py-5">
-
-                    <h1 style={{ paddingTop: '4rem', fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '36px', lineHeight: '52px', color: '#b94a8f', fontWeight: '600' }} className=''>{name}</span></h1>
+                {/* <h1 style={{ paddingTop: '4rem', fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '36px', lineHeight: '52px', color: '#b94a8f', fontWeight: '600' }}>
+                            {JSON.parse(sessionStorage?.user)?.name || null}</span></h1> */}
+                    {
+                        sessionStorage.getItem('token') ? 
+                        // demoClasses?.length ? 
+                        <h1 style={{ paddingTop: '4rem', fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '36px', lineHeight: '52px', color: '#b94a8f', fontWeight: '600' }}>
+                        {JSON.parse(localStorage.user).name}</span></h1>
+                        :
+                        <h1 style={{ paddingTop: '4rem', fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '36px', lineHeight: '52px', color: '#b94a8f', fontWeight: '600' }}>
+                            Loading</span></h1>
+                    }
                     <h2 style={{ fontSize: '18px', lineHeight: '31px', color: '#495082', fontWeight: '500' }}>ক্লাসের খুঁটিনাটি সব জেনে নিন আপনার Skill শিখুন এর ড্যাশবোর্ডে</h2>
                     {
                         demoClasses?.length ? demoClasses.map(demoClass => (<li>{demoClass.category}</li>)) :

@@ -1,14 +1,11 @@
-import React, {
-    // useEffect, 
-    useState
-} from 'react';
+import React, {useState} from 'react';
+// import PropTypes from 'prop-types';
 import './Login.css';
 import useAuth from '../../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import google from '../../images/google.png';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
-// import usePhone from '../../hooks/usePhone';
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
 const Login = () => {
@@ -25,9 +22,18 @@ const Login = () => {
     // eslint-disable-next-line
     const [userName, setUserName] = useState("");
     const [flag, setFlag] = useState(false);
+    // eslint-disable-next-line
+    const [phoneUserData, setPhoneUserData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        photo: '',
+        password: ''
+    });
 
-    if (user.email) {
-        navigate(from, { replace: true })
+    if (user.email || sessionStorage.getItem('token')) {
+        console.log("object");
+        navigate(from, { replace: true }) // <-- A hint to tell React Router to replace the current location in history with the new one.
     }
 
     const handlePhoneNumberChange = (e) => {
@@ -133,7 +139,6 @@ const Login = () => {
 
     // function for OTP verification
     const OTPVerification = (otpData) => {
-        console.log(otpData);
         const otp = otpData.otp;
 
         fetch('https://skillshikhun.herokuapp.com/api/otp-verification', {
@@ -190,6 +195,7 @@ const Login = () => {
                         'success'
                     )
                     let phoneUser = { displayName: name, email: '', phoneNumber: phone, photoURL: '', password: inputtedPassword };
+                    console.log(user);
                     registerUser(phoneUser);
                     navigate('/');
                 }
@@ -221,7 +227,11 @@ const Login = () => {
                         'স্কিল শিখুন এ আপনাকে স্বাগতম!',
                         'success'
                     )
-                    navigate('/');
+                    sessionStorage.setItem('token', 'bearer ' + data.status);
+                    // localStorage.setItem('user', JSON.stringify(user));
+                    console.log(sessionStorage.getItem('token'));
+                    navigate(from, { replace: true })
+                    // navigate('/dashboard');
                 }
                 else {
                     Swal.fire(
@@ -307,13 +317,12 @@ const Login = () => {
                     {/* div for verifying OTP */}
                     <div id='otp_verification_container' style={{ display: 'none' }}>
                         <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#323862', fontWeight: '700' }} className='mt-3 text-center'>আপনার মোবাইল নম্বরে প্রেরিত ওটিপি দিন</h1>
-                        <div className="mx-auto d-block">
-                            <form onSubmit={handleSubmit2(onSubmit2)}>
-                                <input style={{ width: '285px', border: 'none' }} className='form-control form mx-auto d-block' type="tel" autoComplete="off" maxLength="4" {...register2("otp", { required: true })} onKeyPress={(event, charCode) => { return event.charCode >= 48 && event.charCode <= 57 }} pattern="\d*" />
-                                <button style={{ maxWidth: '400px' }} className='otp-submit-btn mt-3 mx-auto d-block text-white'
-                                >এগিয়ে যান</button>
-                            </form>
-                        </div>
+                        <form onSubmit={handleSubmit2(onSubmit2)}>
+                                <div className="mx-auto d-block">
+                                    <input style={{ width: '285px', border: 'none' }} className='form-control form mx-auto d-block' type="tel" autoComplete="off" maxLength="4" {...register2("otp", { required: true })} onKeyPress={(event, charCode) => { return event.charCode >= 48 && event.charCode <= 57 }} pattern="\d*" />
+                                    <button style={{ maxWidth: '400px' }} className='otp-submit-btn mt-3 mx-auto d-block text-white'>এগিয়ে যান</button>
+                                </div>
+                        </form>
                     </div>
 
                     {/* div for collecting userName & password */}
@@ -343,7 +352,7 @@ const Login = () => {
 
                     <div className="d-flex justify-content-center mt-5">
                         <div className="col-md-3"><hr /></div>
-                        <p style={{}} className='fs-5 mx-2 fw-bold'>অথবা</p>
+                        <p className='fs-5 mx-2 fw-bold'>অথবা</p>
                         <div className="col-md-3"><hr /></div>
                     </div>
 
@@ -360,5 +369,9 @@ const Login = () => {
         </div>
     );
 };
+
+// Login.propTypes = {
+//     setToken: PropTypes.func.isRequired
+//   };
 
 export default Login;
