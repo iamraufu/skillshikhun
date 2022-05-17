@@ -4,107 +4,117 @@ import React, {
 } from 'react';
 import Navbar from '../Shared/Navbar/Navbar';
 import useAuth from '../../hooks/useAuth';
-import liveClass from '../../images/liveClass.svg';
-import emptyList from '../../images/emptyList.svg';
-import { Link } from 'react-router-dom';
+// import liveClass from '../../images/liveClass.svg';
+// import emptyList from '../../images/emptyList.svg';
+// import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
 
-    const { logOut, user } = useAuth();
-    // console.log(user);
-    // const name = user.displayName;
-    const email = user.email;
-    // const image = user.photoURL;
-    const [demoClasses, setDemoClasses] = useState();
-    // const [userNameData, setUserNameData] = useState({});
-    // const [userPhoneData, setUserPhoneData] = useState({})
+    const { logOut } = useAuth();
+    const phone = localStorage.getItem('phone');
+    // const email = localStorage.getItem('email');
+    // const [demoClasses, setDemoClasses] = useState();
+    const [userPhoneData, setUserPhoneData] = useState({})
+    // const [userEmailData, setUserEmailData] = useState({})
+
+    // useEffect(() => {
+    //     fetch(`https://skillshikhun.herokuapp.com/demoClasses/email/${email}`)
+    //         .then(res => res.json())
+    //         .then(data => setDemoClasses(data))
+    // }, [email])
 
     useEffect(() => {
-        fetch(`https://skillshikhun.herokuapp.com/demoClasses/email/${email}`)
+        fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
             .then(res => res.json())
-            .then(data => setDemoClasses(data))
-        // eslint-disable-next-line
-    }, [])
+            .then(data => setUserPhoneData(data))
+    }, [phone])
 
-    // useEffect(()=>{
-    //     fetch(`https://skillshikhun.herokuapp.com/users/${name}`)
-    //     .then(res => res.json())
-    //     .then(data => setUserNameData(data))
-    // },[name])
-
-    // useEffect(()=>{ 
-    //     fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
-    //     .then(res => res.json())
-    //     .then(data => setUserPhoneData(data))
-    // },[phone])
+    // useEffect(() => {
+    //     fetch(`https://skillshikhun.herokuapp.com/users/email/${email}`)
+    //         .then(res => res.json())
+    //         .then(data => setUserEmailData(data))
+    // }, [email])
 
     return (
         <section>
             <Navbar />
-            <div className="" style={{ backgroundColor: '#f3f5f9' }}>
+            <div className="" style={{ backgroundColor: '#f3f5f9', minHeight:'100vh' }}>
                 <div className="container py-5">
-                {/* <h1 style={{ paddingTop: '4rem', fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '36px', lineHeight: '52px', color: '#b94a8f', fontWeight: '600' }}>
-                            {JSON.parse(sessionStorage?.user)?.name || null}</span></h1> */}
-                    {
-                        sessionStorage.getItem('token') ? 
-                        // demoClasses?.length ? 
-                        <h1 style={{ paddingTop: '4rem', fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '36px', lineHeight: '52px', color: '#b94a8f', fontWeight: '600' }}>
-                        {JSON.parse(localStorage.user).name}</span></h1>
+                    {/* <h1 style={{ paddingTop: '4rem', fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '36px', lineHeight: '52px', color: '#b94a8f', fontWeight: '600' }}>
+                {JSON.parse(localStorage?.user)?.name || null}</span></h1> */}
+
+                                {
+                        userPhoneData?.phone ? 
+                        <h1 style={{ paddingTop: '4rem', fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '24px', lineHeight: '36px', color: '#b94a8f', fontWeight: '600' }}>
+                        {/* {JSON.parse(localStorage.user).name} */}
+                        {userPhoneData.name}
+                        </span></h1>
                         :
+                        <h1 style={{ paddingTop: '4rem', fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className=''>লোড হচ্ছে...<span style={{ fontSize: '24px', lineHeight: '36px', color: '#b94a8f', fontWeight: '600' }}>
+                            </span></h1>
+                    }
+                                {/* {
+                        userEmailData.email ? 
                         <h1 style={{ paddingTop: '4rem', fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '36px', lineHeight: '52px', color: '#b94a8f', fontWeight: '600' }}>
-                            Loading</span></h1>
-                    }
-                    <h2 style={{ fontSize: '18px', lineHeight: '31px', color: '#495082', fontWeight: '500' }}>ক্লাসের খুঁটিনাটি সব জেনে নিন আপনার Skill শিখুন এর ড্যাশবোর্ডে</h2>
-                    {
-                        demoClasses?.length ? demoClasses.map(demoClass => (<li>{demoClass.category}</li>)) :
-                            // <h1>No classes yet</h1>
-                            <div className="d-flex mt-2">
-                                <img src={emptyList} alt="empty class" className='img-fluid' loading="lazy" />
-                                <p style={{ fontSize: '20px', lineHeight: '30px', color: '#343b6d', fontWeight: '700' }} className='pt-5 ps-4'>এখনো কোনো ক্লাস নেই</p>
-                            </div>
-                    }
+                        {userEmailData.name}
+                        </span></h1>
+                        :
+                        <h1 style={{ paddingTop: '4rem', fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '700' }} className=''>লোড হচ্ছে...<span style={{ fontSize: '36px', lineHeight: '52px', color: '#b94a8f', fontWeight: '600' }}>
+                            </span></h1>
+                    } */}
 
-                    <div className="row py-5 m-2">
-                        <div style={{ minHeight: '600px', borderRadius: '15px' }} className="bg-white col-xl-9 col-lg-9 col-md-8 col-sm-8 mt-3">
-                            <div className="d-flex mt-5 py-2 ps-4">
-                                <img src={liveClass} alt="live class" className='img-fluid' loading="lazy" />
-                                <h3 style={{ fontSize: '24px', lineHeight: '36px', color: '#354895', fontWeight: '600' }} className='pt-2 ps-4'>আজকের লাইভ ক্লাস</h3>
-                            </div>
-                            <div className="d-flex mt-2 justify-content-center">
-                                <img src={emptyList} alt="empty class" className='img-fluid px-4' loading="lazy" />
-                                <p style={{ fontSize: '20px', lineHeight: '30px', color: '#343b6d', fontWeight: '700' }} className='pt-5'>আজকে আপনার কোনো লাইভ ক্লাস নেই</p>
-                            </div>
-                        </div>
+                                <h2 style={{ fontSize: '18px', lineHeight: '31px', color: '#495082', fontWeight: '500' }}>ক্লাসের খুঁটিনাটি সব জেনে নিন আপনার <span style={{color:'#653dae'}} className='fw-bold'>Skill শিখুন</span> এর ড্যাশবোর্ডে</h2>
+                                <button onClick={()=> logOut()} className='btn btn-danger'>Log Out</button>
+                                {/* {
+                                    demoClasses?.length ? demoClasses.map(demoClass => (<li>{demoClass.category}</li>)) :
+                                        // <h1>No classes yet</h1>
+                                        <div className="d-flex mt-2">
+                                            <img src={emptyList} alt="empty class" className='img-fluid' loading="lazy" />
+                                            <p style={{ fontSize: '20px', lineHeight: '30px', color: '#343b6d', fontWeight: '700' }} className='pt-5 ps-4'>এখনো কোনো ক্লাস নেই</p>
+                                        </div>
+                                } */}
 
-                        <div style={{ backgroundColor: 'rgb(53,72,149)', borderRadius: '15px',top:'120px',height:'320px' }} className="col-xl-2 col-lg-3 col-md-4 col-sm-4 mt-3 position-sticky">
-                            
-                            <ul style={{listStyle:'none',fontSize:'18px',lineHeight:'31px', fontWeight:'500'}} className='text-white'>
-                                <li className='pt-4 py-2'><Link onClick={()=>{window.scrollTo(0, 0);}} to='/dashboard' className='text-decoration-none text-white'>হোম</Link></li>
-                                <li className='py-2'>লাইভ ক্লাস</li>
-                                <li className='py-2'>ডেমো ক্লাস</li>
-                                <li className='py-2'>রেকর্ডেড ক্লাস</li>
-                                <li className='py-2'></li>
-                                <li className='py-2'></li>
-                            </ul>
-                            <button className='btn btn-danger mx-auto d-block mt-3' onClick={logOut}>লগ আউট</button>
-                        </div>
+                                {/* <div className="row py-5 m-2">
+                                    <div style={{ minHeight: '600px', borderRadius: '15px' }} className="bg-white col-xl-9 col-lg-9 col-md-8 col-sm-8 mt-3">
+                                        <div className="d-flex mt-5 py-2 ps-4">
+                                            <img src={liveClass} alt="live class" className='img-fluid' loading="lazy" />
+                                            <h3 style={{ fontSize: '24px', lineHeight: '36px', color: '#354895', fontWeight: '600' }} className='pt-2 ps-4'>আজকের লাইভ ক্লাস</h3>
+                                        </div>
+                                        <div className="d-flex mt-2 justify-content-center">
+                                            <img src={emptyList} alt="empty class" className='img-fluid px-4' loading="lazy" />
+                                            <p style={{ fontSize: '20px', lineHeight: '30px', color: '#343b6d', fontWeight: '700' }} className='pt-5'>আজকে আপনার কোনো লাইভ ক্লাস নেই</p>
+                                        </div>
+                                    </div>
 
-                        <div style={{ minHeight: '600px', borderRadius: '15px' }} className="bg-white col-xl-9 col-lg-9 col-md-8 col-sm-8 mt-3">
-                            <div className="d-flex mt-5 py-2 ps-4">
-                                <img src={liveClass} alt="live class" className='img-fluid' loading="lazy" />
-                                <h3 style={{ fontSize: '24px', lineHeight: '36px', color: '#354895', fontWeight: '600' }} className='pt-2 ps-4'>আজকের লাইভ ক্লাস</h3>
-                            </div>
-                            <div className="d-flex mt-2 justify-content-center">
-                                <img src={emptyList} alt="empty class" className='img-fluid px-4' loading="lazy" />
-                                <p style={{ fontSize: '20px', lineHeight: '30px', color: '#343b6d', fontWeight: '700' }} className='pt-5'>আজকে আপনার কোনো লাইভ ক্লাস নেই</p>
-                            </div>
-                        </div>
+                                    <div style={{ backgroundColor: 'rgb(53,72,149)', borderRadius: '15px', top: '120px', height: '320px' }} className="col-xl-2 col-lg-3 col-md-4 col-sm-4 mt-3 position-sticky">
 
-                    </div>
+                                        <ul style={{ listStyle: 'none', fontSize: '18px', lineHeight: '31px', fontWeight: '500' }} className='text-white'>
+                                            <li className='pt-4 py-2'><Link onClick={() => { window.scrollTo(0, 0); }} to='/dashboard' className='text-decoration-none text-white'>হোম</Link></li>
+                                            <li className='py-2'>লাইভ ক্লাস</li>
+                                            <li className='py-2'>ডেমো ক্লাস</li>
+                                            <li className='py-2'>রেকর্ডেড ক্লাস</li>
+                                            <li className='py-2'></li>
+                                            <li className='py-2'></li>
+                                        </ul>
+                                        <button className='btn btn-danger mx-auto d-block mt-3' onClick={logOut}>লগ আউট</button>
+                                    </div>
 
-                    {/* <h2 className='text-center mt-5'>Your email address is: <span className='text-info'>{email}</span></h2>
+                                    <div style={{ minHeight: '600px', borderRadius: '15px' }} className="bg-white col-xl-9 col-lg-9 col-md-8 col-sm-8 mt-3">
+                                        <div className="d-flex mt-5 py-2 ps-4">
+                                            <img src={liveClass} alt="live class" className='img-fluid' loading="lazy" />
+                                            <h3 style={{ fontSize: '24px', lineHeight: '36px', color: '#354895', fontWeight: '600' }} className='pt-2 ps-4'>আজকের লাইভ ক্লাস</h3>
+                                        </div>
+                                        <div className="d-flex mt-2 justify-content-center">
+                                            <img src={emptyList} alt="empty class" className='img-fluid px-4' loading="lazy" />
+                                            <p style={{ fontSize: '20px', lineHeight: '30px', color: '#343b6d', fontWeight: '700' }} className='pt-5'>আজকে আপনার কোনো লাইভ ক্লাস নেই</p>
+                                        </div>
+                                    </div>
+
+                                </div> */}
+
+                                {/* <h2 className='text-center mt-5'>Your email address is: <span className='text-info'>{email}</span></h2>
                 <img style={{ borderRadius: '50%' }} width={100} className='mx-auto d-block mt-5' src={image} alt={name} loading="lazy" /> */}
-                </div>
+                            </div>
             </div>
         </section>
     );

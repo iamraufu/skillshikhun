@@ -20,9 +20,8 @@ const useFirebase = () => {
     const signInUsingGoogle = () => {
         signInWithPopup(auth, googleProvider)
         .then(result => {
-            // console.log(result);
             registerUser(result.user);
-            sessionStorage.setItem('token', result.user.uid);
+            localStorage.setItem('token', result.user.uid);
             // navigate('/dashboard')
             // window.location.replace('/dashboard')
         })
@@ -32,7 +31,7 @@ const useFirebase = () => {
     }
 
     // useEffect(()=>{
-    //     if (sessionStorage.getItem('token')) {
+    //     if (localStorage.getItem('token')) {
     //         navigate('/dashboard')
     //     }
     //     else{
@@ -55,7 +54,7 @@ const useFirebase = () => {
         signOut(auth)
             .then(() => {
                 setUser({})
-                sessionStorage.clear();
+                localStorage.clear();
                 window.location.reload();
             })
     }
@@ -77,9 +76,9 @@ const useFirebase = () => {
         const password = user?.password || '';
 
         const newUser = {name, email, phone, photo, password};
-        localStorage.setItem('user', JSON.stringify(newUser));
+        localStorage.setItem('email', newUser.email);
+        // localStorage.setItem('user', JSON.stringify(newUser));
         setUser(newUser);
-        console.log(newUser, 'newUser');
         fetch('https://skillshikhun.herokuapp.com/addUser',{
             method: 'POST',
             headers: {

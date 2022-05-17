@@ -6,7 +6,7 @@ const PrivateOutlet = () => {
     const {user} = useAuth();
     const location = useLocation();
 
-    return  user.email || sessionStorage.getItem('token') ? <Outlet /> : <Navigate to= "/login"  state={{ from: location }} replace />;
+    return  user.email || localStorage.getItem('token') ? <Outlet /> : <Navigate to= "/login"  state={{ from: location }} replace />;
 };
 
 export default PrivateOutlet;

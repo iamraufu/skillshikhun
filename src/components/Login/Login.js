@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import './Login.css';
 import useAuth from '../../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
-import google from '../../images/google.png';
+// import google from '../../images/google.png';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
@@ -14,7 +14,9 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    const { signInUsingGoogle, registerUser, user } = useAuth();
+    const { 
+        // signInUsingGoogle, 
+        registerUser, user } = useAuth();
 
     const [phone, setPhone] = useState(123);
     // eslint-disable-next-line
@@ -23,16 +25,15 @@ const Login = () => {
     const [userName, setUserName] = useState("");
     const [flag, setFlag] = useState(false);
     // eslint-disable-next-line
-    const [phoneUserData, setPhoneUserData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        photo: '',
-        password: ''
-    });
+    // const [phoneUserData, setPhoneUserData] = useState({
+    //     name: '',
+    //     email: '',
+    //     phone: '',
+    //     photo: '',
+    //     password: ''
+    // });
 
-    if (user.email || sessionStorage.getItem('token')) {
-        console.log("object");
+    if (user.email || localStorage.getItem('token')) {
         navigate(from, { replace: true }) // <-- A hint to tell React Router to replace the current location in history with the new one.
     }
 
@@ -123,10 +124,12 @@ const Login = () => {
                 if (data.message === "User already exists") {
                     document.getElementById('otp_verification_container').style.display = 'none';
                     document.getElementById('password_verification_container').style.display = 'block';
+                    document.getElementById('password_verify').focus();
                     document.getElementById('login_title').style.display = 'none';
                 }
                 else {
                     document.getElementById('otp_verification_container').style.display = 'block';
+                    document.getElementById('verify_otp').focus();
                     document.getElementById('login_title').style.display = 'none';
                 }
             }
@@ -227,11 +230,11 @@ const Login = () => {
                         'স্কিল শিখুন এ আপনাকে স্বাগতম!',
                         'success'
                     )
-                    sessionStorage.setItem('token', 'bearer ' + data.status);
-                    // localStorage.setItem('user', JSON.stringify(user));
-                    console.log(sessionStorage.getItem('token'));
+                    localStorage.setItem('token', 'bearer ' + data.status);
+                    localStorage.setItem('phone', phone);
+                    // console.log(typeof data.data.user)
+                    // localStorage.setItem('user', JSON.stringify(data.data.user));
                     navigate(from, { replace: true })
-                    // navigate('/dashboard');
                 }
                 else {
                     Swal.fire(
@@ -319,7 +322,7 @@ const Login = () => {
                         <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#323862', fontWeight: '700' }} className='mt-3 text-center'>আপনার মোবাইল নম্বরে প্রেরিত ওটিপি দিন</h1>
                         <form onSubmit={handleSubmit2(onSubmit2)}>
                                 <div className="mx-auto d-block">
-                                    <input style={{ width: '285px', border: 'none' }} className='form-control form mx-auto d-block' type="tel" autoComplete="off" maxLength="4" {...register2("otp", { required: true })} onKeyPress={(event, charCode) => { return event.charCode >= 48 && event.charCode <= 57 }} pattern="\d*" />
+                                    <input id='verify_otp' style={{ width: '285px', border: 'none' }} className='form-control form mx-auto d-block' type="tel" autoComplete="off" maxLength="4" {...register2("otp", { required: true })} onKeyPress={(event, charCode) => { return event.charCode >= 48 && event.charCode <= 57 }} pattern="\d*" />
                                     <button style={{ maxWidth: '400px' }} className='otp-submit-btn mt-3 mx-auto d-block text-white'>এগিয়ে যান</button>
                                 </div>
                         </form>
@@ -343,27 +346,27 @@ const Login = () => {
                         <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f', fontWeight: '700' }} className='text-center mt-3'>আপনার পাসওয়ার্ড দিন</h2>
                         <div className="d-flex mx-auto d-block justify-content-center">
                             <form onSubmit={handleSubmit4(onSubmit4)}>
-                                <input style={{ width: '285px', border: 'none' }} className='form-control form mx-auto d-block' type="password" autoComplete="off" {...register4("password", { required: true })} />
+                                <input id='password_verify' style={{ width: '285px', border: 'none' }} className='form-control form mx-auto d-block' type="password" autoComplete="off" {...register4("password", { required: true })} />
                                 <p id='forget_password_container' onClick={forgetPassword} className='text-center mt-3 text-primary fw-bold' style={{ cursor: 'pointer' }}>পাসওয়ার্ড ভুলে গিয়েছেন?</p>
                                 <button style={{ maxWidth: '400px' }} className='password-submit-btn mt-3 mx-auto d-block text-white'>এগিয়ে যান</button>
                             </form>
                         </div>
                     </div>
 
-                    <div className="d-flex justify-content-center mt-5">
+                    {/* <div className="d-flex justify-content-center mt-5">
                         <div className="col-md-3"><hr /></div>
                         <p className='fs-5 mx-2 fw-bold'>অথবা</p>
                         <div className="col-md-3"><hr /></div>
-                    </div>
+                    </div> */}
 
-                    <div className="d-flex">
+                    {/* <div className="d-flex">
                         <div className="mx-auto d-block">
                             <button style={{ backgroundColor: 'rgba(255,255,255,0.7)', borderRadius: '10px', border: '1px solid rgb(236,236,236)' }} className='btn' onClick={signInUsingGoogle}>
                                 <img width={60} src={google} alt="login with google" className='my-1 me-4' loading="lazy" />
                                 <span className='pe-2'>গুগল দিয়ে লগইন করুন</span>
                             </button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

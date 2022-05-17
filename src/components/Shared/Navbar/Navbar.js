@@ -28,14 +28,14 @@ const Navbar = () => {
                         </Link>
 
                         {
-                            user.email || sessionStorage.getItem('token') ? 
+                            user.email || localStorage.getItem('token') ? 
                             <NavLink className="text-decoration-none text-danger d-lg-none" to="/dashboard" onClick={()=>{window.scrollTo(0, 0);}}><button className='login-btn-lg btn-dark btn me-2'>ড্যাশবোর্ড</button></NavLink> :
                             <NavLink className="text-decoration-none text-black d-lg-none fw-bold me-2" to="/login" onClick={()=>{window.scrollTo(0, 0);}}>লগ-ইন</NavLink>
                         }
 
                         <div className="collapse navbar-collapse navbar-menu" id="navbarNavAltMarkup">
                             {
-                                user.email || sessionStorage.getItem('token') ?
+                                user.email || localStorage.getItem('token') ?
                                 <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">
                             <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
                                     color: isActive ? '#f8f9fa' : '#434257',
@@ -66,7 +66,7 @@ const Navbar = () => {
                         </div>
 
                         {
-                            user.email || sessionStorage.getItem('token') ? <Link onClick={()=>{window.scrollTo(0, 0);}} className="text-decoration-none text-danger d-none d-lg-block" to="/dashboard"><button className='login-btn-lg btn-dark btn'>ড্যাশবোর্ড</button></Link>: <Link className="text-decoration-none text-danger d-none d-lg-block" to="/login"><button className='login-btn-lg btn-dark btn'>লগ ইন/ সাইন আপ</button></Link>
+                            user.email || localStorage.getItem('token') ? <Link onClick={()=>{window.scrollTo(0, 0);}} className="text-decoration-none text-danger d-none d-lg-block" to="/dashboard"><button className='login-btn-lg btn-dark btn'>ড্যাশবোর্ড</button></Link>: <Link className="text-decoration-none text-danger d-none d-lg-block" to="/login"><button className='login-btn-lg btn-dark btn'>লগ ইন/ সাইন আপ</button></Link>
                         }
 
                     </div>
