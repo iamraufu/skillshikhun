@@ -32,7 +32,7 @@
 .btn-demo {
     background-color: transparent;
     /* background-color: #b94a8f; */
-    /* color: #b94a8f; */
+    /* color: #f8f9fa; */
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
@@ -40,12 +40,12 @@
     padding: 10px;
     margin: 1px;
     border: 1px solid #ffc107;
-    /* background-color: #12348d; */
+    background-color: #ffc107;
     width: 97%;
 }
 
 .btn-demo:hover {
-    background-color: #ffc107;
+    background-color: #e6ae07;
     /* color: #f8f9fa; */
 }
 

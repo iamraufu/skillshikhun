@@ -1,5 +1,8 @@
-.checkout-title {
+.checkout-title-container {
     padding-top: 6rem;
+}
+
+.checkout-title {
     font-size: 22px;
     line-height: 26px;
     font-weight: 500;

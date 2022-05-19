@@ -73,6 +73,7 @@ const Checkout = () => {
         document.getElementById('checkout_container').style.filter = 'blur(3px)';
         document.getElementById('loading_spinner').style.display = 'block';
 
+        // Aamar Pay Payment Gateway
         await fetch('https://secure.aamarpay.com/jsonpost.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -86,8 +87,8 @@ const Checkout = () => {
                 cus_add2: "Dhaka",
                 cus_city: "Dhaka",
                 cus_country: "Bangladesh",
-                // amount: `${price}`,
-                amount: 1,
+                amount: `${price}`,
+                // amount: 1,
                 tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
                 currency: "BDT",
                 success_url: "http://localhost:3000/success",
@@ -102,6 +103,12 @@ const Checkout = () => {
                 console.log(data);
                 window.location.replace(data.payment_url)
             })
+
+        // SSL Payment Gateway
+        // await fetch('http://localhost:5000/ssl-request')
+        //     .then(res => res.json())
+        //     .then(data => console.log(data))
+        //     .catch(err => console.log(err))
     }
 
     return (
@@ -111,9 +118,11 @@ const Checkout = () => {
                 <div className="row">
 
                     <div className="col-lg-6 d-none d-lg-block">
+                        <div className="checkout-title-container">
                         {
                             userPhoneData?.phone ? <h1 className='fw-bold checkout-title text-center'><span className='text-primary fw-bold'>{userPhoneData?.name}</span> যে কোর্সটি কিনছেন</h1> : null
                         }
+                        </div>
 
                         <div style={{ borderRadius: '10px', boxShadow: '0 15px 30px #00000005' }} className="row bg-white p-3">
                             <div className="col-sm-6">
@@ -213,8 +222,8 @@ const Checkout = () => {
                 </div>
             </div>
 
-            <div id='loading_spinner' style={{  display: 'none', position: 'absolute', height: '50px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }}>
-                <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f', marginLeft:'-1.5rem'}} className='fw-bold'>অপেক্ষা করুন</h1>
+            <div id='loading_spinner' style={{ display: 'none', position: 'absolute', height: '50px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }}>
+                <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f', marginLeft: '-1.5rem' }} className='fw-bold'>অপেক্ষা করুন</h1>
                 <div className="spinner-border" role="status">
                     <span className="sr-only"></span>
                 </div>
