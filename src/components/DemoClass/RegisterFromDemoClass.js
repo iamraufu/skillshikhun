@@ -1,42 +1,44 @@
 import React, { useState } from 'react';
-import './Login.css';
-import useAuth from '../../hooks/useAuth';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
+import useAuth from '../../hooks/useAuth';
+import './RegisterFromDemoClass.css';
 
-const LoginHandler = () => {
+const RegisterFromDemoClass = () => {
 
-    let navigate = useNavigate();
-    let location = useLocation();
-    let from = location.state?.from?.pathname || "/";
+    const { registerUser, user } = useAuth();
 
-    const {
-        // signInUsingGoogle, 
-        registerUser
-        , user } = useAuth();
-
+    const [flag, setFlag] = useState(false);
     const [phone, setPhone] = useState(123);
     // eslint-disable-next-line
     const [password, setPassword] = useState("");
     // eslint-disable-next-line
+    const [email, setEmail] = useState('');
+    // eslint-disable-next-line
     const [userName, setUserName] = useState("");
-    // eslint-disable-next-line
-    const [email, setEmail] = useState("");
-    const [flag, setFlag] = useState(false);
-    // eslint-disable-next-line
-    // const [phoneUserData, setPhoneUserData] = useState({
-    //     name: '',
-    //     email: '',
-    //     phone: '',
-    //     photo: '',
-    //     password: ''
-    // });
 
-    if (user.email || localStorage.getItem('token')) {
-        navigate(from, { replace: true }) // <-- A hint to tell React Router to replace the current location in history with the new one.
+    const { register, handleSubmit } = useForm();
+    const { register: register2, handleSubmit: handleSubmit2 } = useForm();
+    const { register: register3, handleSubmit: handleSubmit3 } = useForm();
+    const { register: register4, handleSubmit: handleSubmit4 } = useForm();
+
+    // submit function for phone number taking
+    const onSubmit = data => {
+        setPhone(data.phone);
+
+        if (flag === true) {
+            OTPGenerate(data);
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please enter a valid phone number',
+            })
+        }
     }
 
+    // tracking valid phone number
     const handlePhoneNumberChange = (e) => {
         const input = document.querySelector('input');
 
@@ -61,45 +63,7 @@ const LoginHandler = () => {
         });
     }
 
-    const { register, handleSubmit } = useForm();
-    const { register: register2, handleSubmit: handleSubmit2 } = useForm();
-    const { register: register3, handleSubmit: handleSubmit3 } = useForm();
-    const { register: register4, handleSubmit: handleSubmit4 } = useForm();
-
-    // submit function for phone number taking
-    const onSubmit = data => {
-        setPhone(data.phone);
-
-        if (flag === true) {
-            OTPGenerate(data);
-        }
-        else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Please enter a valid phone number',
-            })
-        }
-    }
-
-    // submit function for otp verification
-    const onSubmit2 = async data => {
-        await OTPVerification(data);
-    }
-
-    // submit function for password taking
-    const onSubmit3 = data => {
-        setUserName(data.name);
-        setPassword(data.password);
-        setEmail(data.email);
-        passwordInput(data);
-    }
-
-    // submit function for password verification
-    const onSubmit4 = data => {
-        passwordVerification(data);
-    }
-
+    // function for generating OTP 
     const OTPGenerate = async (data) => {
         const submit_btn = document.querySelector('#submit_btn');
         submit_btn.disabled = true;
@@ -126,20 +90,23 @@ const LoginHandler = () => {
                     document.getElementById('otp_verification_container').style.display = 'none';
                     document.getElementById('password_verification_container').style.display = 'block';
                     document.getElementById('password_verify').focus();
-                    document.getElementById('login_title').style.display = 'none';
+                    // document.getElementById('login_title').style.display = 'none';
                 }
                 else {
                     document.getElementById('otp_verification_container').style.display = 'block';
                     document.getElementById('verify_otp').focus();
-                    document.getElementById('login_title').style.display = 'none';
+                    // document.getElementById('login_title').style.display = 'none';
                 }
             }
             )
         document.getElementById('submit_btn_container').style.display = 'none';
         document.getElementById('number_input').disabled = true;
-        document.getElementById('number_change_container').style.display = 'block';
     }
 
+    // submit function for otp verification
+    const onSubmit2 = async data => {
+        await OTPVerification(data);
+    }
 
     // function for OTP verification
     const OTPVerification = (otpData) => {
@@ -172,12 +139,20 @@ const LoginHandler = () => {
             )
     }
 
+    // submit function for password taking
+    const onSubmit3 = data => {
+        setUserName(data.name);
+        setPassword(data.password);
+        setEmail(data.email);
+        passwordInput(data);
+    }
 
     // function for password input
     const passwordInput = (passwordData) => {
         const inputtedPassword = passwordData.password;
         const name = passwordData.name;
         const email = passwordData.email;
+
         fetch('http://skillshikhun.herokuapp.com/api/password-input', {
             method: 'POST',
             headers: {
@@ -186,8 +161,8 @@ const LoginHandler = () => {
             body: JSON.stringify({
                 phone: phone,
                 name: name,
-                password: inputtedPassword,
-                email:email
+                email:email,
+                password: inputtedPassword
             })
         })
             .then(res => res.json())
@@ -205,14 +180,22 @@ const LoginHandler = () => {
                     registerUser(phoneUser);
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
-                    // window.location.replace('/dashboard');
-                    navigate(from, { replace: true })
+                    window.location.replace('/');
+                    // {
+                    //     window.location.pathname === '/dashboard' ? navigate('/dashboard') : navigate(from, { replace: true })
+                    // }
+                    // navigate(from, { replace: true })
                     // navigate('/');
                 }
                 else {
                     document.getElementById('password_verification_container').style.display = 'none';
                 }
             })
+    }
+
+    // submit function for password verification
+    const onSubmit4 = data => {
+        passwordVerification(data);
     }
 
     // function for password verification
@@ -242,7 +225,8 @@ const LoginHandler = () => {
                     // console.log(typeof data.data.user)
                     // localStorage.setItem('user', JSON.stringify(data.data.user));
                     console.log(document.referrer)
-                    navigate(from, { replace: true })
+                    // navigate(from, { replace: true })
+                    window.location.reload();
                 }
                 else {
                     Swal.fire(
@@ -295,7 +279,8 @@ const LoginHandler = () => {
     }
 
     return (
-        <div className="container my-3">
+        <div className='container'>
+
             <div id='otp_login_container' style={{ display: 'block' }} className="mx-auto d-block">
 
                 {/* div for phone number input*/}
@@ -310,10 +295,6 @@ const LoginHandler = () => {
                                 {...register("phone", { required: true })} placeholder="আপনার মােবাইল নম্বর দিন" />
                         </div>
 
-                        <div id='number_change_container' className="mt-2" style={{ display: 'none' }}>
-                            <p onClick={() => navigate('/dashboard')} style={{ textAlign: 'right', fontSize: '13px', lineHeight: '24px', fontWeight: '400', cursor: 'pointer' }}>নাম্বার পরিবর্তন করুন</p>
-                        </div>
-
                         <div id='submit_btn_container' className="">
                             <button type='submit' style={{ maxWidth: '400px' }} id='submit_btn' className='number-submit-btn mt-3 mx-auto d-block text-white'>এগিয়ে যান</button>
                         </div>
@@ -326,20 +307,24 @@ const LoginHandler = () => {
                 <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#323862', fontWeight: '700' }} className='mt-3 text-center'>আপনার মোবাইল নম্বরে প্রেরিত ওটিপি দিন</h1>
                 <form onSubmit={handleSubmit2(onSubmit2)}>
                     <div className="mx-auto d-block">
-                        <input id='verify_otp' style={{ width: '285px', border: 'none' }} className='form-control form mx-auto d-block' type="tel" autoComplete="off" maxLength="4" {...register2("otp", { required: true })} onKeyPress={(event, charCode) => { return event.charCode >= 48 && event.charCode <= 57 }} pattern="\d*" />
-                        <button style={{ maxWidth: '400px' }} className='otp-submit-btn mt-3 mx-auto d-block text-white'>এগিয়ে যান</button>
+                        <input id='verify_otp' style={{ 
+                            maxWidth: '275px', 
+                            border: 'none' }} className='form-control form mx-auto d-block' type="tel" autoComplete="off" maxLength="4" {...register2("otp", { required: true })} onKeyPress={(event, charCode) => { return event.charCode >= 48 && event.charCode <= 57 }} pattern="\d*" />
                     </div>
+                        <div className="">
+                        <button style={{ maxWidth: '400px' }} className='otp-submit-btn mt-3 mx-auto d-block text-white'>এগিয়ে যান</button>
+                        </div>
                 </form>
             </div>
 
-            {/* div for collecting userName, password & email */}
+            {/* div for collecting userName & password */}
             <div id="password_input_container" style={{ display: 'none' }}>
                 <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f', fontWeight: '700' }} className='text-center mt-3'>আপনার তথ্য দিন</h2>
                 <div className="d-flex mx-auto d-block justify-content-center">
                     <form onSubmit={handleSubmit3(onSubmit3)}>
                         <input style={{ width: '285px', border: 'none' }} placeholder='আপনার নাম' className='form-control form mx-auto d-block' type="text" autoComplete="off" {...register3("name", { required: true })} />
                         <input style={{ width: '285px', border: 'none' }} placeholder='আপনার ইমেইল' className='form-control form mx-auto d-block mt-3' type="email" autoComplete="off" {...register3("email", { required: true })} />
-                        <input style={{ width: '285px' }} placeholder='পাসওয়ার্ড সেট করুন' className='form-control form mx-auto d-block mt-3' type="password" autoComplete="off" {...register3("password", { required: true })} />
+                        <input style={{ width: '285px', border:'none' }} placeholder='পাসওয়ার্ড সেট করুন' className='form-control form mx-auto d-block mt-3' type="password" autoComplete="off" {...register3("password", { required: true })} />
                         <button style={{ maxWidth: '400px' }} className='password-submit-btn mt-3 mx-auto d-block'
                         >এগিয়ে যান</button>
                     </form>
@@ -357,8 +342,9 @@ const LoginHandler = () => {
                     </form>
                 </div>
             </div>
+
         </div>
     );
 };
 
-export default LoginHandler;
+export default RegisterFromDemoClass;

@@ -21,7 +21,7 @@ const Checkout = () => {
     const [userPhoneData, setUserPhoneData] = useState({})
 
     useEffect(() => {
-        fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
+        fetch(`http://skillshikhun.herokuapp.com/users/phone/${phone}`)
             .then(res => res.json())
             .then(data => setUserPhoneData(data))
     }, [phone])
@@ -74,41 +74,41 @@ const Checkout = () => {
         document.getElementById('loading_spinner').style.display = 'block';
 
         // Aamar Pay Payment Gateway
-        await fetch('https://secure.aamarpay.com/jsonpost.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                store_id: "skillshikhun",
-                signature_key: "7445cc98363b6b9cae4af766ef0f0186",
-                cus_name: `${userPhoneData.name}`,
-                cus_email: `hr@skillshikhun.com`,
-                cus_phone: `${userPhoneData.phone}`,
-                cus_add1: "Skill Shikhun, Dhaka, Bangladesh",
-                cus_add2: "Dhaka",
-                cus_city: "Dhaka",
-                cus_country: "Bangladesh",
-                amount: `${price}`,
-                // amount: 1,
-                tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
-                currency: "BDT",
-                success_url: "http://localhost:3000/success",
-                fail_url: "http://localhost:3000/fail",
-                cancel_url: "http://localhost:3000/cancel",
-                desc: `Purchase ${course[0].slug} Course`,
-                type: "json"
-            })
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                window.location.replace(data.payment_url)
-            })
+        // await fetch('https://secure.aamarpay.com/jsonpost.php', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify({
+        //         store_id: "skillshikhun",
+        //         signature_key: "7445cc98363b6b9cae4af766ef0f0186",
+        //         cus_name: `${userPhoneData.name}`,
+        //         cus_email: `hr@skillshikhun.com`,
+        //         cus_phone: `${userPhoneData.phone}`,
+        //         cus_add1: "Skill Shikhun, Dhaka, Bangladesh",
+        //         cus_add2: "Dhaka",
+        //         cus_city: "Dhaka",
+        //         cus_country: "Bangladesh",
+        //         amount: `${price}`,
+        //         // amount: 1,
+        //         tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
+        //         currency: "BDT",
+        //         success_url: "http://localhost:3000/success",
+        //         fail_url: "http://localhost:3000/fail",
+        //         cancel_url: "http://localhost:3000/cancel",
+        //         desc: `Purchase ${course[0].slug} Course`,
+        //         type: "json"
+        //     })
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         window.location.replace(data.payment_url)
+        //     })
 
         // SSL Payment Gateway
-        // await fetch('http://localhost:5000/ssl-request')
-        //     .then(res => res.json())
-        //     .then(data => console.log(data))
-        //     .catch(err => console.log(err))
+        await fetch('http://skillshikhun.herokuapp.com/ssl-request')
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
     }
 
     return (

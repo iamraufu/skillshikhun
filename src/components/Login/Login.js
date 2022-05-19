@@ -115,7 +115,7 @@ const Login = () => {
     //     }
 
     //     // send otp to user
-    //     await fetch('https://skillshikhun.herokuapp.com/api/send-otp', {
+    //     await fetch('http://skillshikhun.herokuapp.com/api/send-otp', {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json'
@@ -147,7 +147,7 @@ const Login = () => {
     // const OTPVerification = (otpData) => {
     //     const otp = otpData.otp;
 
-    //     fetch('https://skillshikhun.herokuapp.com/api/otp-verification', {
+    //     fetch('http://skillshikhun.herokuapp.com/api/otp-verification', {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json'
@@ -179,7 +179,7 @@ const Login = () => {
     // const passwordInput = (passwordData) => {
     //     const inputtedPassword = passwordData.password;
     //     const name = passwordData.name;
-    //     fetch('https://skillshikhun.herokuapp.com/api/password-input', {
+    //     fetch('http://skillshikhun.herokuapp.com/api/password-input', {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json'
@@ -215,7 +215,7 @@ const Login = () => {
     // const passwordVerification = (passwordData) => {
     //     const inputtedPassword = passwordData.password;
 
-    //     fetch('https://skillshikhun.herokuapp.com/api/password-input-login', {
+    //     fetch('http://skillshikhun.herokuapp.com/api/password-input-login', {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json'
@@ -262,7 +262,7 @@ const Login = () => {
     //         confirmButtonText: 'হ্যাঁ, ভুলে গেছি!'
     //     }).then((result) => {
     //         if (result.value) {
-    //             fetch('https://skillshikhun.herokuapp.com/api/forget-password', {
+    //             fetch('http://skillshikhun.herokuapp.com/api/forget-password', {
     //                 method: 'POST',
     //                 headers: {
     //                     'Content-Type': 'application/json'

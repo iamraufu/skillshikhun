@@ -18,19 +18,19 @@ const Dashboard = () => {
     // const [userEmailData, setUserEmailData] = useState({})
 
     // useEffect(() => {
-    //     fetch(`https://skillshikhun.herokuapp.com/demoClasses/email/${email}`)
+    //     fetch(`http://skillshikhun.herokuapp.com/demoClasses/email/${email}`)
     //         .then(res => res.json())
     //         .then(data => setDemoClasses(data))
     // }, [email])
 
     useEffect(() => {
-        fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
+        fetch(`http://skillshikhun.herokuapp.com/users/phone/${phone}`)
             .then(res => res.json())
             .then(data => setUserPhoneData(data))
     }, [phone])
 
     // useEffect(() => {
-    //     fetch(`https://skillshikhun.herokuapp.com/users/email/${email}`)
+    //     fetch(`http://skillshikhun.herokuapp.com/users/email/${email}`)
     //         .then(res => res.json())
     //         .then(data => setUserEmailData(data))
     // }, [email])

@@ -27,7 +27,7 @@ const Hero = () => {
                             ঘরে বসেই পা বাড়ান ভবিষ্যতের পথে!</h2>
                         <p className='text-white hero-text-sub'>সরাসরি ইন্সট্রাক্টর এর সাথে লাইভ ক্লাসের মাধ্যমে শিখে নিন ক্যারিয়ার ভিত্তিক ভবিষ্যৎ এর সব স্কিল</p>
                     </div>
-                    <div className="col-xl-4 col-lg-5 col-md-6 mt-5">
+                    <div className="col-xl-4 col-lg-5 col-md-6 my-5">
                         <DemoClass course={courseData} />
                     </div>
                 </div>
