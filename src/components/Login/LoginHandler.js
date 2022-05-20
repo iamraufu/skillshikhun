@@ -113,7 +113,7 @@ const LoginHandler = () => {
         }
 
         // send otp to user
-        await fetch('http://skillshikhun.herokuapp.com/api/send-otp', {
+        await fetch('https://skillshikhun.herokuapp.com/api/send-otp', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -145,7 +145,7 @@ const LoginHandler = () => {
     const OTPVerification = (otpData) => {
         const otp = otpData.otp;
 
-        fetch('http://skillshikhun.herokuapp.com/api/otp-verification', {
+        fetch('https://skillshikhun.herokuapp.com/api/otp-verification', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -178,7 +178,7 @@ const LoginHandler = () => {
         const inputtedPassword = passwordData.password;
         const name = passwordData.name;
         const email = passwordData.email;
-        fetch('http://skillshikhun.herokuapp.com/api/password-input', {
+        fetch('https://skillshikhun.herokuapp.com/api/password-input', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -219,7 +219,7 @@ const LoginHandler = () => {
     const passwordVerification = (passwordData) => {
         const inputtedPassword = passwordData.password;
 
-        fetch('http://skillshikhun.herokuapp.com/api/password-input-login', {
+        fetch('https://skillshikhun.herokuapp.com/api/password-input-login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -267,7 +267,7 @@ const LoginHandler = () => {
             confirmButtonText: 'হ্যাঁ, ভুলে গেছি!'
         }).then((result) => {
             if (result.value) {
-                fetch('http://skillshikhun.herokuapp.com/api/forget-password', {
+                fetch('https://skillshikhun.herokuapp.com/api/forget-password', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

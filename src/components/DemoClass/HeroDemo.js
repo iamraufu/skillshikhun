@@ -13,7 +13,7 @@ const HeroDemo = () => {
     const courseCategory = courseData.filter(course => course.name === category)
 
     useEffect(() => {
-        fetch(`http://skillshikhun.herokuapp.com/users/phone/${phone}`)
+        fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
             .then(res => res.json())
             .then(data => setUserPhoneData(data))
     }, [phone])
@@ -42,7 +42,7 @@ const HeroDemo = () => {
             date: `${day}-${month}-${year} at ${time}`
         };
 
-        fetch('http://skillshikhun.herokuapp.com/registerForDemoClass', {
+        fetch('https://skillshikhun.herokuapp.com/registerForDemoClass', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

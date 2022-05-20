@@ -21,7 +21,7 @@ const Checkout = () => {
     const [userPhoneData, setUserPhoneData] = useState({})
 
     useEffect(() => {
-        fetch(`http://skillshikhun.herokuapp.com/users/phone/${phone}`)
+        fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
             .then(res => res.json())
             .then(data => setUserPhoneData(data))
     }, [phone])
@@ -105,7 +105,7 @@ const Checkout = () => {
         //     })
 
         // SSL Payment Gateway
-        await fetch('http://skillshikhun.herokuapp.com/ssl-request')
+        await fetch('https://skillshikhun.herokuapp.com/ssl-request')
             .then(res => res.json())
             .then(data => console.log(data))
             .catch(err => console.log(err))
