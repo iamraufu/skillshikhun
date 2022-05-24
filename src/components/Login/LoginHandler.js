@@ -24,17 +24,9 @@ const LoginHandler = () => {
     // eslint-disable-next-line
     const [email, setEmail] = useState("");
     const [flag, setFlag] = useState(false);
-    // eslint-disable-next-line
-    // const [phoneUserData, setPhoneUserData] = useState({
-    //     name: '',
-    //     email: '',
-    //     phone: '',
-    //     photo: '',
-    //     password: ''
-    // });
 
     if (user.email || localStorage.getItem('token')) {
-        navigate(from, { replace: true }) // <-- A hint to tell React Router to replace the current location in history with the new one.
+        navigate(from, { replace: true }) 
     }
 
     const handlePhoneNumberChange = (e) => {

@@ -315,18 +315,38 @@
 
 // export default DemoClass;
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeroDemo from './HeroDemo';
 import RegisterFromDemoClass from './RegisterFromDemoClass';
 
 const DemoClass = () => {
 
-    useEffect(()=>{ 
-        if(localStorage.getItem('token')){
+    const phone = localStorage.getItem('phone');
+    const [demoClasses, setDemoClasses] = useState([]);
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
             document.getElementById('register_demo_class').style.display = 'none';
-            document.getElementById('hero_demo').style.display = 'block';
+            if (demoClasses.length === 0) {
+                document.getElementById('hero_demo').style.display = 'block'
+            }
+            else {
+                <div style={{ position: 'absolute', height: '100px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }} className="spinner-border" role="status">
+                    <span className="sr-only"></span>
+                </div>
+            }
         }
     })
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
+            const data = await res.json();
+            setDemoClasses(data);
+        }
+        fetchData();
+    }, [phone])
+
     return (
         <div style={{ backgroundColor: 'rgb(243, 245, 249)', borderRadius: '15px', border: '1px solid #ececec' }} className='mt-5'>
             <h1 style={{ fontSize: '22px', color: '#343b6d', fontWeight: '600' }} className='mt-4 text-center'>৩টি ফ্রি ক্লাস করে দেখুন</h1>
@@ -338,9 +358,9 @@ const DemoClass = () => {
                 </div>
             </div>
 
-            <div id='hero_demo' 
-            style={{ display: 'none' }}
-            className="">
+            <div id='hero_demo'
+                style={{ display: 'none' }}
+                className="">
                 <HeroDemo />
             </div>
 

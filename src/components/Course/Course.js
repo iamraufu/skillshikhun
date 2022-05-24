@@ -110,9 +110,13 @@ const Course = (props) => {
                                             <div className="col-md-6 mt-1">
                                                 <Link to='' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3' onClick={() => myRef.current.scrollIntoView()}>৩টি ফ্রি ক্লাস বুঝে নিন &#8594;</button></Link>
                                             </div>
-                                            <div className="col-md-6 mt-1">
+                                            {
+                                                localStorage.getItem('token') ? <div className="col-md-6 mt-1">
                                                 <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
+                                            </div> : <div className="col-md-6 mt-1">
+                                                <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
                                             </div>
+                                            }
                                         </div>
                                     </div>
                                     <p className='text-center mt-3'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
