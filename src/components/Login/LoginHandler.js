@@ -136,7 +136,6 @@ const LoginHandler = () => {
     // function for OTP verification
     const OTPVerification = (otpData) => {
         const otp = otpData.otp;
-
         fetch('https://skillshikhun.herokuapp.com/api/otp-verification', {
             method: 'POST',
             headers: {

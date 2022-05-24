@@ -34,7 +34,7 @@
     /* background-color: #b94a8f; */
     /* color: #f8f9fa; */
     font-size: 16px;
-    font-weight: 600;
+    /* font-weight: 600; */
     line-height: 20px;
     border-radius: 5px;
     padding: 10px;
@@ -42,6 +42,7 @@
     border: 1px solid #ffc107;
     background-color: #ffc107;
     width: 97%;
+    box-shadow: 0 5px 15px #c4c4c44d;
 }
 
 .btn-demo:hover {
@@ -53,13 +54,14 @@
     background-color: rgb(72, 199, 116);
     color: #f8f9fa;
     font-size: 16px;
-    font-weight: 600;
+    /* font-weight: 600; */
     line-height: 20px;
     border-radius: 5px;
     padding: 10px;
     margin: 1px;
     border: none;
     width: 97%;
+    box-shadow: 0 5px 15px #c4c4c44d;
 }
 
 .btn-buy:hover {

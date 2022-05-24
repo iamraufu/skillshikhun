@@ -27,7 +27,8 @@ const courseData = [
         offer_price_per_month:'৩০০০',
         offer_price_per_month_eng:'3000',
         course_done:'১৫০',
-        next_batch:'জুন',
+        seat_left:'১৭',
+        next_batch:'জুলাই',
         course_instructor:'সাব্বির আহমেদ',
         instructor_designation:'Full Stack Web Developer, Freelance Developer, Instructor',
         class_date:[
@@ -239,7 +240,8 @@ const courseData = [
         offer_price_per_month:'৩০০০',
         offer_price_per_month_eng:'3000',
         course_done:'২১০',
-        next_batch:'জুন',
+        seat_left:'৮',
+        next_batch:'জুলাই',
         course_instructor:'আতাউল হোসেন',
         instructor_designation:'কো - ফাউন্ডার, স্কিল শিখুন, কো - ফাউন্ডার, স্টেপ টু ডিজিটাল',
         class_date:[
@@ -421,7 +423,8 @@ const courseData = [
         offer_price_per_month:'২০০০',
         offer_price_per_month_eng:'2000',
         course_done:'১৩৯',
-        next_batch:'মে',
+        seat_left:'১৪',
+        next_batch:'জুলাই',
         course_instructor:'সায়মা বিবি',
         instructor_designation:'Full Stack Web Developer, Freelance Developer, Instructor',
         class_date:[
@@ -638,7 +641,8 @@ const courseData = [
         offer_price_per_month:'২০০০',
         offer_price_per_month_eng:'2000',
         course_done:'২৩৪',
-        next_batch:'মে',
+        next_batch:'জুলাই',
+        seat_left:'১১',
         course_instructor:'ইফতিখার রহমান',
         instructor_designation:'Full Stack Web Developer, Freelance Developer, Instructor',
         class_date:[

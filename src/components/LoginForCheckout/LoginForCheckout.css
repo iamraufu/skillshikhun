@@ -1,8 +1,22 @@
-.line-checkout {
-    background-color: #653dae;
-    height: 0.2em;
-    /* margin-right: 25rem; */
-    bottom: 0;
-    left: -50%;
-    top: 1rem;
+.progress {
+    background-color: transparent;
+}
+
+.progress-bar {
+    background-color: #a94db8;
+}
+
+.course-select,
+.your-info,
+.payment {
+    margin-top: -1.2rem;
+    padding: 0 0.8rem;
+}
+
+.course-select {
+    margin-left: -4rem;
+}
+
+.payment {
+    margin-left: 2rem;
 }

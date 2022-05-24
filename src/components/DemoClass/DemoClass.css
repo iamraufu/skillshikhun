@@ -72,3 +72,13 @@ select:focus {
     opacity: 0.9;
     font-size: 14px;
 }
+
+.hero-demo-container {
+    margin-top: 6rem;
+}
+
+@media (max-width: 767px) {
+    .hero-demo-container {
+        margin-top: 0rem;
+    }
+}
