@@ -41,6 +41,32 @@ const Navbar = () => {
                                     color: isActive ? '#f8f9fa' : '#434257',
                                     background: isActive ? '#666699' : '#f4f4f8'
                                   })} className="nav-link nav-item" to="/courses">কোর্স সমূহ</NavLink>
+
+                            <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
+                                  })} className="nav-link nav-item" to="/dashboard/live-course">লাইভ কোর্স</NavLink>
+
+                            <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
+                                  })} className="nav-link nav-item" to="/dashboard/free-class">ফ্রি ক্লাস</NavLink>
+
+                            <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
+                                  })} className="nav-link nav-item" to="/dashboard/video-course">ভিডিও কোর্স</NavLink>
+
+                            <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
+                                  })} className="nav-link nav-item" to="/dashboard/payment-history">পেমেন্ট ইতিহাস</NavLink>
+
+                            <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
+                                  })} className="nav-link nav-item" to="/dashboard/profile">প্রোফাইল</NavLink>
+                                  
                             </div>
                                  : 
                                  <div style={{ backgroundColor: '#f4f4f8' }} className="navbar-nav mx-auto p-1">

@@ -6,8 +6,7 @@ import courseData from '../../data/course/courseData.js';
 import live from '../../images/liveClass.svg';
 import { Link } from 'react-router-dom';
 import CourseReview from './CourseReview';
-// import play from '../../images/play.png';
-import black_door from '../../images/black_door.svg';
+import door_white from '../../images/door_white.svg';
 import class_black from '../../images/class_black.svg';
 import CourseDemoClass from '../DemoClass/CourseDemoClass';
 const HowToPayment = React.lazy(() => import('./HowToPayment'));
@@ -21,8 +20,6 @@ const Course = (props) => {
     const otherCourses = [courseData.filter(otherCourses => otherCourses.name !== name)];
 
     const [showMore, setShowMore] = useState(false);
-    // eslint-disable-next-line
-    // const [promoCode, setPromoCode] = useState(false);
 
     const myRef = useRef(null);
 
@@ -30,10 +27,6 @@ const Course = (props) => {
         setShowMore(false);
         window.scrollTo(0, 0);
     }
-
-    // const handlePromoCode = () => {
-    //     setPromoCode(true);
-    // }
 
     return (
         <div style={{ backgroundColor: '#f8f9fa' }}>
@@ -63,11 +56,11 @@ const Course = (props) => {
                             border: '1px solid #ececec', top: '90px'
                         }} className="container position-sticky">
                             <div className="row py-3">
-                                <div style={{ justifyContent: 'space-between' }} className="d-flex py-3">
-                                    <div className="col-md-6">
+                                <div style={{ justifyContent: 'space-between' }} className="d-flex">
+                                    <div className="py-3 d-none d-lg-block">
                                         <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
                                     </div>
-                                    <div className="col-md-6">
+                                    <div className="py-3 d-none d-lg-block">
                                         <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.offer_price_per_month}/মাস</h2>
                                     </div>
                                 </div>
@@ -252,11 +245,11 @@ const Course = (props) => {
                         <div className="col-md-6">
                         <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>
                             {/* &#2547; {course.offer_price_per_month}/মাস */}
-                            <b>{course.next_batch}</b> ২০২২ ব্যাচ এ ভর্তি চলছে
+                            <b>{course.next_batch}</b> ২০২২ ব্যাচ
                             </h2>
                         </div>
                         <div className="col-md-6">
-                            <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>সিট বাকি: <b>{course.seat_left}</b> টি</h2>
+                            <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>সিট বাকি: <b>{course.seat_left}</b></h2>
                         </div>
                     </div>
                     <div className=" justify-content-center">
@@ -271,7 +264,7 @@ const Course = (props) => {
                                             ৩টি ফ্রি ক্লাস করে দেখুন
                                         </div>
                                         <div className="">
-                                            <img src={class_black} width={35} style={{ marginTop: '-0.3rem' }} className='img-fluid ms-1' alt="black door" />
+                                            <img src={class_black} width={35} style={{ marginTop: '0rem' }} className='img-fluid ms-1' alt="black door" />
                                         </div>
                                     </div>
 
@@ -279,10 +272,13 @@ const Course = (props) => {
                             </Link>
                         </div>
                         {
-                            localStorage.getItem('token') ? <div className="col-md-6 mt-1">
-                                <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>{course.offer_price_per_month}/মাস <br /> এখনই ভর্তি হয়ে যান &#8594;</button></Link>
-                            </div> : <div className="col-md-6 mt-1">
-                                <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>
+                            localStorage.getItem('token') ? 
+                            // <div className="col-md-6 mt-1">
+                            //     <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>{course.offer_price_per_month}/মাস <br /> এখনই ভর্তি হয়ে যান &#8594;</button></Link>
+                            // </div> 
+                            <div className="col-md-6 mt-1">
+                                <Link to={`/checkout/${course.id}`} className='text-decoration-none'>
+                                    <button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>
                                     <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
                                         <div className='col-sm-6' style={{ fontSize: '24px' }}>
                                         &#2547; {course.offer_price_per_month}/মাস
@@ -292,11 +288,32 @@ const Course = (props) => {
                                                 ভর্তি হন
                                             </div>
                                             <div className="">
-                                                <img src={black_door} width={25} style={{ marginTop: '-0.3rem' }} className='img-fluid ms-1' alt="black door" />
+                                                <img src={door_white} width={25} style={{ marginTop: '-0.2rem' }} className='img-fluid ms-1' alt="black door" />
                                             </div>
                                         </div>
                                     </div>
-                                </button></Link>
+                                </button>
+                                </Link>
+                            </div>
+                            : 
+                            <div className="col-md-6 mt-1">
+                                <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'>
+                                    <button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>
+                                    <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
+                                        <div className='col-sm-6' style={{ fontSize: '24px' }}>
+                                        &#2547; {course.offer_price_per_month}/মাস
+                                        </div>
+                                        <div className='col-sm-6 d-flex' style={{ fontSize: '24px' }}>
+                                            <div className="">
+                                                ভর্তি হন
+                                            </div>
+                                            <div className="">
+                                                <img src={door_white} width={25} style={{ marginTop: '-0.2rem' }} className='img-fluid ms-1' alt="black door" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                                </Link>
                             </div>
                         }
                     </div>

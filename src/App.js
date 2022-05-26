@@ -13,6 +13,11 @@ import Cancel from './components/Checkout/Cancel';
 import PrivateOutlet2 from './components/PrivateOutlet2/PrivateOutlet2';
 import LoginForCheckout from './components/LoginForCheckout/LoginForCheckout';
 import PurchaseCheckout from './components/PurchaseCheckout/PurchaseCheckout';
+import Profile from './components/Dashboard/Profile/Profile';
+import DLiveCourse from './components/Dashboard/DLiveCourse/DLiveCourse';
+import DFreeClass from './components/Dashboard/DFreeClass/DFreeClass';
+import DVideoCourse from './components/Dashboard/DVideoCourse/DVideoCourse';
+import DPaymentHistory from './components/Dashboard/DPaymentHistory/DPaymentHistory';
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -48,6 +53,11 @@ function App() {
 
           <Route path="/" element={<PrivateOutlet />}>
             <Route path="dashboard" element={<Dashboard />} />
+            <Route path="dashboard/live-course" element={<DLiveCourse />} />
+            <Route path="dashboard/free-class" element={<DFreeClass />} />
+            <Route path="dashboard/video-course" element={<DVideoCourse />} />
+            <Route path="dashboard/payment-history" element={<DPaymentHistory />} />
+            <Route path="dashboard/profile" element={<Profile />} />
             <Route path="/checkout/:courseId" element={<Checkout />} />
           </Route>
 

@@ -74,7 +74,7 @@ select:focus {
 }
 
 .hero-demo-container {
-    margin-top: 6rem;
+    margin-top: 4rem;
 }
 
 @media (max-width: 767px) {

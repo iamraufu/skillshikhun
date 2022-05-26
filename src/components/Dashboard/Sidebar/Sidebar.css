@@ -1,0 +1,36 @@
+.dashboard-nav-link {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+    max-width: 180px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dashboard-nav-link:hover {
+    background-color: #653dae;
+}
+
+
+/* 
+.dashboard-nav-link:hover>.dashboard-nav-item>.dashboard-nav-text {
+    color: white;
+} */
+
+
+/* 
+.dashboard-nav-item {
+    color: black;
+}
+
+.dashboard-nav-text:hover {
+    color: white;
+} */
+
+.dashboard-nav-text {
+    margin-left: 5px;
+}
