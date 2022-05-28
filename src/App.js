@@ -26,7 +26,7 @@ const Login = lazy(() => import('./components/Login/Login'));
 
 function App() {
   const renderLoader = () =>
-    <div style={{ position: 'absolute', height: '100px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }} className="spinner-border" role="status">
+    <div style={{ position: 'absolute', height: '100px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }} className="spinner-grow" role="status">
       <span className="sr-only"></span>
     </div>
 

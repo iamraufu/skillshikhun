@@ -331,7 +331,7 @@ const DemoClass = () => {
                 document.getElementById('hero_demo').style.display = 'block'
             }
             else {
-                <div style={{ position: 'absolute', height: '100px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }} className="spinner-border" role="status">
+                <div style={{ position: 'absolute', height: '100px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }} className="spinner-grow" role="status">
                     <span className="sr-only"></span>
                 </div>
             }

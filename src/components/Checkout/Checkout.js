@@ -224,7 +224,7 @@ const Checkout = () => {
 
             <div id='loading_spinner' style={{ display: 'none', position: 'absolute', height: '50px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }}>
                 <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f', marginLeft: '-1.5rem' }} className='fw-bold'>অপেক্ষা করুন</h1>
-                <div className="spinner-border" role="status">
+                <div className="spinner-grow" role="status">
                     <span className="sr-only"></span>
                 </div>
             </div>

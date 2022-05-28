@@ -1,18 +1,22 @@
 import React from 'react';
+import DNavbar from '../DNavbar/DNavbar';
 import Sidebar from '../Sidebar/Sidebar';
 
 const DPaymentHistory = () => {
     return (
-        <div className='container-fluid'>
-            <div className="d-flex">
+        <div className="">
+            <DNavbar />
+            <div className='container-fluid mt-5'>
+                <div className="d-flex">
 
-                <div className="col-sm-2">
-                    <Sidebar />
-                </div>
+                    <div className="col-lg-3 d-none d-lg-block">
+                        <Sidebar />
+                    </div>
 
-                <div className="col-sm-10">
+                    <div className="col-lg-9">
 
-                    Content Goes Here
+                        Content Goes Here
+                    </div>
                 </div>
             </div>
         </div>

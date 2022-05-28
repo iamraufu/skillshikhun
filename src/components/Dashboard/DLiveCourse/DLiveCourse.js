@@ -1,18 +1,21 @@
 import React from 'react';
+import DNavbar from '../DNavbar/DNavbar';
 import Sidebar from '../Sidebar/Sidebar';
 
 const DLiveCourse = () => {
     return (
-        <div className='container-fluid'>
-            <div className="d-flex">
+        <div className="">
+            <DNavbar />
+            <div className='container-fluid mt-5'>
+                <div className="d-flex">
 
-                <div className="col-sm-2">
-                    <Sidebar />
-                </div>
+                    <div className="col-lg-3 d-none d-lg-block">
+                        <Sidebar />
+                    </div>
 
-                <div className="col-sm-10">
+                    <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px' }} className="col-lg-8">
 
-                    Content Goes Here
+                    </div>
                 </div>
             </div>
         </div>

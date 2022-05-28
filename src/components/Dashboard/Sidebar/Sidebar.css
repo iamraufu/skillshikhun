@@ -15,6 +15,12 @@
     background-color: #653dae;
 }
 
+.dashboard-navbar-collapse {
+    width: 200px;
+    background-color: rgba(19, 51, 139, 0.8);
+    border-radius: 15px;
+}
+
 
 /* 
 .dashboard-nav-link:hover>.dashboard-nav-item>.dashboard-nav-text {
