@@ -31,7 +31,7 @@ const Sidebar = () => {
 
                                 <NavLink className='dashboard-nav-link' style={({ isActive }) => ({
                                     color: isActive ? 'white' : 'black',
-                                    background: isActive ? '#653dae' : '#dfdfdf'
+                                    background: isActive ? '#b94a8f' : '#ffffff'
                                 })} to='/dashboard/live-course'>
                                     <div onClick={() => clickHandler('live-course')} className="dashboard-nav-item">
                                         <img src={live} width={35} className='img-fluid' alt="Live Course" />
@@ -41,7 +41,7 @@ const Sidebar = () => {
 
                                 <NavLink className='dashboard-nav-link' style={({ isActive }) => ({
                                     color: isActive ? 'white' : 'black',
-                                    background: isActive ? '#653dae' : '#dfdfdf'
+                                    background: isActive ? '#b94a8f' : '#ffffff'
                                 })} to='/dashboard/free-class'>
                                     <div onClick={() => clickHandler('free-class')} className="dashboard-nav-item">
                                         <img src={free} width={30} className='img-fluid' alt="Free Class" />
@@ -51,7 +51,7 @@ const Sidebar = () => {
 
                                 <NavLink className='dashboard-nav-link' style={({ isActive }) => ({
                                     color: isActive ? 'white' : 'black',
-                                    background: isActive ? '#653dae' : '#dfdfdf'
+                                    background: isActive ? '#b94a8f' : '#ffffff'
                                 })} to='/dashboard/video-course'>
                                     <div onClick={() => clickHandler('video-course')} className="dashboard-nav-item">
                                         <img src={course} width={25} className='img-fluid' alt="Video Course" />
@@ -61,7 +61,7 @@ const Sidebar = () => {
 
                                 <NavLink className='dashboard-nav-link' style={({ isActive }) => ({
                                     color: isActive ? 'white' : 'black',
-                                    background: isActive ? '#653dae' : '#dfdfdf'
+                                    background: isActive ? '#b94a8f' : '#ffffff'
                                 })} to='/dashboard/payment-history'>
                                     <div onClick={() => clickHandler('payment-history')} className="dashboard-nav-item">
                                         <img src={payment} width={25} className='img-fluid' alt="Payment History" />
@@ -71,7 +71,7 @@ const Sidebar = () => {
 
                                 <NavLink className='dashboard-nav-link' style={({ isActive }) => ({
                                     color: isActive ? 'white' : 'black',
-                                    background: isActive ? '#653dae' : '#dfdfdf'
+                                    background: isActive ? '#b94a8f' : '#ffffff'
                                 })} to='/dashboard/profile'>
                                     <div onClick={() => clickHandler('profile')} className="dashboard-nav-item">
                                         <img src={profile} width={25} className='img-fluid' alt="Profile" />

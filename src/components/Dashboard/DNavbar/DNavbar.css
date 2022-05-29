@@ -1,0 +1,19 @@
+/* .accordion-button-customize {
+    background-color: aliceblue;
+    width: 10px;
+    padding: 15px;
+} */
+
+.accordion-button:not(.collapsed) {
+    background-color: white;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+.accordion-button:focus {
+    border-color: none;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+.accordion-body-item:hover {
+    color: #b94a8f;
+}

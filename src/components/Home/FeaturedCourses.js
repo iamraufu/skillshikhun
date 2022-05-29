@@ -31,10 +31,10 @@ const FeaturedCourses = () => {
                                             <div
                                                 // style={{height:'200px'}} 
                                                 className="bg-white py-4">
-                                                <h3 style={{ fontSize: '18px', lineHeight: '30px', fontWeight: '600', color: '#354895' }} className='px-3'>{course.title}
-                                                    <img src={liveClass} className='img-fluid ps-2' alt="live class" loading="lazy" />
+                                                <h3 style={{ fontSize: '16px', lineHeight: '30px', fontWeight: '600', color: '#354895' }} className='px-3'>{course.title}
+                                                    <img src={liveClass} className='img-fluid ps-2' width={40} alt="live class" loading="lazy" />
                                                     <br /> <small>- {course.course_duration} মাসের
-                                                        <img src={live} width={30} className='img-fluid mx-2' alt="live class" loading="lazy" />
+                                                        <img src={live} width={30} className='img-fluid mx-2 mb-1' alt="live class" loading="lazy" />
                                                         কোর্স</small></h3>
                                                 {/* <p style={{textAlign:'justify'}} className='px-3 text-black'>{course.short_description}</p> */}
                                             </div>

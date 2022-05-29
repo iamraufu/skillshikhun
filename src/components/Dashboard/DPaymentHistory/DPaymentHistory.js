@@ -1,5 +1,6 @@
 import React from 'react';
 import DNavbar from '../DNavbar/DNavbar';
+import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
 
 const DPaymentHistory = () => {
@@ -18,6 +19,7 @@ const DPaymentHistory = () => {
                         Content Goes Here
                     </div>
                 </div>
+                <Menu />
             </div>
         </div>
     );

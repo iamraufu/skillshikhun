@@ -1,6 +1,7 @@
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import DNavbar from '../DNavbar/DNavbar';
+import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
 
 const Profile = () => {
@@ -11,7 +12,7 @@ const Profile = () => {
         <div className="">
             <DNavbar />
             <div className='container-fluid mt-5'>
-                <div className="row">
+                <div className="d-flex">
 
                     <div className="col-lg-3 d-none d-lg-block">
                         <Sidebar />
@@ -23,6 +24,7 @@ const Profile = () => {
                         </div>
                     </div>
                 </div>
+                <Menu />
             </div>
         </div>
     );

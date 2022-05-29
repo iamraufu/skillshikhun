@@ -18,7 +18,7 @@ const CourseReview = (props) => {
             <AutoplaySlider 
             play={true}
             cancelOnInteraction={false}
-            interval={1500}
+            interval={10000}
             className='review_slider'>
       {
         review.map(review => (

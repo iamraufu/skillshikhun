@@ -1,5 +1,6 @@
 import React from 'react';
 import DNavbar from '../DNavbar/DNavbar';
+import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
 
 const DLiveCourse = () => {
@@ -17,6 +18,7 @@ const DLiveCourse = () => {
 
                     </div>
                 </div>
+                <Menu />
             </div>
         </div>
     );

@@ -1,7 +1,11 @@
-import videoImage from '../../images/full-stack-video-editing.png';
-import digitalImage from '../../images/full-stack-digital-marketing.png';
-import webImage from '../../images/full-stack-web-development.png';
-import graphicsImage from '../../images/full-stack-graphic-design.png';
+import videoImage from '../../images/courses/ve.jpg';
+// import videoImage from '../../images/full-stack-video-editing.png';
+import digitalImage from '../../images/courses/dm.jpg';
+// import digitalImage from '../../images/full-stack-digital-marketing.png';
+import webImage from '../../images/courses/wd.jpg';
+// import webImage from '../../images/full-stack-web-development.png';
+import graphicsImage from '../../images/courses/gd.jpg';
+// import graphicsImage from '../../images/full-stack-graphic-design.png';
 import ve_i from '../../images/ve_i.jpg';
 import dm_i from '../../images/dm_i.jpg';
 import wd_i from '../../images/wd_i.jpg';
