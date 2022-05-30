@@ -5,16 +5,17 @@ import Sidebar from '../Sidebar/Sidebar';
 
 const DLiveCourse = () => {
     return (
-        <div className="">
+        <div>
             <DNavbar />
-            <div className='container-fluid mt-5'>
-                <div className="d-flex">
+            <div style={{marginTop:'5rem'}} className='container-fluid'>
+                <div className="row">
 
-                    <div className="col-lg-3 d-none d-lg-block">
+                    {/* left sidebar */}
+                    <div className="col-xl-2 col-lg-3 col-md-4 d-none d-lg-block position-sticky">
                         <Sidebar />
                     </div>
 
-                    <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px' }} className="col-lg-8">
+                    <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px' }} className="col-xl-9 col-lg-9 col-md-12 py-5">
 
                     </div>
                 </div>

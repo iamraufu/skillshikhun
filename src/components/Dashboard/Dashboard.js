@@ -72,10 +72,10 @@ const Dashboard = () => {
         <div>
             <DNavbar />
             <div className="container-fluid">
-                <div style={{ marginTop: '4rem' }} className="row my-5">
+                <div style={{ marginTop: '5rem' }} className="row">
 
                     {/* left sidebar */}
-                    <div style={{ top: '0px' }} className="col-xl-2 col-lg-3 col-md-4 d-none d-lg-block position-sticky">
+                    <div className="col-xl-2 col-lg-3 col-md-4 d-none d-lg-block position-sticky">
                         <Sidebar />
                     </div>
 

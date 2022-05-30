@@ -73,42 +73,67 @@ const Checkout = () => {
         document.getElementById('checkout_container').style.filter = 'blur(3px)';
         document.getElementById('loading_spinner').style.display = 'block';
 
+        var timeleft = 10;
+        var downloadTimer = setInterval(function(){
+        if(timeleft <= 0){
+        clearInterval(downloadTimer);
+        }     
+        document.getElementById("progressBar").value = 10 - timeleft;
+        timeleft -= 1;
+        }, 1000);
+
         // Aamar Pay Payment Gateway
-        // await fetch('https://secure.aamarpay.com/jsonpost.php', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify({
-        //         store_id: "skillshikhun",
-        //         signature_key: "7445cc98363b6b9cae4af766ef0f0186",
-        //         cus_name: `${userPhoneData.name}`,
-        //         cus_email: `hr@skillshikhun.com`,
-        //         cus_phone: `${userPhoneData.phone}`,
-        //         cus_add1: "Skill Shikhun, Dhaka, Bangladesh",
-        //         cus_add2: "Dhaka",
-        //         cus_city: "Dhaka",
-        //         cus_country: "Bangladesh",
-        //         amount: `${price}`,
-        //         // amount: 1,
-        //         tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
-        //         currency: "BDT",
-        //         success_url: "http://localhost:3000/success",
-        //         fail_url: "http://localhost:3000/fail",
-        //         cancel_url: "http://localhost:3000/cancel",
-        //         desc: `Purchase ${course[0].slug} Course`,
-        //         type: "json"
-        //     })
-        // })
+        await fetch('https://secure.aamarpay.com/jsonpost.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+            body: JSON.stringify({
+                store_id: "skillshikhun",
+                signature_key: "7445cc98363b6b9cae4af766ef0f0186",
+                cus_name: `${userPhoneData.name}`,
+                cus_email: `hr@skillshikhun.com`,
+                cus_phone: `${userPhoneData.phone}`,
+                cus_add1: "Skill Shikhun, Dhaka, Bangladesh",
+                cus_add2: "Dhaka",
+                cus_city: "Dhaka",
+                cus_country: "Bangladesh",
+                amount: `${price}`,
+                tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
+                currency: "BDT",
+                success_url: "http://localhost:3000/success",
+                fail_url: "http://localhost:3000/fail",
+                cancel_url: "http://localhost:3000/cancel",
+                desc: `Purchase ${course[0].slug} Course`,
+                type: "json"
+            })
+        })
+            .then(res => res.json())
+            .then(data => {
+                window.location.replace(data.payment_url)
+            })
+
+        // SSL Payment Gateway
+        // await fetch('http://localhost:5000/ssl-request'
+        // ,{
+        //     method: 'GET',
+        //     headers: { 
+        //         'Content-Type': 'application/json',
+        //         'Access-Control-Allow-Origin': '*'
+        // },
+        // }
+        // )
+        //     .then(res => res.json())
+        //     .then(data => console.log(data))
+        //     .catch(err => console.log(err))
+
+        // Aamar Pay Gateway
+        // await fetch('http://localhost:5000/api/aamar-pay')
         //     .then(res => res.json())
         //     .then(data => {
         //         console.log(data);
         //         window.location.replace(data.payment_url)
-        //     })
-
-        // SSL Payment Gateway
-        await fetch('https://skillshikhun.herokuapp.com/ssl-request')
-            .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
+        //     }
+        //     )
+        //     .catch(err => console.log(err))
     }
 
     return (
@@ -222,11 +247,16 @@ const Checkout = () => {
                 </div>
             </div>
 
-            <div id='loading_spinner' style={{ display: 'none', position: 'absolute', height: '50px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }}>
-                <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f', marginLeft: '-1.5rem' }} className='fw-bold'>অপেক্ষা করুন</h1>
-                <div className="spinner-grow" role="status">
+            <div id='loading_spinner' className='container-fluid d-flex justify-content-center align-items-center' style={{display:'none', paddingTop:'15rem', margin:'auto', width:'50%'}}
+            // style={{ display: 'none', position: 'absolute', height: '50px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }}
+            >
+                <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f'
+                // , marginLeft: '-1.5rem' 
+                }} className='fw-bold text-center me-2 mt-2'>অপেক্ষা করুন</h1>
+                {/* <div className="spinner-grow" role="status">
                     <span className="sr-only"></span>
-                </div>
+                </div> */}
+                <progress value="0" max="12" id="progressBar" className=''></progress>
             </div>
 
         </div>
