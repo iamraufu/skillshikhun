@@ -245,7 +245,7 @@ const Course = (props) => {
                         <div className="col-md-6">
                         <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>
                             {/* &#2547; {course.offer_price_per_month}/মাস */}
-                            <b>{course.next_batch}</b> ২০২২ ব্যাচ
+                            ব্যাচ: <b>{course.next_batch}</b> ২০২২
                             </h2>
                         </div>
                         <div className="col-md-6">

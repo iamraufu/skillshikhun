@@ -18,14 +18,14 @@ const Sidebar = () => {
     }
 
     return (
-        <section className=''>
+        <section>
             <div className="container-xl dashboard-navbar-container">
                 <nav className='dashboard-navbar dashboard-navbar-expand-lg'>
                     <div className="container-fluid">
 
-                        <button className='dashboard-navbar-toggler' style={{ display: 'none' }}>
+                        {/* <button className='dashboard-navbar-toggler' style={{ display: 'none' }}>
                             <span className="dashboard-navbar-toggler-icon"></span>
-                        </button>
+                        </button> */}
 
                         <div className="dashboard-navbar-collapse mt-5 p-3">
 

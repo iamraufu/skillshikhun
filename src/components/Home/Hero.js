@@ -1,10 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import logoText from '../../images/logoText.png';
-// import underline from '../../images/underline.png';
-// import heroFront from '../../images/hero-front.png';
 import landingFront from '../../images/landing-front.png';
-// import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import DemoClass from '../DemoClass/DemoClass';

@@ -112,7 +112,7 @@ const Checkout = () => {
             })
 
         // SSL Payment Gateway
-        // await fetch('http://localhost:5000/ssl-request'
+        // await fetch('https://skillshikhun.herokuapp.com/ssl-request'
         // ,{
         //     method: 'GET',
         //     headers: { 
@@ -126,7 +126,7 @@ const Checkout = () => {
         //     .catch(err => console.log(err))
 
         // Aamar Pay Gateway
-        // await fetch('http://localhost:5000/api/aamar-pay')
+        // await fetch('https://skillshikhun.herokuapp.com/api/aamar-pay')
         //     .then(res => res.json())
         //     .then(data => {
         //         console.log(data);

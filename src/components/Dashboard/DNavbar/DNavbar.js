@@ -67,7 +67,7 @@ const DNavbar = () => {
 
                                     <div style={{maxHeight:"100px", borderRadius:'15px', backgroundColor:'#f5f5f5', border:'1px solid grey'}} id="flush-collapseOne" className="accordion-collapse collapse m-2" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                         <div className="accordion-body">
-                                            <a href="/" className='text-black text-decoration-none' target="_blank">
+                                            <a href="/" className='text-black text-decoration-none'>
                                                 <div className="d-flex justify-content-center align-items-center accordion-body-item">
                                                 <img src={web} width={20} className='img-fluid me-2 pb-3' alt="Homepage" />
                                                 <p>হোমপেইজে ফিরে যান</p>
