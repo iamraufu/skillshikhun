@@ -21,6 +21,12 @@ const DLiveCourse = () => {
         fetchData();
     }, [phone])
 
+    // console.log(courseData.filter(course => course.slug === "Full Stack Web Development"));
+    const purchasedCourses = courseData.filter(course => course.slug === liveCourses.course_name);
+    // console.log(liveCourses[1].course_name)
+    // console.log(liveCourses)
+    console.log(purchasedCourses)
+
     return (
         <div>
             <DNavbar />
@@ -34,18 +40,22 @@ const DLiveCourse = () => {
 
                     <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px' }} className="col-xl-9 col-lg-9 col-md-12 py-5 px-5">
                         <div className="row">
-                        <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }} className='mt-3'>
-                                                <img src={live} width={45} className='img-fluid me-2' alt="video course" />
-                                                লাইভ কোর্স</h2>
+                            <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }} className='mt-3'>
+                                <img src={live} width={45} className='img-fluid me-2' alt="video course" />
+                                লাইভ কোর্স</h2>
                             <div className="">
                                 {
                                     liveCourses?.length > 0 ?
                                         <div className="">
                                             {liveCourses.map((course, index) =>
                                                 <div key={index}>
-
-                                                <p className='text-center'>আপনার খরিদকৃত কোর্সটি হল {course.course_name}</p>
-                                            </div>
+                                                    <div className="row">
+                                                        <div className="">
+                                                            <img src={course.image} alt="course" className="img-fluid" />
+                                                            <p>{course.course_name}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             )}
                                         </div> : <p className='text-center'>আপনি কোনো লাইভ কোর্সে ভর্তি হননি</p>
                                     // <div className="">

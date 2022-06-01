@@ -20,7 +20,7 @@ const reviewData = [
         id: 2,
         image:gd1,
         name:'Aayat Aroni',
-        courseName:'Full Stack Graphics Design',
+        courseName:'Graphics Design',
         description:'একদম নতুন হিসেবে ভালো চ্যালেঞ্জিং ছিলো কোর্স টা। অনেক ডেডিকেশন প্রয়োজন ছিল। ডেডিকেটেড হওয়া শিখেছি।'
     },      
     {
@@ -34,7 +34,7 @@ const reviewData = [
         id: 4,
         image:'https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/ramim_iu/profile_59145145.jpg',
         name:'Ramim Bin Quraishi',
-        courseName:'Full Stack Digital Marketing',
+        courseName:'Digital Marketing',
         description:'Stayed with the whole course, worked hard. I got a lot of support from the team. I really like the flow and the journey of this course. Thanks!'
     },
     {
@@ -48,49 +48,49 @@ const reviewData = [
         id: 6,
         image:dm2,
         name:'Riaz Mahamud Ovy',
-        courseName:'Full Stack Digital Marketing',
+        courseName:'Digital Marketing',
         description:'This my first course on digital marketing. After complete this course I have learned basic knowledge about digital marketing. Course is very effective. Sir explained all about digital Marketing very clearly. You will be able to understand how important is digital marketing. Highly recommended.'
     },
     {
         id: 7,
         image:dm1,
         name:'Fowzia Yasmin',
-        courseName:'Full Stack Digital Marketing',
+        courseName:'Digital Marketing',
         description:'কোর্সটি শেষ করলাম। এই কোর্সটি একবার নামমাত্র শেষ করার পর আমি ইউডেমি থেকেও দুইটি কোর্স করেছি, কিন্তু এত সুন্দর কোর্স আমি পাইনি। কারন এটি মাতৃভাষা বাংলায় সাজানো আর একদম এ টু জেড এখানে আলোচনা করা হয়েছে। যার দরুন পুনরায় এসইও ভালোভাবে শেখার জন্য আমি এই কোর্সটি আবার করি। অসাধারণভাবে শিখিয়েছেন। তাছাড়া যেকোনো সমস্যায় পড়লে গ্রুপে অনেক হেল্প করেন। আমার মনে হয় ফ্রিল্যান্সার হওয়ার জন্য এমন একজন মেন্টরের বিকল্প নেই। ধন্যবাদ এত্ত সুন্দর একটা কোর্স উপহার দেওয়ার জন্য।'
     },
     {
         id: 8,
         image:gd2,
         name:'SM Nihal Ahmed',
-        courseName:'Full Stack Graphics Design',
+        courseName:'Graphics Design',
         description:'It a very nice course and from here I learned a lot about UI design and I practice it after completing each lesson on a regular basis and after practicing for the last one month I can now successfully say that I can work in the marketplace as a UI designer. If you want to start from, you can buy the course'
     },
     {
         id: 9,
         image:gd3,
         name:'Tutul Ahmed',
-        courseName:'Full Stack Graphics Design',
+        courseName:'Graphics Design',
         description:'অসাধারণ!! খুব সুন্দর একটি কোর্স!! ইনশাআল্লাহ ভালো কিছু শিখতে পারবো আশা করি।'
     },
     {
         id: 10,
         image:ve1,
         name:'Abed Hossain',
-        courseName:'Full Stack Video Editing',
+        courseName:'Video Editing',
         description:'Very very important course for video editing. So helpful for professional video editing as well as freelancing. The mentor is well enough to help cordially as soon as possible'
     },
     {
         id: 11,
         image:ve2,
         name:'Ramisa Anjum',
-        courseName:'Full Stack Video Editing',
+        courseName:'Video Editing',
         description:'This course is so effective to develop skill about video editing. I appreciate that if anyone follow the all lesson of this course with regular practice he must gain.'
     },
     {
         id: 12,
         image:ve3,
         name:'Supto Khan',
-        courseName:'Full Stack Video Editing',
+        courseName:'Video Editing',
         description:'আমি আসলে অনেক কনফিউজড ছিলাম এই কোর্স টা নিয়ে কারন আমি এত দিন খুজে যাচ্ছিলাম এমন একটা কোর্স। যাক ভাইয়া খুবই ফ্রেন্ডলি অনেক হেল্প করে। আমি আশা করি এই কোর্স থেকে ভালো কিছু অর্জন করবো '
     }
 ];

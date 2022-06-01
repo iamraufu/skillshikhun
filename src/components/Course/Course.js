@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Course.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faClock, faCalendarDays, faPhone, faCheck, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
@@ -15,9 +15,20 @@ const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 const Course = (props) => {
 
     const name = props.name;
+    const [liveCourses, setLiveCourses] = useState([]);
 
-    const course = courseData.find(course => course.name === name);
-    const otherCourses = [courseData.filter(otherCourses => otherCourses.name !== name)];
+    useEffect(()=>{
+        const fetchData = async () => {
+            const res = await fetch('https://skillshikhun.herokuapp.com/liveCourses');
+            const data = await res.json();
+            setLiveCourses(data);
+        }
+        fetchData();
+    }, [])
+
+    console.log(liveCourses)
+    const course = courseData?.find(course => course?.name === name);
+    const otherCourses = [courseData?.filter(otherCourses => otherCourses?.name !== name)];
 
     const [showMore, setShowMore] = useState(false);
 
@@ -175,14 +186,14 @@ const Course = (props) => {
                         {/* ▶ Instructor Profile */}
                         <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="container course-instructor mt-5">
                             <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'>ইনস্ট্রাক্টর</h2>
-                            <div className="d-flex m-2">
-                                <div className="py-2">
-                                    <img style={{ borderRadius: '50%' }} src={course.instructor_image} alt={course.course_instructor} className='img-fluid' />
+                            <div className="d-flex m-2 justify-content-center align-items-center">
+                                <div className="py-2 col-sm-3">
+                                    <img style={{ borderRadius: '50%' }} src={course.instructor_image} alt={course.course_instructor} />
                                 </div>
-                                <div className="p-3">
-                                    <h3 style={{ fontSize: '18px', lineHeight: '28px', textAlign: 'justify' }}>{course.course_instructor}</h3>
+                                <div className="p-3 col-sm-9">
+                                    <h3 style={{ fontSize: '18px', lineHeight: '28px', textAlign: 'justify', flexWrap:'wrap', fontWeight:'700' }}>{course.course_instructor}</h3>
                                     {
-                                        course?.instructor_designation ? <p style={{ fontSize: '14px', lineHeight: '20px' }}>{course.instructor_designation}</p> : <p>Data Not Found!</p>
+                                        course?.instructor_designation ? <p style={{ fontSize: '14px', lineHeight: '20px', textAlign: 'justify', flexWrap:'wrap' }}>{course.instructor_designation}</p> : <p>Data Not Found!</p>
                                     }
                                 </div>
                             </div>
