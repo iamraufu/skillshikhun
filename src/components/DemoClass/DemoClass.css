@@ -81,4 +81,8 @@ select:focus {
     .hero-demo-container {
         margin-top: 0rem;
     }
+    .course-demo-class {
+        padding: 6rem 0;
+        min-height: 100vh;
+    }
 }

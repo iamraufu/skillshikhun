@@ -109,8 +109,35 @@ const Dashboard = () => {
                                         <img src={free_class} width={50} className='img-fluid me-2' alt="free class" />
                                         আপনার ফ্রি ক্লাস সমূহ</h2>
 
-                                    <div className="">
-                                        {demoClasses?.length > 0 ?
+                                    {
+                                        demoClasses?.length === 1 &&
+                                        <div className="row justify-content-center">
+                                                {demoClasses?.map(course => {
+                                                    return (
+                                                        <div key={course._id} className='col-md-12 my-3'>
+                                                            <Link className='text-decoration-none' to='/'>
+                                                                <div style={{ border: '1px solid #dde7f3' }}>
+
+                                                                    <div style={{ minHeight: '180px' }} className="bg-white py-3">
+                                                                        <h3 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#354895' }} className='px-3'><span style={{ color: '#b94a8f' }}>{course.category}</span>
+                                                                            <br />তারিখ - <small>{course.class_date}</small></h3>
+                                                                        <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#069654' }} className=' px-3 price mt-2'>
+                                                                            <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
+                                                                        </h4>
+                                                                    </div>
+
+                                                                    <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
+                                                                        <button className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button>
+                                                                    </div>
+                                                                </div>
+                                                            </Link>
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
+                                    }
+
+                                        {demoClasses?.length > 1 &&
                                             <div className="row justify-content-center">
                                                 {demoClasses?.map(course => {
                                                     return (
@@ -135,13 +162,15 @@ const Dashboard = () => {
                                                     )
                                                 })}
                                             </div>
-                                            :
+                                        }
+
+                                        {
+                                            demoClasses?.length === 0 &&
                                             <div className="ms-3 justify-content-center">
                                                 <p className='mt-2 text-center text-muted'>আপনি কোনো ফ্রি ক্লাস রেজিস্ট্রেশন করেননি | ৩টি ফ্রি ক্লাস পেতে এখানে ক্লিক করুন</p>
                                                 <button className='btn btn-info text-white my-3 mx-auto d-block'><Link to='/dashboard/free-class' className='text-white text-decoration-none'>ফ্রি ক্লাস</Link></button>
                                             </div>
                                         }
-                                    </div>
                                 </div>
                             </div>
 

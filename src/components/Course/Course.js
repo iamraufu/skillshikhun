@@ -193,7 +193,7 @@ const Course = (props) => {
                                 <div className="p-3 col-sm-9">
                                     <h3 style={{ fontSize: '18px', lineHeight: '28px', textAlign: 'justify', flexWrap:'wrap', fontWeight:'700' }}>{course.course_instructor}</h3>
                                     {
-                                        course?.instructor_designation ? <p style={{ fontSize: '14px', lineHeight: '20px', textAlign: 'justify', flexWrap:'wrap' }}>{course.instructor_designation}</p> : <p>Data Not Found!</p>
+                                        course?.instructor_designation ? <p style={{ fontSize: '14px', lineHeight: '20px', flexWrap:'wrap' }}>{course.instructor_designation}</p> : <p>Data Not Found!</p>
                                     }
                                 </div>
                             </div>

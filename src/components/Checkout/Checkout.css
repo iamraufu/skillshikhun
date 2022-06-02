@@ -42,7 +42,8 @@
 }
 
 .btn-buy {
-    background-color: rgb(72, 199, 116);
+    /* background-color: rgb(72, 199, 116); */
+    background-image: linear-gradient(to right, #13338b, #b94a8f);
     color: #f8f9fa;
     font-size: 16px;
     font-weight: 600;
@@ -149,3 +150,9 @@
 /* .checkout-container {
     filter: blur(3px)
 } */
+
+@media screen and (max-width: 991px) {
+    .subscription-choose {
+        height: 70vh
+    }
+}

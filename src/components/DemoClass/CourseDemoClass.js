@@ -4,7 +4,7 @@ import DemoClass from './DemoClass';
 const CourseDemoClass = (props) => {
     
     return (
-        <div ref={props.refProp}>
+        <div className='course-demo-class' ref={props.refProp}>
             <DemoClass />
         </div>
 
