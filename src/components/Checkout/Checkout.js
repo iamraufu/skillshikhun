@@ -9,7 +9,7 @@ import courseData from '../../data/course/courseData.js';
 // import payment_medium from '../../images/payment-medium.jpg';
 import CourseReview from '../Course/CourseReview';
 // import Payment from '../Payment/Payment';
-import tick from '../../images/tick.svg';
+// import tick from '../../images/tick.svg';
 import untick from '../../images/untick.svg';
 import checkbox from '../../images/checkbox.svg';
 
