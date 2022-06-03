@@ -2,12 +2,14 @@
     "short_name": "Skill Shikhun",
     "name": "Skill Shikhun",
     "icons": [{
-        "src": "favicon.ico",
-        "sizes": "64x64 32x32 24x24 16x16",
-        "type": "image/x-icon"
+        "src": "./logo.png",
+        "type": "image/png",
+        "purpose": "any maskable",
+        "sizes": "1024x1024"
     }],
     "start_url": ".",
     "display": "standalone",
     "theme_color": "#000000",
-    "background_color": "#ffffff"
+    "background_color": "#ffffff",
+    "prefer_related_applications": true
 }
