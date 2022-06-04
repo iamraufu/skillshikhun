@@ -13,8 +13,8 @@ const CourseReview = (props) => {
     const AutoplaySlider = withAutoplay(AwesomeSlider);
 
     return (
-        <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="course-review-container container mt-5">
-            <h1 style={{ fontSize: '22px',lineHeight: '26px'}} className='text-center mt-4 pb-2 fw-bold'>আমাদের শিক্ষার্থীরা যা বলছে</h1>
+        <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec', margin: '10rem 0'}} className="course-review-container container mt-5">
+            <h1 style={{ fontSize: '20px', lineHeight: '26px', fontWeight: '400' }} className='text-center mt-4 pb-2 fw-bold'>আমাদের শিক্ষার্থীরা যা বলছে</h1>
             <AutoplaySlider 
             play={true}
             cancelOnInteraction={false}

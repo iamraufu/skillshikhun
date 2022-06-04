@@ -12,6 +12,7 @@ import CourseReview from '../Course/CourseReview';
 // import tick from '../../images/tick.svg';
 import untick from '../../images/untick.svg';
 import checkbox from '../../images/checkbox.svg';
+// import AwesomeSlider from 'react-awesome-slider';
 
 const Checkout = () => {
 
@@ -187,7 +188,7 @@ const Checkout = () => {
                     <div className="col-lg-6 d-none d-lg-block">
                         <div className="checkout-title-container">
                             {
-                                userPhoneData?.phone ? <h1 className='fw-bold checkout-title text-center'><span className='text-primary fw-bold'>{userPhoneData?.name}</span> যে কোর্সটি করছেন</h1> :
+                                userPhoneData?.phone ? <h1 style={{ fontSize: '20px', lineHeight: '26px', fontWeight: '400' }} className='fw-bold checkout-title text-center'><span className='text-primary fw-bold'>{userPhoneData?.name}</span> যে কোর্সটি করছেন</h1> :
 
                                     <h1 style={{ paddingTop: '4rem', fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='text-center'><div className="spinner-grow" role="status">
                                         <span className="visually-hidden"></span>
@@ -195,13 +196,13 @@ const Checkout = () => {
                             }
                         </div>
 
-                        <div style={{ borderRadius: '10px', boxShadow: '0 15px 30px #00000005' }} className="d-flex justify-content-center align-items-center bg-white p-3">
+                        <div style={{ borderRadius: '10px', boxShadow: '0 3px 10px 3px rgba(127, 127, 127, 0.2)', height: '180px' }} className="d-flex justify-content-center align-items-center bg-white p-3">
                             <div className="col-sm-6">
                                 <img src={course[0].image} style={{ borderRadius: '10px' }} width={400} height={100} className='img-fluid' alt={course[0].slug} loading="lazy" />
                             </div>
-                            <div className="ps-3 mt-2 col-sm-6 text-center">
+                            <div className="ps-3 col-sm-6 text-center">
                                 <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold'>{course[0].slug}</h2>
-                                <h3 style={{ fontSize: '26px', lineHeight: "38px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].offer_price_per_month}/মাস</h3>
+                                <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].offer_price_per_month}/মাস</h3>
                                 <h6><span className='fw-bold'>{course[0].course_duration} মাসের</span> কোর্স | কোর্সটি করেছেন <span className='fw-bold'>{course[0].course_done}</span> জন</h6>
                                 <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
                             </div>
@@ -209,9 +210,10 @@ const Checkout = () => {
                     </div>
 
                     <div className="col-lg-6 subscription-container mt-5">
-                        <h2 style={{ fontSize: '22px', lineHeight: '26px', fontWeight: '400' }} className='fw-bold mt-5 text-center'>সাবস্ক্রিপশন নির্বাচন করুন</h2>
+                        <h2 style={{ fontSize: '20px', lineHeight: '26px', fontWeight: '400' }} className='fw-bold mt-5 text-center'>সাবস্ক্রিপশন নির্বাচন করুন</h2>
 
                         {/* div for choosing subscription mode */}
+                        {/* 
                         <div style={{ borderRadius: '10px', boxShadow: '0 5.44687px 20.4258px #0000000d' }} className="bg-white p-3 subscription-choose">
                             <div className="checkout-modes">
 
@@ -253,8 +255,49 @@ const Checkout = () => {
                                 </button>
 
                             </div>
-                        </div>
+                        </div> 
+                        */}
                         {/* <p id='subscription_mode_warning' className="text-danger mt-3 fw-bold ms-2">* সাবস্ক্রিপশন মোড নির্বাচন করুন</p> */}
+
+                        <div className="row course-fee-container">
+                            <button style={{ border: '1px solid green', backgroundColor: '#f0f7ff' }} onClick={() => handleSubscriptionStyle('monthly')} id='monthly' className='d-flex p-2 justify-content-around align-items-center subscription-btn'>
+                                <div className="col-sm-2">
+                                    <img id='monthly_tick' src={checkbox} width={25} className='img-fluid' alt="tick svg" />
+                                    <img id='monthly_untick' src={untick} style={{ display: 'none' }} width={20} className='img-fluid' alt="untick svg" />
+                                </div>
+
+                                <div className="col-sm-7">
+                                    <h3 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }}>{course[0].next_batch} মাসের ফি</h3>
+                                    <p style={{ fontSize: '14px', lineHeight: '22px' }}>মাসিক ভিত্তিতে একমাসের ফি</p>
+                                </div>
+
+                                <div style={{ textAlign: 'right' }} className="col-sm-3">
+                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price_per_month}</h4>
+                                </div>
+
+                            </button>
+
+                            <button onClick={() => handleSubscriptionStyle('full')} id='full' className='d-flex p-2 justify-content-around align-items-center mt-2 subscription-btn'>
+
+                                <div className="col-sm-2">
+                                    <img id='full_tick' src={checkbox} style={{ display: 'none' }} width={25} className='img-fluid' alt="tick svg" />
+                                    <img id='full_untick' src={untick} width={20} className='img-fluid' alt="untick svg" />
+                                </div>
+
+                                <div className="col-sm-7">
+                                    <h3 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }}>{course[0].course_duration} মাসের ফি</h3>
+                                    <p style={{ fontSize: '14px', lineHeight: '22px' }}>একত্রে {course[0].next_batch} মাস সহ {course[0].course_duration} মাসের ফি</p>
+                                </div>
+
+                                <div style={{ textAlign: 'right' }} className="col-sm-3">
+                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price}</h4>
+                                    <small className='text-success fw-bold'>খরচ বাঁচবে &#2547; {course[0].price_saved}</small>
+                                </div>
+
+                            </button>
+
+                        </div>
+
                     </div>
 
                 </div>
@@ -286,12 +329,12 @@ const Checkout = () => {
                                 </button>
                             </div>
                         </div> */}
-                        <p style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }} className='text-center mt-4'><FontAwesomeIcon className='text-success' icon={faUserShield} /> সম্পূর্ণ নিরাপদ পেমেন্ট নিশ্চয়তা</p>
+                        <p style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }} className='text-center mt-4 d-block d-none d-lg-block'><FontAwesomeIcon className='text-success' icon={faUserShield} /> নিরাপদ ও দ্রুত পেমেন্ট নিশ্চয়তা</p>
 
                         <button
                             onClick={() => proceedToPayment()}
                             id='payment_proceed'
-                            className='btn-buy mx-auto d-block mx-auto d-block' disabled={disabled}>এগিয়ে যান</button>
+                            className='btn-buy mx-auto d-block d-none d-lg-block' disabled={disabled}>ফি প্রদান করুন</button>
 
                     </div>
 
@@ -308,11 +351,14 @@ const Checkout = () => {
                     <progress value="0" max="10" id="progressBar" className=''></progress>
                 </div>
             </div>
-            <div className="container-fluid d-lg-none fixed-bottom">
-                <button style={{height:'60px', backgroundImage:'linear-gradient(to right , #13338b , #b94a8f)'}}
+
+            {/* visible on smaller screen */}
+            <div style={{ boxShadow: '0 3px 10px 3px #0003' }} className="container-fluid d-lg-none fixed-bottom bg-white">
+                <p style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }} className='text-center mt-4'><FontAwesomeIcon className='text-success' icon={faUserShield} /> নিরাপদ ও দ্রুত পেমেন্ট নিশ্চয়তা</p>
+                <button style={{ height: '60px', backgroundImage: 'linear-gradient(to right , #13338b , #b94a8f)', margin: '10px 0' }}
                     onClick={() => proceedToPayment()}
                     id='payment_proceed'
-                    className='btn-buy mx-auto d-block mx-auto d-block fw-bold fs-5' disabled={disabled}>এগিয়ে যান</button>
+                    className='btn-buy mx-auto d-block mx-auto d-block fw-bold fs-5' disabled={disabled}>ফি প্রদান করুন</button>
             </div>
         </div>
     );

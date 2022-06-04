@@ -7,34 +7,42 @@ const PurchaseCheckout = () => {
     return (
         <div className="">
             <div style={{ paddingTop: '4rem', backgroundColor: '#f3f5f9' }}>
-                <div className="d-flex flex-wrap container justify-content-center">
-                    <div className="">
+            <div className="container-fluid progress-container">
+                    <div className="col-sm-12">
+                        <div className="progress my-5">
+                            <div className="progress-bar" role="progressbar" aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
 
-                        <div style={{ height: '5px' }} className="progress mt-5">
-                            <div className="progress-bar" role="progressbar" style={{ width: '90%' }} aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div className="progress-info-container">
+                        <div className="d-flex justify-content-center">
+                            <div className="col-sm-4 progress-select mx-auto">
+                                <img className='img-fluid progress-info-image' width={30} src={checkbox} alt="course selected" />
+                            </div>
+
+                            <div className="col-sm-4 progress-select mx-auto">
+                                <img className='img-fluid progress-info-image' width={30} src={checkbox} alt="your info" />
+                            </div>
+
+                            <div className="col-sm-4 progress-select mx-auto">
+                                <img className='img-fluid progress-info-image' width={30} src={checkbox_purple} alt="payment" />
+                            </div>
+
                         </div>
 
-                        <div className="d-flex">
-                            <div
-                                // style={{marginLeft:'-1rem', marginTop:'-1.5rem'}} 
-                                className="course-select">
-                                <img style={{ backgroundColor: 'white', borderRadius: '50%' }} src={checkbox} className='mx-auto d-block img-fluid' width={30} alt="checkbox" />
-                                <h1 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center'>কোর্সটি সিলেক্ট হয়েছে</h1>
+                        <div className="d-flex justify-content-center">
+                            <div className="col-sm-4 progress-select">
+                                <h1 className='progress-info-text'>কোর্স সিলেক্ট</h1>
                             </div>
 
-                            <div
-                                // style={{marginLeft:'8rem', marginTop:'-1.5rem'}} 
-                                className="your-info">
-                                <img style={{ backgroundColor: 'white', borderRadius: '50%' }} src={checkbox} className='mx-auto d-block img-fluid' width={30} alt="checkbox" />
-                                <h1 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center'>আপনার তথ্য</h1>
+                            <div className="col-sm-4 progress-select">
+                                <h1 className='progress-info-text'>আপনার তথ্য</h1>
                             </div>
 
-                            <div
-                                // style={{marginLeft:'8rem', marginTop:'-1.5rem'}} 
-                                className="payment">
-                                <img style={{ backgroundColor: 'white', borderRadius: '50%' }} src={checkbox_purple} className='mx-auto d-block img-fluid' width={30} alt="checkbox" />
-                                <h1 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center'>পেমেন্ট</h1>
+                            <div className="col-sm-4 progress-select">
+                                <h1 className='progress-info-text'>পেমেন্ট</h1>
                             </div>
+
                         </div>
                     </div>
                 </div>

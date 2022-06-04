@@ -114,6 +114,7 @@ const LoginHandler = () => {
         })
             .then(res => res.json())
             .then(data => {
+                document.getElementById('submit_btn_container').style.display = 'none';
                 if (data.message === "User already exists") {
                     document.getElementById('otp_verification_container').style.display = 'none';
                     document.getElementById('password_verification_container').style.display = 'block';
@@ -127,7 +128,6 @@ const LoginHandler = () => {
                 }
             }
             )
-        document.getElementById('submit_btn_container').style.display = 'none';
         document.getElementById('number_input').disabled = true;
         document.getElementById('number_change_container').style.display = 'block';
     }

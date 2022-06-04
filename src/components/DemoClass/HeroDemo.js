@@ -3,6 +3,7 @@ import './DemoClass.css';
 import { useForm } from "react-hook-form";
 import courseData from '../../data/course/courseData.js';
 import Swal from 'sweetalert2';
+import up from '../../images/up.svg';
 
 const HeroDemo = () => {
 
@@ -159,7 +160,7 @@ const HeroDemo = () => {
 
                     <div id="demo_class_registration_container">
                         <form className='' onSubmit={handleSubmit(onSubmit)}>
-                            <div className="d-flex justify-content-center">
+                            {/* <div className="d-flex justify-content-center">
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
@@ -167,7 +168,7 @@ const HeroDemo = () => {
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
-                            </div>
+                            </div> */}
 
                             <select id='course_category'
                             onChangeCapture={()=>{
@@ -175,15 +176,22 @@ const HeroDemo = () => {
                                 setCategory(document.getElementById('course_category').querySelector('option:checked').value);
                             }} 
                             style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("category", { required: true })}>
-                                <option value={'Web Development'}>{'ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট'}</option>
-                                
+                                {/* <option value={'Web Development'}>{'ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট'}</option> */}
+                                <option value="" disabled selected>যে কোর্সের ফ্রি ক্লাস করতে চাচ্ছেন</option>
                                 {courseData.map(course =>
                                     <option key={course.id} value={course.name} className='p-2 form-select-input'>{course.title}</option>
                                 )}
                             </select>
+                            
+                            {errors.category && 
+                            <div className="">
+                                <img src={up} width={20} className='img-fluid' alt="required" />
+                                <span className='text-danger fw-bold'>This field is required</span>
+                            </div>
+                            }
 
                             {/* div for selecting class date */}
-                            <div className="d-flex justify-content-center">
+                            {/* <div className="d-flex justify-content-center">
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
@@ -191,16 +199,20 @@ const HeroDemo = () => {
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
-                            </div>
+                            </div> */}
 
                             <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classDate", { required: true })}>
+                                <option value="" disabled selected>ক্লাসের তারিখ বেছে নিন</option>
                                 <option value={courseCategory[0].class_date_1}>{courseCategory[0].class_date_1}</option>
                                 {/* <option value={courseCategory[0].class_date_2}>{courseCategory[0].class_date_2}</option> */}
                             </select>
-                            {errors.classDate && <span className='text-danger fw-bold'>*This field is required</span>}
+                            {errors.classDate && <div className="">
+                                <img src={up} width={20} className='img-fluid' alt="required" />
+                                <span className='text-danger fw-bold'>This field is required</span>
+                            </div>}
 
                             {/* div for selecting class time */}
-                            <div className="d-flex justify-content-center">
+                            {/* <div className="d-flex justify-content-center">
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
@@ -208,15 +220,19 @@ const HeroDemo = () => {
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
-                            </div>
+                            </div> */}
 
                             <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classTime", { required: true })}>
+                                <option value="" disabled selected>ক্লাসের সময় বেছে নিন</option>
                                 <option value={courseCategory[0].class_time}>{courseCategory[0].class_time}</option>
                             </select>
-                            {errors.classTime && <span className='text-danger fw-bold'>*This field is required</span>}
+                            {errors.classTime && <div className="">
+                                <img src={up} width={20} className='img-fluid' alt="required" />
+                                <span className='text-danger fw-bold'>This field is required</span>
+                            </div>}
                             
                             <div id="demo_submit_container">
-                                <input id='submit_btn' className='form-input-submit my-4' value='একটি ফ্রি ক্লাস বুকিং করে নিন' type="submit" disabled={disabled} />
+                                <input id='submit_btn' className='form-input-submit my-4' value='ফ্রি ক্লাস বুকিং করে নিন' type="submit" disabled={disabled} />
                             </div>
 
                         </form>

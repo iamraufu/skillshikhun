@@ -13,18 +13,28 @@
 }
 
 .subscription-btn {
-    background-color: transparent;
-    border: none;
+    background-color: white;
+    border: 1px solid #dde7f3;
+    border-radius: 15px;
 }
 
 .subscription-btn:hover {
     background-color: #f0f7ff;
 }
 
-.checkout-modes {
+.course-fee-container {
+    background-color: #f8f9fa;
+    margin: 0 1px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px 3px rgba(127, 127, 127, 0.2);
+}
+
+
+/* .checkout-modes {
     max-width: 600px;
     min-height: 72px;
-}
+} */
 
 .checkout_course_review_container {
     margin-top: -1rem;
@@ -63,6 +73,7 @@
 @media screen and (max-width: 991px) {
     .subscription-container {
         margin-top: 0rem;
+        height: 70vh;
     }
     .checkout_course_review_container {
         margin-top: 2rem;
@@ -153,6 +164,6 @@
 
 @media screen and (max-width: 991px) {
     .subscription-choose {
-        height: 70vh
+        height: 60vh
     }
 }

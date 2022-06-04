@@ -18,6 +18,7 @@ import DLiveCourse from './components/Dashboard/DLiveCourse/DLiveCourse';
 import DFreeClass from './components/Dashboard/DFreeClass/DFreeClass';
 import DVideoCourse from './components/Dashboard/DVideoCourse/DVideoCourse';
 import DPaymentHistory from './components/Dashboard/DPaymentHistory/DPaymentHistory';
+import logo from './images/logo.png';
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -26,9 +27,9 @@ const Login = lazy(() => import('./components/Login/Login'));
 
 function App() {
   const renderLoader = () =>
-    <div style={{ position: 'absolute', height: '100px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }} className="spinner-grow" role="status">
-      <span className="sr-only"></span>
-    </div>
+  <div style={{position:'absolute', height:'100px', width:'100px', top:'50%', left:'50%', marginLeft:'-50px', marginTop:'-50px'}}>
+    <img src={logo} id='breathing' width={100} height={100} className='img-fluid' alt="logo of Skill Shikhun" />
+  </div>
 
   return (
     <AuthProvider>
@@ -47,7 +48,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/login-checkout-selected-course" element={<LoginForCheckout />} />
 
-          <Route path="/success" element={<Success />} />
           <Route path="/fail" element={<Fail />} />
           <Route path="/cancel" element={<Cancel />} />
 
@@ -58,6 +58,7 @@ function App() {
             <Route path="dashboard/video-course" element={<DVideoCourse />} />
             <Route path="dashboard/payment-history" element={<DPaymentHistory />} />
             <Route path="dashboard/profile" element={<Profile />} />
+            <Route path="/success" element={<Success />} />
             <Route path="/checkout/:courseId" element={<Checkout />} />
           </Route>
 

@@ -188,7 +188,7 @@ const Course = (props) => {
                             <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'>ইনস্ট্রাক্টর</h2>
                             <div className="d-flex m-2 justify-content-center align-items-center">
                                 <div className="py-2 col-sm-3">
-                                    <img style={{ borderRadius: '50%' }} src={course.instructor_image} alt={course.course_instructor} />
+                                    <img style={{ borderRadius: '50%' }} width={100} src={course.instructor_image} alt={course.course_instructor} />
                                 </div>
                                 <div className="p-3 col-sm-9">
                                     <h3 style={{ fontSize: '18px', lineHeight: '28px', textAlign: 'justify', flexWrap:'wrap', fontWeight:'700' }}>{course.course_instructor}</h3>

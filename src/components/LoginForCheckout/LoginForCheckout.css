@@ -1,22 +1,36 @@
+.progress-container {
+    max-width: 600px;
+}
+
 .progress {
     background-color: transparent;
+    height: 5px;
 }
 
 .progress-bar {
     background-color: #a94db8;
+    width: 65%;
+    margin: 0 auto;
+    border-radius: 5px;
 }
 
-.course-select,
-.your-info,
-.payment {
-    margin-top: -1.2rem;
-    padding: 0 0.8rem;
+.progress-info-container {
+    margin-top: -4.2rem;
 }
 
-.course-select {
-    margin-left: -4rem;
+.progress-info-image {
+    margin: 0 auto;
+    display: block;
+    background-color: white;
+    border-radius: 50%;
 }
 
-.payment {
-    margin-left: 2rem;
+.progress-info-text {
+    text-align: center;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.progress-select {
+    margin: 0 auto;
 }

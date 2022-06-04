@@ -31,7 +31,7 @@ const FeaturedCourses = () => {
                                             <div
                                                 // style={{height:'200px'}} 
                                                 className="bg-white py-4">
-                                                <h3 style={{ fontSize: '16px', lineHeight: '30px', fontWeight: '600', color: '#354895' }} className='px-3'>{course.title}
+                                                <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3'>{course.title}
                                                     <img src={liveClass} className='img-fluid ps-2' width={40} alt="live class" loading="lazy" />
                                                     <br /> <small>- {course.course_duration} মাসের
                                                         <img src={live} width={30} className='img-fluid mx-2 mb-1' alt="live class" loading="lazy" />
