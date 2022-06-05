@@ -169,6 +169,13 @@ const LoginHandler = () => {
         const inputtedPassword = passwordData.password;
         const name = passwordData.name;
         const email = passwordData.email;
+
+        const year = new Date().getFullYear();
+        const month = new Date().getMonth() + 1;
+        const day = new Date().getDate();
+
+        const time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+
         fetch('https://skillshikhun.herokuapp.com/api/password-input', {
             method: 'POST',
             headers: {
@@ -191,13 +198,14 @@ const LoginHandler = () => {
                     //     'স্কিল শিখুন এ আপনাকে স্বাগতম!',
                     //     'success'
                     // )
-                    let phoneUser = { displayName: name, email: email, phoneNumber: phone, photoURL: '', password: inputtedPassword };
+                    let phoneUser = { displayName: name, email: email, phoneNumber: phone, photoURL: '', password: inputtedPassword, user_created_date: `${day}-${month}-${year} at ${time}` };
                     console.log(user);
                     registerUser(phoneUser);
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
                     // window.location.replace('/dashboard');
                     navigate(from, { replace: true })
+                    window.location.reload();
                     // navigate('/');
                 }
                 else {
@@ -230,8 +238,7 @@ const LoginHandler = () => {
                     // )
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
-                    // console.log(typeof data.data.user)
-                    // localStorage.setItem('user', JSON.stringify(data.data.user));
+                    localStorage.setItem('name', JSON.stringify(data.data.user.name));
                     console.log(document.referrer)
                     navigate(from, { replace: true })
                 }

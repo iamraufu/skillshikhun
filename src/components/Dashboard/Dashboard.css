@@ -17,3 +17,7 @@
         margin: 10px;
     }
 }
+
+.featured-courses:hover {
+    transform: translateY(-15px);
+}

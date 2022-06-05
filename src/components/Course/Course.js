@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './Course.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faClock, faCalendarDays, faPhone, faCheck, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
@@ -15,18 +15,18 @@ const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 const Course = (props) => {
 
     const name = props.name;
-    const [liveCourses, setLiveCourses] = useState([]);
+    // const [liveCourses, setLiveCourses] = useState([]);
 
-    useEffect(()=>{
-        const fetchData = async () => {
-            const res = await fetch('https://skillshikhun.herokuapp.com/liveCourses');
-            const data = await res.json();
-            setLiveCourses(data);
-        }
-        fetchData();
-    }, [])
+    // useEffect(()=>{
+    //     const fetchData = async () => {
+    //         const res = await fetch('https://skillshikhun.herokuapp.com/liveCourses');
+    //         const data = await res.json();
+    //         setLiveCourses(data);
+    //     }
+    //     fetchData();
+    // }, [])
 
-    console.log(liveCourses)
+    // console.log(liveCourses)
     const course = courseData?.find(course => course?.name === name);
     const otherCourses = [courseData?.filter(otherCourses => otherCourses?.name !== name)];
 

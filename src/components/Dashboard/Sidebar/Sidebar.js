@@ -20,7 +20,7 @@ const Sidebar = () => {
     return (
         <section>
             <div className="container-xl dashboard-navbar-container">
-                <nav className='dashboard-navbar dashboard-navbar-expand-lg'>
+                <nav className='dashboard-navbar dashboard-navbar-expand-lg position-fixed'>
                     <div className="container-fluid">
 
                         {/* <button className='dashboard-navbar-toggler' style={{ display: 'none' }}>

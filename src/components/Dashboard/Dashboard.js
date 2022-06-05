@@ -11,24 +11,33 @@ import live from '../../images/dashboard/live.svg'
 import video from '../../images/dashboard/video.svg';
 import payment from '../../images/dashboard/payment.svg';
 import Menu from './Menu/Menu';
+import courseData from '../../data/course/courseData';
 
 const Dashboard = () => {
 
     const phone = localStorage.getItem('phone');
-    const [userPhoneData, setUserPhoneData] = useState({})
+    // const [userPhoneData, setUserPhoneData] = useState({})
     const [demoClasses, setDemoClasses] = useState([]);
+    // eslint-disable-next-line
     const [liveCourses, setLiveCourses] = useState([]);
+    const [purchasedLiveCourses, setPurchasedLiveCourses] = useState([]);
+    // eslint-disable-next-line
     const [videoCourses, setVideoCourses] = useState([]);
+    // eslint-disable-next-line
+    const [purchasedVideoCourses, setPurchasedVideoCourses] = useState([]);
     const [payments, setPayments] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
-            const data = await res.json();
-            setUserPhoneData(data);
-        }
-        fetchData();
-    }, [phone])
+    // get name from localstorage user 
+    const name = JSON.parse(localStorage.getItem('name'));
+
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
+    //         const data = await res.json();
+    //         setUserPhoneData(data);
+    //     }
+    //     fetchData();
+    // }, [phone])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -41,7 +50,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/orders/live/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
             const data = await res.json();
             setLiveCourses(data);
         }
@@ -50,7 +59,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/videoCourses/phone/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payment/Video/${phone}`);
             const data = await res.json();
             setVideoCourses(data);
         }
@@ -66,7 +75,11 @@ const Dashboard = () => {
         fetchData();
     }, [phone])
 
-    // const AutoplaySlider = withAutoplay(AwesomeSlider);
+    useEffect(() => {
+        setPurchasedLiveCourses(courseData.filter(course => course?.id === payments[0]?.course || course?.id === payments[1]?.course || course?.id === payments[2]?.course || course?.id === payments[3]?.course))
+        
+        // setPurchasedVideoCourses(courseData.filter(course => course?.id === payments[0]?.course || course?.id === payments[1]?.course || course?.id === payments[2]?.course || course?.id === payments[3]?.course))
+    }, [payments])
 
     return (
         <div>
@@ -75,7 +88,7 @@ const Dashboard = () => {
                 <div style={{ margin: '5rem 0' }} className="row">
 
                     {/* left sidebar */}
-                    <div className="col-xl-2 col-lg-3 col-md-4 d-none d-lg-block position-sticky">
+                    <div className="col-xl-2 col-lg-3 col-md-4 d-none d-lg-block">
                         <Sidebar />
                     </div>
 
@@ -85,14 +98,15 @@ const Dashboard = () => {
                         {/* user info goes here */}
                         <div className="col-sm-6">
                             <div className="user-info mx-5 pt-3">
-                                {
+                                <h1 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '24px', lineHeight: '36px', color: '#b94a8f', fontWeight: '600' }}>{name}</span></h1>
+                                {/* {
                                     userPhoneData?.phone ?
                                         <h1 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '24px', lineHeight: '36px', color: '#b94a8f', fontWeight: '600' }}>{userPhoneData.name}</span></h1>
                                         :
                                         <h1 style={{ paddingTop: '4rem', fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className=''><div className="spinner-grow" role="status">
                                             <span className="visually-hidden"></span>
                                         </div> লোড হচ্ছে ...<span style={{ fontSize: '24px', lineHeight: '36px', color: '#b94a8f', fontWeight: '600' }}></span></h1>
-                                }
+                                } */}
                             </div>
                         </div>
                         <div className="col-sm-6">
@@ -112,93 +126,138 @@ const Dashboard = () => {
                                     {
                                         demoClasses?.length === 1 &&
                                         <div className="row justify-content-center">
-                                                {demoClasses?.map(course => {
-                                                    return (
-                                                        <div key={course._id} className='col-md-12 my-3'>
-                                                            <Link className='text-decoration-none' to='/'>
-                                                                <div style={{ border: '1px solid #dde7f3' }}>
+                                            {demoClasses?.map(course => {
+                                                return (
+                                                    <div key={course._id} className='col-md-12 my-3'>
+                                                        <Link className='text-decoration-none' to='/'>
+                                                            <div style={{ border: '1px solid #dde7f3' }}>
 
-                                                                    <div style={{ minHeight: '180px' }} className="bg-white py-3">
-                                                                        <h3 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#354895' }} className='px-3'><span style={{ color: '#b94a8f' }}>{course.category}</span>
-                                                                            <br />তারিখ - <small>{course.class_date}</small></h3>
-                                                                        <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#069654' }} className=' px-3 price mt-2'>
-                                                                            <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
-                                                                        </h4>
-                                                                    </div>
-
-                                                                    <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                        <button className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button>
-                                                                    </div>
+                                                                <div style={{ minHeight: '180px' }} className="bg-white py-3">
+                                                                    <h3 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#354895' }} className='px-3'><span style={{ color: '#b94a8f' }}>{course.category}</span>
+                                                                        <br />তারিখ - <small>{course.class_date}</small></h3>
+                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#069654' }} className=' px-3 price mt-2'>
+                                                                        <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
+                                                                    </h4>
                                                                 </div>
-                                                            </Link>
-                                                        </div>
-                                                    )
-                                                })}
-                                            </div>
+
+                                                                <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
+                                                                    <button className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button>
+                                                                </div>
+                                                            </div>
+                                                        </Link>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
                                     }
 
-                                        {demoClasses?.length > 1 &&
-                                            <div className="row justify-content-center">
-                                                {demoClasses?.map(course => {
-                                                    return (
-                                                        <div key={course._id} className='col-md-6 my-3'>
-                                                            <Link className='text-decoration-none' to='/'>
-                                                                <div style={{ border: '1px solid #dde7f3' }}>
+                                    {demoClasses?.length > 1 &&
+                                        <div className="row justify-content-center">
+                                            {demoClasses?.map(course => {
+                                                return (
+                                                    <div key={course._id} className='featured-courses col-md-6 my-3'>
+                                                        <Link className='text-decoration-none' to='/'>
+                                                            <div style={{ border: '1px solid #dde7f3' }}>
 
-                                                                    <div style={{ minHeight: '180px' }} className="bg-white py-3">
-                                                                        <h3 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#354895' }} className='px-3'><span style={{ color: '#b94a8f' }}>{course.category}</span>
-                                                                            <br />তারিখ - <small>{course.class_date}</small></h3>
-                                                                        <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#069654' }} className=' px-3 price mt-2'>
-                                                                            <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
-                                                                        </h4>
-                                                                    </div>
-
-                                                                    <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                        <button className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button>
-                                                                    </div>
+                                                                <div style={{ minHeight: '180px' }} className="bg-white py-3">
+                                                                    <h3 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#354895' }} className='px-3'><span style={{ color: '#b94a8f' }}>{course.category}</span>
+                                                                        <br />তারিখ - <small>{course.class_date}</small></h3>
+                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#069654' }} className=' px-3 price mt-2'>
+                                                                        <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
+                                                                    </h4>
                                                                 </div>
-                                                            </Link>
-                                                        </div>
-                                                    )
-                                                })}
-                                            </div>
-                                        }
 
-                                        {
-                                            demoClasses?.length === 0 &&
-                                            <div className="ms-3 justify-content-center">
-                                                <p className='mt-2 text-center text-muted'>আপনি কোনো ফ্রি ক্লাস রেজিস্ট্রেশন করেননি | ৩টি ফ্রি ক্লাস পেতে এখানে ক্লিক করুন</p>
-                                                <button className='btn btn-info text-white my-3 mx-auto d-block'><Link to='/dashboard/free-class' className='text-white text-decoration-none'>ফ্রি ক্লাস</Link></button>
-                                            </div>
-                                        }
+                                                                <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
+                                                                    <button className='see-details w-100 mx-1'>জয়েন ক্লাস</button>
+                                                                </div>
+                                                            </div>
+                                                        </Link>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    }
+
+                                    {
+                                        demoClasses?.length === 0 &&
+                                        <div className="ms-3 justify-content-center">
+                                            <p className='mt-2 text-center text-muted'>আপনি কোনো ফ্রি ক্লাস রেজিস্ট্রেশন করেননি | ৩টি ফ্রি ক্লাস পেতে এখানে ক্লিক করুন</p>
+                                            <button className='btn btn-info text-white my-3 mx-auto d-block'><Link to='/dashboard/free-class' className='text-white text-decoration-none'>ফ্রি ক্লাস</Link></button>
+                                        </div>
+                                    }
                                 </div>
                             </div>
 
-                            <div style={{ borderRadius: '10px' }} className="col-md-5 bg-white mt-5 dashboard-content-card d-flex justify-content-center">
+                            <div style={{ borderRadius: '10px' }} className="col-md-5 bg-white mt-5 dashboard-content-card d-flex justify-content-center align-items-center">
                                 <div style={{ margin: 'auto' }}>
                                     <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }} className='mt-3'>
                                         <img src={live} width={45} className='img-fluid me-2' alt="video course" />
                                         লাইভ কোর্স</h2>
+                                    {
+                                        purchasedLiveCourses?.length === 1 &&
+                                        <div className="row justify-content-center">
+                                            {purchasedLiveCourses?.map(course => {
+                                                return (
+                                                    <div key={course.id} className='featured-courses col-xl-12 col-md-12 col-md-12 my-5'>
+                                                        <a className='text-decoration-none' onClick={() => { window.scrollTo(0, 0); }} href={course.zoom_link} target='_blank' rel="noreferrer">
+                                                            <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
+                                                                <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
+                                                                <div className="bg-white py-4">
+                                                                    <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
+                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
+                                                                        <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
+                                                                    </h4>
+                                                                </div>
+
+                                                                <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
+                                                                    <button onClick={() => { window.scrollTo(0, 0); }} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    }
 
                                     {
-                                        liveCourses?.length > 0 ?
-                                            <div className="">
-                                                {liveCourses.map((course, index) =>
-                                                    <div key={index}>
-                                                        <p className='text-center'>আপনার খরিদকৃত কোর্সটি হল {course.course_name}</p>
+                                        purchasedLiveCourses?.length > 1 &&
+                                        <div className="row justify-content-center">
+                                            {purchasedLiveCourses?.map(course => {
+                                                return (
+                                                    <div key={course.id} className='featured-courses col-xl-6 col-md-6 col-md-6 my-5'>
+                                                        <a className='text-decoration-none' onClick={() => { window.scrollTo(0, 0); }} href={course.zoom_link} target='_blank' rel="noreferrer">
+                                                            <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
+                                                                <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
+                                                                <div className="bg-white py-4">
+                                                                    <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
+                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
+                                                                        <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
+                                                                    </h4>
+                                                                </div>
+
+                                                                <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
+                                                                    <button onClick={() => { window.scrollTo(0, 0); }} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
+                                                                </div>
+                                                            </div>
+                                                        </a>
                                                     </div>
-                                                )}
-                                            </div> :
+                                                )
+                                            })}
+                                        </div>
+                                    }
+                                    {
+                                        purchasedLiveCourses?.length === 0 &&
+                                        <div className="">
+                                            <p className='text-danger text-muted'>আপনি কোনো লাইভ কোর্সে ভর্তি হননি</p>
                                             <div className="">
-                                                <p className='text-danger text-muted'>আপনি কোনো লাইভ কোর্সে ভর্তি হননি</p>
-                                                <div className="">
-                                                    <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='my-2 text-center'>
-                                                        <button className='btn btn-danger ms-2'>
-                                                            <Link to='/dashboard/live-course' className='text-white text-decoration-none mx-auto d-block'>লাইভ কোর্সসমূহ</Link>
-                                                        </button>
-                                                    </h2>
-                                                </div>
+                                                <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='my-2 text-center'>
+                                                    <button className='btn btn-danger ms-2'>
+                                                        <Link to='/dashboard/live-course' className='text-white text-decoration-none mx-auto d-block'>লাইভ কোর্সসমূহ</Link>
+                                                    </button>
+                                                </h2>
                                             </div>
+                                        </div>
                                     }
                                 </div>
                             </div>
@@ -209,27 +268,73 @@ const Dashboard = () => {
                                         <img src={video} width={35} className='img-fluid me-2 mb-1' alt="video course" />
                                         ভিডিও কোর্স</h2>
 
-                                    {
-                                        videoCourses?.length > 0 ?
-                                            <div className="">
-                                                {videoCourses.map((course, index) =>
-                                                    <div key={index}>
-                                                        <h2>{course.name}</h2>
+                                        {
+                                        purchasedVideoCourses?.length === 1 &&
+                                        <div className="row justify-content-center">
+                                            {purchasedLiveCourses?.map(course => {
+                                                return (
+                                                    <div key={course.id} className='featured-courses col-xl-12 col-md-12 col-md-12 my-5'>
+                                                        <a className='text-decoration-none' onClick={() => { window.scrollTo(0, 0); }} href={course.zoom_link} target='_blank' rel="noreferrer">
+                                                            <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
+                                                                <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
+                                                                <div className="bg-white py-4">
+                                                                    <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
+                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
+                                                                        <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
+                                                                    </h4>
+                                                                </div>
+
+                                                                <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
+                                                                    <button onClick={() => { window.scrollTo(0, 0); }} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
+                                                                </div>
+                                                            </div>
+                                                        </a>
                                                     </div>
-                                                )}
-                                            </div> :
-                                            <div className="">
-                                                <p className='text-danger text-muted'>আপনি কোনো ভিডিও কোর্সে ভর্তি হননি</p>
-
-                                                <div className="">
-                                                    <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='my-2 text-center'>
-                                                        <button className='btn btn-warning'><Link to='/dashboard/video-course' className='text-black text-decoration-none mx-auto d-block'>ভিডিও কোর্সসমূহ</Link>
-                                                        </button>
-                                                    </h2>
-                                                </div>
-
-                                            </div>
+                                                )
+                                            })}
+                                        </div>
                                     }
+
+                                    {
+                                        purchasedVideoCourses?.length > 1 &&
+                                        <div className="row justify-content-center">
+                                            {purchasedLiveCourses?.map(course => {
+                                                return (
+                                                    <div key={course.id} className='featured-courses col-xl-6 col-md-6 col-md-6 my-5'>
+                                                        <a className='text-decoration-none' onClick={() => { window.scrollTo(0, 0); }} href={course.zoom_link} target='_blank' rel="noreferrer">
+                                                            <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
+                                                                <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
+                                                                <div className="bg-white py-4">
+                                                                    <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
+                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
+                                                                        <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
+                                                                    </h4>
+                                                                </div>
+
+                                                                <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
+                                                                    <button onClick={() => { window.scrollTo(0, 0); }} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    }
+                                    {
+                                        purchasedVideoCourses?.length === 0 &&
+                                        <div className="">
+                                            <p className='text-danger text-muted'>আপনি কোনো ভিডিও কোর্সে ভর্তি হননি</p>
+                                            <div className="">
+                                                <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='my-2 text-center'>
+                                                    <button className='btn btn-warning ms-2'>
+                                                        <Link to='/dashboard/video-course' className='text-black text-decoration-none mx-auto d-block'>ভিডিও কোর্সসমূহ</Link>
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    }
+
                                 </div>
                             </div>
 
@@ -240,14 +345,8 @@ const Dashboard = () => {
                                         পেমেন্ট</h2>
 
                                     {
-                                        payments?.length > 0 ?
-                                            <div className="">
-                                                {payments.map((payment, index) =>
-                                                    <div key={index}>
-                                                        <h2>{payment.details}</h2>
-                                                    </div>
-                                                )}
-                                            </div> :
+                                        payments?.length === 0 &&
+                                            
                                             <div className="">
                                                 <p className='text-danger text-muted'>আপনার কোনো পেমেন্ট ইতিহাস নেই </p>
 
@@ -256,7 +355,7 @@ const Dashboard = () => {
                                                     <div className="">
                                                         <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='my-2 text-center'>
 
-                                                            <button className='btn btn-danger'><Link to='/dashboard/live-course' className='text-white text-decoration-none mx-auto d-block'>লাইভ কোর্সসমূহ</Link></button></h2>
+                                                            <button className='btn btn-danger'><Link to='/dashboard/video-course' className='text-white text-decoration-none mx-auto d-block'>লাইভ কোর্সসমূহ</Link></button></h2>
                                                     </div>
 
                                                     <div className="">
@@ -269,10 +368,24 @@ const Dashboard = () => {
 
                                                             <button className='btn btn-warning'><Link to='/dashboard/video-course' className='text-black text-decoration-none mx-auto d-block'>ভিডিও কোর্সসমূহ</Link></button></h2>
                                                     </div>
-
                                                 </div>
-
                                             </div>
+                                    }
+                                    {
+                                        payments?.length > 0 &&
+                                        <div className="justify-content-center">
+                                            {
+                                                payments.map(pd => {
+                                                    return (
+                                                        <div style={{border:'1px solid grey', borderRadius:'15px'}} className="d-flex justify-content-center align-items-center my-2 p-2" key={pd._id}>
+                                                            <p>Course Name: {pd.course}</p>
+                                                            <p>Paid: {pd.amount}</p>
+                                                            <p>Remaining Course Fee: {pd.remaining_course_fee}</p>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </div>
                                     }
                                 </div>
                             </div>

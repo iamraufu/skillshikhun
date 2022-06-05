@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './DNavbar.css';
 import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.png';
-import user from '../../../images/dashboard/user.svg';
+// import user from '../../../images/dashboard/user.svg';
 import web from '../../../images/dashboard/web.svg';
 import out from '../../../images/dashboard/out.svg';
 import useAuth from '../../../hooks/useAuth';
@@ -11,17 +11,19 @@ const DNavbar = () => {
 
     const {logOut} = useAuth();
 
-    const phone = localStorage.getItem('phone');
-    const [userPhoneData, setUserPhoneData] = useState({})
+    // const phone = localStorage.getItem('phone');
+    const name = JSON.parse(localStorage.getItem('name'));
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
-            const data = await res.json();
-            setUserPhoneData(data);
-        }
-        fetchData();
-    }, [phone])
+    // const [userPhoneData, setUserPhoneData] = useState({})
+
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
+    //         const data = await res.json();
+    //         setUserPhoneData(data);
+    //     }
+    //     fetchData();
+    // }, [phone])
 
     return (
         <div style={{ borderWidth: '1px', boxShadow: '0 5px 15px #c4c4c44d' }} className="bg-white fixed-top">
@@ -44,13 +46,14 @@ const DNavbar = () => {
                                     <h2 className="accordion-header" id="flush-headingOne">
                                         <button className="accordion-button accordion-button-customize collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                             <div className="d-flex justify-content-center align-items-center">
-                                                {
+                                                {/* {
                                                     userPhoneData?.photo ?
                                                         <img src={userPhoneData.photo} className='img-fluid px-4' width={100} alt={userPhoneData.name} loading="lazy" />
                                                         :
                                                         <img src={user} className='img-fluid px-4' width={100} alt="Circular user svg" loading="lazy" />
-                                                }
-                                                {
+                                                } */}
+                                                    <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-2 text-primary me-2'>{name}</h2>
+                                                {/* {
                                                     userPhoneData?.name ?
                                                         <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-2 text-primary me-2'>{userPhoneData.name}</h2>
                                                         :
@@ -60,7 +63,7 @@ const DNavbar = () => {
                                                             </div>
                                                             <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-3 text-black'>লোড হচ্ছে ...</h2>
                                                         </div>
-                                                }
+                                                } */}
                                             </div>
                                         </button>
                                     </h2>

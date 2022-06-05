@@ -22,6 +22,7 @@ const Checkout = () => {
     const [remainingPrice, setRemainingPrice] = useState(0);
     const [disabled, setDisabled] = useState(false);
     const phone = localStorage.getItem('phone');
+    const name = JSON.parse(localStorage.getItem('name'));
     const [userPhoneData, setUserPhoneData] = useState({})
     // const [paymentGateway, setPaymentGateway] = useState([]);
 
@@ -112,8 +113,8 @@ const Checkout = () => {
                 cus_add2: "Dhaka",
                 cus_city: "Dhaka",
                 cus_country: "Bangladesh",
-                amount: `${price}`,
-                // amount: '1',
+                // amount: `${price}`,
+                amount: 1,
                 tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
                 currency: "BDT",
                 success_url: `https://skillshikhun.herokuapp.com/api/make-payment`,
@@ -128,14 +129,13 @@ const Checkout = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
                 window.location.replace(data.payment_url);
             })
 
 
 
         // SSL Payment Gateway
-        // fetch('http://localhost:5000/ssl-request'
+        // fetch('https://skillshikhun.herokuapp.com/ssl-request'
         // ,{
         //     method: 'POST',
         //     headers: { 
@@ -187,13 +187,14 @@ const Checkout = () => {
 
                     <div className="col-lg-6 d-none d-lg-block">
                         <div className="checkout-title-container">
-                            {
+                            <h1 style={{ fontSize: '20px', lineHeight: '26px', fontWeight: '400' }} className='fw-bold checkout-title text-center'><span className='text-primary fw-bold'>{name}</span> যে কোর্সটি করছেন</h1>
+                            {/* {
                                 userPhoneData?.phone ? <h1 style={{ fontSize: '20px', lineHeight: '26px', fontWeight: '400' }} className='fw-bold checkout-title text-center'><span className='text-primary fw-bold'>{userPhoneData?.name}</span> যে কোর্সটি করছেন</h1> :
 
                                     <h1 style={{ paddingTop: '4rem', fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='text-center'><div className="spinner-grow" role="status">
                                         <span className="visually-hidden"></span>
                                     </div> লোড হচ্ছে ...<span style={{ fontSize: '24px', lineHeight: '36px', color: '#b94a8f', fontWeight: '600' }}></span></h1>
-                            }
+                            } */}
                         </div>
 
                         <div style={{ borderRadius: '10px', boxShadow: '0 3px 10px 3px rgba(127, 127, 127, 0.2)', height: '180px' }} className="d-flex justify-content-center align-items-center bg-white p-3">
