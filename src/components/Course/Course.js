@@ -9,24 +9,13 @@ import CourseReview from './CourseReview';
 import door_white from '../../images/door_white.svg';
 import class_black from '../../images/class_black.svg';
 import CourseDemoClass from '../DemoClass/CourseDemoClass';
+import Tracker from '../Tracker/Tracker';
 const HowToPayment = React.lazy(() => import('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
 const Course = (props) => {
-
     const name = props.name;
-    // const [liveCourses, setLiveCourses] = useState([]);
-
-    // useEffect(()=>{
-    //     const fetchData = async () => {
-    //         const res = await fetch('https://skillshikhun.herokuapp.com/liveCourses');
-    //         const data = await res.json();
-    //         setLiveCourses(data);
-    //     }
-    //     fetchData();
-    // }, [])
-
-    // console.log(liveCourses)
+    
     const course = courseData?.find(course => course?.name === name);
     const otherCourses = [courseData?.filter(otherCourses => otherCourses?.name !== name)];
 
@@ -331,6 +320,7 @@ const Course = (props) => {
                 </div>
 
             </div>
+            <Tracker props={props} />
         </div>
     );
 };

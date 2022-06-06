@@ -15,7 +15,7 @@ import checkbox from '../../images/checkbox.svg';
 // import AwesomeSlider from 'react-awesome-slider';
 
 const Checkout = () => {
-
+    
     const { courseId } = useParams();
     const course = courseData.filter(course => course.id === courseId);
     const [price, setPrice] = useState(1250);
@@ -118,8 +118,8 @@ const Checkout = () => {
                 cus_add2: "Dhaka",
                 cus_city: "Dhaka",
                 cus_country: "Bangladesh",
-                // amount: `${price}`,
-                amount: 1,
+                amount: `${price}`,
+                // amount: 1,
                 tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
                 currency: "BDT",
                 success_url: `https://skillshikhun.herokuapp.com/api/make-payment`,
