@@ -185,7 +185,7 @@ const RegisterFromDemoClass = () => {
                     registerUser(phoneUser);
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
-                    localStorage.setItem('name', JSON.stringify(data.data.user.name))
+                    localStorage.setItem('name', JSON.stringify(name))
                     window.location.replace('/');
                     // {
                     //     window.location.pathname === '/dashboard' ? navigate('/dashboard') : navigate(from, { replace: true })

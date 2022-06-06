@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 
 const LoginHandler = () => {
-
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -202,7 +201,7 @@ const LoginHandler = () => {
                     registerUser(phoneUser);
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
-                    localStorage.setItem('name', JSON.stringify(data.data.user.name))
+                    localStorage.setItem('name', JSON.stringify(name))
                     // window.location.replace('/dashboard');
                     navigate(from, { replace: true })
                     window.location.reload();
