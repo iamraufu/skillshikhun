@@ -76,8 +76,8 @@ const Dashboard = () => {
     }, [phone])
 
     useEffect(() => {
-        setPurchasedLiveCourses(courseData.filter(course => course?.id === payments[0]?.course || course?.id === payments[1]?.course || course?.id === payments[2]?.course || course?.id === payments[3]?.course))
-        
+        setPurchasedLiveCourses(courseData.filter(course => course?.name === payments[0]?.course || course?.name === payments[1]?.course || course?.name === payments[2]?.course || course?.name === payments[3]?.course))
+
         // setPurchasedVideoCourses(courseData.filter(course => course?.id === payments[0]?.course || course?.id === payments[1]?.course || course?.id === payments[2]?.course || course?.id === payments[3]?.course))
     }, [payments])
 
@@ -117,7 +117,7 @@ const Dashboard = () => {
 
                         <div className="row justify-content-center">
 
-                            <div style={{ borderRadius: '10px' }} className="col-md-5 bg-white mt-5 dashboard-content-card d-flex justify-content-center">
+                            <div style={{ borderRadius: '10px' }} className="col-md-5 bg-white mt-5 dashboard-content-card">
                                 <div style={{ margin: 'auto' }}>
                                     <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }} className='mt-3'>
                                         <img src={free_class} width={50} className='img-fluid me-2' alt="free class" />
@@ -128,7 +128,7 @@ const Dashboard = () => {
                                         <div className="row justify-content-center">
                                             {demoClasses?.map(course => {
                                                 return (
-                                                    <div key={course._id} className='col-md-12 my-3'>
+                                                    <div key={course._id} className='col-xl-8 col-md-12 my-3'>
                                                         <Link className='text-decoration-none' to='/'>
                                                             <div style={{ border: '1px solid #dde7f3' }}>
 
@@ -198,7 +198,7 @@ const Dashboard = () => {
                                         <div className="row justify-content-center">
                                             {purchasedLiveCourses?.map(course => {
                                                 return (
-                                                    <div key={course.id} className='featured-courses col-xl-12 col-md-12 col-md-12 my-5'>
+                                                    <div key={course.id} className='featured-courses col-xl-8 col-md-12 mt-2 mb-5'>
                                                         <a className='text-decoration-none' onClick={() => { window.scrollTo(0, 0); }} href={course.zoom_link} target='_blank' rel="noreferrer">
                                                             <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
                                                                 <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
@@ -225,7 +225,7 @@ const Dashboard = () => {
                                         <div className="row justify-content-center">
                                             {purchasedLiveCourses?.map(course => {
                                                 return (
-                                                    <div key={course.id} className='featured-courses col-xl-6 col-md-6 col-md-6 my-5'>
+                                                    <div key={course.id} className='featured-courses col-xl-6 col-md-6 col-md-6 mt-3 mb-5'>
                                                         <a className='text-decoration-none' onClick={() => { window.scrollTo(0, 0); }} href={course.zoom_link} target='_blank' rel="noreferrer">
                                                             <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
                                                                 <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
@@ -268,7 +268,7 @@ const Dashboard = () => {
                                         <img src={video} width={35} className='img-fluid me-2 mb-1' alt="video course" />
                                         ভিডিও কোর্স</h2>
 
-                                        {
+                                    {
                                         purchasedVideoCourses?.length === 1 &&
                                         <div className="row justify-content-center">
                                             {purchasedLiveCourses?.map(course => {
@@ -346,35 +346,43 @@ const Dashboard = () => {
 
                                     {
                                         payments?.length === 0 &&
-                                            
+
+                                        <div className="">
+                                            <p className='text-danger text-muted'>আপনার কোনো পেমেন্ট ইতিহাস নেই </p>
+
                                             <div className="">
-                                                <p className='text-danger text-muted'>আপনার কোনো পেমেন্ট ইতিহাস নেই </p>
 
                                                 <div className="">
+                                                    <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='my-2 text-center'>
 
-                                                    <div className="">
-                                                        <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='my-2 text-center'>
+                                                        <button className='btn btn-danger'><Link to='/dashboard/video-course' className='text-white text-decoration-none mx-auto d-block'>লাইভ কোর্সসমূহ</Link></button></h2>
+                                                </div>
 
-                                                            <button className='btn btn-danger'><Link to='/dashboard/video-course' className='text-white text-decoration-none mx-auto d-block'>লাইভ কোর্সসমূহ</Link></button></h2>
-                                                    </div>
+                                                <div className="">
+                                                    <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='my-2 text-center'>
+                                                        <div className="d-flex justify-content-center">
+                                                            <div className="col-sm-2"><hr /></div>
+                                                            <div className="mx-2"><p className='fs-6'>অথবা</p></div>
+                                                            <div className="col-sm-2"><hr /></div>
+                                                        </div>
 
-                                                    <div className="">
-                                                        <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='my-2 text-center'>
-                                                            <div className="d-flex justify-content-center">
-                                                                <div className="col-sm-2"><hr /></div>
-                                                                <div className="mx-2"><p className='fs-6'>অথবা</p></div>
-                                                                <div className="col-sm-2"><hr /></div>
-                                                            </div>
-
-                                                            <button className='btn btn-warning'><Link to='/dashboard/video-course' className='text-black text-decoration-none mx-auto d-block'>ভিডিও কোর্সসমূহ</Link></button></h2>
-                                                    </div>
+                                                        <button className='btn btn-warning'><Link to='/dashboard/video-course' className='text-black text-decoration-none mx-auto d-block'>ভিডিও কোর্সসমূহ</Link></button></h2>
                                                 </div>
                                             </div>
+                                        </div>
                                     }
                                     {
                                         payments?.length > 0 &&
-                                        <div className="justify-content-center">
-                                            {
+                                        <div className="d-flex justify-content-center align-items-center ">
+                                            <div className="">
+                                                <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }}>Courses <br />{payments.length}</h2>
+                                            </div>
+                                            <div className="">
+                                                <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }}>Total Paid <br />{payments.reduce((a, b) => { return a + parseInt(b.amount); }, 0)}</h2>
+                                                <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }}>Total Due <br />{payments.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)}</h2>
+                                            </div>
+
+                                            {/* {
                                                 payments.map(pd => {
                                                     return (
                                                         <div style={{border:'1px solid grey', borderRadius:'15px'}} className="d-flex justify-content-center align-items-center my-2 p-2" key={pd._id}>
@@ -384,7 +392,7 @@ const Dashboard = () => {
                                                         </div>
                                                     )
                                                 })
-                                            }
+                                            } */}
                                         </div>
                                     }
                                 </div>

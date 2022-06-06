@@ -11,21 +11,22 @@ const DLiveCourse = () => {
 
     const phone = localStorage.getItem('phone');
     const [liveCourses, setLiveCourses] = useState([]);
+    const [purchasedLiveCourses, setPurchasedLiveCourses] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/orders/live/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
             const data = await res.json();
             setLiveCourses(data);
         }
         fetchData();
     }, [phone])
 
-    // console.log(courseData.filter(course => course.slug === "Full Stack Web Development"));
-    const purchasedCourses = courseData.filter(course => course.slug === liveCourses.course_name);
-    // console.log(liveCourses[1].course_name)
-    // console.log(liveCourses)
-    console.log(purchasedCourses)
+    useEffect(() => {
+        setPurchasedLiveCourses(courseData.filter(course => course?.name === liveCourses[0]?.name || course?.id === liveCourses[1]?.course || course?.name === liveCourses[2]?.course || course?.name === liveCourses[3]?.course))
+        
+        // setPurchasedVideoCourses(courseData.filter(course => course?.id === payments[0]?.course || course?.id === payments[1]?.course || course?.id === payments[2]?.course || course?.id === payments[3]?.course))
+    }, [liveCourses])
 
     return (
         <div>
@@ -45,7 +46,7 @@ const DLiveCourse = () => {
                                 লাইভ কোর্স</h2>
                             <div className="">
                                 {
-                                    liveCourses?.length > 0 ?
+                                    purchasedLiveCourses?.length > 0 ?
                                         <div className="">
                                             {liveCourses.map((course, index) =>
                                                 <div key={index}>
@@ -92,7 +93,7 @@ const DLiveCourse = () => {
 
                                                     <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3 pe-2">
                                                         <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'>
-                                                            <span style={{ color: '#354895' }}></span> ৳ {course.offer_price_per_month}
+                                                            <span style={{ color: '#354895' }}></span> ৳ {course.price_per_month_bn}
                                                             {/* <strike className='ps-2 text-muted'>{course.regular_price}</strike> */}
                                                             <small style={{ color: '#354895' }}>/মাস</small>
                                                         </h4>

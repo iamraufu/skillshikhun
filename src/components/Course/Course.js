@@ -72,7 +72,7 @@ const Course = (props) => {
                                         <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
                                     </div>
                                     <div className="py-3 d-none d-lg-block">
-                                        <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.offer_price_per_month}/মাস</h2>
+                                        <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.price_per_month_bn}/মাস</h2>
                                     </div>
                                 </div>
                                 <div style={{ justifyContent: 'space-between' }} className="d-flex py-2">
@@ -237,7 +237,7 @@ const Course = (props) => {
 
                                             {/* <h4 style={{ fontSize: '20px', lineHeight: '28px', color: '#454c7e' }} className='ps-2 pt-2 fw-bold'>৳ 2600</h4>
                                         <Link onClick={() => { window.scrollTo(0, 0); }} to={otherCourse.route} className='text-decoration-none'><p style={{ fontSize: '15px', lineHeight: '24px', color: '#b94a8f' }} className='pe-3 pt-2 fw-bold'>বিস্তারিত দেখুন</p></Link> */}
-                                            <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'><span style={{ color: '#354895' }}>মাত্র</span> ৳ {course.offer_price_per_month}<small style={{ color: '#354895' }}>/মাস</small>
+                                            <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'><span style={{ color: '#354895' }}>মাত্র</span> ৳ {course.price_per_month_bn}<small style={{ color: '#354895' }}>/মাস</small>
                                                 {/* <strike className='ps-2 text-muted'>{course.regular_price}</strike> */}
                                             </h4>
                                             <button onClick={() => { window.scrollTo(0, 0); }} className='see-details me-3' to={course.route}>বিস্তারিত দেখুন</button>
@@ -292,7 +292,7 @@ const Course = (props) => {
                                     <button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>
                                     <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
                                         <div className='col-sm-6' style={{ fontSize: '24px' }}>
-                                        &#2547; {course.offer_price_per_month}/মাস
+                                        &#2547; {course.price_per_month_bn}/মাস
                                         </div>
                                         <div className='col-sm-6 d-flex' style={{ fontSize: '24px' }}>
                                             <div className="">

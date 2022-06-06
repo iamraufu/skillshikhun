@@ -198,11 +198,11 @@ const LoginHandler = () => {
                     //     'স্কিল শিখুন এ আপনাকে স্বাগতম!',
                     //     'success'
                     // )
-                    let phoneUser = { displayName: name, email: email, phoneNumber: phone, photoURL: '', password: inputtedPassword, user_created_date: `${day}-${month}-${year} at ${time}` };
-                    console.log(user);
+                    let phoneUser = { displayName: name, email: email, phoneNumber: phone, photoURL: '', password: inputtedPassword, user_created_date: `${day}-${month}-${year} at ${time}`, fromDemo: false, fromLogin: true };
                     registerUser(phoneUser);
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
+                    localStorage.setItem('name', JSON.stringify(data.data.user.name))
                     // window.location.replace('/dashboard');
                     navigate(from, { replace: true })
                     window.location.reload();
@@ -239,7 +239,7 @@ const LoginHandler = () => {
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
                     localStorage.setItem('name', JSON.stringify(data.data.user.name));
-                    console.log(document.referrer)
+                    // console.log(document.referrer)
                     navigate(from, { replace: true })
                 }
                 else {

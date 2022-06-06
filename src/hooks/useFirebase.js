@@ -75,8 +75,10 @@ const useFirebase = () => {
         const photo = user.photoURL;
         const password = user?.password || '';
         const user_created_date = user.user_created_date;
+        const register_from_demo = user.fromDemo;
+        const register_from_login = user.fromLogin
 
-        const newUser = {name, email, phone, photo, password, user_created_date};
+        const newUser = {name, email, phone, photo, password, user_created_date, register_from_demo, register_from_login };
         localStorage.setItem('email', newUser.email);
         // localStorage.setItem('user', JSON.stringify(newUser));
         setUser(newUser);

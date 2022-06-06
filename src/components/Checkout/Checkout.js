@@ -43,7 +43,7 @@ const Checkout = () => {
             document.getElementById('full').style.backgroundColor = "#f0f7ff";
             document.getElementById('monthly').style.border = "1px solid #dde7f3";
             document.getElementById('monthly').style.backgroundColor = "transparent";
-            setPrice(course[0].offer_price_eng);
+            setPrice(course[0].offer_price);
             setDisabled(false);
         }
         else {
@@ -55,7 +55,7 @@ const Checkout = () => {
             document.getElementById('full').style.backgroundColor = "transparent";
             document.getElementById('monthly').style.border = "1px solid green";
             document.getElementById('monthly').style.backgroundColor = "#f0f7ff";
-            setPrice(course[0].offer_price_per_month_eng);
+            setPrice(course[0].price_per_month);
             setDisabled(false);
         }
     }
@@ -77,7 +77,12 @@ const Checkout = () => {
 
 
     useEffect(() => {
-        setRemainingPrice(course[0].offer_price_eng - price);
+        if(price === 1250){
+            setRemainingPrice(course[0].price - price);
+        }
+        else{
+            setRemainingPrice(course[0].offer_price - price);
+        }
     }, [course, price])
 
     const proceedToPayment = async () => {
@@ -113,8 +118,8 @@ const Checkout = () => {
                 cus_add2: "Dhaka",
                 cus_city: "Dhaka",
                 cus_country: "Bangladesh",
-                // amount: `${price}`,
-                amount: 1,
+                amount: `${price}`,
+                // amount: 1,
                 tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
                 currency: "BDT",
                 success_url: `https://skillshikhun.herokuapp.com/api/make-payment`,
@@ -122,7 +127,7 @@ const Checkout = () => {
                 cancel_url: `https://www.skillshikhun.com/checkout/${courseId}`,
                 desc: `Purchase ${course[0].slug} Course`,
                 type: "json",
-                opt_a: `${course[0].id}`,
+                opt_a: `${course[0].name}`,
                 opt_b: `${course[0].type}`,
                 opt_c: `${remainingPrice}`
             })
@@ -130,7 +135,9 @@ const Checkout = () => {
             .then(res => res.json())
             .then(data => {
                 window.location.replace(data.payment_url);
+                // console.log(data.payment_url);
             })
+            .catch(err => console.log(err))
 
 
 
@@ -203,7 +210,7 @@ const Checkout = () => {
                             </div>
                             <div className="ps-3 col-sm-6 text-center">
                                 <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold'>{course[0].slug}</h2>
-                                <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].offer_price_per_month}/মাস</h3>
+                                <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].price_per_month_bn}/মাস</h3>
                                 <h6><span className='fw-bold'>{course[0].course_duration} মাসের</span> কোর্স | কোর্সটি করেছেন <span className='fw-bold'>{course[0].course_done}</span> জন</h6>
                                 <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
                             </div>
@@ -273,7 +280,7 @@ const Checkout = () => {
                                 </div>
 
                                 <div style={{ textAlign: 'right' }} className="col-sm-3">
-                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price_per_month}</h4>
+                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].price_per_month_bn}</h4>
                                 </div>
 
                             </button>
@@ -291,7 +298,7 @@ const Checkout = () => {
                                 </div>
 
                                 <div style={{ textAlign: 'right' }} className="col-sm-3">
-                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price}</h4>
+                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price_bn}</h4>
                                     <small className='text-success fw-bold'>খরচ বাঁচবে &#2547; {course[0].price_saved}</small>
                                 </div>
 

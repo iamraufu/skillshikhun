@@ -41,7 +41,7 @@ const FeaturedCourses = () => {
 
                                             <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
                                                 <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'>
-                                                    <span style={{ color: '#354895' }}></span> ৳ {course.offer_price_per_month} 
+                                                    <span style={{ color: '#354895' }}></span> ৳ {course.price_per_month_bn} 
                                                     {/* <strike className='ps-2 text-muted'>{course.regular_price}</strike> */}
                                                     <small style={{ color: '#354895' }}>/মাস</small>
                                                     </h4>

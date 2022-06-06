@@ -6,7 +6,7 @@ import './RegisterFromDemoClass.css';
 
 const RegisterFromDemoClass = () => {
 
-    const { registerUser, user } = useAuth();
+    const { registerUser } = useAuth();
 
     const [flag, setFlag] = useState(false);
     const [phone, setPhone] = useState(123);
@@ -181,11 +181,11 @@ const RegisterFromDemoClass = () => {
                     //     'স্কিল শিখুন এ আপনাকে স্বাগতম!',
                     //     'success'
                     // )
-                    let phoneUser = { displayName: name, email: email, phoneNumber: phone, photoURL: '', password: inputtedPassword, user_created_date: `${day}-${month}-${year} at ${time}` };
-                    console.log(user);
+                    let phoneUser = { displayName: name, email: email, phoneNumber: phone, photoURL: '', password: inputtedPassword, user_created_date: `${day}-${month}-${year} at ${time}`, fromDemo: true, fromLogin: false };
                     registerUser(phoneUser);
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
+                    localStorage.setItem('name', JSON.stringify(data.data.user.name))
                     window.location.replace('/');
                     // {
                     //     window.location.pathname === '/dashboard' ? navigate('/dashboard') : navigate(from, { replace: true })
@@ -228,9 +228,8 @@ const RegisterFromDemoClass = () => {
                     // )
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
+                    localStorage.setItem('name', JSON.stringify(data.data.user.name))
                     // console.log(typeof data.data.user)
-                    localStorage.setItem('name', JSON.stringify(data.data.user.name));
-                    console.log(document.referrer)
                     // navigate(from, { replace: true })
                     window.location.reload();
                 }
