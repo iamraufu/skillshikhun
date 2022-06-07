@@ -177,7 +177,7 @@ const HeroDemo = () => {
                             }} 
                             style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("category", { required: true })}>
                                 {/* <option value={'Web Development'}>{'ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট'}</option> */}
-                                <option value="" disabled defaultValue>যে কোর্সের ফ্রি ক্লাস করতে চাচ্ছেন</option>
+                                <option value="" disabled selected>যে কোর্সের ফ্রি ক্লাস করতে চাচ্ছেন</option>
                                 {courseData.map(course =>
                                     <option key={course.id} value={course.name} className='p-2 form-select-input'>{course.title}</option>
                                 )}
@@ -202,7 +202,7 @@ const HeroDemo = () => {
                             </div> */}
 
                             <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classDate", { required: true })}>
-                                <option value="" disabled defaultValue>ক্লাসের তারিখ বেছে নিন</option>
+                                <option value="" disabled selected>ক্লাসের তারিখ বেছে নিন</option>
                                 <option value={courseCategory[0].class_date_1}>{courseCategory[0].class_date_1}</option>
                                 {/* <option value={courseCategory[0].class_date_2}>{courseCategory[0].class_date_2}</option> */}
                             </select>
@@ -223,7 +223,7 @@ const HeroDemo = () => {
                             </div> */}
 
                             <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classTime", { required: true })}>
-                                <option value="" disabled defaultValue>ক্লাসের সময় বেছে নিন</option>
+                                <option value="" disabled selected>ক্লাসের সময় বেছে নিন</option>
                                 <option value={courseCategory[0].class_time}>{courseCategory[0].class_time}</option>
                             </select>
                             {errors.classTime && <div className="">

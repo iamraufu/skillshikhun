@@ -78,7 +78,7 @@ const Dashboard = () => {
     useEffect(() => {
         setPurchasedLiveCourses(courseData.filter(course => course?.name === payments[0]?.course || course?.name === payments[1]?.course || course?.name === payments[2]?.course || course?.name === payments[3]?.course))
 
-        // setPurchasedVideoCourses(courseData.filter(course => course?.id === payments[0]?.course || course?.id === payments[1]?.course || course?.id === payments[2]?.course || course?.id === payments[3]?.course))
+        setPurchasedVideoCourses(courseData.filter(course => course?.id === payments[0]?.course || course?.id === payments[1]?.course || course?.id === payments[2]?.course || course?.id === payments[3]?.course))
     }, [payments])
 
     return (
@@ -271,7 +271,7 @@ const Dashboard = () => {
                                     {
                                         purchasedVideoCourses?.length === 1 &&
                                         <div className="row justify-content-center">
-                                            {purchasedLiveCourses?.map(course => {
+                                            {purchasedVideoCourses?.map(course => {
                                                 return (
                                                     <div key={course.id} className='featured-courses col-xl-12 col-md-12 col-md-12 my-5'>
                                                         <a className='text-decoration-none' onClick={() => { window.scrollTo(0, 0); }} href={course.zoom_link} target='_blank' rel="noreferrer">
@@ -298,7 +298,7 @@ const Dashboard = () => {
                                     {
                                         purchasedVideoCourses?.length > 1 &&
                                         <div className="row justify-content-center">
-                                            {purchasedLiveCourses?.map(course => {
+                                            {purchasedVideoCourses?.map(course => {
                                                 return (
                                                     <div key={course.id} className='featured-courses col-xl-6 col-md-6 col-md-6 my-5'>
                                                         <a className='text-decoration-none' onClick={() => { window.scrollTo(0, 0); }} href={course.zoom_link} target='_blank' rel="noreferrer">
@@ -373,11 +373,11 @@ const Dashboard = () => {
                                     }
                                     {
                                         payments?.length > 0 &&
-                                        <div className="d-flex justify-content-center align-items-center ">
+                                        <div className="d-flex justify-content-center align-items-center">
                                             <div className="">
                                                 <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }}>Courses <br />{payments.length}</h2>
                                             </div>
-                                            <div className="">
+                                            <div className="ps-5">
                                                 <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }}>Total Paid <br />{payments.reduce((a, b) => { return a + parseInt(b.amount); }, 0)}</h2>
                                                 <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }}>Total Due <br />{payments.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)}</h2>
                                             </div>
