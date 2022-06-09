@@ -70,7 +70,7 @@
 //         }
 
 //         // send otp to user
-//         await fetch('https://skillshikhun.herokuapp.com/api/send-otp-demo', {
+//         await fetch('http://localhost:5000/api/send-otp-demo', {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json'
@@ -99,7 +99,7 @@
 
 //         const otp = otpData.otp;
 
-//         fetch('https://skillshikhun.herokuapp.com/api/otp-verification-demo', {
+//         fetch('http://localhost:5000/api/otp-verification-demo', {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json'
@@ -147,7 +147,7 @@
 //             date: `${day}-${month}-${year} at ${time}`
 //         };
 
-//         fetch('https://skillshikhun.herokuapp.com/registerForDemoClass', {
+//         fetch('http://localhost:5000/registerForDemoClass', {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json'
@@ -340,7 +340,7 @@ const DemoClass = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
+            const res = await fetch(`http://localhost:5000/demoClasses/phone/${phone}`);
             const data = await res.json();
             setDemoClasses(data);
         }

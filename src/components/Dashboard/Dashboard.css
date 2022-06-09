@@ -1,3 +1,12 @@
+.dashboard::-webkit-scrollbar {
+    display: none !important;
+}
+
+.dashboard {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
 .dashboard-content-card {
     /* max-width: 300px; */
     height: auto;
@@ -20,4 +29,18 @@
 
 .featured-courses:hover {
     transform: translateY(-15px);
+}
+
+#zmmtg-root {
+    display: none;
+}
+
+.meeting-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.main-container {
+    background-color: #f3f5f9;
 }

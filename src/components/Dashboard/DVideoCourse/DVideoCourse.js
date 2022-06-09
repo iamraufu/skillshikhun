@@ -16,7 +16,7 @@ const DVideoCourse = () => {
                     </div>
 
                     {/* right container */}
-                    <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px' }} className="col-xl-9 col-lg-9 col-md-12 py-5">
+                    <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px', marginBottom:'5rem' }} className="col-xl-9 col-lg-9 col-md-12 py-5">
 
                         Content Goes Here
                     </div>

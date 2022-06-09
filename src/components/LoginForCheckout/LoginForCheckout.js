@@ -5,12 +5,13 @@ import Navbar from '../Shared/Navbar/Navbar';
 import checkbox from '../../images/checkbox.svg';
 import checkbox_purple from '../../images/checkbox_purple.svg';
 import checkbox_grey from '../../images/checkbox_grey.svg';
+// import Footer from '../Shared/Footer/Footer';
 
 const LoginForCheckout = () => {
     return (
         <div className="">
             <Navbar />
-            <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)', paddingTop: '5rem' }}>
+            <div style={{ minHeight:'100vh', backgroundColor: 'rgb(243, 245, 249)', paddingTop: '5rem' }}>
 
                 <div className="container-fluid progress-container">
                     <div className="col-sm-12">
@@ -55,6 +56,7 @@ const LoginForCheckout = () => {
                 <LoginHandler />
 
             </div>
+            {/* <Footer /> */}
         </div>
     );
 };

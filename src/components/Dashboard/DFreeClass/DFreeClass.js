@@ -12,7 +12,7 @@ const DFreeClass = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
+            const res = await fetch(`http://localhost:5000/demoClasses/phone/${phone}`);
             const data = await res.json();
             setDemoClasses(data);
         }
@@ -101,7 +101,7 @@ const DFreeClass = () => {
                                 </div>
                             </div>
 
-                            <div style={{ borderRadius: '10px' }} className="col-md-5 bg-white mt-5 dashboard-content-card">
+                            <div style={{ borderRadius: '10px', marginBottom:'5rem' }} className="col-md-5 bg-white mt-5 dashboard-content-card">
                                 <div style={{ margin: 'auto' }}>
                                     <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }} className='mt-3'>
                                     ৩টি ফ্রি ক্লাস করে দেখুন</h2>

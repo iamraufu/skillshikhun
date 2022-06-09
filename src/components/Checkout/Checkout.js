@@ -12,6 +12,7 @@ import CourseReview from '../Course/CourseReview';
 // import tick from '../../images/tick.svg';
 import untick from '../../images/untick.svg';
 import checkbox from '../../images/checkbox.svg';
+// import Footer from '../Shared/Footer/Footer';
 // import AwesomeSlider from 'react-awesome-slider';
 
 const Checkout = () => {
@@ -368,6 +369,7 @@ const Checkout = () => {
                     id='payment_proceed'
                     className='btn-buy mx-auto d-block mx-auto d-block fw-bold fs-5' disabled={disabled}>ফি প্রদান করুন</button>
             </div>
+            {/* <Footer /> */}
         </div>
     );
 };

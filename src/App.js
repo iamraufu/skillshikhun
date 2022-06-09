@@ -20,6 +20,7 @@ import DVideoCourse from './components/Dashboard/DVideoCourse/DVideoCourse';
 import DPaymentHistory from './components/Dashboard/DPaymentHistory/DPaymentHistory';
 import logo from './images/logo.png';
 import LiveClass from './components/LiveClass/LiveClass';
+// import LiveClass2 from './components/LiveClass/LiveClass2'; // component view
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -61,7 +62,9 @@ function App() {
             <Route path="dashboard/profile" element={<Profile />} />
             <Route path="/success" element={<Success />} />
             <Route path="/live-class" element={<LiveClass />} />
+            {/* <Route path="/live-class" element={<LiveClass2 />} /> */}
             <Route path="/checkout/:courseId" element={<Checkout />} />
+            {/* <Route path="/live-class/:courseId" element={<LiveClass />} /> */}
           </Route>
 
           <Route path="/" element={<PrivateOutlet2 /> }>

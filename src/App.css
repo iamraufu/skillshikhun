@@ -5,9 +5,15 @@
     transition: all .3s ease;
 }
 
+html,
+body {
+    overflow: visible !important;
+    min-width: 100% !important;
+}
+
 ::selection {
-    color: white;
-    background-color: #13338b;
+    color: white !important;
+    background-color: #13338b !important;
 }
 
 #breathing {

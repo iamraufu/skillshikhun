@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../Shared/Navbar/Navbar';
 import liveClass from '../../images/liveClass.svg';
 import live from '../../images/live.png';
+// import Footer from '../Shared/Footer/Footer';
 
 const AllCourses = () => {
     return (
@@ -48,6 +49,7 @@ const AllCourses = () => {
                         )}
                 </div>
             </div>
+            {/* <Footer /> */}
         </div>
     );
 };

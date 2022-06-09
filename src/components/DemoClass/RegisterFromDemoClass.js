@@ -77,7 +77,7 @@ const RegisterFromDemoClass = () => {
         }
 
         // send otp to user
-        await fetch('https://skillshikhun.herokuapp.com/api/send-otp', {
+        await fetch('http://localhost:5000/api/send-otp', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -112,7 +112,7 @@ const RegisterFromDemoClass = () => {
     const OTPVerification = (otpData) => {
         const otp = otpData.otp;
 
-        fetch('https://skillshikhun.herokuapp.com/api/otp-verification', {
+        fetch('http://localhost:5000/api/otp-verification', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -159,7 +159,7 @@ const RegisterFromDemoClass = () => {
 
         const time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 
-        fetch('https://skillshikhun.herokuapp.com/api/password-input', {
+        fetch('http://localhost:5000/api/password-input', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -208,7 +208,7 @@ const RegisterFromDemoClass = () => {
     const passwordVerification = (passwordData) => {
         const inputtedPassword = passwordData.password;
 
-        fetch('https://skillshikhun.herokuapp.com/api/password-input-login', {
+        fetch('http://localhost:5000/api/password-input-login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -256,7 +256,7 @@ const RegisterFromDemoClass = () => {
             confirmButtonText: 'হ্যাঁ, ভুলে গেছি!'
         }).then((result) => {
             if (result.value) {
-                fetch('https://skillshikhun.herokuapp.com/api/forget-password', {
+                fetch('http://localhost:5000/api/forget-password', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
