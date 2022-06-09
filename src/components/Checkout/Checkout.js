@@ -163,7 +163,7 @@ const Checkout = () => {
         //     currency: "BDT",
         //     success_url: `https://skillshikhun.herokuapp.com/api/make-payment`,
         //     fail_url: `https://skillshikhun.herokuapp.com/api/payment-failure`,
-        //     cancel_url: `http://localhost:3000/checkout/${courseId}`,
+        //     cancel_url: `https://www.skillshikhun.com/checkout/${courseId}`,
         //     desc: `Purchase ${course[0].slug} Course`,
         //     type: "json",
         //     opt_a: `${course[0].id}`,

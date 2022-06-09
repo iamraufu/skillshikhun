@@ -18,7 +18,7 @@ const DNavbar = () => {
 
     // useEffect(() => {
     //     const fetchData = async () => {
-    //         const res = await fetch(`http://localhost:5000/users/phone/${phone}`);
+    //         const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
     //         const data = await res.json();
     //         setUserPhoneData(data);
     //     }

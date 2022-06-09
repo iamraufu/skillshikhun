@@ -45,7 +45,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`http://localhost:5000/users/phone/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
             const data = await res.json();
             setUserPhoneData(data);
         }
@@ -54,7 +54,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`http://localhost:5000/demoClasses/phone/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
             const data = await res.json();
             setDemoClasses(data);
         }
@@ -63,7 +63,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`http://localhost:5000/api/get-payment/Live/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
             const data = await res.json();
             setLiveCourses(data);
         }
@@ -72,7 +72,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`http://localhost:5000/api/get-payment/Video/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payment/Video/${phone}`);
             const data = await res.json();
             setVideoCourses(data);
         }
@@ -81,7 +81,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`http://localhost:5000/api/get-payments/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payments/${phone}`);
             const data = await res.json();
             setPayments(data);
         }
@@ -104,14 +104,14 @@ const Dashboard = () => {
 
     }, [payments, demoClasses, videoCourses])
 
-    let signatureEndpoint = 'http://localhost:5000/liveClass'
+    let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
     let sdkKey = '87rXfpYIpyQYMZSrjmcYKvF72lEqinAuroje'
     // let meetingNumber = ''
     let role = 0
     let userName = userPhoneData.name
     let userEmail = userPhoneData.email
     // let passWord = ''
-    let leaveUrl = 'http://localhost:3000/dashboard'
+    let leaveUrl = 'https://www.skillshikhun.com/dashboard'
     let registrantToken = ''
 
     async function getSignature(meetingNumber, password) {

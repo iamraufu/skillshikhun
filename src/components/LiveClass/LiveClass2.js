@@ -6,7 +6,7 @@ const LiveClass2 = () => {
 
     const client = ZoomMtgEmbedded.createClient();
 
-    let signatureEndpoint = 'http://localhost:5000/liveClass'
+    let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
     let sdkKey = '87rXfpYIpyQYMZSrjmcYKvF72lEqinAuroje'
     let meetingNumber = "92187931261"
     let role = 0

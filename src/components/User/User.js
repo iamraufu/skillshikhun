@@ -5,7 +5,7 @@ const User = () => {
     const phone = localStorage.getItem('phone');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/phone/${phone}`)
+        fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
             .then(res => res.json())
             .then(data => console.log(data))
     },[phone])

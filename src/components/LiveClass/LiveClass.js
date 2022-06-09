@@ -25,7 +25,7 @@ const LiveClass = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`http://localhost:5000/api/get-payment/Live/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
             const data = await res.json();
             setLiveCourses(data);
         }
@@ -34,7 +34,7 @@ const LiveClass = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`http://localhost:5000/api/get-payments/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payments/${phone}`);
             const data = await res.json();
             setPayments(data[0].course);
         }
@@ -52,7 +52,7 @@ const LiveClass = () => {
     // console.log(purchasedLiveCourses);
     // console.log(payments);
 
-    let signatureEndpoint = 'http://localhost:5000/liveClass'
+    let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
     let sdkKey = '87rXfpYIpyQYMZSrjmcYKvF72lEqinAuroje'
     let meetingNumber = "87039970025"
     let role = 0
