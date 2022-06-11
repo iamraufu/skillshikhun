@@ -52,7 +52,6 @@ const HeroDemo = () => {
                 method: 'DELETE'
             })
             .then(res => res.json())
-            .then(data => console.log(data))
         }
         // else if(time === courseCategory[0].class_date_2_deadline){
             

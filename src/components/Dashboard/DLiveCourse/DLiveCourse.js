@@ -22,6 +22,7 @@ const DLiveCourse = () => {
     // eslint-disable-next-line
     const [liveCourses, setLiveCourses] = useState([]);
     const [purchasedLiveCourses, setPurchasedLiveCourses] = useState([]);
+    const [otherLiveCourses, setOtherLiveCourses] = useState([]);
 
     const [payments, setPayments] = useState([]);
 
@@ -58,6 +59,8 @@ const DLiveCourse = () => {
         const live_courses = payments.map(pm => pm.course).filter(course => courseData.map(cd => cd.name).includes(course))
         setPurchasedLiveCourses(courseData.filter(course => live_courses.includes(course.name)))
 
+        setOtherLiveCourses(courseData?.filter(course => !live_courses.includes(course.name)));
+
     }, [payments])
 
     let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
@@ -73,8 +76,6 @@ const DLiveCourse = () => {
     async function getSignature(meetingNumber, password) {
         // e.preventDefault();
 
-        console.log(meetingNumber, password)
-
         await fetch(signatureEndpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -86,7 +87,7 @@ const DLiveCourse = () => {
             .then(response => {
                 startMeeting(response.signature, meetingNumber, password)
             }).catch(error => {
-                console.error(error)
+                
             })
     }
 
@@ -95,12 +96,9 @@ const DLiveCourse = () => {
         document.getElementById('zmmtg-root').style.display = 'block'
         document.getElementById('d_live').style.display = 'none'
 
-        console.log(signature, meetingNumber, password)
-
         await ZoomMtg.init({
             leaveUrl: leaveUrl,
             success: (success) => {
-                console.log(success)
 
                 ZoomMtg.join({
                     signature: signature,
@@ -111,16 +109,15 @@ const DLiveCourse = () => {
                     passWord: password,
                     tk: registrantToken,
                     success: (success) => {
-                        console.log(success)
+    
                     },
                     error: (error) => {
-                        console.log(error)
+    
                     }
                 })
 
             },
             error: (error) => {
-                console.log(error)
             }
         })
     }
@@ -217,7 +214,7 @@ const DLiveCourse = () => {
                                 <hr />
                                 <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }} className='my-3'>আমাদের অন্যানো কোর্স সমূহ</h2>
                                 {
-                                    courseData.map(course => {
+                                    otherLiveCourses.map(course => {
                                         return (
                                             <div key={course.id} className='featured-courses col-xl-3 col-md-6 col-sm-6 my-5'>
                                                 <Link className='text-decoration-none' onClick={() => { window.scrollTo(0, 0); }} to={course.route}>

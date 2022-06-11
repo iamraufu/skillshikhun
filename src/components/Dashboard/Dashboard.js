@@ -117,8 +117,6 @@ const Dashboard = () => {
     async function getSignature(meetingNumber, password) {
         // e.preventDefault();
 
-        console.log(meetingNumber, password)
-
         await fetch(signatureEndpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -130,7 +128,7 @@ const Dashboard = () => {
             .then(response => {
                 startMeeting(response.signature, meetingNumber, password)
             }).catch(error => {
-                console.error(error)
+
             })
     }
 
@@ -139,12 +137,10 @@ const Dashboard = () => {
         document.getElementById('zmmtg-root').style.display = 'block'
         document.getElementById('dashboard').style.display = 'none'
 
-        console.log(signature, meetingNumber, password)
-
         await ZoomMtg.init({
             leaveUrl: leaveUrl,
             success: (success) => {
-                console.log(success)
+
 
                 ZoomMtg.join({
                     signature: signature,
@@ -155,16 +151,16 @@ const Dashboard = () => {
                     passWord: password,
                     tk: registrantToken,
                     success: (success) => {
-                        console.log(success)
+        
                     },
                     error: (error) => {
-                        console.log(error)
+        
                     }
                 })
 
             },
             error: (error) => {
-                console.log(error)
+
             }
         })
     }

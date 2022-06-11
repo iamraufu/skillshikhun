@@ -14,9 +14,11 @@ import untick from '../../images/untick.svg';
 import checkbox from '../../images/checkbox.svg';
 // import Footer from '../Shared/Footer/Footer';
 // import AwesomeSlider from 'react-awesome-slider';
+import load from '../../images/load.gif';
+import Typewriter from 'typewriter-effect';
 
 const Checkout = () => {
-    
+
     const { courseId } = useParams();
     const course = courseData.filter(course => course.id === courseId);
     const [price, setPrice] = useState(1250);
@@ -78,10 +80,10 @@ const Checkout = () => {
 
 
     useEffect(() => {
-        if(price === 1250){
+        if (price === 1250) {
             setRemainingPrice(course[0].price - price);
         }
-        else{
+        else {
             setRemainingPrice(course[0].offer_price - price);
         }
     }, [course, price])
@@ -354,9 +356,19 @@ const Checkout = () => {
                 </div>
             </div>
 
-            <div id='loading_spinner' className='container-fluid' style={{ display: 'none', paddingTop: '15rem', margin: 'auto' }}>
+            <div id='loading_spinner' className='container-fluid' style={{ display: 'none', paddingTop: '5rem', margin: 'auto' }}>
+                <img src={load} class='mx-auto d-block' width={250} alt="Redirecting to Payment Gateway" />
+                <div className="d-flex justify-content-center">
+                <Typewriter
+                    options={{
+                        strings: ['অনুগ্রহ করে কিছু সেকেন্ড অপেক্ষা করুন ', 'আপনাকে আমাদের নিরাপদ পেমেন্ট গেটওয়েতে নিয়ে যাওয়া হচ্ছে' ],
+                        autoStart: true,
+                        loop: true,
+                    }}
+                />
+                </div>
                 <div className="d-flex justify-content-center align-items-center">
-                    <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold text-center me-2 mt-2'>অপেক্ষা করুন</h1>
+                    {/* <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold text-center me-2 mt-2'>অপেক্ষা করুন</h1> */}
                     <progress value="0" max="10" id="progressBar" className=''></progress>
                 </div>
             </div>

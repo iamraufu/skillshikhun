@@ -34,7 +34,7 @@ const DFreeClass = () => {
                     <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px' }} className="col-xl-9 col-lg-9 col-md-12 py-5 px-5">
                         <div className="row justify-content-center align-items-center">
 
-                            <div style={{ borderRadius: '10px' }} className="col-md-5 bg-white mt-5 dashboard-content-card">
+                            <div style={{ borderRadius: '10px' }} className="col-md-5 bg-white dashboard-content-card">
                                 <div style={{ margin: 'auto' }}>
 
                                     {

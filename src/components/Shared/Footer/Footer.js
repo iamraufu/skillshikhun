@@ -26,7 +26,7 @@ const Footer = () => {
                     <div className="col-lg-2">
                         <h5 style={{ marginTop: '75px' }} className="text-white">Important Links</h5>
                         <div className="row">
-                            {footerData.map(data => <Link className='text-muted mt-2 text-decoration-none' to={data.link}>{data.name}</Link>)}
+                            {footerData.map((data, index) => <Link key={index+1} onClick={()=>{window.scrollTo(0, 0);}} className='text-muted mt-2 text-decoration-none' to={data.link}>{data.name}</Link>)}
                         </div>
                     </div>
 
@@ -35,11 +35,11 @@ const Footer = () => {
                         <h4 className='text-white mt-4 text-center'>Contact Us On Social Media</h4>
 
                         <h5 className='text-white mt-4'>Skill Shikhun</h5>
-                        {links.map(data =>
-                            <a href={data.link} className='text-muted mt-2 text-decoration-none' target="_blank" rel="noreferrer">
+                        {links.map((data, index) =>
+                            <a key={index+1} href={data.link} className='text-muted mt-2 text-decoration-none' target="_blank" rel="noreferrer">
                                 <img src={data.icon} alt={data.name} className='img-fluid mt-2 px-2' style={{ width: '50px' }} /></a>)}
                         <h5 className='text-white mt-4'>Groups</h5>
-                        <div className="row">{groupsData.map(data => <a href={data.link} className='text-muted mt-2 text-decoration-none' target="_blank" rel="noreferrer">{data.name}</a>)}</div>
+                        <div className="row">{groupsData.map((data, index) => <a key={index+1} href={data.link} className='text-muted mt-2 text-decoration-none' target="_blank" rel="noreferrer">{data.name}</a>)}</div>
                     </div>
 
                     <div className="col-lg-3">

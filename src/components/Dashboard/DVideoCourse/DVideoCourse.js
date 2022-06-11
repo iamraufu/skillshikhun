@@ -18,7 +18,7 @@ const DVideoCourse = () => {
                     {/* right container */}
                     <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px', marginBottom:'5rem' }} className="col-xl-9 col-lg-9 col-md-12 py-5">
 
-                        Content Goes Here
+                        <h1 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='text-center'>আপাদত কোনো ভিডিও কোর্স আপলোড করা হয়নি</h1>
                     </div>
                 </div>
                 <Menu />

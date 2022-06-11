@@ -32,7 +32,6 @@ const Payment = () => {
         })
             .then(res => res.json())
             .then(data => setPayment_url(data))
-            .catch(err => console.log(err))
         // eslint-disable-next-line
     }, [])
 
