@@ -15,7 +15,7 @@ const Home = () => {
             <FeaturedCourses />
             <SSFeatures />
             {/* <SSModels /> */}
-            <MainReviews />
+            {/* <MainReviews /> */}
             <Footer />
         </div>
     );
