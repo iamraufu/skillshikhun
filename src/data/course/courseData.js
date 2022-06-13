@@ -61,6 +61,10 @@ const courseData = [
         free_password:'153338',
         live_number:'84551599695',
         live_password:'870201',
+        // free_link:'https://zoom.us/wc/92939532748/start',
+        free_link:'https://us06web.zoom.us/j/92939532748?pwd=d1RMRkFnUy9hM2F6TUlPbXAxNlFBZz09',
+        // live_link:'https://zoom.us/wc/84551599695/start',
+        live_link:'https://us06web.zoom.us/j/84551599695?pwd=aU5EVHB6SFhqV3NMeEJ6bWV4VHdqUT09',
         instructor_image: ve_i,
         image: videoImage,
         feature_alt:[
@@ -282,6 +286,10 @@ const courseData = [
         free_password:'skill2022',
         live_number:'84821206594',
         live_password:'865881',
+        // free_link:'https://us06web.zoom.us/wc/92187931261/start',
+        free_link:'https://us06web.zoom.us/j/85672086625?pwd=cm5ubFIyZ2ZJWnYzTGlrYTNKUDdtZz09',
+        // live_link:'https://zoom.us/wc/84821206594/start',
+        live_link:'https://us06web.zoom.us/j/84821206594?pwd=c1JiY2gxY29TbTB3emNDRldiWkJXZz09',
         instructor_image: dm_i,
         image: digitalImage,
         feature_alt:[
@@ -473,6 +481,10 @@ const courseData = [
         free_password:'751521',
         live_number:'87039970025',
         live_password:'071289',
+        // free_link:'https://zoom.us/wc/96089920440/start',
+        free_link:'https://us06web.zoom.us/j/96089920440?pwd=Z003Um5VV0RsZHloblJoN3JtL013dz09',
+        // live_link:'https://zoom.us/wc/87039970025/start',
+        live_link:'https://us06web.zoom.us/j/87039970025?pwd=Z2NHeDE2ZWQ1cmFNeVZZRk9NL3RXdz09',
         instructor_image: gd_i,
         image:graphicsImage,
         feature_alt:[
@@ -699,6 +711,10 @@ const courseData = [
         free_password:'297121',
         live_number:'85770635754',
         live_password:'351625',
+        // free_link:'https://us06web.zoom.us/wc/83489456820/start',
+        free_link:'https://us06web.zoom.us/j/83489456820?pwd=SjNTaTVnQkNEWkdtaXRXcW13VWVXZz09',
+        // live_link:'https://zoom.us/wc/85770635754/start',
+        live_link:'https://us06web.zoom.us/j/85770635754?pwd=L0hRT0FxbUtyTmxTSkRWeGpPTVRxdz09',
         instructor_image: wd_i,
         image: webImage,
         feature_alt:[

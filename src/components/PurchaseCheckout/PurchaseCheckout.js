@@ -7,7 +7,7 @@ const PurchaseCheckout = () => {
     return (
         <div className="">
             <div style={{ paddingTop: '4rem', backgroundColor: '#f3f5f9' }}>
-            <div className="container-fluid progress-container">
+                <div className="container-fluid progress-container">
                     <div className="col-sm-12">
                         <div className="progress my-5">
                             <div className="progress-bar" role="progressbar" aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100"></div>

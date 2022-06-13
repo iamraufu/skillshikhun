@@ -1,10 +1,11 @@
 import React from 'react';
 import Footer from '../Shared/Footer/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
-import FeaturedCourses from './FeaturedCourses';
-import Hero from './Hero';
-import SSFeatures from './SSFeatures';
-import SSModels from './SSModels';
+import FeaturedCourses from './FeaturedCourses/FeaturedCourses';
+import Hero from './Hero/Hero';
+import MainReviews from './MainReviews/MainReviews';
+import SSFeatures from './SSFeatures/SSFeatures';
+// import SSModels from './SSModels';
 
 const Home = () => {
     return (
@@ -13,7 +14,8 @@ const Home = () => {
             <Hero />
             <FeaturedCourses />
             <SSFeatures />
-            <SSModels />
+            {/* <SSModels /> */}
+            <MainReviews />
             <Footer />
         </div>
     );

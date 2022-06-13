@@ -24,7 +24,9 @@
     "react-modal-video": "^1.2.8",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "react-slick": "^0.29.0",
     "sass": "^1.52.2",
+    "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.4.17",
     "typewriter-effect": "^2.18.2",
     "web-vitals": "^2.1.4"

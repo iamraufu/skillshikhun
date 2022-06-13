@@ -114,6 +114,7 @@ const Dashboard = () => {
     let leaveUrl = 'https://www.skillshikhun.com/dashboard'
     let registrantToken = ''
 
+    // eslint-disable-next-line
     async function getSignature(meetingNumber, password) {
         // e.preventDefault();
 
@@ -214,7 +215,9 @@ const Dashboard = () => {
                                                 {freeClasses?.map(course => {
                                                     return (
                                                         <div key={course.id} className='col-xl-8 col-md-12 my-3'>
-                                                            <section onClick={() => getSignature(course.free_number, course.free_password)}>
+                                                            <a href = {course.free_link} className='text-decoration-none' target='_blank' rel="noreferrer"
+                                                            // onClick={() => getSignature(course.free_number, course.free_password)}
+                                                            >
                                                                 <div style={{ border: '1px solid #dde7f3' }}>
 
                                                                     <div style={{ minHeight: '180px' }} className="bg-white py-3">
@@ -229,7 +232,7 @@ const Dashboard = () => {
                                                                         <button className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button>
                                                                     </div>
                                                                 </div>
-                                                            </section>
+                                                            </a>
                                                         </div>
                                                     )
                                                 })}
@@ -241,7 +244,9 @@ const Dashboard = () => {
                                                 {freeClasses?.map(course => {
                                                     return (
                                                         <div key={course.id} className='featured-courses col-md-6 my-3'>
-                                                            <section onClick={() => getSignature(course.free_number, course.free_password)}>
+                                                            <a href = {course.free_link} className='text-decoration-none' target='_blank' rel="noreferrer"
+                                                            // onClick={() => getSignature(course.free_number, course.free_password)}
+                                                            >
                                                                 <div style={{ border: '1px solid #dde7f3' }}>
 
                                                                     <div style={{ minHeight: '180px' }} className="bg-white py-3">
@@ -256,7 +261,7 @@ const Dashboard = () => {
                                                                         <button className='see-details w-100 mx-1'>জয়েন ক্লাস</button>
                                                                     </div>
                                                                 </div>
-                                                            </section>
+                                                            </a>
                                                         </div>
                                                     )
                                                 })}
@@ -284,7 +289,9 @@ const Dashboard = () => {
                                                 {purchasedLiveCourses?.map(course => {
                                                     return (
                                                         <div key={course.id} className='featured-courses col-xl-8 col-md-12 mt-2 mb-5'>
-                                                            <section onClick={() => getSignature(course.live_number, course.live_password)}>
+                                                            <a href = {course.live_link} className='text-decoration-none' target='_blank' rel="noreferrer"
+                                                            // onClick={() => getSignature(course.live_number, course.live_password)}
+                                                            >
                                                                 <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
                                                                     <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                     <div className="bg-white py-4">
@@ -298,7 +305,7 @@ const Dashboard = () => {
                                                                         <button onClick={() => { window.scrollTo(0, 0); }} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
                                                                     </div>
                                                                 </div>
-                                                            </section>
+                                                            </a>
                                                         </div>
                                                     )
                                                 })}
@@ -311,7 +318,9 @@ const Dashboard = () => {
                                                 {purchasedLiveCourses?.map(course => {
                                                     return (
                                                         <div key={course.id} className='featured-courses col-xl-6 col-md-6 col-md-6 mt-3 mb-5'>
-                                                            <div onClick={() => getSignature(course.live_number, course.live_password)}>
+                                                            <a href = {course.live_link} className='text-decoration-none' target='_blank' rel="noreferrer"
+                                                            // onClick={() => getSignature(course.live_number, course.live_password)}
+                                                            >
                                                                 <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
                                                                     <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                     <div className="bg-white py-4">
@@ -325,7 +334,7 @@ const Dashboard = () => {
                                                                         <button onClick={() => { window.scrollTo(0, 0); }} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </a>
                                                         </div>
                                                     )
                                                 })}

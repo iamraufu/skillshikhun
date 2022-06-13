@@ -1,11 +1,11 @@
 import React from 'react';
 import './Hero.css';
-import logoText from '../../images/logoText.png';
-import landingFront from '../../images/landing-front.png';
+import logoText from '../../../images/logoText.png';
+import landingFront from '../../../images/landing-front.png';
 import AOS from 'aos';
 import "aos/dist/aos.css";
-import DemoClass from '../DemoClass/DemoClass';
-import courseData from '../../data/course/courseData';
+import DemoClass from '../../DemoClass/DemoClass';
+import courseData from '../../../data/course/courseData';
 
 const Hero = () => {
 

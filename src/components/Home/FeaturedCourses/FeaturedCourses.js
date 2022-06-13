@@ -1,9 +1,9 @@
 import React from 'react';
 import './FeaturedCourses.css';
-import courseData from '../../data/course/courseData';
+import courseData from '../../../data/course/courseData';
 import { Link } from 'react-router-dom';
-import live from '../../images/live.png';
-import liveClass from '../../images/liveClass.svg';
+import live from '../../../images/live.png';
+import liveClass from '../../../images/liveClass.svg';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 

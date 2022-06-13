@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Checkout.css';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserShield } from '@fortawesome/free-solid-svg-icons';
 import Navbar from '../Shared/Navbar/Navbar';
@@ -19,6 +19,8 @@ import Typewriter from 'typewriter-effect';
 
 const Checkout = () => {
 
+    let navigate = useNavigate();
+
     const { courseId } = useParams();
     const course = courseData.filter(course => course.id === courseId);
     const [price, setPrice] = useState(1250);
@@ -29,11 +31,24 @@ const Checkout = () => {
     const [userPhoneData, setUserPhoneData] = useState({})
     // const [paymentGateway, setPaymentGateway] = useState([]);
 
+    const [payments, setPayments] = useState([]);
+
     useEffect(() => {
         fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
             .then(res => res.json())
             .then(data => setUserPhoneData(data))
     }, [phone])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payments/${phone}`);
+            const data = await res.json();
+            setPayments(data);
+        }
+        fetchData();
+    }, [phone])
+
+    payments.map(paid => paid.course).find(paid => paid === course[0].name) && navigate('/dashboard');
 
     const handleSubscriptionStyle = (type) => {
 
@@ -357,15 +372,15 @@ const Checkout = () => {
             </div>
 
             <div id='loading_spinner' className='container-fluid' style={{ display: 'none', paddingTop: '5rem', margin: 'auto' }}>
-                <img src={load} class='mx-auto d-block' width={250} alt="Redirecting to Payment Gateway" />
+                <img src={load} className='mx-auto d-block' width={250} alt="Redirecting to Payment Gateway" />
                 <div className="d-flex justify-content-center">
-                <Typewriter
-                    options={{
-                        strings: ['অনুগ্রহ করে কিছু সেকেন্ড অপেক্ষা করুন ', 'আপনাকে আমাদের নিরাপদ পেমেন্ট গেটওয়েতে নিয়ে যাওয়া হচ্ছে' ],
-                        autoStart: true,
-                        loop: true,
-                    }}
-                />
+                    <Typewriter
+                        options={{
+                            strings: ['অনুগ্রহ করে কিছু সেকেন্ড অপেক্ষা করুন ', 'আপনাকে আমাদের নিরাপদ পেমেন্ট গেটওয়েতে নিয়ে যাওয়া হচ্ছে'],
+                            autoStart: true,
+                            loop: true,
+                        }}
+                    />
                 </div>
                 <div className="d-flex justify-content-center align-items-center">
                     {/* <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold text-center me-2 mt-2'>অপেক্ষা করুন</h1> */}

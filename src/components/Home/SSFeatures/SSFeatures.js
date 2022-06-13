@@ -1,9 +1,9 @@
 import React from 'react';
 import './SSFeatures.css';
-import h24 from '../../images/24Hour.svg';
-import easy from '../../images/easyToPractice.svg';
-import hq from '../../images/highQuality.svg';
-import social from '../../images/socialMedia.svg';
+import h24 from '../../../images/24Hour.svg';
+import easy from '../../../images/easyToPractice.svg';
+import hq from '../../../images/highQuality.svg';
+import social from '../../../images/socialMedia.svg';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 

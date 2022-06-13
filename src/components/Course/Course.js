@@ -124,7 +124,9 @@ const Course = (props) => {
                                 {/* <h2 style={{ textDecoration: 'underline', cursor: 'pointer' }} className='fs-4 ms-2 text-center my-3'>প্রোমো কোড</h2> */}
 
                                 {
-                                    purchasedLiveCourses.length ? <button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>জয়েন ক্লাস</button> :
+                                    purchasedLiveCourses.length ? <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block' 
+                                    // onClick={() => { window.scrollTo(0, 0); }}
+                                    >জয়েন ক্লাস</a> :
                                         <div className="container d-none d-lg-block">
                                             <div className="row">
                                                 <div className="col-md-6 mt-1">
@@ -263,8 +265,14 @@ const Course = (props) => {
             </div>
 
             {/* Display on smaller devices */}
+            
             <div style={{ boxShadow: '0 3px 10px 3px #0003' }} className="container-fluid d-lg-none fixed-bottom bg-white">
-                <div className="my-3">
+                {
+                    purchasedLiveCourses.length ? <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center' 
+                    // onClick={() => { window.scrollTo(0, 0); }}
+                    >জয়েন ক্লাস</a>
+                    : 
+                    <div className="my-3">
                     <div style={{ justifyContent: 'space-between' }} className="d-flex m-2">
                         <div className="col-md-6">
                             <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>
@@ -296,7 +304,7 @@ const Course = (props) => {
                             </Link>
                         </div>
                         {
-                            localStorage.getItem('token') ?
+                            localStorage.getItem('token') && purchasedLiveCourses.length === 0 ?
                                 // <div className="col-md-6 mt-1">
                                 //     <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>{course.offer_price_per_month}/মাস <br /> এখনই ভর্তি হয়ে যান &#8594;</button></Link>
                                 // </div> 
@@ -325,7 +333,7 @@ const Course = (props) => {
                                         <button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>
                                             <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
                                                 <div className='col-sm-6' style={{ fontSize: '24px' }}>
-                                                    &#2547; {course.offer_price_per_month}/মাস
+                                                    &#2547; {course.price_per_month_bn}/মাস
                                                 </div>
                                                 <div className='col-sm-6 d-flex' style={{ fontSize: '24px' }}>
                                                     <div className="">
@@ -342,6 +350,7 @@ const Course = (props) => {
                         }
                     </div>
                 </div>
+                }
 
             </div>
             <Footer />

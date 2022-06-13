@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import './RegisterFromDemoClass.css';
+import checkbox from '../../images/checkbox.svg';
+import checkbox_purple from '../../images/checkbox_purple.svg';
 
 const RegisterFromDemoClass = () => {
 
@@ -324,6 +326,47 @@ const RegisterFromDemoClass = () => {
 
             {/* div for collecting userName & password */}
             <div id="password_input_container" style={{ display: 'none' }}>
+            <div>
+                <div className="container-fluid progress-container">
+                    <div className="col-sm-12">
+                        <div className="progress my-5">
+                            <div className="progress-bar" role="progressbar" aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div className="progress-info-container">
+                        <div className="d-flex justify-content-center">
+                            <div className="col-sm-4 progress-select mx-auto">
+                                <img className='img-fluid progress-info-image' width={30} src={checkbox} alt="course selected" />
+                            </div>
+
+                            <div className="col-sm-4 progress-select mx-auto">
+                                <img className='img-fluid progress-info-image' width={30} src={checkbox_purple} alt="your info" />
+                            </div>
+
+                            <div className="col-sm-4 progress-select mx-auto">
+                                <img className='img-fluid progress-info-image' width={30} src={checkbox_purple} alt="payment" />
+                            </div>
+
+                        </div>
+
+                        <div className="d-flex justify-content-center">
+                            <div className="col-sm-4 progress-select">
+                                <h1 className='progress-info-text'>ফোন নম্বর</h1>
+                            </div>
+
+                            <div className="col-sm-4 progress-select">
+                                <h1 className='progress-info-text'>আপনার তথ্য</h1>
+                            </div>
+
+                            <div className="col-sm-4 progress-select">
+                                <h1 className='progress-info-text'>রেজিস্ট্রেশন</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
                 <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f', fontWeight: '700' }} className='text-center mt-3'>আপনার তথ্য দিন</h2>
                 <div className="d-flex mx-auto d-block justify-content-center">
                     <form onSubmit={handleSubmit3(onSubmit3)}>
