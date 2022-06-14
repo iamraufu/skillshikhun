@@ -4,13 +4,13 @@ import { useLocation } from 'react-router-dom';
 const Tracker = ({props}) => {
     const location = useLocation();
 
-    const token = localStorage.getItem('token');
-    const phone = localStorage.getItem('phone');
+    const token = localStorage?.getItem('token');
+    const phone = localStorage?.getItem('phone');
 
     const trackingDetails = {
         phone: phone,
-        course: props.name,
-        visited_route: location.pathname
+        course: props?.name,
+        visited_route: location?.pathname
     }
 
     useEffect(()=>{ 
