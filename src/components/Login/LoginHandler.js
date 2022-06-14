@@ -197,7 +197,7 @@ const LoginHandler = () => {
                     //     'স্কিল শিখুন এ আপনাকে স্বাগতম!',
                     //     'success'
                     // )
-                    let phoneUser = { displayName: name, email: email, phoneNumber: phone, photoURL: '', password: inputtedPassword, user_created_date: `${day}-${month}-${year} at ${time}`, fromDemo: false, fromLogin: true };
+                    let phoneUser = { displayName: name, email: email, phoneNumber: phone, photoURL: '', password: inputtedPassword, user_created_date: `${day}-${month}-${year} at ${time}`, fromDemo: "No", fromLogin: "Yes" };
                     registerUser(phoneUser);
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
