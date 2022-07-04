@@ -200,7 +200,7 @@ const DLiveCourse = () => {
                                     {
                                         purchasedLiveCourses?.length === 0 &&
                                         <div className="">
-                                            <p className='text-danger text-danger'>আপনি কোনো লাইভ কোর্সে ভর্তি হননি</p>
+                                            <p className='text-danger text-center'>আপনি কোনো লাইভ কোর্সে ভর্তি হননি</p>
                                             {/* <div className="">
                                             <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='my-2 text-center'>
                                                 <button className='btn btn-danger ms-2'>
