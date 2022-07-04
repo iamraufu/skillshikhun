@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DNavbar.css';
 import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.png';
@@ -6,13 +6,15 @@ import logo from '../../../images/logo.png';
 import web from '../../../images/dashboard/web.svg';
 import out from '../../../images/dashboard/out.svg';
 import useAuth from '../../../hooks/useAuth';
+import { useEffect } from 'react';
 
 const DNavbar = () => {
 
-    const {logOut} = useAuth();
+    const { logOut } = useAuth();
 
     // const phone = localStorage.getItem('phone');
     const name = JSON.parse(localStorage.getItem('name'));
+    const phone = localStorage.getItem('phone');
 
     // const [userPhoneData, setUserPhoneData] = useState({})
 
@@ -24,6 +26,17 @@ const DNavbar = () => {
     //     }
     //     fetchData();
     // }, [phone])
+
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
+            const data = await res.json();
+            setUser(data);
+        }
+        fetchData();
+    })
 
     return (
         <div style={{ borderWidth: '1px', boxShadow: '0 5px 15px #c4c4c44d' }} className="bg-white fixed-top">
@@ -37,7 +50,10 @@ const DNavbar = () => {
                         </Link>
 
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"></span>
+                            {/* {
+                                user?.email ? <img style={{ borderRadius: '50%' }} width={50} src={user?.photo} alt="" /> : <span className="navbar-toggler-icon"></span>
+                            } */}
                         </button>
 
                         <div className="collapse navbar-collapse navbar-menu" id="navbarNavAltMarkup">
@@ -46,24 +62,9 @@ const DNavbar = () => {
                                     <h2 className="accordion-header" id="flush-headingOne">
                                         <button className="accordion-button accordion-button-customize collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                             <div className="d-flex justify-content-center align-items-center">
-                                                {/* {
-                                                    userPhoneData?.photo ?
-                                                        <img src={userPhoneData.photo} className='img-fluid px-4' width={100} alt={userPhoneData.name} loading="lazy" />
-                                                        :
-                                                        <img src={user} className='img-fluid px-4' width={100} alt="Circular user svg" loading="lazy" />
-                                                } */}
-                                                    <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-2 text-primary me-2'>{name}</h2>
-                                                {/* {
-                                                    userPhoneData?.name ?
-                                                        <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-2 text-primary me-2'>{userPhoneData.name}</h2>
-                                                        :
-                                                        <div className="d-flex">
-                                                            <div className="spinner-grow text-dark mt-2" role="status">
-                                                                <span className="sr-only"></span>
-                                                            </div>
-                                                            <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-3 text-black'>লোড হচ্ছে ...</h2>
-                                                        </div>
-                                                } */}
+                                                    {
+                                                        user?.email ? <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-2 text-primary me-2'><img style={{ borderRadius: '50%' }} width={50} src={user?.photo} alt="" /> {user?.name}</h2> : <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-2 text-primary me-2'>{name}</h2>
+                                                    }
                                             </div>
                                         </button>
                                     </h2>
@@ -82,7 +83,6 @@ const DNavbar = () => {
                                                 <p>লগ আউট করুন</p>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -131,11 +131,40 @@ const DNavbar = () => {
                                             <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-3 text-black'>লোড হচ্ছে ...</h2>
                                         </div>
                                 }
+                            </div> */}
+                    </div>
+
+
+                    {/* <div className="collapse navbar-collapse navbar-menu" id="navbarNavAltMarkup">
+                         <div className="d-lg-none me-2">
+                            <div className="d-flex justify-content-center align-items-center">
+                                {
+                                    user?.photo ?
+                                        <img src={user.photo} className='img-fluid px-4' width={100} alt={user.name} loading="lazy" />
+                                        :
+                                        <img src={user} className='img-fluid px-4' width={100} alt="Circular user svg" loading="lazy" />
+                                }
+                                {
+                                    user?.name ?
+                                        <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-2 text-primary'>{user.name}</h2>
+                                        :
+                                        <div className="d-flex">
+                                            <div className="spinner-grow text-dark mt-2" role="status">
+                                                <span className="sr-only"></span>
+                                            </div>
+                                            <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-3 text-black'>লোড হচ্ছে ...</h2>
+                                        </div>
+                                }
+
                             </div>
                         </div> */}
-
-
-                    </div>
+                        {/* <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link disabled">Disabled</a>
+      </div>
+                    </div> */}
                 </nav>
 
             </div>
