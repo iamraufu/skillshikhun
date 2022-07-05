@@ -19,6 +19,8 @@ import DFreeClass from './components/Dashboard/DFreeClass/DFreeClass';
 import DVideoCourse from './components/Dashboard/DVideoCourse/DVideoCourse';
 import DPaymentHistory from './components/Dashboard/DPaymentHistory/DPaymentHistory';
 import logo from './images/logo.png';
+import Privacy from './components/Privacy/Privacy';
+import Terms from './components/Terms/Terms';
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -50,6 +52,9 @@ function App() {
 
           <Route path="/fail" element={<Fail />} />
           <Route path="/cancel" element={<Cancel />} />
+          
+          <Route path="/privacy-policy" element={<Privacy />} />
+          <Route path="/terms-conditions" element={<Terms />} />
 
           <Route path="/" element={<PrivateOutlet />}>
             <Route path="dashboard" element={<Dashboard />} />
