@@ -3,13 +3,14 @@
     min-height: 100vh;
 }
 
-.see-details {
+.see-details,
+.class-video {
     background-color: transparent;
     color: #343b6d;
     border-radius: 10px;
     padding: 6px 10px;
-    font-size: 14px;
-    line-height: 27px;
+    font-size: 12px;
+    line-height: 24px;
     font-weight: 400;
     outline: none;
     border: 1px solid #5468ff;
@@ -19,4 +20,14 @@
 .see-details:hover {
     background-color: #5468ff;
     color: #f8f9fa;
+}
+
+.class-video {
+    background-color: #b94a8f;
+    color: #f8f9fa;
+    border: 1px solid #b94a8f;
+}
+
+.class-video:hover {
+    background-color: #9a2a6f;
 }

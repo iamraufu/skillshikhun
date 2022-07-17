@@ -5,7 +5,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import courseData from '../../../data/course/courseData';
 import live from '../../../images/live.png';
 import liveClass from '../../../images/liveClass.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { ZoomMtg } from '@zoomus/websdk';
 
@@ -17,6 +17,7 @@ ZoomMtg.i18n.reload('en-US');
 
 const DLiveCourse = () => {
 
+    const navigate = useNavigate();
     const phone = localStorage.getItem('phone');
     const [userPhoneData, setUserPhoneData] = useState({})
     // eslint-disable-next-line
@@ -26,6 +27,7 @@ const DLiveCourse = () => {
 
     const [payments, setPayments] = useState([]);
 
+    // fetching user info
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
@@ -35,6 +37,7 @@ const DLiveCourse = () => {
         fetchData();
     }, [phone])
 
+    // fetching user paid info
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payments/${phone}`);
@@ -44,6 +47,7 @@ const DLiveCourse = () => {
         fetchData();
     }, [phone])
 
+    // fetching live courses
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
@@ -53,7 +57,7 @@ const DLiveCourse = () => {
         fetchData();
     }, [phone])
 
-    //  hook for setting purchased courses and meetings
+    //  hook for setting purchased courses, other courses and meetings
     useEffect(() => {
 
         const live_courses = payments.map(pm => pm.course).filter(course => courseData.map(cd => cd.name).includes(course))
@@ -122,6 +126,8 @@ const DLiveCourse = () => {
         })
     }
 
+    console.log(new Date(),userPhoneData)
+
     return (
         <div>
             <div id="d_live">
@@ -141,7 +147,9 @@ const DLiveCourse = () => {
                                     লাইভ কোর্স</h2>
 
 
-                                <div className="">
+                                {/* {
+                                    userPhoneData?.name ?  */}
+                                    <div className="">
                                     {
                                         purchasedLiveCourses?.length === 1 &&
                                         <div className="row justify-content-center">
@@ -149,7 +157,7 @@ const DLiveCourse = () => {
                                             {purchasedLiveCourses?.map(course => {
                                                 return (
                                                     <div key={course.id} className='featured-courses col-md-6 mt-2 mb-5'>
-                                                        <section onClick={() => getSignature(course.live_number, course.live_password)}>
+                                                        <section>
                                                             <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
                                                                 <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                 <div className="bg-white py-4">
@@ -159,8 +167,17 @@ const DLiveCourse = () => {
                                                                     </h4>
                                                                 </div>
 
-                                                                <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                    <button onClick={() => { window.scrollTo(0, 0); }} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
+                                                                <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
+                                                                    <button onClick={() =>
+                                                                        {
+                                                                        getSignature(course.live_number, course.live_password)
+                                                                        }} 
+                                                                        
+                                                                        className='see-details'>জয়েন ক্লাস</button>
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                    }} className='class-video'>ক্লাস ভিডিও</button>
                                                                 </div>
                                                             </div>
                                                         </section>
@@ -177,7 +194,7 @@ const DLiveCourse = () => {
                                             {purchasedLiveCourses?.map(course => {
                                                 return (
                                                     <div key={course.id} className='featured-courses col-md-4 mt-3 mb-5'>
-                                                        <section onClick={() => getSignature(course.live_number, course.live_password)}>
+                                                        <section>
                                                             <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
                                                                 <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                 <div className="bg-white py-4">
@@ -187,8 +204,17 @@ const DLiveCourse = () => {
                                                                     </h4>
                                                                 </div>
 
-                                                                <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                    <button onClick={() => { window.scrollTo(0, 0); }} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
+                                                                <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
+                                                                    <button onClick={() =>
+                                                                        {
+                                                                        getSignature(course.live_number, course.live_password)
+                                                                        }} 
+                                                                        
+                                                                        className='see-details'>জয়েন ক্লাস</button>
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0); 
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                    }} className='class-video'>ক্লাস ভিডিও</button>
                                                                 </div>
                                                             </div>
                                                         </section>
@@ -210,7 +236,9 @@ const DLiveCourse = () => {
                                         </div> */}
                                         </div>
                                     }
-                                </div>
+                                </div> 
+                                 {/* : <p>Loading...</p>
+                                 }  */}
                                 <hr />
                                 <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }} className='my-3'>আমাদের অন্যানো কোর্স সমূহ</h2>
                                 {
@@ -237,8 +265,7 @@ const DLiveCourse = () => {
                                                                 {/* <strike className='ps-2 text-muted'>{course.regular_price}</strike> */}
                                                                 <small style={{ color: '#354895' }}>/মাস</small>
                                                             </h4>
-                                                            <button onClick={() => { window.scrollTo(0, 0); }} className='see-details' to={course.route}>বিস্তারিত দেখুন</button>
-
+                                                            <button style={{fontSize:'12px'}} onClick={() => { window.scrollTo(0, 0); }} className='see-details p-1' to={course.route}>বিস্তারিত দেখুন</button>
                                                         </div>
                                                     </div>
                                                 </Link>

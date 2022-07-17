@@ -79,9 +79,13 @@ const Profile = () => {
                         title: 'ব্যর্থ!',
                         text: 'আপডেট হয়নি!',
                     })
-            }).catch(err => console.log(err))
+            }).catch(err => Swal.fire({
+                icon: 'error',
+                title: 'ব্যর্থ!',
+                text: `${err}!`,
+            }))
         // navigate('/dashboard/profile')
-        document.getElementById('update_form').style.display = 'none'
+        document.getElementById('update_form').style.display = 'none';
         setTimeout(() => {
             window.location.reload()
         }, 1500)

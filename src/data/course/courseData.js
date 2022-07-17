@@ -12,6 +12,7 @@ import wd_i from '../../images/wd_i.jpg';
 import gd_i from '../../images/gd_i.jpg';
 
 const courseData = [
+    // Video Editing
     {
         name: 'Video Editing',
         id: 'video-editing',
@@ -237,6 +238,7 @@ const courseData = [
             },
         ]
     },
+    // Digital Marketing
     {
         name: 'Digital Marketing',
         id: 'digital-marketing',
@@ -432,6 +434,7 @@ const courseData = [
             }
         ]
     },
+    // Graphics Design
     {
         name: 'Graphics Design',
         id: 'graphics-design',
@@ -662,6 +665,7 @@ const courseData = [
             }
         ]
     },
+    // Web Development
     {
         name: 'Web Development',
         id: 'full-stack-web-development',

@@ -21,6 +21,7 @@ import DPaymentHistory from './components/Dashboard/DPaymentHistory/DPaymentHist
 import logo from './images/logo.png';
 import Privacy from './components/Privacy/Privacy';
 import Terms from './components/Terms/Terms';
+import DLiveCourseVideo from './components/Dashboard/DLiveCourse/DLiveCourseVideo';
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -65,6 +66,7 @@ function App() {
             <Route path="dashboard/profile" element={<Profile />} />
             <Route path="/success" element={<Success />} />
             <Route path="/checkout/:courseId" element={<Checkout />} />
+            <Route path="course/live/video/:courseId" element={<DLiveCourseVideo />} />
           </Route>
 
           <Route path="/" element={<PrivateOutlet2 /> }>

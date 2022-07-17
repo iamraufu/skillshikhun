@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DNavbar from './DNavbar/DNavbar';
 import Sidebar from './Sidebar/Sidebar.js';
 // import AwesomeSlider from 'react-awesome-slider';
@@ -25,6 +25,7 @@ ZoomMtg.i18n.reload('en-US');
 
 const Dashboard = () => {
 
+    const navigate = useNavigate();
     const phone = localStorage.getItem('phone');
     const [userPhoneData, setUserPhoneData] = useState({})
 
@@ -129,7 +130,7 @@ const Dashboard = () => {
             .then(response => {
                 startMeeting(response.signature, meetingNumber, password)
             }).catch(error => {
-
+                console.error('Error:', error)
             })
     }
 
@@ -215,9 +216,9 @@ const Dashboard = () => {
                                                 {freeClasses?.map(course => {
                                                     return (
                                                         <div key={course.id} className='col-xl-8 col-md-12 my-3'>
-                                                            <a href = {course.free_link} className='text-decoration-none' target='_blank' rel="noreferrer"
-                                                            // onClick={() => getSignature(course.free_number, course.free_password)}
-                                                            >
+                                                            {/* <a href = {course.free_link} className='text-decoration-none' target='_blank' rel="noreferrer" */}
+                                                            {/* onClick={() => getSignature(course.free_number, course.free_password)} */}
+                                                            {/* > */}
                                                                 <div style={{ border: '1px solid #dde7f3' }}>
 
                                                                     <div style={{ minHeight: '180px' }} className="bg-white py-3">
@@ -229,10 +230,10 @@ const Dashboard = () => {
                                                                     </div>
 
                                                                     <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                        <button className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button>
+                                                                        <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button>
                                                                     </div>
                                                                 </div>
-                                                            </a>
+                                                            {/* </a> */}
                                                         </div>
                                                     )
                                                 })}
@@ -244,9 +245,9 @@ const Dashboard = () => {
                                                 {freeClasses?.map(course => {
                                                     return (
                                                         <div key={course.id} className='featured-courses col-md-6 my-3'>
-                                                            <a href = {course.free_link} className='text-decoration-none' target='_blank' rel="noreferrer"
-                                                            // onClick={() => getSignature(course.free_number, course.free_password)}
-                                                            >
+                                                            {/* <a href = {course.free_link} className='text-decoration-none' target='_blank' rel="noreferrer" */}
+                                                             {/* onClick={() => getSignature(course.free_number, course.free_password)} */}
+                                                            {/* > */}
                                                                 <div style={{ border: '1px solid #dde7f3' }}>
 
                                                                     <div style={{ minHeight: '180px' }} className="bg-white py-3">
@@ -258,10 +259,10 @@ const Dashboard = () => {
                                                                     </div>
 
                                                                     <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                        <button className='see-details w-100 mx-1'>জয়েন ক্লাস</button>
+                                                                        <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1'>জয়েন ক্লাস</button>
                                                                     </div>
                                                                 </div>
-                                                            </a>
+                                                            {/* </a> */}
                                                         </div>
                                                     )
                                                 })}
@@ -289,9 +290,9 @@ const Dashboard = () => {
                                                 {purchasedLiveCourses?.map(course => {
                                                     return (
                                                         <div key={course.id} className='featured-courses col-xl-8 col-md-12 mt-2 mb-5'>
-                                                            <a href = {course.live_link} className='text-decoration-none' target='_blank' rel="noreferrer"
-                                                            // onClick={() => getSignature(course.live_number, course.live_password)}
-                                                            >
+                                                            {/* <a href = {course.live_link} className='text-decoration-none' target='_blank' rel="noreferrer" */}
+                                                             {/* onClick={() => getSignature(course.live_number, course.live_password)} */}
+                                                            {/* > */}
                                                                 <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
                                                                     <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                     <div className="bg-white py-4">
@@ -302,10 +303,14 @@ const Dashboard = () => {
                                                                     </div>
 
                                                                     <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                        <button onClick={() => { window.scrollTo(0, 0); }} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
+                                                                        <button onClick={() => getSignature(course.live_number, course.live_password)} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
+                                                                        <button onClick={() => { 
+                                                                            window.scrollTo(0, 0);
+                                                                            navigate('/course/live/video/' + course.id)
+                                                                            }} className='class-video mx-auto d-block'>ক্লাস ভিডিও</button>
                                                                     </div>
                                                                 </div>
-                                                            </a>
+                                                            {/* </a> */}
                                                         </div>
                                                     )
                                                 })}
@@ -318,9 +323,9 @@ const Dashboard = () => {
                                                 {purchasedLiveCourses?.map(course => {
                                                     return (
                                                         <div key={course.id} className='featured-courses col-xl-6 col-md-6 col-md-6 mt-3 mb-5'>
-                                                            <a href = {course.live_link} className='text-decoration-none' target='_blank' rel="noreferrer"
+                                                            {/* <a href = {course.live_link} className='text-decoration-none' target='_blank' rel="noreferrer"
                                                             // onClick={() => getSignature(course.live_number, course.live_password)}
-                                                            >
+                                                            > */}
                                                                 <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
                                                                     <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                     <div className="bg-white py-4">
@@ -330,11 +335,16 @@ const Dashboard = () => {
                                                                         </h4>
                                                                     </div>
 
-                                                                    <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                        <button onClick={() => { window.scrollTo(0, 0); }} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
+                                                                    <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-2">
+                                                                        <button onClick={() => { 
+                                                                        getSignature(course.live_number, course.live_password)}} className='see-details px-1'>জয়েন ক্লাস</button>
+                                                                        <button onClick={() => { 
+                                                                            window.scrollTo(0, 0); 
+                                                                            navigate('/course/live/video/' + course.id)
+                                                                            }} className='class-video px-1'>ক্লাস ভিডিও</button>
                                                                     </div>
                                                                 </div>
-                                                            </a>
+                                                            {/* </a> */}
                                                         </div>
                                                     )
                                                 })}

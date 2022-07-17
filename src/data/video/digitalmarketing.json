@@ -1,0 +1,163 @@
+[{
+        "_id": "One",
+        "name": "ইন্ট্রডাকশন (Introduction)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Two",
+        "name": "মার্কেট রিসার্চ (Market Research)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Three",
+        "name": "ওয়েবসাইট তৈরি (Setting up a Website)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Four",
+        "name": "এস ই ও (SEO)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Five",
+        "name": "টেস্ট ১ (Quiz 1)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Six",
+        "name": "কপিরাইটিং (Copywriting)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Seven",
+        "name": "ইমেইল মার্কেটিং (Email Marketing)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Eight",
+        "name": "টেস্ট 2 (Quiz 2)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Nine",
+        "name": "ফেইসবুক অ্যাড (Facebook Ads)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Ten",
+        "name": "ফেইসবুক মার্কেটিং (Facebook Marketing)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Eleven",
+        "name": "ইন্সটাগ্রাম মার্কেটিং (Instagram Marketing)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Twelve",
+        "name": "টেস্ট ৩ (Quiz 3)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Thirteen",
+        "name": "গুগল অ্যাড (Google Ads)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Fourteen",
+        "name": "গুগল অ্যানালিটিক্স (Google Analytics)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Fifteen",
+        "name": "ইউটিউব মার্কেটিং (Youtube Marketing)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Sixteen",
+        "name": "লিঙ্কডইন মার্কেটিং (LinkedIn Marketing)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Seventeen",
+        "name": "ফাইনাল টেস্ট (Final Quiz)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    },
+    {
+        "_id": "Eighteen",
+        "name": "উপসংহার (Conclusion)",
+        "description": "",
+        "image": "",
+        "modules": [{
+
+        }]
+    }
+]
