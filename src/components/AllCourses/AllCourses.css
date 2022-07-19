@@ -4,7 +4,8 @@
 }
 
 .see-details,
-.class-video {
+.class-video,
+.see-details-fade {
     background-color: transparent;
     color: #343b6d;
     border-radius: 10px;
@@ -15,6 +16,11 @@
     outline: none;
     border: 1px solid #5468ff;
     text-decoration: none;
+}
+
+.see-details-fade {
+    background-color: #f2f2f2;
+    border: 1px solid #000;
 }
 
 .see-details:hover {

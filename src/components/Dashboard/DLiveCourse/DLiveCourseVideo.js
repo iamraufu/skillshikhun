@@ -8,7 +8,7 @@ import LiveCourses from '../../../data/course/courseData';
 const DLiveCourseVideo = () => {
     const { courseId } = useParams();
     const course = LiveCourses.find(course => course.id === courseId);
-    
+
     return (
         <div>
             <DNavbar />
@@ -26,10 +26,15 @@ const DLiveCourseVideo = () => {
                     </div>
                 </div> */}
                 <div className='row'>
-                    <h1 style={{ marginTop:"5rem" ,fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='text-center'>{course.title}</h1>
+                    <h1 style={{ marginTop: "5rem", fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='text-center'>{course.title}</h1>
+                    <div className="p-5">
+                        <div style={{ position: 'relative', 'paddingTop': '56.25%' }}>
+                            <iframe src="https://iframe.mediadelivery.net/embed/50373/f78705d2-efb4-4663-a166-78418ce7cf2b?autoplay=true" loading="lazy" style={{ border: 'none', position: 'absolute', top: '0', height: '100%', width: '100%' }} allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowFullScreen={true} title='web'></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
-                <Menu />
+            <Menu />
         </div>
     );
 };

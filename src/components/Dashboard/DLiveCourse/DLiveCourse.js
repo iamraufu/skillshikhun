@@ -126,8 +126,6 @@ const DLiveCourse = () => {
         })
     }
 
-    console.log(new Date(),userPhoneData)
-
     return (
         <div>
             <div id="d_live">
@@ -168,12 +166,16 @@ const DLiveCourse = () => {
                                                                 </div>
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
-                                                                    <button onClick={() =>
-                                                                        {
-                                                                        getSignature(course.live_number, course.live_password)
-                                                                        }} 
-                                                                        
-                                                                        className='see-details'>জয়েন ক্লাস</button>
+                                                                {
+                                                                        userPhoneData?.name ? <button onClick={() =>
+                                                                            {
+                                                                            getSignature(course.live_number, course.live_password)
+                                                                            }} 
+                                                                            
+                                                                            className='see-details'>জয়েন ক্লাস</button> : 
+                                                                            <button className='see-details-fade'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                          </div> জয়েন ক্লাস</button>
+                                                                    }
                                                                     <button onClick={() => {
                                                                         window.scrollTo(0, 0);
                                                                         navigate('/course/live/video/' + course.id)
@@ -205,12 +207,17 @@ const DLiveCourse = () => {
                                                                 </div>
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
-                                                                    <button onClick={() =>
-                                                                        {
-                                                                        getSignature(course.live_number, course.live_password)
-                                                                        }} 
-                                                                        
-                                                                        className='see-details'>জয়েন ক্লাস</button>
+                                                                    {
+                                                                        userPhoneData?.name ? <button onClick={() =>
+                                                                            {
+                                                                            getSignature(course.live_number, course.live_password)
+                                                                            }} 
+                                                                            
+                                                                            className='see-details'>জয়েন ক্লাস</button> : 
+                                                                            <button className='see-details-fade'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                            
+                                                                          </div> জয়েন ক্লাস</button>
+                                                                    }
                                                                     <button onClick={() => {
                                                                         window.scrollTo(0, 0); 
                                                                         navigate('/course/live/video/' + course.id)

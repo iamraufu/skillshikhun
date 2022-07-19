@@ -230,7 +230,11 @@ const Dashboard = () => {
                                                                     </div>
 
                                                                     <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                        <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button>
+                                                                    {
+                                                                        userPhoneData?.name ? <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button> : 
+                                                                            <button className='see-details-fade w-100'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                          </div> জয়েন ক্লাস</button>
+                                                                    }
                                                                     </div>
                                                                 </div>
                                                             {/* </a> */}
@@ -259,7 +263,11 @@ const Dashboard = () => {
                                                                     </div>
 
                                                                     <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                        <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1'>জয়েন ক্লাস</button>
+                                                                    {
+                                                                        userPhoneData?.name ? <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1'>জয়েন ক্লাস</button> : 
+                                                                            <button className='see-details-fade w-100'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                          </div> জয়েন ক্লাস</button>
+                                                                    }
                                                                     </div>
                                                                 </div>
                                                             {/* </a> */}
@@ -303,7 +311,17 @@ const Dashboard = () => {
                                                                     </div>
 
                                                                     <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                        <button onClick={() => getSignature(course.live_number, course.live_password)} className='see-details mx-auto d-block'>জয়েন ক্লাস</button>
+                                                                    {
+                                                                        userPhoneData?.name ? <button onClick={() =>
+                                                                            {
+                                                                            getSignature(course.live_number, course.live_password)
+                                                                            }} 
+                                                                            
+                                                                            className='see-details'>জয়েন ক্লাস</button> : 
+                                                                            <button className='see-details-fade'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                          </div> জয়েন ক্লাস</button>
+                                                                    }
+                                                                        {/* <button onClick={() => getSignature(course.live_number, course.live_password)} className='see-details mx-auto d-block'>জয়েন ক্লাস</button> */}
                                                                         <button onClick={() => { 
                                                                             window.scrollTo(0, 0);
                                                                             navigate('/course/live/video/' + course.id)
@@ -336,8 +354,18 @@ const Dashboard = () => {
                                                                     </div>
 
                                                                     <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-2">
-                                                                        <button onClick={() => { 
-                                                                        getSignature(course.live_number, course.live_password)}} className='see-details px-1'>জয়েন ক্লাস</button>
+                                                                    {
+                                                                        userPhoneData?.name ? <button onClick={() =>
+                                                                            {
+                                                                            getSignature(course.live_number, course.live_password)
+                                                                            }} 
+                                                                            
+                                                                            className='see-details'>জয়েন ক্লাস</button> : 
+                                                                            <button className='see-details-fade'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                          </div> জয়েন ক্লাস</button>
+                                                                    }
+                                                                        {/* <button onClick={() => { 
+                                                                        getSignature(course.live_number, course.live_password)}} className='see-details px-1'>জয়েন ক্লাস</button> */}
                                                                         <button onClick={() => { 
                                                                             window.scrollTo(0, 0); 
                                                                             navigate('/course/live/video/' + course.id)
