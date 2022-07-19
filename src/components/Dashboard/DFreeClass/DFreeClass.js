@@ -69,7 +69,7 @@ const DFreeClass = () => {
     async function startMeeting(signature, meetingNumber, password ) {
 
         document.getElementById('zmmtg-root').style.display = 'block'
-        document.getElementById('dashboard').style.display = 'none'
+        document.getElementById('free_class_container').style.display = 'none'
 
         await ZoomMtg.init({
             leaveUrl: leaveUrl,
@@ -100,7 +100,7 @@ const DFreeClass = () => {
     }
 
     return (
-        <div className="">
+        <div id='free_class_container' className="">
             <DNavbar />
             <div style={{ marginTop: '5rem' }} className='container-fluid mt-5'>
                 <div style={{ marginTop: '5rem' }} className="row">
@@ -138,7 +138,7 @@ const DFreeClass = () => {
                                                                 <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
                                                                 {
                                                                         userPhoneData?.name ? <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1'>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade w-100'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                            <button className='see-details-fade w-100'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
                                                                           </div> জয়েন ক্লাস</button>
                                                                     }
                                                                     <button className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button>
@@ -171,7 +171,7 @@ const DFreeClass = () => {
                                                                 <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
                                                                 {
                                                                         userPhoneData?.name ? <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade w-100'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                            <button className='see-details-fade w-100'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
                                                                           </div> জয়েন ক্লাস</button>
                                                                     }
                                                                 </div>
@@ -203,6 +203,9 @@ const DFreeClass = () => {
                     </div>
                 </div>
                 <Menu />
+            </div>
+            <div id="meetingSDKElement">
+
             </div>
         </div>
     );

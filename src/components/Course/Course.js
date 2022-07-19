@@ -11,7 +11,7 @@ import class_black from '../../images/class_black.svg';
 import CourseDemoClass from '../DemoClass/CourseDemoClass';
 import Tracker from '../Tracker/Tracker';
 import Footer from '../Shared/Footer/Footer';
-const HowToPayment = React.lazy(() => import('./HowToPayment'));
+// const HowToPayment = React.lazy(() => import('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
 const Course = (props) => {
@@ -215,7 +215,7 @@ const Course = (props) => {
                         </div>
 
                         {/* How to payment */}
-                        <HowToPayment course={course} />
+                        {/* <HowToPayment course={course} /> */}
 
                         {/* Demo Class Registration Form */}
                         <CourseDemoClass course={course} refProp={myRef} />

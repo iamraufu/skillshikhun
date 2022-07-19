@@ -173,7 +173,7 @@ const DLiveCourse = () => {
                                                                             }} 
                                                                             
                                                                             className='see-details'>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                            <button className='see-details-fade'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
                                                                           </div> জয়েন ক্লাস</button>
                                                                     }
                                                                     <button onClick={() => {
@@ -214,7 +214,7 @@ const DLiveCourse = () => {
                                                                             }} 
                                                                             
                                                                             className='see-details'>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                            <button className='see-details-fade'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
                                                                             
                                                                           </div> জয়েন ক্লাস</button>
                                                                     }

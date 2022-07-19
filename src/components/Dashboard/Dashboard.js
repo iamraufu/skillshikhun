@@ -232,7 +232,7 @@ const Dashboard = () => {
                                                                     <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
                                                                     {
                                                                         userPhoneData?.name ? <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade w-100'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                            <button className='see-details-fade w-100'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
                                                                           </div> জয়েন ক্লাস</button>
                                                                     }
                                                                     </div>
@@ -265,7 +265,7 @@ const Dashboard = () => {
                                                                     <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
                                                                     {
                                                                         userPhoneData?.name ? <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1'>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade w-100'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                            <button className='see-details-fade w-100'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
                                                                           </div> জয়েন ক্লাস</button>
                                                                     }
                                                                     </div>
@@ -318,7 +318,7 @@ const Dashboard = () => {
                                                                             }} 
                                                                             
                                                                             className='see-details'>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                            <button className='see-details-fade'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
                                                                           </div> জয়েন ক্লাস</button>
                                                                     }
                                                                         {/* <button onClick={() => getSignature(course.live_number, course.live_password)} className='see-details mx-auto d-block'>জয়েন ক্লাস</button> */}
@@ -361,7 +361,7 @@ const Dashboard = () => {
                                                                             }} 
                                                                             
                                                                             className='see-details'>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade'><div class="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                                            <button className='see-details-fade'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
                                                                           </div> জয়েন ক্লাস</button>
                                                                     }
                                                                         {/* <button onClick={() => { 
