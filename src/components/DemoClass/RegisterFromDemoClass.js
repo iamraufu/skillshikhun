@@ -241,6 +241,7 @@ const RegisterFromDemoClass = () => {
                         'অনুগ্রহ করে আবার চেষ্টা করুন!',
                         'error'
                     )
+                    document.getElementById('password_verify').value = ""
                 }
             })
     }

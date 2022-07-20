@@ -25,7 +25,7 @@ const LoginHandler = () => {
     const [flag, setFlag] = useState(false);
 
     if (user.email || localStorage.getItem('token')) {
-        navigate(from, { replace: true }) 
+        navigate(from, { replace: true })
     }
 
     const handlePhoneNumberChange = (e) => {
@@ -56,6 +56,8 @@ const LoginHandler = () => {
     const { register: register2, handleSubmit: handleSubmit2 } = useForm();
     const { register: register3, handleSubmit: handleSubmit3 } = useForm();
     const { register: register4, handleSubmit: handleSubmit4 } = useForm();
+    const { register: register5, handleSubmit: handleSubmit5 } = useForm();
+    const { register: register6, handleSubmit: handleSubmit6 } = useForm();
 
     // submit function for phone number taking
     const onSubmit = data => {
@@ -89,6 +91,16 @@ const LoginHandler = () => {
     // submit function for password verification
     const onSubmit4 = data => {
         passwordVerification(data);
+    }
+
+    // submit function for otp verification of password reset
+    const onSubmit5 = data => {
+        forgetPasswordOTPVerify(data);
+    }
+
+    // submit function for password reset
+    const onSubmit6 = data => {
+        passwordReset(data);
     }
 
     const OTPGenerate = async (data) => {
@@ -184,7 +196,7 @@ const LoginHandler = () => {
                 phone: phone,
                 name: name,
                 password: inputtedPassword,
-                email:email
+                email: email
             })
         })
             .then(res => res.json())
@@ -248,12 +260,13 @@ const LoginHandler = () => {
                         'error'
                     )
                 }
+                document.getElementById('password_verify').value = ""
             })
     }
 
-    // function for forget password
+    // function for forget password button click
     const forgetPassword = () => {
-        // console.log(phone);
+
         Swal.fire({
             title: 'পাসওয়ার্ড ভুলে গেছেন?',
             text: 'আপনি কি পাসওয়ার্ড ভুলে গেছেন?',
@@ -285,10 +298,73 @@ const LoginHandler = () => {
                     })
                 document.getElementById('forget_password_container').style.display = 'none';
                 document.getElementById('password_verification_container').style.display = 'none';
-                document.getElementById('otp_verification_container').style.display = 'block';
-                // OTPVerification();
+                document.getElementById('reset_password_otp_verification_container').style.display = 'block';
+                // document.getElementById('password_reset_container').style.display = 'block';
             }
         })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    // function for forget password otp verification
+    const forgetPasswordOTPVerify = (data) => {
+        const otp = data.otp;
+        
+        fetch('https://skillshikhun.herokuapp.com/api/otp-verification', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                phone: phone,
+                otp: otp
+            })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.status === true) {
+                    document.getElementById('reset_password_otp_verification_container').style.display = 'none'
+                    document.getElementById('password_reset_container').style.display = 'block';
+                }
+                else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter an invalid OTP',
+                    })
+                }
+            })
+    }
+
+    // function for password reset
+    const passwordReset = (data) => {
+        const password = data.password
+        fetch('https://skillshikhun.herokuapp.com/api/reset-password',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                phone: phone,
+                password: password
+        })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Password Reset Successfully',
+                    text: 'Please login with new password',
+                })
+                // document.getElementById('password_reset_container').style.display = 'none';
+                // document.getElementById('password_verification_container').style.display = 'block';
+                localStorage.setItem('phone',phone)
+                localStorage.setItem('token', 'bearer ' + data.status);
+                navigate(from, { replace: true })
+            })
     }
 
     return (
@@ -350,6 +426,28 @@ const LoginHandler = () => {
                     <form onSubmit={handleSubmit4(onSubmit4)}>
                         <input id='password_verify' style={{ width: '285px', border: 'none' }} className='form-control form mx-auto d-block' type="password" autoComplete="off" {...register4("password", { required: true })} />
                         <p id='forget_password_container' onClick={forgetPassword} className='text-center mt-3 text-primary fw-bold' style={{ cursor: 'pointer' }}>পাসওয়ার্ড ভুলে গিয়েছেন?</p>
+                        <button style={{ maxWidth: '400px' }} className='password-submit-btn mt-3 mx-auto d-block text-white'>এগিয়ে যান</button>
+                    </form>
+                </div>
+            </div>
+
+            {/* div for verifying reset password OTP */}
+            <div id='reset_password_otp_verification_container' style={{ display: 'none' }}>
+                <h1 style={{ fontSize: '16px', lineHeight: '24px', color: '#323862', fontWeight: '700' }} className='mt-3 text-center'>আপনার মোবাইল নম্বরে প্রেরিত ওটিপি দিন</h1>
+                <form onSubmit={handleSubmit5(onSubmit5)}>
+                    <div className="mx-auto d-block">
+                        <input id='verify_otp' style={{ width: '285px', border: 'none' }} className='form-control form mx-auto d-block' type="tel" autoComplete="off" maxLength="4" {...register5("otp", { required: true })} onKeyPress={(event, charCode) => { return event.charCode >= 48 && event.charCode <= 57 }} pattern="\d*" />
+                        <button style={{ maxWidth: '400px' }} className='otp-submit-btn mt-3 mx-auto d-block text-white'>এগিয়ে যান</button>
+                    </div>
+                </form>
+            </div>
+
+            {/* div for password reset */}
+            <div id="password_reset_container" style={{ display: 'none' }}>
+                <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f', fontWeight: '700' }} className='text-center mt-3'>আপনার পাসওয়ার্ড পুনরুদ্ধার করুন</h2>
+                <div className="d-flex mx-auto d-block justify-content-center">
+                    <form onSubmit={handleSubmit6(onSubmit6)}>
+                        <input style={{ width: '285px', border: 'none' }} placeholder='পাসওয়ার্ড সেট করুন' className='form-control form mx-auto d-block' type="password" autoComplete="off" {...register6("password", { required: true })} />
                         <button style={{ maxWidth: '400px' }} className='password-submit-btn mt-3 mx-auto d-block text-white'>এগিয়ে যান</button>
                     </form>
                 </div>

@@ -42,7 +42,7 @@ const Dashboard = () => {
     const [payments, setPayments] = useState([]);
 
     // get name from localStorage user 
-    const name = JSON.parse(localStorage.getItem('name'));
+    // const name = JSON.parse(localStorage.getItem('name'));
 
     useEffect(() => {
         const fetchData = async () => {
@@ -185,7 +185,7 @@ const Dashboard = () => {
                             {/* user info goes here */}
                             <div className="col-sm-6">
                                 <div className="user-info mx-5 pt-3">
-                                    <h1 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '24px', lineHeight: '36px', color: '#b94a8f', fontWeight: '600' }}>{name}</span></h1>
+                                    <h1 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '24px', lineHeight: '36px', color: '#b94a8f', fontWeight: '600' }}>{userPhoneData?.name}</span></h1>
                                     {/* {
                                     userPhoneData?.phone ?
                                         <h1 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className=''>স্বাগতম, <span style={{ fontSize: '24px', lineHeight: '36px', color: '#b94a8f', fontWeight: '600' }}>{userPhoneData.name}</span></h1>
