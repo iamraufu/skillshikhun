@@ -36,7 +36,7 @@ const DNavbar = () => {
             setUser(data);
         }
         fetchData();
-    })
+    },[phone])
 
     return (
         <div style={{ borderWidth: '1px', boxShadow: '0 5px 15px #c4c4c44d' }} className="bg-white fixed-top">
