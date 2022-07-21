@@ -285,9 +285,13 @@ const Course = (props) => {
                         </div>
                     </div>
                     <div className=" justify-content-center">
-                        <div className="col-md-6 mt-1">
+                        <div id='free_reg_sm_btn_container' className="col-md-6 mt-1">
                             <Link to='' className='text-decoration-none'>
-                                <button className='btn-demo mx-auto d-block' onClick={() => myRef.current.scrollIntoView()} style={{ fontSize: '24px' }}>
+                                <button className='btn-demo mx-auto d-block' 
+                                onClick={() => {
+                                    myRef.current.scrollIntoView()
+                                    document.getElementById('free_reg_sm_btn_container').style.display = 'none'
+                                    }} style={{ fontSize: '24px' }}>
                                     <div className='d-flex align-items-center' style={{ fontSize: '24px', justifyContent: 'space-between' }}>
                                         <div className="">
 
