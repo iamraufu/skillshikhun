@@ -2,6 +2,7 @@ import fb from '../../images/fb.svg'
 import i from '../../images/i.svg';
 import l from '../../images/l.svg';
 import yt from '../../images/yt.svg';
+import tk from '../../images/tiktok.svg';
 
 const links = [
     {
@@ -21,8 +22,13 @@ const links = [
     },
     {
         icon:yt,
-        link:'https://www.youtube.com/channel/UCTQ60sDCRUwETFyOqQGx-wA/videos',
+        link:'https://www.youtube.com/channel/UCojDv5J9f0hEuLZSW22Xfkw?sub_confirmation=1',
         name:'YouTube'
+    },
+    {
+        icon:tk,
+        link:'https://www.tiktok.com/@skill.shikhun',
+        name:'TikTok'
     }
 ];
 

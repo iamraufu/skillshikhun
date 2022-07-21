@@ -3,8 +3,9 @@ import logo from '../../../images/logo.png';
 import footerData from '../../../data/Footer/footerData';
 import groupsData from '../../../data/Footer/groupsData';
 import links from '../../../data/Footer/links';
-import play from '../../../images/play.png';
-import app from '../../../images/app.png';
+// import play from '../../../images/play.png';
+// import app from '../../../images/app.png';
+import play from '../../../images/play_store.png';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -44,13 +45,13 @@ const Footer = () => {
 
                     <div className="col-lg-3">
                         <h4 className=' mt-4 text-center'>Download Skill Shikhun App</h4>
-                        <a href="/" target="_blank" rel="noreferrer">
+                        <a href="https://play.google.com/store/apps/details?id=com.skillshikhun.skillshikhun" target="_blank" rel="noreferrer">
                             <img src={play} alt="Download Official App" className="img-fluid mx-auto d-block my-4" style={{ width: '150px' }} />
                         </a>
 
-                        <a href="/" target="_blank" rel="noreferrer">
+                        {/* <a href="/" target="_blank" rel="noreferrer">
                             <img src={app} alt="Download Official App" className="img-fluid mx-auto d-block my-4" style={{ width: '150px' }} />
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </div>
