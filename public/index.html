@@ -61,7 +61,8 @@
                 dl = l != 'dataLayer' ? '&l=' + l : '';
             j.async = true;
             j.src =
-                'https://www.googletagmanager.com/gtm.js?id=%27+i+dl;f.parentNode.insertBefore(j,f)';
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-PHCH7BS');
     </script>
     <!-- End Google Tag Manager -->
@@ -98,6 +99,10 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHCH7BS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
@@ -111,7 +116,7 @@
         // document.getElementsByTagName("HTML")[0].style.minWidth = null;
         // (function() {
         //     /* change these variables as you wish */
-        //     var due_date = new Date('2022-07-15');
+        //     var due_date = new Date('2022-08-15');
         //     var days_deadline = 15;
         //     /* stop changing here */
 
@@ -133,11 +138,6 @@
 
         // })()
     </script>
-
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHCH7BS"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
 </body>
 
