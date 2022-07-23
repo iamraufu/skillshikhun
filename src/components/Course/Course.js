@@ -149,7 +149,9 @@ const Course = (props) => {
                     </div>
 
                     <div className="col-lg-6">
-                        <h2 style={{ marginTop: '3.5rem', fontSize: '22px' }} className="text-center py-3 fw-bold">কোর্স মডিউল</h2>
+                        <h2 style={{ 
+                            // marginTop: '3.5rem', 
+                            fontSize: '22px' }} className="text-center pb-3 fw-bold">কোর্স মডিউল</h2>
                         {
                             showMore ?
                                 <div className="accordion accordion-flush" id="accordionFlushExample">

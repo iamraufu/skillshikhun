@@ -12,7 +12,9 @@ const Hero = () => {
     AOS.init({ duration: 1000 })
 
     return (
-        <div style={{ marginTop: '8vh' }} className='hero-container'>
+        <div 
+        // style={{ marginTop: '8vh' }} 
+        className='hero-container'>
             <div className="container">
                 <div className="row">
                     <div data-aos='zoom-in' className="col-xl-8 col-lg-7 col-md-6">

@@ -10,7 +10,7 @@ import live from '../../images/live.png';
 const AllCourses = () => {
     return (
         <div className="courses-container py-5">
-            <Navbar />
+            <div style={{marginTop:'-5px'}} className="fixed-top"><Navbar /></div>
             <div className='container'>
                 <h1 style={{ fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '600' }} className='pt-5 mt-5 ps-2'>আমাদের লাইভ কোর্সসমূহ</h1>
                 <div className="row">

@@ -1,0 +1,10 @@
+.promo-text {
+    font-size: 16px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .promo-text {
+        font-size: 0.8rem;
+    }
+}
