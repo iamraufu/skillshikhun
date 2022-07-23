@@ -5,7 +5,7 @@ const CourseDemoClass = (props) => {
     
     return (
         <div id='freeClassRegistration' className='course-demo-class' ref={props.refProp}>
-            <DemoClass />
+            <DemoClass course={props.course} />
         </div>
 
     );

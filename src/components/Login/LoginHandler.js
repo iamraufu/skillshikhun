@@ -5,6 +5,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 
+import google from '../../images/google.svg';
+import facebook from '../../images/facebook.svg';
+
 const LoginHandler = () => {
     let navigate = useNavigate();
     let location = useLocation();
@@ -310,7 +313,7 @@ const LoginHandler = () => {
     // function for forget password otp verification
     const forgetPasswordOTPVerify = (data) => {
         const otp = data.otp;
-        
+
         fetch('https://skillshikhun.herokuapp.com/api/otp-verification', {
             method: 'POST',
             headers: {
@@ -341,7 +344,7 @@ const LoginHandler = () => {
     // function for password reset
     const passwordReset = (data) => {
         const password = data.password
-        fetch('https://skillshikhun.herokuapp.com/api/reset-password',{
+        fetch('https://skillshikhun.herokuapp.com/api/reset-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -349,7 +352,7 @@ const LoginHandler = () => {
             body: JSON.stringify({
                 phone: phone,
                 password: password
-        })
+            })
         })
             .then(res => res.json())
             .then(data => {
@@ -361,7 +364,7 @@ const LoginHandler = () => {
                 })
                 // document.getElementById('password_reset_container').style.display = 'none';
                 // document.getElementById('password_verification_container').style.display = 'block';
-                localStorage.setItem('phone',phone)
+                localStorage.setItem('phone', phone)
                 localStorage.setItem('token', 'bearer ' + data.status);
                 navigate(from, { replace: true })
             })
@@ -452,6 +455,19 @@ const LoginHandler = () => {
                     </form>
                 </div>
             </div>
+
+            {/* <div className="">
+                <div className="d-flex justify-content-center align-items-center mt-5">
+                    <img src={google} width={40} alt="" />
+                    <h2 className='fs-5 text-center'>Login with Google</h2>
+                </div>
+
+                <div className="d-flex justify-content-center align-items-center mt-5">
+                    <img src={facebook} width={40} alt="" />
+                    <h2 className='fs-5 text-center'>Login with Facebook</h2>
+                </div>
+
+            </div> */}
         </div>
     );
 };

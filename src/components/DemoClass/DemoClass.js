@@ -321,7 +321,7 @@ import RegisterFromDemoClass from './RegisterFromDemoClass';
 import checkbox from '../../images/checkbox.svg';
 import checkbox_purple from '../../images/checkbox_purple.svg';
 
-const DemoClass = () => {
+const DemoClass = (props) => {
 
     const phone = localStorage.getItem('phone');
     const [demoClasses, setDemoClasses] = useState([]);
@@ -404,7 +404,7 @@ const DemoClass = () => {
                     </div>
                 </div>
 
-                <HeroDemo />
+                <HeroDemo course={props.course} />
 
             </div>
 
