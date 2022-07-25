@@ -5,9 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import reviews from '../../../data/course/reviewData';
 
 import Slider from "react-slick";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const MainReviews = () => {
+
+    const navigate = useNavigate();
+
     const settings = {
         className: "center",
         centerMode: true,
@@ -36,7 +39,10 @@ const MainReviews = () => {
                                         </div>
                                         <div className="ms-2">
                                             <h3 style={{ fontSize: '18px', lineHeight: '26px',fontWeight:'700', color: '#343b6d' }}>{review.name}</h3>
-                                            <Link to={review.route} className='text-decoration-none'><h5 style={{ fontSize: '16px', lineHeight: '24px', color: '#343b6d' }}>{review.courseName}</h5></Link>
+                                            <Link onClick={()=>{
+                                                window.scrollTo(0, 0)
+                                                navigate(review.route)
+                                                }} to={review.route} className='text-decoration-none'><h5 style={{ fontSize: '16px', lineHeight: '24px', color: '#343b6d' }}>{review.courseName}</h5></Link>
                                         </div>
                                     </div>
                                     {review.description.length > 250 ?
