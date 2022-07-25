@@ -2,6 +2,7 @@ import React, { useReducer, useState } from 'react';
 import './PromoMessage.css';
 import playStore from '../../images/playStoreIcon.png';
 import { useEffect } from 'react';
+import TextSkeleton from '../Skeleton/TextSkeleton';
 
 const PromoMessage = () => {
 
@@ -25,9 +26,15 @@ const PromoMessage = () => {
         <div className="">
             <div id='promo_message_container' >
                 <div className='d-flex justify-content-center align-items-center' style={{ backgroundColor: '#653dae', height: '90px' }}>
-                    <div className='px-3 d-flex justify-content-center align-items-center'>
+                    {
+                        marketingMessage?.length ?
+                        <div className='px-3 d-flex justify-content-center align-items-center'>
                         <h1 className='promo-text text-white text-center'>{marketingMessage}</h1>
+                    </div> : 
+                    <div className="px-3 d-flex justify-content-center align-items-center">
+                        <TextSkeleton />
                     </div>
+                    }
                     <a href="https://play.google.com/store/apps/details?id=com.skillshikhun.skillshikhun" target="_blank" rel="noreferrer">
                         <div style={{ border: '1px solid lightgrey', borderRadius: '15px' }} className="p-3">
                             <img src={playStore} className='img-fluid float-right' width={120} alt="Download App" />
