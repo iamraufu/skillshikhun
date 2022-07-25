@@ -1,6 +1,6 @@
-.checkout-title-container {
+/* .checkout-title-container {
     padding-top: 6rem;
-}
+} */
 
 .checkout-title {
     font-size: 22px;
@@ -8,9 +8,10 @@
     font-weight: 500;
 }
 
-.subscription-container {
+
+/* .subscription-container {
     margin-top: 3rem;
-}
+} */
 
 .subscription-btn {
     background-color: white;

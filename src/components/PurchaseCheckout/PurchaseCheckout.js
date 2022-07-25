@@ -5,8 +5,8 @@ import checkbox_purple from '../../images/checkbox_purple.svg';
 
 const PurchaseCheckout = () => {
     return (
-        <div className="">
-            <div style={{ paddingTop: '4rem', backgroundColor: '#f3f5f9' }}>
+        <div style={{ paddingTop: '4rem', backgroundColor: '#f3f5f9' }} className="">
+            <div style={{display:'none'}}>
                 <div className="container-fluid progress-container">
                     <div className="col-sm-12">
                         <div className="progress my-5">
@@ -47,7 +47,7 @@ const PurchaseCheckout = () => {
                     </div>
                 </div>
             </div>
-            <div style={{ marginTop: '-6rem' }}>
+            <div style={{ marginTop: '-4rem' }}>
                 <Checkout />
             </div>
         </div>

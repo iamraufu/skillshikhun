@@ -22,17 +22,23 @@ const PromoMessage = () => {
     }, [reducerValue])
 
     return (
-        <div className='d-flex justify-content-center align-items-center' style={{
-            backgroundColor: '#653dae', height: '90px'
-        }}>
-            <div className='px-3 d-flex justify-content-center align-items-center'>
-                <h1 className='promo-text text-white text-center'>{marketingMessage}</h1>
-            </div>
-            <a href="https://play.google.com/store/apps/details?id=com.skillshikhun.skillshikhun" target="_blank" rel="noreferrer">
-                <div style={{ border: '1px solid lightgrey', borderRadius: '15px' }} className="p-3">
-                    <img src={playStore} className='img-fluid float-right' width={120} alt="Download App" />
+        <div className="">
+            <div id='promo_message_container' >
+                <div className='d-flex justify-content-center align-items-center' style={{ backgroundColor: '#653dae', height: '90px' }}>
+                    <div className='px-3 d-flex justify-content-center align-items-center'>
+                        <h1 className='promo-text text-white text-center'>{marketingMessage}</h1>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.skillshikhun.skillshikhun" target="_blank" rel="noreferrer">
+                        <div style={{ border: '1px solid lightgrey', borderRadius: '15px' }} className="p-3">
+                            <img src={playStore} className='img-fluid float-right' width={120} alt="Download App" />
+                        </div>
+                    </a>
                 </div>
-            </a>
+            </div>
+
+            <div>
+                <button onClick={() => document.getElementById('promo_message_container').style.display = 'none'} style={{ position: 'absolute', top: '0', right: '0' }} className='btn btn-sm btn-dark m-2'>X</button>
+            </div>
         </div>
     );
 };

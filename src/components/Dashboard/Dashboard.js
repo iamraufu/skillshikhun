@@ -310,7 +310,7 @@ const Dashboard = () => {
                                                                         </h4>
                                                                     </div>
 
-                                                                    <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
+                                                                    <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
                                                                     {
                                                                         userPhoneData?.name ? <button onClick={() =>
                                                                             {
@@ -325,7 +325,7 @@ const Dashboard = () => {
                                                                         <button onClick={() => { 
                                                                             window.scrollTo(0, 0);
                                                                             navigate('/course/live/video/' + course.id)
-                                                                            }} className='class-video mx-auto d-block'>ক্লাস ভিডিও</button>
+                                                                            }} className='class-video'>ক্লাস ভিডিও</button>
                                                                     </div>
                                                                 </div>
                                                             {/* </a> */}

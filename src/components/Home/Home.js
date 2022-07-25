@@ -5,7 +5,7 @@ import Navbar from '../Shared/Navbar/Navbar';
 import Tracker from '../Tracker/Tracker';
 import FeaturedCourses from './FeaturedCourses/FeaturedCourses';
 import Hero from './Hero/Hero';
-// import MainReviews from './MainReviews/MainReviews';
+import MainReviews from './MainReviews/MainReviews';
 import SSFeatures from './SSFeatures/SSFeatures';
 // import SSModels from './SSModels';
 
@@ -18,7 +18,7 @@ const Home = () => {
             <FeaturedCourses />
             <SSFeatures />
             {/* <SSModels /> */}
-            {/* <MainReviews /> */}
+            <MainReviews />
             <Footer />
             <Tracker />
         </div>

@@ -206,7 +206,11 @@ const Checkout = () => {
 
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)' }}>
-            <Navbar />
+            
+                <Navbar />
+            <div style={{marginTop:'-5px'}} className="fixed-top">
+            </div>
+            
             <div id='checkout_container' className="container py-4 checkout-container">
                 <div className="row">
 
@@ -235,8 +239,8 @@ const Checkout = () => {
                         </div>
                     </div>
 
-                    <div className="col-lg-6 subscription-container mt-5">
-                        <h2 style={{ fontSize: '20px', lineHeight: '26px', fontWeight: '400' }} className='fw-bold mt-5 text-center'>সাবস্ক্রিপশন নির্বাচন করুন</h2>
+                    <div className="col-lg-6 subscription-container">
+                        <h2 style={{ fontSize: '20px', lineHeight: '26px', fontWeight: '400' }} className='fw-bold text-center'>সাবস্ক্রিপশন নির্বাচন করুন</h2>
 
                         {/* div for choosing subscription mode */}
                         {/* 

@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import reviews from '../../../data/course/reviewData';
 
 import Slider from "react-slick";
+import { Link } from 'react-router-dom';
 
 const MainReviews = () => {
     const settings = {
@@ -19,7 +20,7 @@ const MainReviews = () => {
     };
 
     return (
-        <div className='container'>
+        <div className='container d-none d-lg-block'>
             <h1 style={{ fontSize: '30px', lineHeight: '38px', fontWeight: '600', color: '#343b6d', textAlign: 'center' }}>টেস্টিমোনিয়াল</h1>
 
             <div className='my-5'>
@@ -27,7 +28,7 @@ const MainReviews = () => {
                 <Slider {...settings}>
                     {
                         reviews.map(review =>
-                            <div key={review.id} className='p-2'>
+                            <div style={{maxHeight:'260px'}} key={review.id} className='p-2'>
                                 <div style={{ backgroundColor: 'white', boxShadow: '0 5px 15px #c4c4c44d', minHeight:'260px' }} className="">
                                     <div style={{ backgroundColor: '#f3f5f9' }} className="d-flex my-2 p-2">
                                         <div className="">
@@ -35,7 +36,7 @@ const MainReviews = () => {
                                         </div>
                                         <div className="ms-2">
                                             <h3 style={{ fontSize: '18px', lineHeight: '26px',fontWeight:'700', color: '#343b6d' }}>{review.name}</h3>
-                                            <h5 style={{ fontSize: '16px', lineHeight: '24px', color: '#343b6d' }}>{review.courseName}</h5>
+                                            <Link to={review.route} className='text-decoration-none'><h5 style={{ fontSize: '16px', lineHeight: '24px', color: '#343b6d' }}>{review.courseName}</h5></Link>
                                         </div>
                                     </div>
                                     {review.description.length > 250 ?
@@ -46,7 +47,6 @@ const MainReviews = () => {
                         )
                     }
                 </Slider>
-
             </div>
         </div>
     );

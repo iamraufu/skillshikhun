@@ -9,9 +9,11 @@ import checkbox_grey from '../../images/checkbox_grey.svg';
 
 const LoginForCheckout = () => {
     return (
-        <div className="">
+        <div style={{ minHeight:'100vh', backgroundColor: 'rgb(243, 245, 249)', paddingTop: '1px'}} className="">
             <Navbar />
-            <div style={{ minHeight:'100vh', backgroundColor: 'rgb(243, 245, 249)', paddingTop: '5rem' }}>
+            <div 
+            // style={{ minHeight:'100vh', backgroundColor: 'rgb(243, 245, 249)', paddingTop: '5rem'}}
+            >
 
                 <div className="container-fluid progress-container">
                     <div className="col-sm-12">
@@ -20,7 +22,7 @@ const LoginForCheckout = () => {
                         </div>
                     </div>
 
-                    <div className="progress-info-container">
+                    <div style={{marginTop: '-4rem'}} className="progress-info-container">
                         <div className="d-flex justify-content-center">
                             <div className="col-sm-4 progress-select mx-auto">
                                 <img className='img-fluid progress-info-image' width={30} src={checkbox} alt="course selected" />
