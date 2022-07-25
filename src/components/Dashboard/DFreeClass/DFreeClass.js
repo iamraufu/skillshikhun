@@ -141,7 +141,6 @@ const DFreeClass = () => {
                                                                             <button className='see-details-fade w-100'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
                                                                           </div> জয়েন ক্লাস</button>
                                                                     }
-                                                                    <button className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button>
                                                                 </div>
                                                             </div>
                                                         {/* </Link> */}
