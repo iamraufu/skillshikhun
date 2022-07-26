@@ -39,9 +39,7 @@ const DPrevFreeClass = () => {
             <div className="prev_free_live_course_container row">
                     <div className="col-md-8">
                         <h1 className='fs-5 my-3 ps-2'>{course[0]?.title} ফ্রি লাইভ ক্লাস</h1>
-                            {
-                                !videoId === '' ?
-                                <div style={{ position: 'relative', paddingTop: '56.25%', borderRadius: '15px' }}>
+                        <div style={{ position: 'relative', paddingTop: '56.25%', borderRadius: '15px' }}>
                             <iframe src={`https://iframe.mediadelivery.net/embed/51319/${videoId}?autoplay=true`}
                                 loading="lazy"
                                 style={{ border: 'none', position: 'absolute', top: '0', height: '100%', width: '100%', borderRadius: '15px' }}
@@ -49,13 +47,7 @@ const DPrevFreeClass = () => {
                                 allowFullScreen={true}
                                 title='Free Class'>
                             </iframe>
-                        </div>  : 
-                            <div className="d-flex justify-content-center align-items-center">
-                            <p className='text-danger'>এই কোর্সের জন্য কোনো লাইভ ক্লাস আপলোড করা হয়নি</p>
                         </div>
-                            }
-                        
-                        
 
                         <div className="d-flex align-items-end justify-content-center mt-3">
                             <div className="col-12">
