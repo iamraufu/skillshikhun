@@ -157,7 +157,7 @@ const DLiveCourse = () => {
                                                     <div key={course.id} className='featured-courses col-md-6 mt-2 mb-5'>
                                                         <section>
                                                             <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
-                                                                <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
+                                                                <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                 <div className="bg-white py-4">
                                                                     <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
                                                                     <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
@@ -198,7 +198,7 @@ const DLiveCourse = () => {
                                                     <div key={course.id} className='featured-courses col-md-4 mt-3 mb-5'>
                                                         <section>
                                                             <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
-                                                                <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
+                                                                <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                 <div className="bg-white py-4">
                                                                     <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
                                                                     <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>

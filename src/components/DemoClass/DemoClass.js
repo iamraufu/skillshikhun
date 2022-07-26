@@ -325,6 +325,25 @@ const DemoClass = (props) => {
 
     const phone = localStorage.getItem('phone');
     const [demoClasses, setDemoClasses] = useState([]);
+    const [userPhone, setUserPhone] = useState({});
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
+            const data = await res.json();
+            setDemoClasses(data);
+        }
+        fetchData();
+    }, [phone])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
+            const data = await res.json();
+            setUserPhone(data)
+        }
+        fetchData();
+    }, [phone])
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -339,15 +358,6 @@ const DemoClass = (props) => {
             }
         }
     })
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
-            const data = await res.json();
-            setDemoClasses(data);
-        }
-        fetchData();
-    }, [phone])
 
     return (
         <div style={{ backgroundColor: 'rgb(243, 245, 249)', borderRadius: '15px', border: '1px solid #ececec' }} className='hero-demo-container'>
@@ -404,7 +414,12 @@ const DemoClass = (props) => {
                     </div>
                 </div>
 
-                <HeroDemo course={props.course} />
+                {
+                    userPhone?.email ? <HeroDemo course={props.course} /> : 
+                    <div className="spinner-grow mx-auto d-block my-5" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                }
 
             </div>
 

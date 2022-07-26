@@ -88,8 +88,8 @@ const HeroDemo = (props) => {
             name: userPhoneData.name,
             email: userPhoneData.email,
             category: classDetails.category,
-            class_time: courseCategory[0].class_time,
-            class_date: courseCategory[0].class_date_1,
+            class_time: classDetails.classTime,
+            class_date: classDetails.classDate,
             date: `${day}-${month}-${year} at ${time}`
         };
 
@@ -125,8 +125,8 @@ const HeroDemo = (props) => {
     const sendSMS = (details) => {
         const api_key = 'H8w2sI5oD8vDoZ153ET6FCP05X7pEYU7ydMZapzu';
         const name = details.name;
-        const date = courseCategory[0].class_date_1;
-        const time = courseCategory[0].class_time;
+        const date = details.class_date;
+        const time = details.class_time;
         const course = details.category;
         // const zoom_link = courseCategory[0].zoom_link;
         const message = `প্রিয় ${name}, আপনার ${course} এর ফ্রি ক্লাস রেজিস্ট্রেশন সম্পন্ন হয়েছে | ক্লাসের তারিখ ${date} এবং ক্লাসের সময় ${time} | ক্লাসটি করতে আপনার ফোন নম্বর ও পাসওয়ার্ড দিয়ে ড্যাশবোর্ড এ লগইন করুন`
@@ -140,8 +140,8 @@ const HeroDemo = (props) => {
     const scheduleSMS = (details) => {
         const api_key = 'H8w2sI5oD8vDoZ153ET6FCP05X7pEYU7ydMZapzu';
         const name = details.name;
-        const date = courseCategory[0].class_date_1;
-        const time = courseCategory[0].class_time;
+        const date = details.class_date;
+        const time = details.class_time;
         const courseName = details.category;
         // const zoom_link = courseCategory[0].zoom_link;
         const message = `প্রিয় ${name}, আপনার ${courseName} এর ফ্রি ক্লাস রেজিস্ট্রেশন সম্পন্ন হয়েছে | ক্লাসের তারিখ ${date} এবং ক্লাসের সময় ${time} | ক্লাসটি করতে আপনার ফোন নম্বর ও পাসওয়ার্ড দিয়ে ড্যাশবোর্ড এ লগইন করুন`

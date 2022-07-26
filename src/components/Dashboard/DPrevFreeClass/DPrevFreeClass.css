@@ -1,0 +1,9 @@
+.prev_free_live_course_container {
+    padding: 8rem 0;
+}
+
+@media (max-width: 991px) {
+    .prev_free_live_course_container {
+        padding: 5rem 0;
+    }
+}

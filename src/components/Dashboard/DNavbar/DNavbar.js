@@ -36,31 +36,36 @@ const DNavbar = () => {
             setUser(data);
         }
         fetchData();
-    },[phone])
+    }, [phone])
 
     return (
         <div style={{ borderWidth: '1px', boxShadow: '0 5px 15px #c4c4c44d' }} className="bg-white fixed-top">
             <div className="container-xl navbar-container">
 
-                <nav className="navbar navbar-expand-lg navbar-light">
+                <nav style={{paddingTop:'0', paddingBottom:'0'}} className="navbar navbar-expand-lg navbar-light">
                     <div className="container-fluid navbar-container">
 
-                        <Link onClick={() => { window.scrollTo(0, 0); }} to='/dashboard'>
+                        <Link
+                            // className='text-decoration-none text-black' 
+                            onClick={() => { window.scrollTo(0, 0); }} to='/dashboard'>
                             <img src={logo} className='img-fluid' width={90} alt="Skill শিখুন" loading="lazy" />
+                            {/* ড্যাশবোর্ড */}
                         </Link>
 
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                            {/* {
-                                user?.email ? <img style={{ borderRadius: '50%' }} width={50} src={user?.photo} alt="" /> : <span className="navbar-toggler-icon"></span>
-                            } */}
+                            {/* <span className="navbar-toggler-icon"></span> */}
+                            {
+                                user?.email ?
+                                    <img style={{ borderRadius: '50%' }} width={50} src={user?.photo} alt="" />
+                                    : <span className="navbar-toggler-icon"></span>
+                            }
                         </button>
 
                         <div className="collapse navbar-collapse navbar-menu" id="navbarNavAltMarkup">
-                            <div className="accordion accordion-flush ms-auto" id="accordionFlushExample">
+                            {/* <div className="accordion accordion-flush ms-auto" id="accordionFlushExample">
                                 <div className="accordion-item">
-                                    <h2 className="accordion-header" id="flush-headingOne">
-                                        <button className="accordion-button accordion-button-customize collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <h2 className="accordion-header" id="flush-headingFifty">
+                                        <button className="accordion-button accordion-button-customize collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFifty" aria-expanded="false" aria-controls="flush-collapseFifty">
                                             <div className="d-flex justify-content-center align-items-center">
                                                     {
                                                         user?.email ? <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-2 text-primary me-2'><img style={{ borderRadius: '50%' }} width={50} src={user?.photo} alt="" /> {user?.name}</h2> : <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='pt-2 text-primary me-2'>{name}</h2>
@@ -69,7 +74,7 @@ const DNavbar = () => {
                                         </button>
                                     </h2>
 
-                                    <div style={{maxHeight:"100px", borderRadius:'15px', backgroundColor:'#f5f5f5', border:'1px solid grey'}} id="flush-collapseOne" className="accordion-collapse collapse m-2" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div style={{maxHeight:"100px", borderRadius:'15px', backgroundColor:'#f5f5f5', border:'1px solid grey'}} id="flush-collapseFifty" className="accordion-collapse collapse m-2" aria-labelledby="flush-headingFifty" data-bs-parent="#accordionFlushExample">
                                         <div className="accordion-body">
                                             <a href="/" className='text-black text-decoration-none'>
                                                 <div className="d-flex justify-content-center align-items-center accordion-body-item">
@@ -85,6 +90,32 @@ const DNavbar = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div> */}
+
+                            {/* <div className="d-flex justify-content-center align-items-center"> */}
+                            
+                            {/* </div> */}
+
+                            <div className="d-none d-lg-block ms-auto">
+                            {
+                                user?.email ?
+                                    <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center pt-2 me-2'><img style={{ borderRadius: '50%' }} width={50} src={user?.photo} alt="" /> {user?.name}</h2>
+                                    :
+                                    <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center pt-2 me-2'>{name}</h2>
+                            }
+                            </div>
+
+                            <div className="d-lg-none">
+                            <Link to="/" className='text-black text-decoration-none'>
+                                                <div className="d-flex justify-content-center align-items-center">
+                                                <img src={web} width={20} className='img-fluid me-2 pb-3' alt="Homepage" />
+                                                <p>হোমপেইজে ফিরে যান</p>
+                                                </div>
+                            </Link>
+                            <div style={{cursor: 'pointer'}} onClick = {()=> logOut()} className="d-flex justify-content-center align-items-center">
+                                                <img src={out} width={20} className='img-fluid me-2 pb-3' alt="Homepage" />
+                                                <p>লগ আউট করুন</p>
+                                            </div>
                             </div>
 
                         </div>
@@ -158,13 +189,14 @@ const DNavbar = () => {
 
                             </div>
                         </div> */}
-                        {/* <div class="navbar-nav">
+                    {/* <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
         <a class="nav-link" href="#">Features</a>
         <a class="nav-link" href="#">Pricing</a>
         <a class="nav-link disabled">Disabled</a>
       </div>
-                    </div> */}
+                    </div> 
+    */}
                 </nav>
 
             </div>

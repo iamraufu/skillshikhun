@@ -8,8 +8,10 @@ import Sidebar from './Sidebar/Sidebar.js';
 import 'react-awesome-slider/dist/styles.css';
 import free_class from '../../images/dashboard/free_class.svg'
 import live from '../../images/dashboard/live.svg'
+// import liveClass from '../../images/live.png'
 import video from '../../images/dashboard/video.svg';
 import payment from '../../images/dashboard/payment.svg';
+import video_library from '../../images/dashboard/video_library.svg';
 import Menu from './Menu/Menu';
 import courseData from '../../data/course/courseData';
 // import liveClassData from '../../data/course/liveClassData';
@@ -89,11 +91,11 @@ const Dashboard = () => {
         fetchData();
     }, [phone])
 
-    //  hook for setting purchased courses and meetings
+    //  hook for setting free classes, purchased courses and meetings
     useEffect(() => {
 
         // setPurchasedLiveCourses(courseData.filter(course => course?.name === payments[0]?.course || course?.name === payments[1]?.course || course?.name === payments[2]?.course || course?.name === payments[3]?.course))
-        
+
         const live_courses = payments.map(pm => pm.course).filter(course => courseData.map(cd => cd.name).includes(course))
         setPurchasedLiveCourses(courseData.filter(course => live_courses.includes(course.name)))
 
@@ -102,7 +104,6 @@ const Dashboard = () => {
 
         const video_courses = payments.map(pm => pm.course).filter(course => videoCourses.map(cd => cd.name).includes(course))
         setPurchasedVideoCourses(videoCourses.filter(course => video_courses.includes(course.name)))
-
     }, [payments, demoClasses, videoCourses])
 
     let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
@@ -130,11 +131,11 @@ const Dashboard = () => {
             .then(response => {
                 startMeeting(response.signature, meetingNumber, password)
             }).catch(error => {
-                console.error('Error:', error)
+                // console.error('Error:', error)
             })
     }
 
-    async function startMeeting(signature, meetingNumber, password ) {
+    async function startMeeting(signature, meetingNumber, password) {
 
         document.getElementById('zmmtg-root').style.display = 'block'
         document.getElementById('dashboard').style.display = 'none'
@@ -153,10 +154,10 @@ const Dashboard = () => {
                     passWord: password,
                     tk: registrantToken,
                     success: (success) => {
-        
+
                     },
                     error: (error) => {
-        
+
                     }
                 })
 
@@ -166,6 +167,8 @@ const Dashboard = () => {
             }
         })
     }
+
+    // console.log(freeClasses)
 
     return (
         <div>
@@ -213,67 +216,123 @@ const Dashboard = () => {
                                         {
                                             demoClasses?.length === 1 &&
                                             <div className="row justify-content-center">
-                                                {freeClasses?.map(course => {
+                                                {demoClasses?.map(course => {
                                                     return (
-                                                        <div key={course.id} className='col-xl-8 col-md-12 my-3'>
+                                                        <div key={course._id} className='col-xl-8 col-md-12 my-3'>
                                                             {/* <a href = {course.free_link} className='text-decoration-none' target='_blank' rel="noreferrer" */}
                                                             {/* onClick={() => getSignature(course.free_number, course.free_password)} */}
                                                             {/* > */}
-                                                                <div style={{ border: '1px solid #dde7f3' }}>
+                                                            <div style={{ border: '1px solid #dde7f3' }}>
 
-                                                                    <div style={{ minHeight: '180px' }} className="bg-white py-3">
-                                                                        <h3 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#354895' }} className='px-3'><span style={{ color: '#b94a8f' }}>{course.name}</span>
-                                                                            <br />তারিখ - <small>{course.class_date_1}</small></h3>
-                                                                        <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#069654' }} className=' px-3 price mt-2'>
-                                                                            <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
-                                                                        </h4>
-                                                                    </div>
-
-                                                                    <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                    {
-                                                                        userPhoneData?.name ? <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade w-100'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
-                                                                          </div> জয়েন ক্লাস</button>
-                                                                    }
-                                                                    </div>
+                                                                <div style={{ minHeight: '180px' }} className="bg-white py-3">
+                                                                    <h3 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#354895' }} className='px-3'><span style={{ color: '#b94a8f' }}>{course.category}</span>
+                                                                        <br />তারিখ - <small>{course.class_date}</small></h3>
+                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#069654' }} className=' px-3 price mt-2'>
+                                                                        <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
+                                                                    </h4>
                                                                 </div>
+
+                                                                {/* <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
+                                                                    {
+                                                                        userPhoneData?.name ? <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1' to=''>জয়েন ক্লাস</button> :
+                                                                            <button className='see-details-fade w-100'><div className="spinner-border" style={{ height: '15px', width: '15px' }} role="status">
+                                                                            </div> জয়েন ক্লাস</button>
+                                                                    }
+                                                                </div> */}
+                                                            </div>
                                                             {/* </a> */}
+                                                            {/* <p className='text-center mt-2 text-primary'>অথবা ভিডিও দেখুন</p>
+                                                            <div onClick={()=> navigate('/dashboard/previous/free-class/' + course.id)} style={{ backgroundColor: '#f1f1f1', borderRadius: '15px', cursor:'pointer', fontSize:'14px', boxShadow: '0 5px 5px #c4c4c44d' }} className="p-3 text-center m-3"><img src={video_library} width={20} alt={course.title} /> {course.title}</div> */}
                                                         </div>
                                                     )
                                                 })}
+
+                                                {
+                                                freeClasses.map(course=> 
+                                                    <div key={course.id} style={{ justifyContent: 'center',minHeight:'150px'
+                                                    // , backgroundColor: 'rgb(236,238,255)' 
+                                                }} 
+                                                    // className="d-flex py-3"
+                                                    className='col-xl-8 py-3'
+                                                    >
+                                                    {
+                                                            userPhoneData?.name ? 
+                                                            <button onClick={() => getSignature(course.free_number, course.free_password)} 
+                                                            className='see-details w-100 mx-1' 
+                                                            >{course.title} জয়েন ক্লাস</button> 
+                                                            : 
+                                                            <button className='see-details-fade w-100'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                              </div> {course.title} জয়েন ক্লাস</button>
+                                                        }
+                                                        <p className='text-center mt-2 text-primary'>অথবা ভিডিও দেখুন</p>
+                                                        <div onClick={()=> navigate('/dashboard/previous/free-class/' + course.id)} style={{ backgroundColor: '#f1f1f1', borderRadius: '15px', cursor:'pointer', fontSize:'14px', boxShadow: '0 5px 5px #c4c4c44d', border:'1px solid lightgrey' }} className="p-3 text-center w-100"><img src={video_library} width={20} alt={course.title} /> {course.title}</div>
+                                                    </div>    
+                                                )
+                                            }
+
                                             </div>
                                         }
 
                                         {demoClasses?.length > 1 &&
                                             <div className="row justify-content-center">
-                                                {freeClasses?.map(course => {
+
+{
+                                                freeClasses.map(course=> 
+                                                    <div key={course.id} style={{ justifyContent: 'center',minHeight:'150px'
+                                                    , backgroundColor: 'rgb(236,238,255)' 
+                                                }} 
+                                                    // className="d-flex py-3"
+                                                    className='col-md-6 py-3'
+                                                    >
+                                                    {
+                                                            userPhoneData?.name ? 
+                                                            <button style={{height:'80px'}} onClick={() => getSignature(course.free_number, course.free_password)} 
+                                                            className='see-details w-100 mx-1' 
+                                                            ><span style={{fontSize:'14px'}} className='fw-bold pe-2'>{course.title}</span> <span>জয়েন ক্লাস</span></button> 
+                                                            : 
+                                                            <button className='see-details-fade w-100'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
+                                                              </div> {course.title} জয়েন ক্লাস</button>
+                                                        }
+                                                        <p className='text-center mt-2 text-primary'>অথবা ভিডিও দেখুন</p>
+                                                        <div onClick={()=> navigate('/dashboard/previous/free-class/' + course.id)} style={{ backgroundColor: '#f1f1f1', borderRadius: '15px', cursor:'pointer', fontSize:'14px', boxShadow: '0 5px 5px #c4c4c44d', height:'100px', border:'1px solid lightgrey' }} className="p-3 text-center d-flex justify-content-center align-items-center w-100"><img src={video_library} width={20} alt={course.title} /> {course.title}</div>
+                                                    </div>    
+                                                )
+                                            }
+<br />
+                                            <hr />
+                                            <br />
+
+                                                {demoClasses?.map(course => {
                                                     return (
-                                                        <div key={course.id} className='featured-courses col-md-6 my-3'>
+                                                        <div key={course._id} className='featured-courses col-md-6 my-3'>
                                                             {/* <a href = {course.free_link} className='text-decoration-none' target='_blank' rel="noreferrer" */}
-                                                             {/* onClick={() => getSignature(course.free_number, course.free_password)} */}
+                                                            {/* onClick={() => getSignature(course.free_number, course.free_password)} */}
                                                             {/* > */}
-                                                                <div style={{ border: '1px solid #dde7f3' }}>
+                                                            <div style={{ border: '1px solid #dde7f3' }}>
 
-                                                                    <div style={{ minHeight: '180px' }} className="bg-white py-3">
-                                                                        <h3 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#354895' }} className='px-3'><span style={{ color: '#b94a8f' }}>{course.name}</span>
-                                                                            <br />তারিখ - <small>{course.class_date_1}</small></h3>
-                                                                        <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#069654' }} className=' px-3 price mt-2'>
-                                                                            <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
-                                                                        </h4>
-                                                                    </div>
-
-                                                                    <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
-                                                                    {
-                                                                        userPhoneData?.name ? <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1'>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade w-100'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
-                                                                          </div> জয়েন ক্লাস</button>
-                                                                    }
-                                                                    </div>
+                                                                <div style={{ minHeight: '180px' }} className="bg-white py-3">
+                                                                    <h3 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#354895' }} className='px-3'><span style={{ color: '#b94a8f' }}>{course.category}</span>
+                                                                        <br />তারিখ - <small>{course.class_date}</small></h3>
+                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#069654' }} className=' px-3 price mt-2'>
+                                                                        <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
+                                                                    </h4>
                                                                 </div>
+
+                                                                {/* <div style={{ justifyContent: 'center', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
+                                                                    {
+                                                                        userPhoneData?.name ? <button onClick={() => getSignature(course.free_number, course.free_password)} className='see-details w-100 mx-1'>জয়েন ক্লাস</button> :
+                                                                            <button className='see-details-fade w-100'><div className="spinner-border" style={{ height: '15px', width: '15px' }} role="status">
+                                                                            </div> জয়েন ক্লাস</button>
+                                                                    }
+                                                                </div> */}
+                                                            </div>
                                                             {/* </a> */}
+                                                            {/* <p className='text-center mt-2 text-primary'>অথবা ভিডিও দেখুন</p>
+                                                            <div onClick={()=> navigate('/dashboard/previous/free-class/' + course.id)} style={{ backgroundColor: '#f1f1f1', borderRadius: '15px', cursor:'pointer', fontSize:'14px', boxShadow: '0 5px 5px #c4c4c44d' }} className="p-3 text-center m-3"><img src={video_library} width={20} alt={course.title} /> {course.title}</div> */}
                                                         </div>
                                                     )
                                                 })}
+                                            
                                             </div>
                                         }
 
@@ -285,6 +344,18 @@ const Dashboard = () => {
                                             </div>
                                         }
                                     </div>
+
+                                    {/* <p className='text-center mt-2 text-primary'>অথবা পূর্ববর্তী ফ্রি ক্লাসগুলো দেখুন</p> */}
+                                    {/* {
+                                        demoClasses?.length > 0 &&
+                                    <div className="row justify-content-center p-2">
+                                        {
+                                            freeClasses.map(freeClass =>
+                                                <div onClick={()=> navigate('/dashboard/previous/free-class/' + freeClass.id)} key={freeClass.id} style={{ backgroundColor: '#f1f1f1', borderRadius: '15px', cursor:'pointer', fontSize:'14px', boxShadow: '0 5px 5px #c4c4c44d' }} className="col-sm-5 p-3 text-center m-3"><img src={video_library} width={20} alt={freeClass.title} /> {freeClass.title}</div>
+                                            )
+                                        }
+                                    </div>
+                                    } */}
                                 </div>
 
                                 <div style={{ borderRadius: '10px' }} className="col-md-5 bg-white mt-5 dashboard-content-card d-flex justify-content-center align-items-center">
@@ -299,35 +370,34 @@ const Dashboard = () => {
                                                     return (
                                                         <div key={course.id} className='featured-courses col-xl-8 col-md-12 mt-2 mb-5'>
                                                             {/* <a href = {course.live_link} className='text-decoration-none' target='_blank' rel="noreferrer" */}
-                                                             {/* onClick={() => getSignature(course.live_number, course.live_password)} */}
+                                                            {/* onClick={() => getSignature(course.live_number, course.live_password)} */}
                                                             {/* > */}
-                                                                <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
-                                                                    <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
-                                                                    <div className="bg-white py-4">
-                                                                        <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
-                                                                        <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
-                                                                            <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
-                                                                        </h4>
-                                                                    </div>
-
-                                                                    <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
-                                                                    {
-                                                                        userPhoneData?.name ? <button onClick={() =>
-                                                                            {
-                                                                            getSignature(course.live_number, course.live_password)
-                                                                            }} 
-                                                                            
-                                                                            className='see-details'>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
-                                                                          </div> জয়েন ক্লাস</button>
-                                                                    }
-                                                                        {/* <button onClick={() => getSignature(course.live_number, course.live_password)} className='see-details mx-auto d-block'>জয়েন ক্লাস</button> */}
-                                                                        <button onClick={() => { 
-                                                                            window.scrollTo(0, 0);
-                                                                            navigate('/course/live/video/' + course.id)
-                                                                            }} className='class-video'>ক্লাস ভিডিও</button>
-                                                                    </div>
+                                                            <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
+                                                                <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
+                                                                <div className="bg-white py-4">
+                                                                    <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
+                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
+                                                                        <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
+                                                                    </h4>
                                                                 </div>
+
+                                                                <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
+                                                                    {
+                                                                        userPhoneData?.name ? <button onClick={() => {
+                                                                            getSignature(course.live_number, course.live_password)
+                                                                        }}
+
+                                                                            className='see-details'> জয়েন ক্লাস</button> :
+                                                                            <button className='see-details-fade'><div className="spinner-border" style={{ height: '15px', width: '15px' }} role="status">
+                                                                            </div> জয়েন ক্লাস</button>
+                                                                    }
+                                                                    {/* <button onClick={() => getSignature(course.live_number, course.live_password)} className='see-details mx-auto d-block'>জয়েন ক্লাস</button> */}
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                    }} className='class-video'>ক্লাস ভিডিও</button>
+                                                                </div>
+                                                            </div>
                                                             {/* </a> */}
                                                         </div>
                                                     )
@@ -344,34 +414,33 @@ const Dashboard = () => {
                                                             {/* <a href = {course.live_link} className='text-decoration-none' target='_blank' rel="noreferrer"
                                                             // onClick={() => getSignature(course.live_number, course.live_password)}
                                                             > */}
-                                                                <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
-                                                                    <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
-                                                                    <div className="bg-white py-4">
-                                                                        <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
-                                                                        <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
-                                                                            <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
-                                                                        </h4>
-                                                                    </div>
-
-                                                                    <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-2">
-                                                                    {
-                                                                        userPhoneData?.name ? <button onClick={() =>
-                                                                            {
-                                                                            getSignature(course.live_number, course.live_password)
-                                                                            }} 
-                                                                            
-                                                                            className='see-details'>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
-                                                                          </div> জয়েন ক্লাস</button>
-                                                                    }
-                                                                        {/* <button onClick={() => { 
-                                                                        getSignature(course.live_number, course.live_password)}} className='see-details px-1'>জয়েন ক্লাস</button> */}
-                                                                        <button onClick={() => { 
-                                                                            window.scrollTo(0, 0); 
-                                                                            navigate('/course/live/video/' + course.id)
-                                                                            }} className='class-video px-1'>ক্লাস ভিডিও</button>
-                                                                    </div>
+                                                            <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
+                                                                <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
+                                                                <div className="bg-white py-4">
+                                                                    <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
+                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
+                                                                        <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
+                                                                    </h4>
                                                                 </div>
+
+                                                                <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-2">
+                                                                    {
+                                                                        userPhoneData?.name ? <button onClick={() => {
+                                                                            getSignature(course.live_number, course.live_password)
+                                                                        }}
+
+                                                                            className='see-details'>জয়েন ক্লাস</button> :
+                                                                            <button className='see-details-fade'><div className="spinner-border" style={{ height: '15px', width: '15px' }} role="status">
+                                                                            </div> জয়েন ক্লাস</button>
+                                                                    }
+                                                                    {/* <button onClick={() => { 
+                                                                        getSignature(course.live_number, course.live_password)}} className='see-details px-1'>জয়েন ক্লাস</button> */}
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                    }} className='class-video px-1'>ক্লাস ভিডিও</button>
+                                                                </div>
+                                                            </div>
                                                             {/* </a> */}
                                                         </div>
                                                     )
@@ -470,7 +539,7 @@ const Dashboard = () => {
                                     </div>
                                 </div>
 
-                                <div style={{ borderRadius: '10px', marginBottom:'5rem' }} className="col-md-5 bg-white mt-4 dashboard-content-card d-flex justify-content-center">
+                                <div style={{ borderRadius: '10px', marginBottom: '5rem' }} className="col-md-5 bg-white mt-4 dashboard-content-card d-flex justify-content-center">
                                     <div style={{ margin: 'auto' }}>
                                         <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }} className='mt-3'>
                                             <img src={payment} width={40} className='img-fluid me-2 mb-2' alt="Billing" />
