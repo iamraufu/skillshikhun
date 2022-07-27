@@ -7,3 +7,21 @@
         padding: 5rem 0;
     }
 }
+
+.prev-lesson-btn,
+.next-lesson-btn {
+    border-radius: 15px;
+    background-color: #002147;
+    color: white;
+    font-size: 13px;
+    width: 100px;
+    height: 40px;
+}
+
+.prev-lesson-btn {
+    background-color: #808080;
+}
+
+.next-lesson-btn:hover {
+    background-color: #009DDB;
+}

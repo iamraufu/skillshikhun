@@ -117,7 +117,7 @@ const HeroDemo = (props) => {
                 sendSMS(details);
                 scheduleSMS(details);
                 setTimeout(() => {
-                    window.location.href = '/dashboard';
+                    window.location.href = '/dashboard/free-class';
                 }, 2000); 
     }
 
@@ -204,7 +204,7 @@ const HeroDemo = (props) => {
                             <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classDate", { required: true })}>
                                 {/* <option value="" disabled selected>ক্লাসের তারিখ বেছে নিন</option> */}
                                 <option value={courseCategory[0].class_date_1}>{courseCategory[0].class_date_1}</option>
-                                <option value={courseCategory[0].class_date_2}>{courseCategory[0].class_date_2}</option>
+                                {/* <option value={courseCategory[0].class_date_2}>{courseCategory[0].class_date_2}</option> */}
                             </select>
                             {errors.classDate && <div className="">
                                 <img src={up} width={20} className='img-fluid' alt="required" />

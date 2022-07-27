@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Menu from '../Menu/Menu';
 import { useEffect } from 'react';
 import courseData from '../../../data/course/courseData';
+import TextSkeleton from '../../../components/Skeleton/TextSkeleton';
 
 const DPrevFreeClass = () => {
 
@@ -15,6 +16,7 @@ const DPrevFreeClass = () => {
     // eslint-disable-next-line
     const [freeClasses, setFreeClasses] = useState([]);
     const [videoId, setVideoId] = useState(course[0].outline[0].freeVideoId)
+    const [videoTitle, setVideoTitle] = useState(course[0].outline[0].subtitle)
 
     useEffect(() => {
         fetch('https://skillshikhun.herokuapp.com/demoClasses/phone/' + phone, {
@@ -61,6 +63,16 @@ const DPrevFreeClass = () => {
                                 <button onClick={()=>{navigate('/checkout/full-stack-web-development')}} className='btn-buy'>এখনই ভর্তি হয়ে যান</button>
                             </div> */}
                         </div>
+
+                        {
+                            videoTitle ? <h2 className='fs-5 mt-4 ps-2 fw-bold'>{videoTitle}</h2> : <TextSkeleton />
+                        }
+                        {/* <div className="d-flex justify-content-between p-2 mt-2">
+                            <button onClick={()=>{
+                                
+                            }} className='prev-lesson-btn'>← আগের লেসন</button>
+                            <button className='next-lesson-btn'>পরের লেসন →</button>
+                        </div> */}
                     </div>
 
                     <div className="col-md-4">
@@ -76,7 +88,10 @@ const DPrevFreeClass = () => {
                                                     </button>
                                                 </h2>
                                                 <div id={`flush-collapse${item.id}`} className="accordion-collapse collapse p-2" aria-labelledby={`flush-heading${item.id}`} data-bs-parent="#accordionFlushExample">
-                                                    <div style={{ backgroundColor: '#f1f1f1', marginTop: '-0.5rem', borderRadius: '15px', cursor: 'pointer', fontSize:'14px' }} onClick={() => setVideoId(item.freeVideoId)}className="accordion-body">{item.subtitle}
+                                                    <div style={{ backgroundColor: '#f1f1f1', marginTop: '-0.5rem', borderRadius: '15px', cursor: 'pointer', fontSize:'14px' }} onClick={() => {
+                                                        setVideoId(item.freeVideoId)
+                                                        setVideoTitle(item.subtitle)
+                                                        }}className="accordion-body">{item.subtitle}
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './DNavbar.css';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../../images/logo.png';
 // import user from '../../../images/dashboard/user.svg';
 import web from '../../../images/dashboard/web.svg';
@@ -56,8 +58,9 @@ const DNavbar = () => {
                             {/* <span className="navbar-toggler-icon"></span> */}
                             {
                                 user?.email ?
-                                    <img style={{ borderRadius: '50%' }} width={50} src={user?.photo} alt="" />
-                                    : <span className="navbar-toggler-icon"></span>
+                                    <><img style={{ borderRadius: '50%' }} className='img-fluid' width={50} src={user?.photo} alt="" /> <FontAwesomeIcon icon={faAngleDown} /></>
+                                    : <FontAwesomeIcon icon={faAngleDown} />
+                                    // <span className="navbar-toggler-icon"></span>
                             }
                         </button>
 
