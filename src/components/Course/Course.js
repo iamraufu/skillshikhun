@@ -141,10 +141,7 @@ const Course = (props) => {
                                                         <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
                                                     </div>
                                                 }
-                                                <Countdown 
-                                                deadline = {course.next_batch_eng}
-                                                text={'কোর্স শুরু হতে সময় বাকি'}
-                                                />
+                                                
                                             </div>
                                         </div>
                                         <Countdown 
