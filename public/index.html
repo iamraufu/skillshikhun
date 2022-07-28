@@ -110,6 +110,10 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./serviceWorker.js')
+                window.history.pushState({}, '');
+            })
+            window.addEventListener('popstate', function() {
+                window.history.pushState({}, '')
             })
         }
         // document.getElementsByTagName("BODY")[0].style.minWidth = null;

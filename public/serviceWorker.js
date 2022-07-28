@@ -34,15 +34,6 @@ self.addEventListener('activate', (event) => {
             // eslint-disable-next-line array-callback-return
             cacheNames.map((cacheName) => {
                 if(!cacheWhitelist.includes(cacheName)) {
-                    window.addEventListener('load', function() {
-                        window.history.pushState({ noBackExitsApp: true }, '')
-                      })
-                      
-                      window.addEventListener('popstate', function(event) {
-                        if (event.state && event.state.noBackExitsApp) {
-                          window.history.pushState({ noBackExitsApp: true }, '')
-                        }
-                      })
                     return caches.delete(cacheName);
                 }
             })
