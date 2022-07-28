@@ -11,6 +11,7 @@ import class_black from '../../images/class_black.svg';
 import CourseDemoClass from '../DemoClass/CourseDemoClass';
 import Tracker from '../Tracker/Tracker';
 import Footer from '../Shared/Footer/Footer';
+import Countdown from '../Countdown/Countdown';
 // const HowToPayment = React.lazy(() => import('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
@@ -127,6 +128,7 @@ const Course = (props) => {
                                     purchasedLiveCourses.length ? <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block' 
                                     // onClick={() => { window.scrollTo(0, 0); }}
                                     >জয়েন ক্লাস</a> :
+                                        <>
                                         <div className="container d-none d-lg-block">
                                             <div className="row">
                                                 <div className="col-md-6 mt-1">
@@ -139,8 +141,17 @@ const Course = (props) => {
                                                         <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
                                                     </div>
                                                 }
+                                                <Countdown 
+                                                deadline = {course.next_batch_eng}
+                                                text={'কোর্স শুরু হতে সময় বাকি'}
+                                                />
                                             </div>
                                         </div>
+                                        <Countdown 
+                                                deadline = {course.next_batch_eng}
+                                                text={'কোর্স শুরু হতে সময় বাকি'}
+                                                />
+                                        </>
 
                                 }
                                 <p className='text-center mt-3'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
@@ -278,7 +289,6 @@ const Course = (props) => {
                     <div style={{ justifyContent: 'space-between' }} className="d-flex m-2">
                         <div className="col-md-6">
                             <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>
-                                {/* &#2547; {course.offer_price_per_month}/মাস */}
                                 ব্যাচ: <b>{course.next_batch}</b> ২০২২
                             </h2>
                         </div>
@@ -286,6 +296,12 @@ const Course = (props) => {
                             <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>সিট বাকি: <b>{course.seat_left}</b></h2>
                         </div>
                     </div>
+                    
+                    {/* <Countdown 
+                    deadline = {course.next_batch_eng}
+                    text={'কোর্স শুরু হতে সময় বাকি'}
+                    /> */}
+                    
                     <div className=" justify-content-center">
                         <div id='free_reg_sm_btn_container' className="col-md-6 mt-1">
                             <Link to='' className='text-decoration-none'>

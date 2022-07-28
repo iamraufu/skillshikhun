@@ -8,6 +8,7 @@ import liveClass from '../../../images/liveClass.svg';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { ZoomMtg } from '@zoomus/websdk';
+import Countdown from '../../Countdown/Countdown';
 
 ZoomMtg.setZoomJSLib('https://source.zoom.us/2.4.5/lib', '/av');
 ZoomMtg.preLoadWasm();
@@ -163,6 +164,10 @@ const DLiveCourse = () => {
                                                                     <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
                                                                     </h4>
+                                                                    <Countdown 
+                                                deadline = {course.next_batch_eng}
+                                                text={'কোর্স শুরু হতে সময় বাকি'}
+                                                />
                                                                 </div>
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
@@ -204,6 +209,10 @@ const DLiveCourse = () => {
                                                                     <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
                                                                     </h4>
+                                                                    <Countdown 
+                                                deadline = {course.next_batch_eng}
+                                                text={'কোর্স শুরু হতে সময় বাকি'}
+                                                />
                                                                 </div>
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
@@ -256,7 +265,7 @@ const DLiveCourse = () => {
                                                     <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
                                                         <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                         <div
-                                                            style={{ height: '130px' }}
+                                                            style={{ height: '260px' }}
                                                             className="bg-white py-4">
                                                             <h3 style={{ fontSize: '16px', lineHeight: '30px', fontWeight: '600', color: '#354895' }} className='px-3'>{course.title}
                                                                 <img src={liveClass} className='img-fluid ps-2' width={40} alt="live class" loading="lazy" />
@@ -264,6 +273,10 @@ const DLiveCourse = () => {
                                                                     <img src={live} width={30} className='img-fluid mx-2 mb-1' alt="live class" loading="lazy" />
                                                                     কোর্স</small></h3>
                                                             {/* <p style={{textAlign:'justify'}} className='px-3 text-black'>{course.short_description}</p> */}
+                                                            <Countdown
+                                                deadline = {course.next_batch_eng}
+                                                text={'কোর্স শুরু হতে সময় বাকি'}
+                                                />
                                                         </div>
 
                                                         <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3 pe-2">

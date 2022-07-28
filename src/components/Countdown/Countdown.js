@@ -1,12 +1,40 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+// import moment from 'moment';
+// moment().format();
 
 const Countdown = (props) => {
+    
+    // const [time, setTime] = useState(moment(props.deadline).diff(moment()));
+    
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setTime(moment(props.deadline).diff(moment()));
+    //     }, 1000);
+    //     return () => clearInterval(interval);
+    // }, [props.deadline]);
+    
+    // const days = moment.duration(time).as('days');
+    // const hours = moment.duration(time).as('hours');
+    // const minutes = moment.duration(time).as('minutes');
+    // const seconds = moment.duration(time).as('seconds');
 
+    // difference between props.deadline and current time
+    // const time = moment(props.deadline).diff(moment());
+    // console.log(moment(props.deadline).format('MMMM Do YYYY, h:mm:ss a'));
+    // console.log(moment(props.deadline).isValid());
+    // console.log(moment().format());
+
+
+    // console.log(days, hours, minutes, seconds);
+
+    // console.log(moment().format('MMMM Do YYYY, h:mm:ss a')-moment(props.deadline).format('MMMM Do YYYY, h:mm:ss a'));
+    
     const [days, setDays] = useState(0);
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
+    // const [message, setMessage] = useState('');
 
     const countdown = () => {
 
@@ -23,27 +51,53 @@ const Countdown = (props) => {
         setMinutes(formatTime(minutesCount));
         setSeconds(formatTime(secondsCount));
 
+        // nextCountDown(totalSeconds);
     }
 
     const formatTime = (time) => {
         return time < 10 ? (`0${time}`) : time;
     }
 
+    // const nextCountDown = (time) => {
+    //     if (time < 0) {
+    //         setMessage('The Class is Over!');
+    //     } else {
+    //         setTimeout(() => {
+    //             countdown();
+    //         }, 1000);
+    //     }
+
+    //     if(time === 0){
+    //         setMessage('The Class is ongoing!');
+    //         document.getElementById('countdown_container').style.display = 'none';
+    //         document.getElementById('message_container').style.display = 'block'
+    //     }
+    //     else{
+    //         document.getElementById('countdown_container').style.display = 'block';
+    //         document.getElementById('message_container').style.display = 'none'
+    //     }
+    // }
+
     useEffect(() => {
-        // countDownTimer();
         setInterval(countdown, 1000)
         // eslint-disable-next-line
     }, [])
-    // console.log(new Date().getTime());
 
     return (
-        <div className="countdown-container">
-            <div className="d-flex justify-content-center align-items-center text-center">
-                <div className="col-sm-3"><p className='fs-6 fw-bold' id='days'>{days}</p><span style={{ fontSize: '10px' }}>Days</span></div>
-                <div className="col-sm-3"><p className='fs-6 fw-bold' id='hours'>{hours}</p><span style={{ fontSize: '10px' }}>Hours</span></div>
-                <div className="col-sm-3"><p className='fs-6 fw-bold' id='minutes'>{minutes}</p><span style={{ fontSize: '10px' }}>Minutes</span></div>
-                <div className="col-sm-3"><p className='fs-6 fw-bold' id='seconds'>{seconds}</p><span style={{ fontSize: '10px' }}>Seconds</span></div>
+        <div className="container text-black">
+            <div id='countdown_container'>
+                <h2 style={{ color: '#b94a8f' }} className='fs-6 text-center my-3 fw-bold'>{props.text}</h2>
+                <div className="d-flex justify-content-between align-items-center text-center">
+                    <div className="col-sm-3"><p className='fs-6 fw-bold' id='days'>{days}</p><span style={{ fontSize: '12px' }}>Days</span></div>
+                    <div className="col-sm-3"><p className='fs-6 fw-bold' id='hours'>{hours}</p><span style={{ fontSize: '12px' }}>Hours</span></div>
+                    <div className="col-sm-3"><p className='fs-6 fw-bold' id='minutes'>{minutes}</p><span style={{ fontSize: '12px' }}>Minutes</span></div>
+                    <div className="col-sm-3"><p className='fs-6 fw-bold' id='seconds'>{seconds}</p><span style={{ fontSize: '12px' }}>Seconds</span></div>
+                </div>
             </div>
+
+            {/* <div id="message_container" style={{display: 'none' }}>
+                <p className='fs-6 fw-bold text-center mt-3' id='message'>{message}</p>
+            </div> */}
 
         </div>
     );

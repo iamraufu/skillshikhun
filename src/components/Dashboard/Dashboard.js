@@ -233,8 +233,11 @@ const Dashboard = () => {
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
                                                                     </h4>
 
-                                                                    <h2 style={{ color: '#b94a8f' }} className='fs-6 text-center my-3'>লাইভ ক্লাস শুরু হতে সময় বাকি</h2>
-                                                                <Countdown deadline={course.class_date_1_deadline} />
+                                                                    {/* <h2 style={{ color: '#b94a8f' }} className='fs-6 text-center my-3'>লাইভ ক্লাস শুরু হতে সময় বাকি</h2> */}
+                                                                <Countdown 
+                                                                deadline={course.class_date_1_deadline} 
+                                                                text={'লাইভ ক্লাস শুরু হতে সময় বাকি'}
+                                                                />
                                                                 </div>
 
                                                                 <div style={{
@@ -307,8 +310,11 @@ const Dashboard = () => {
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
                                                                     </h4>
 
-                                                                    <h2 style={{ color: '#b94a8f' }} className='fs-6 text-center my-3'>লাইভ ক্লাস শুরু হতে সময় বাকি</h2>
-                                                                <Countdown deadline={course.class_date_1_deadline} />
+                                                                    {/* <h2 style={{ color: '#b94a8f' }} className='fs-6 text-center my-3'>লাইভ ক্লাস শুরু হতে সময় বাকি</h2> */}
+                                                                <Countdown 
+                                                                deadline={course.class_date_1_deadline} 
+                                                                text={'লাইভ ক্লাস শুরু হতে সময় বাকি'}
+                                                                />
                                                                 </div>
 
                                                                 <div style={{
@@ -409,6 +415,10 @@ const Dashboard = () => {
                                                                     <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
                                                                     </h4>
+                                                                    <Countdown 
+                                                deadline = {course.next_batch_eng}
+                                                text={'কোর্স শুরু হতে সময় বাকি'}
+                                                />
                                                                 </div>
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
@@ -451,6 +461,10 @@ const Dashboard = () => {
                                                                     <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
                                                                     </h4>
+                                                                    <Countdown 
+                                                deadline = {course.next_batch_eng}
+                                                text={'কোর্স শুরু হতে সময় বাকি'}
+                                                />
                                                                 </div>
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-2">
