@@ -102,9 +102,9 @@ const DNavbar = () => {
                             <div className="d-none d-lg-block ms-auto">
                             {
                                 user?.email ?
-                                    <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center pt-2 me-2'><img style={{ borderRadius: '50%' }} width={50} src={user?.photo} alt="" /> {user?.name}</h2>
+                                    <Link to='/dashboard/profile' className='text-decoration-none'><h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center pt-2 me-2'><img style={{ borderRadius: '50%' }} width={50} src={user?.photo} alt="" /> {user?.name}</h2></Link>
                                     :
-                                    <h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center pt-2 me-2'>{name}</h2>
+                                    <Link to='/dashboard/profile' className='text-decoration-none'><h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center pt-2 me-2'>{name}</h2></Link>
                             }
                             </div>
 

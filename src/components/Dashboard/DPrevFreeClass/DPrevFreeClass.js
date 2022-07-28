@@ -38,7 +38,7 @@ const DPrevFreeClass = () => {
             <DNavbar />
             <div className="container pb-5">
 
-            <div className="prev_free_live_course_container row">
+                <div className="prev_free_live_course_container row">
                     <div className="col-md-8">
                         <h1 className='fs-5 my-3 ps-2'>{course[0]?.title} ফ্রি লাইভ ক্লাস</h1>
                         <div style={{ position: 'relative', paddingTop: '56.25%', borderRadius: '15px' }}>
@@ -79,26 +79,25 @@ const DPrevFreeClass = () => {
                         <h2 className='fs-5 my-3 text-center'>কোর্স মডিউল</h2>
 
                         <div className="accordion accordion-flush" id="accordionFlushExample">
-                                    {
-                                        course[0].outline.slice(0, 3).map((item,index) =>
-                                            <div style={{ border: 'none', backgroundColor: 'white', maxHeight: '150px', borderRadius: '15px', boxShadow: '0 5px 15px #c4c4c44d' }} className="accordion-item mx-2 mt-3" key={item.id}>
-                                                <h2 className="accordion-header p-2" id={`flush-heading${item.id}`}>
-                                                    <button style={{ backgroundColor: 'white', borderRadius: '15px' }} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
-                                                        <span className='pe-2'>&#43;</span>Class {index+1}
-                                                    </button>
-                                                </h2>
-                                                <div id={`flush-collapse${item.id}`} className="accordion-collapse collapse p-2" aria-labelledby={`flush-heading${item.id}`} data-bs-parent="#accordionFlushExample">
-                                                    <div style={{ backgroundColor: '#f1f1f1', marginTop: '-0.5rem', borderRadius: '15px', cursor: 'pointer', fontSize:'14px' }} onClick={() => {
-                                                        setVideoId(item.freeVideoId)
-                                                        setVideoTitle(item.subtitle)
-                                                        }}className="accordion-body">{item.subtitle}
-                                                    </div>
-                                                </div>
+                            {
+                                course[0].outline.slice(0, 3).map((item, index) =>
+                                    <div style={{ border: 'none', backgroundColor: 'white', maxHeight: '150px', borderRadius: '15px', boxShadow: '0 5px 15px #c4c4c44d' }} className="accordion-item mx-2 mt-3" key={item.id}>
+                                        <h2 className="accordion-header p-2" id={`flush-heading${item.id}`}>
+                                            <button style={{ backgroundColor: 'white', borderRadius: '15px' }} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
+                                                <span className='pe-2'>&#43;</span>Class {index + 1}
+                                            </button>
+                                        </h2>
+                                        <div id={`flush-collapse${item.id}`} className="accordion-collapse collapse p-2" aria-labelledby={`flush-heading${item.id}`} data-bs-parent="#accordionFlushExample">
+                                            <div style={{ backgroundColor: '#f1f1f1', marginTop: '-0.5rem', borderRadius: '15px', cursor: 'pointer', fontSize: '14px' }} onClick={() => {
+                                                setVideoId(item.freeVideoId)
+                                                setVideoTitle(item.subtitle)
+                                            }} className="accordion-body">{item.subtitle}
                                             </div>
-                                        )}
-                                    
-                                </div>
+                                        </div>
+                                    </div>
+                                )}
 
+                        </div>
                     </div>
                 </div>
             </div>

@@ -17,6 +17,7 @@ import courseData from '../../data/course/courseData';
 // import liveClassData from '../../data/course/liveClassData';
 
 import { ZoomMtg } from '@zoomus/websdk';
+import Countdown from '../Countdown/Countdown';
 
 ZoomMtg.setZoomJSLib('https://source.zoom.us/2.4.5/lib', '/av');
 ZoomMtg.preLoadWasm();
@@ -231,6 +232,9 @@ const Dashboard = () => {
                                                                     <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#069654' }} className=' px-3 price mt-2'>
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
                                                                     </h4>
+
+                                                                    <h2 style={{ color: '#b94a8f' }} className='fs-6 text-center my-3'>লাইভ ক্লাস শুরু হতে সময় বাকি</h2>
+                                                                <Countdown deadline={course.class_date_1_deadline} />
                                                                 </div>
 
                                                                 <div style={{
@@ -302,6 +306,9 @@ const Dashboard = () => {
                                                                     <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#069654' }} className=' px-3 price mt-2'>
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}<small style={{ color: '#354895' }}></small>
                                                                     </h4>
+
+                                                                    <h2 style={{ color: '#b94a8f' }} className='fs-6 text-center my-3'>লাইভ ক্লাস শুরু হতে সময় বাকি</h2>
+                                                                <Countdown deadline={course.class_date_1_deadline} />
                                                                 </div>
 
                                                                 <div style={{
