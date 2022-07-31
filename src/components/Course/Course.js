@@ -79,7 +79,7 @@ const Course = (props) => {
                             <div className="row py-3">
                                 <div style={{ justifyContent: 'space-between' }} className="d-flex">
                                     <div className="py-3 d-none d-lg-block">
-                                        <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>{course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
+                                        <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>৪ {course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
                                     </div>
                                     <div className="py-3 d-none d-lg-block">
                                         <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.price_per_month_bn}/মাস</h2>
@@ -373,7 +373,7 @@ const Course = (props) => {
 
             </div>
             <Footer />
-            <Tracker props={props} />
+            {/* <Tracker props={props} /> */}
         </div>
     );
 };
