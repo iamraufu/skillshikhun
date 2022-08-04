@@ -92,7 +92,7 @@ const DLiveCourse = () => {
             .then(response => {
                 startMeeting(response.signature, meetingNumber, password)
             }).catch(error => {
-                
+
             })
     }
 
@@ -114,10 +114,10 @@ const DLiveCourse = () => {
                     passWord: password,
                     tk: registrantToken,
                     success: (success) => {
-    
+
                     },
                     error: (error) => {
-    
+
                     }
                 })
 
@@ -148,7 +148,7 @@ const DLiveCourse = () => {
 
                                 {/* {
                                     userPhoneData?.name ?  */}
-                                    <div className="">
+                                <div className="">
                                     {
                                         purchasedLiveCourses?.length === 1 &&
                                         <div className="row justify-content-center">
@@ -164,22 +164,21 @@ const DLiveCourse = () => {
                                                                     <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
                                                                     </h4>
-                                                                    <Countdown 
-                                                deadline = {course.next_batch_eng}
-                                                text={'কোর্স শুরু হতে সময় বাকি'}
-                                                />
+                                                                    <Countdown
+                                                                        deadline={course.next_batch_eng}
+                                                                        text={'কোর্স শুরু হতে সময় বাকি'}
+                                                                    />
                                                                 </div>
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
-                                                                {
-                                                                        userPhoneData?.name ? <button onClick={() =>
-                                                                            {
+                                                                    {
+                                                                        userPhoneData?.name ? <button onClick={() => {
                                                                             getSignature(course.live_number, course.live_password)
-                                                                            }} 
-                                                                            
-                                                                            className='see-details'>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
-                                                                          </div> জয়েন ক্লাস</button>
+                                                                        }}
+
+                                                                            className='see-details'>জয়েন ক্লাস</button> :
+                                                                            <button className='see-details-fade'><div className="spinner-border" style={{ height: '15px', width: '15px' }} role="status">
+                                                                            </div> জয়েন ক্লাস</button>
                                                                     }
                                                                     <button onClick={() => {
                                                                         window.scrollTo(0, 0);
@@ -209,26 +208,25 @@ const DLiveCourse = () => {
                                                                     <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
                                                                     </h4>
-                                                                    <Countdown 
-                                                deadline = {course.next_batch_eng}
-                                                text={'কোর্স শুরু হতে সময় বাকি'}
-                                                />
+                                                                    <Countdown
+                                                                        deadline={course.next_batch_eng}
+                                                                        text={'কোর্স শুরু হতে সময় বাকি'}
+                                                                    />
                                                                 </div>
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
                                                                     {
-                                                                        userPhoneData?.name ? <button onClick={() =>
-                                                                            {
+                                                                        userPhoneData?.name ? <button onClick={() => {
                                                                             getSignature(course.live_number, course.live_password)
-                                                                            }} 
-                                                                            
-                                                                            className='see-details'>জয়েন ক্লাস</button> : 
-                                                                            <button className='see-details-fade'><div className="spinner-border" style={{height:'15px', width:'15px'}} role="status">
-                                                                            
-                                                                          </div> জয়েন ক্লাস</button>
+                                                                        }}
+
+                                                                            className='see-details'>জয়েন ক্লাস</button> :
+                                                                            <button className='see-details-fade'><div className="spinner-border" style={{ height: '15px', width: '15px' }} role="status">
+
+                                                                            </div> জয়েন ক্লাস</button>
                                                                     }
                                                                     <button onClick={() => {
-                                                                        window.scrollTo(0, 0); 
+                                                                        window.scrollTo(0, 0);
                                                                         navigate('/course/live/video/' + course.id)
                                                                     }} className='class-video'>ক্লাস ভিডিও</button>
                                                                 </div>
@@ -252,8 +250,8 @@ const DLiveCourse = () => {
                                         </div> */}
                                         </div>
                                     }
-                                </div> 
-                                 {/* : <p>Loading...</p>
+                                </div>
+                                {/* : <p>Loading...</p>
                                  }  */}
                                 <hr />
                                 <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }} className='my-3'>আমাদের অন্যানো কোর্স সমূহ</h2>
@@ -265,7 +263,7 @@ const DLiveCourse = () => {
                                                     <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
                                                         <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                         <div
-                                                            style={{ height: '260px' }}
+                                                            // style={{ height: '260px' }}
                                                             className="bg-white py-4">
                                                             <h3 style={{ fontSize: '16px', lineHeight: '30px', fontWeight: '600', color: '#354895' }} className='px-3'>{course.title}
                                                                 <img src={liveClass} className='img-fluid ps-2' width={40} alt="live class" loading="lazy" />
@@ -274,9 +272,9 @@ const DLiveCourse = () => {
                                                                     কোর্স</small></h3>
                                                             {/* <p style={{textAlign:'justify'}} className='px-3 text-black'>{course.short_description}</p> */}
                                                             <Countdown
-                                                deadline = {course.next_batch_eng}
-                                                text={'কোর্স শুরু হতে সময় বাকি'}
-                                                />
+                                                                deadline={course.next_batch_eng}
+                                                                text={'কোর্স শুরু হতে সময় বাকি'}
+                                                            />
                                                         </div>
 
                                                         <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3 pe-2">
@@ -285,7 +283,7 @@ const DLiveCourse = () => {
                                                                 {/* <strike className='ps-2 text-muted'>{course.regular_price}</strike> */}
                                                                 <small style={{ color: '#354895' }}>/মাস</small>
                                                             </h4>
-                                                            <button style={{fontSize:'12px'}} onClick={() => { window.scrollTo(0, 0); }} className='see-details p-1' to={course.route}>বিস্তারিত দেখুন</button>
+                                                            <button style={{ fontSize: '12px' }} onClick={() => { window.scrollTo(0, 0); }} className='see-details p-1' to={course.route}>বিস্তারিত দেখুন</button>
                                                         </div>
                                                     </div>
                                                 </Link>

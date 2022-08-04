@@ -68,7 +68,7 @@ const Sidebar = () => {
                                     </div>
                                 </NavLink>
 
-                                <NavLink className='dashboard-nav-link' style={({ isActive }) => ({
+                                {/* <NavLink className='dashboard-nav-link' style={({ isActive }) => ({
                                     color: isActive ? 'white' : 'black',
                                     background: isActive ? '#b94a8f' : '#ffffff'
                                 })} to='/dashboard/video-course'>
@@ -77,6 +77,18 @@ const Sidebar = () => {
                                     className="dashboard-nav-item">
                                         <img src={course} width={25} className='img-fluid' alt="Video Course" />
                                         <span className='dashboard-nav-text'>ভিডিও কোর্স</span>
+                                    </div>
+                                </NavLink> */}
+
+                                <NavLink className='dashboard-nav-link' style={({ isActive }) => ({
+                                    color: isActive ? 'white' : 'black',
+                                    background: isActive ? '#b94a8f' : '#ffffff'
+                                })} to='/dashboard/class-recordings'>
+                                    <div 
+                                    // onClick={() => clickHandler('video-course')} 
+                                    className="dashboard-nav-item">
+                                        <img src={course} width={25} className='img-fluid' alt="Video Course" />
+                                        <span className='dashboard-nav-text'>ক্লাস রেকর্ডিংস</span>
                                     </div>
                                 </NavLink>
 
