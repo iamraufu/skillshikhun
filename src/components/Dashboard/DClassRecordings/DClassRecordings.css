@@ -1,0 +1,23 @@
+.class-recording-course-items {
+    height: 180px;
+    /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2); */
+    /* height: auto; */
+    cursor: pointer;
+}
+
+.class-recording-course-items:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 758px) {
+    .class-recording-course-items {
+        height: 280px;
+    }
+}
+
+@media (max-width: 575px) {
+    .class-recording-course-items {
+        /* height: 400px; */
+        height: auto;
+    }
+}

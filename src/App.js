@@ -23,6 +23,8 @@ import Privacy from './components/Privacy/Privacy';
 import Terms from './components/Terms/Terms';
 import DLiveCourseVideo from './components/Dashboard/DLiveCourse/DLiveCourseVideo';
 import DPrevFreeClass from './components/Dashboard/DPrevFreeClass/DPrevFreeClass';
+import User from './components/User/User';
+import DClassRecordings from './components/Dashboard/DClassRecordings/DClassRecordings';
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -57,11 +59,13 @@ function App() {
           
           <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/terms-conditions" element={<Terms />} />
+          <Route path="/eftykharrahman" element={<User />} />
 
           <Route path="/" element={<PrivateOutlet />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="dashboard/live-course" element={<DLiveCourse />} />
             <Route path="dashboard/free-class" element={<DFreeClass />} />
+            <Route path="dashboard/class-recordings" element={<DClassRecordings />} />
             <Route path="dashboard/previous/free-class/:courseId" element={<DPrevFreeClass />} />
             <Route path="dashboard/video-course" element={<DVideoCourse />} />
             <Route path="dashboard/payment-history" element={<DPaymentHistory />} />
@@ -69,6 +73,8 @@ function App() {
             <Route path="/success" element={<Success />} />
             <Route path="/checkout/:courseId" element={<Checkout />} />
             <Route path="course/live/video/:courseId" element={<DLiveCourseVideo />} />
+            {/* <Route path="/:username" element={<User />} /> */}
+            
           </Route>
 
           <Route path="/" element={<PrivateOutlet2 /> }>
