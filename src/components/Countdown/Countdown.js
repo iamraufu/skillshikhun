@@ -86,12 +86,21 @@ const Countdown = (props) => {
     return (
         <div className="container text-black">
             <div id='countdown_container'>
-                <h2 style={{ color: '#b94a8f' }} className='fs-6 text-center my-3 fw-bold'>{props.text}</h2>
-                <div className="d-flex justify-content-between align-items-center text-center">
-                    <div className="col-sm-3"><p className='fs-6 fw-bold' id='days'>{days}</p><span style={{ fontSize: '12px' }}>Days</span></div>
+                <h2 style={{ color: '#b94a8f' }} className='fs-6 text-center fw-bold'>{props.text}</h2>
+                {/* <div className="d-flex justify-content-between align-items-center text-center"> */}
+                <div className="d-flex text-center justify-content-center">
+                    {/* <div className="col-sm-3"><p className='fs-6 fw-bold' id='days'>{days}</p><span style={{ fontSize: '12px' }}>Days</span></div>
                     <div className="col-sm-3"><p className='fs-6 fw-bold' id='hours'>{hours}</p><span style={{ fontSize: '12px' }}>Hours</span></div>
                     <div className="col-sm-3"><p className='fs-6 fw-bold' id='minutes'>{minutes}</p><span style={{ fontSize: '12px' }}>Minutes</span></div>
-                    <div className="col-sm-3"><p className='fs-6 fw-bold' id='seconds'>{seconds}</p><span style={{ fontSize: '12px' }}>Seconds</span></div>
+                    <div className="col-sm-3"><p className='fs-6 fw-bold' id='seconds'>{seconds}</p><span style={{ fontSize: '12px' }}>Seconds</span></div> */}
+                    <p className='fs-6 fw-bold px-2' id='days'>{days}<span className='mt-1' style={{ fontSize: '12px' }}>D</span></p>
+                    <p className='fs-6 fw-bold px-2' id='hours'>{hours}<span className='mt-1' style={{ fontSize: '12px' }}>H</span></p>
+                    <p className='fs-6 fw-bold px-2' id='minutes'>{minutes}<span className='mt-1' style={{ fontSize: '12px' }}>M</span></p>
+                    <p className='fs-6 fw-bold px-2' id='seconds'>{seconds}<span className='mt-1' style={{ fontSize: '12px' }}>S</span></p>
+                    {/* <div className="col-sm-3"></div>
+                    <div className="col-sm-3"></div>
+                    <div className="col-sm-3"></div>
+                    <div className="col-sm-3"></div> */}
                 </div>
             </div>
 
