@@ -85,6 +85,13 @@ const Course = (props) => {
                                         <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.price_per_month_bn}/মাস</h2>
                                     </div>
                                 </div>
+                                <div className="d-none d-lg-block">
+                                <Countdown
+                                    deadline={course.next_batch_eng}
+                                    text={'কোর্স শুরু হতে সময় বাকি'}
+                                />
+                                </div>
+
                                 <div style={{ justifyContent: 'space-between' }} className="d-flex py-2">
                                     <div className="col-md-6">
                                         <div className="d-flex justify-content-center">
@@ -125,10 +132,9 @@ const Course = (props) => {
                                 {/* <h2 style={{ textDecoration: 'underline', cursor: 'pointer' }} className='fs-4 ms-2 text-center my-3'>প্রোমো কোড</h2> */}
 
                                 {
-                                    purchasedLiveCourses.length ? <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block' 
+                                    purchasedLiveCourses.length ? <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block'
                                     // onClick={() => { window.scrollTo(0, 0); }}
                                     >জয়েন ক্লাস</a> :
-                                        <>
                                         <div className="container d-none d-lg-block">
                                             <div className="row">
                                                 <div className="col-md-6 mt-1">
@@ -141,15 +147,9 @@ const Course = (props) => {
                                                         <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
                                                     </div>
                                                 }
-                                                
+
                                             </div>
                                         </div>
-                                        <Countdown 
-                                                deadline = {course.next_batch_eng}
-                                                text={'কোর্স শুরু হতে সময় বাকি'}
-                                                />
-                                        </>
-
                                 }
                                 <p className='text-center mt-3'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
                             </div>
@@ -157,9 +157,10 @@ const Course = (props) => {
                     </div>
 
                     <div className="col-lg-6">
-                        <h2 style={{ 
+                        <h2 style={{
                             // marginTop: '3.5rem', 
-                            fontSize: '22px' }} className="text-center pb-3 fw-bold">কোর্স মডিউল</h2>
+                            fontSize: '22px'
+                        }} className="text-center pb-3 fw-bold">কোর্স মডিউল</h2>
                         {
                             showMore ?
                                 <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -168,11 +169,11 @@ const Course = (props) => {
                                             <div style={{ border: 'none' }} className="accordion-item m-2" key={item.id}>
                                                 <h2 className="accordion-header" id={`flush-heading${item.id}`}>
                                                     <button style={{ backgroundColor: '#f1f1f1', borderRadius: '10px' }} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
-                                                        <span className='pe-2'>&#43;</span>{item.subtitle}
+                                                        <span className='pe-2'>&#43;</span>{item.title}
                                                     </button>
                                                 </h2>
                                                 <div id={`flush-collapse${item.id}`} className="accordion-collapse collapse" aria-labelledby={`flush-heading${item.id}`} data-bs-parent="#accordionFlushExample">
-                                                    <div style={{ backgroundColor: 'white', border: 'none' }} className="accordion-body text-black">{item.brief}
+                                                    <div style={{ backgroundColor: 'white', border: 'none' }} className="accordion-body text-black">{item.description}
                                                     </div>
                                                 </div>
                                             </div>
@@ -185,11 +186,11 @@ const Course = (props) => {
                                             <div style={{ border: 'none' }} className="accordion-item m-2" key={item.id}>
                                                 <h2 className="accordion-header" id={`flush-heading${item.id}`}>
                                                     <button style={{ backgroundColor: '#f1f1f1', borderRadius: '10px' }} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
-                                                        <span className='pe-2'>&#43;</span>{item.subtitle}
+                                                        <span className='pe-2'>&#43;</span>{item.title}
                                                     </button>
                                                 </h2>
                                                 <div id={`flush-collapse${item.id}`} className="accordion-collapse collapse" aria-labelledby={`flush-heading${item.id}`} data-bs-parent="#accordionFlushExample">
-                                                    <div style={{ backgroundColor: 'white', border: 'none' }} className="accordion-body text-black">{item.brief}
+                                                    <div style={{ backgroundColor: 'white', border: 'none' }} className="accordion-body text-black">{item.description}
                                                     </div>
                                                 </div>
                                             </div>
@@ -275,105 +276,104 @@ const Course = (props) => {
             </div>
 
             {/* Display on smaller devices */}
-            
+
             <div style={{ boxShadow: '0 3px 10px 3px #0003' }} className="container-fluid d-lg-none fixed-bottom bg-white">
                 {
-                    purchasedLiveCourses.length ? <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center' 
+                    purchasedLiveCourses.length ? <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center'
                     // onClick={() => { window.scrollTo(0, 0); }}
                     >জয়েন ক্লাস</a>
-                    : 
-                    <div className="my-3">
-                    <div style={{ justifyContent: 'space-between' }} className="d-flex m-2">
-                        <div className="col-md-6">
-                            <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>
-                                ব্যাচ: <b>{course.next_batch}</b> ২০২২
-                            </h2>
-                        </div>
-                        <div className="col-md-6">
-                            <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>সিট বাকি: <b>{course.seat_left}</b></h2>
-                        </div>
-                    </div>
-                    
-                    {/* <Countdown 
+                        :
+                        <div className="my-3">
+                            <div style={{ justifyContent: 'space-between' }} className="d-flex m-2 align-items-center">
+                                <div className="col-md-6">
+                                    <h2 style={{ fontSize: '16px', lineHeight: '24px' }} className=''>
+                                        ব্যাচ: <b>{course.next_batch}</b> ২০২২
+                                    </h2>
+                                </div>
+                                <div className="col-md-6">
+                                    {/* <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>সিট বাকি: <b>{course.seat_left}</b></h2> */}
+                                    <Countdown 
                     deadline = {course.next_batch_eng}
                     text={'কোর্স শুরু হতে সময় বাকি'}
-                    /> */}
-                    
-                    <div className=" justify-content-center">
-                        <div id='free_reg_sm_btn_container' className="col-md-6 mt-1">
-                            <Link to='' className='text-decoration-none'>
-                                <button className='btn-demo mx-auto d-block' 
-                                onClick={() => {
-                                    myRef.current.scrollIntoView()
-                                    document.getElementById('free_reg_sm_btn_container').style.display = 'none'
-                                    }} style={{ fontSize: '24px' }}>
-                                    <div className='d-flex align-items-center' style={{ fontSize: '24px', justifyContent: 'space-between' }}>
-                                        <div className="">
+                    />
+                                </div>
+                            </div>
 
-                                        </div>
-                                        <div className="">
-                                            ৩টি ফ্রি ক্লাস করে দেখুন
-                                        </div>
-                                        <div className="">
-                                            <img src={class_black} width={35} style={{ marginTop: '0rem' }} className='img-fluid ms-1' alt="black door" />
-                                        </div>
-                                    </div>
+                            <div className=" justify-content-center">
+                                <div id='free_reg_sm_btn_container' className="col-md-6 mt-1">
+                                    <Link to='' className='text-decoration-none'>
+                                        <button className='btn-demo mx-auto d-block'
+                                            onClick={() => {
+                                                myRef.current.scrollIntoView()
+                                                document.getElementById('free_reg_sm_btn_container').style.display = 'none'
+                                            }} style={{ fontSize: '24px' }}>
+                                            <div className='d-flex align-items-center' style={{ fontSize: '24px', justifyContent: 'space-between' }}>
+                                                <div className="">
 
-                                </button>
-                            </Link>
+                                                </div>
+                                                <div className="">
+                                                    ৩টি ফ্রি ক্লাস করে দেখুন
+                                                </div>
+                                                <div className="">
+                                                    <img src={class_black} width={35} style={{ marginTop: '0rem' }} className='img-fluid ms-1' alt="black door" />
+                                                </div>
+                                            </div>
+
+                                        </button>
+                                    </Link>
+                                </div>
+                                {
+                                    localStorage.getItem('token') && purchasedLiveCourses.length === 0 ?
+                                        // <div className="col-md-6 mt-1">
+                                        //     <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>{course.offer_price_per_month}/মাস <br /> এখনই ভর্তি হয়ে যান &#8594;</button></Link>
+                                        // </div> 
+                                        <div className="col-md-6 mt-1">
+                                            <Link to={`/checkout/${course.id}`} className='text-decoration-none'>
+                                                <button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>
+                                                    <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
+                                                        <div className='col-sm-6' style={{ fontSize: '24px' }}>
+                                                            &#2547; {course.price_per_month_bn}/মাস
+                                                        </div>
+                                                        <div className='col-sm-6 d-flex' style={{ fontSize: '24px' }}>
+                                                            <div className="">
+                                                                ভর্তি হন
+                                                            </div>
+                                                            <div className="">
+                                                                <img src={door_white} width={25} style={{ marginTop: '-0.2rem' }} className='img-fluid ms-1' alt="black door" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </Link>
+                                        </div>
+                                        :
+                                        <div className="col-md-6 mt-1">
+                                            <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'>
+                                                <button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>
+                                                    <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
+                                                        <div className='col-sm-6' style={{ fontSize: '24px' }}>
+                                                            &#2547; {course.price_per_month_bn}/মাস
+                                                        </div>
+                                                        <div className='col-sm-6 d-flex' style={{ fontSize: '24px' }}>
+                                                            <div className="">
+                                                                ভর্তি হন
+                                                            </div>
+                                                            <div className="">
+                                                                <img src={door_white} width={25} style={{ marginTop: '-0.2rem' }} className='img-fluid ms-1' alt="black door" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </Link>
+                                        </div>
+                                }
+                            </div>
                         </div>
-                        {
-                            localStorage.getItem('token') && purchasedLiveCourses.length === 0 ?
-                                // <div className="col-md-6 mt-1">
-                                //     <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>{course.offer_price_per_month}/মাস <br /> এখনই ভর্তি হয়ে যান &#8594;</button></Link>
-                                // </div> 
-                                <div className="col-md-6 mt-1">
-                                    <Link to={`/checkout/${course.id}`} className='text-decoration-none'>
-                                        <button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>
-                                            <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
-                                                <div className='col-sm-6' style={{ fontSize: '24px' }}>
-                                                    &#2547; {course.price_per_month_bn}/মাস
-                                                </div>
-                                                <div className='col-sm-6 d-flex' style={{ fontSize: '24px' }}>
-                                                    <div className="">
-                                                        ভর্তি হন
-                                                    </div>
-                                                    <div className="">
-                                                        <img src={door_white} width={25} style={{ marginTop: '-0.2rem' }} className='img-fluid ms-1' alt="black door" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </button>
-                                    </Link>
-                                </div>
-                                :
-                                <div className="col-md-6 mt-1">
-                                    <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'>
-                                        <button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>
-                                            <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
-                                                <div className='col-sm-6' style={{ fontSize: '24px' }}>
-                                                    &#2547; {course.price_per_month_bn}/মাস
-                                                </div>
-                                                <div className='col-sm-6 d-flex' style={{ fontSize: '24px' }}>
-                                                    <div className="">
-                                                        ভর্তি হন
-                                                    </div>
-                                                    <div className="">
-                                                        <img src={door_white} width={25} style={{ marginTop: '-0.2rem' }} className='img-fluid ms-1' alt="black door" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </button>
-                                    </Link>
-                                </div>
-                        }
-                    </div>
-                </div>
                 }
 
             </div>
             <Footer />
-            {/* <Tracker props={props} /> */}
+            <Tracker props={props} />
         </div>
     );
 };
