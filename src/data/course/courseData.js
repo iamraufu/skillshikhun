@@ -480,9 +480,9 @@ const courseData = [
             }
         ],
         class_time: '6.30PM - 7:30PM',
-        class_date_1: '6, 8, 10 (August 2022)',
-        class_date_1_value: '2022-08-06',
-        class_date_1_deadline: '2022-08-06T18:30:00.000+06:00',
+        class_date_1: '13, 15, 17 (August 2022)',
+        class_date_1_value: '2022-08-13',
+        class_date_1_deadline: '2022-08-13T18:30:00.000+06:00',
         // class_date_1_deadline:'July 30th 2022 6:30:00 pm',
         class_date_2: '6, 8, 10 (August 2022)',
         class_date_2_value: '2022-08-06',
