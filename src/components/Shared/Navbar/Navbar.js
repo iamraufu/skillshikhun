@@ -55,6 +55,11 @@ const Navbar = () => {
                             <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
                                     color: isActive ? '#f8f9fa' : '#434257',
                                     background: isActive ? '#666699' : '#f4f4f8'
+                                  })} className="nav-link nav-item" to="/dashboard/class-recordings">ক্লাস রেকর্ডিংস</NavLink>
+
+                            <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
+                                    color: isActive ? '#f8f9fa' : '#434257',
+                                    background: isActive ? '#666699' : '#f4f4f8'
                                   })} className="nav-link nav-item" to="/dashboard/video-course">ভিডিও কোর্স</NavLink>
 
                             <NavLink onClick={()=>{window.scrollTo(0, 0);}} style={({ isActive }) => ({
