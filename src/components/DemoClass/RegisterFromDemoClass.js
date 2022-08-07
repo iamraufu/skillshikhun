@@ -362,7 +362,8 @@ const RegisterFromDemoClass = () => {
                             </div>
 
                             <div className="col-sm-4 progress-select">
-                                <h1 className='progress-info-text'>রেজিস্ট্রেশন</h1>
+                                {/* <h1 className='progress-info-text'>রেজিস্ট্রেশন</h1> */}
+                                <h1 className='progress-info-text'>কোর্স ভিডিও</h1>
                             </div>
 
                         </div>
