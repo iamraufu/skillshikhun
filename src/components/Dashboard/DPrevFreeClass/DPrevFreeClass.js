@@ -37,12 +37,10 @@ const DPrevFreeClass = () => {
     }, [phone])
 
     const moduleHandler = item => {
-        console.log("Module Clicked")
         item.isFree === false && hide(item.id);
     }
 
     const videoHandler = item => {
-        console.log("Video Clicked");
         item.isFree === false && shakeButton();
     }
 
@@ -69,7 +67,12 @@ const DPrevFreeClass = () => {
                             style={{fontSize:'18px'}} 
                             className='pt-2 mb-3 ps-2 fw-bold'>{course[0]?.title} ফ্রি লাইভ ক্লাস</h1>
                         <div className="freeClass-responsive-embed-youtube">
-                            <iframe
+                            {
+                                videoId === '' ? 
+                                <div style={{height:'', width:'100%'}} className="bg-white text-danger">
+                                    বাকি লাইভ ক্লাস গুলো সরাসরি ইন্সট্রাক্টর এর সাথে করার জন্য ভর্তি হয়ে যান এখনই
+                                </div> :
+                                <iframe
                                 style={{ borderRadius: '15px' }}
                                 src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
                                 title="Free Class Video"
@@ -77,6 +80,7 @@ const DPrevFreeClass = () => {
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen>
                             </iframe>
+                            }
                         </div>
 
                         {/* <div className="d-flex justify-content-between p-2 mt-2">
