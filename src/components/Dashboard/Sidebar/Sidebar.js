@@ -64,7 +64,7 @@ const Sidebar = () => {
                                     // onClick={() => clickHandler('free-class')} 
                                     className="dashboard-nav-item">
                                         <img src={free} width={30} className='img-fluid' alt="Free Class" />
-                                        <span className='dashboard-nav-text'>ফ্রি ক্লাস</span>
+                                        <span className='dashboard-nav-text'>ডেমো ক্লাস</span>
                                     </div>
                                 </NavLink>
 
