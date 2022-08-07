@@ -1,6 +1,6 @@
 import React from 'react';
 import './Menu.css';
-import video from '../../../images/dashboard/video.svg';
+// import video from '../../../images/dashboard/video.svg';
 import live from '../../../images/dashboard/live.svg';
 import payment from '../../../images/dashboard/payment.svg';
 import profile from '../../../images/dashboard/profile.svg';
@@ -44,7 +44,7 @@ const Menu = () => {
                     background: isActive ? '#96b4eb' : '#ffffff',
                     borderRadius: '15px'
                 })} className="col-md-2 col-sm-2 menu-item mt-2" to="/dashboard/class-recordings">
-                    <img src={video} className='img-fluid mx-auto d-block menu-image' width={35} alt="menu item" />
+                    <img src={video_library} className='img-fluid mx-auto d-block menu-image' width={35} alt="menu item" />
                 </NavLink>
 
                 <NavLink onClick={() => { window.scrollTo(0, 0); }} style={({ isActive }) => ({
@@ -66,7 +66,7 @@ const Menu = () => {
 
             <div className="d-flex justify-content-around align-items-center">
                 <div className="col-md-2 col-sm-2">
-                    <p className="menu-text text-center ps-1">ফ্রি ক্লাস</p>
+                    <p className="menu-text text-center ps-1">ডেমো ক্লাস</p>
                 </div>
                 {/* <div className="col-md-2 col-sm-2">
                     <p className="menu-text text-center ps-2">ভিডিও কোর্স</p>
