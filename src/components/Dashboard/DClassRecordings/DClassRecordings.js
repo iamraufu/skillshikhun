@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './DClassRecordings.css';
 import DNavbar from '../DNavbar/DNavbar';
 import Menu from '../Menu/Menu';
@@ -8,8 +8,25 @@ import { useNavigate } from 'react-router-dom';
 
 const DClassRecordings = () => {
     
+    const phone = localStorage.getItem('phone');
     const navigate = useNavigate();
-    
+    const [demoClasses, setDemoClasses] = useState([]);
+    const [freeClasses, setFreeClasses] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
+            const data = await res.json();
+            setDemoClasses(data);
+        }
+        fetchData();
+    }, [phone])
+
+    useEffect(() => {
+        const demo_classes = demoClasses.map(dm => dm.category).filter(category => courseData.map(cd => cd.name).includes(category))
+        setFreeClasses(courseData.filter(course => demo_classes.includes(course.name)))
+    }, [demoClasses])
+
     return (
         <div>
             <DNavbar />
@@ -29,9 +46,9 @@ const DClassRecordings = () => {
                     <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px' }} className="col-xl-9 col-lg-9 col-md-12 p-5 mb-5">
                         
                         <div className="row justify-content-center align-items-center mb-5">
-                            <h2 className='fs-5 fw-bold my-2'>ফ্রি ক্লাসের রেকর্ডিংসমূহ</h2>
+                            <h2 className='fs-5 fw-bold my-2'>ডেমো ক্লাসের রেকর্ডিংসমূহ</h2>
                             {
-                                courseData.map(course =>
+                                freeClasses.map(course =>
                                     <div key={course.id} onClick={()=>{
                                         navigate(`/dashboard/previous/free-class/${course.id}`)
                                     }} style={{ borderRadius: '10px' }} className="col-sm-5 bg-white m-2 class-recording-course-items">
@@ -48,9 +65,7 @@ const DClassRecordings = () => {
                                             </div>
                                         </div>
                                     </div>
-                                )
-                            }
-
+                                )}
                         </div>
                     </div>
                 </div>
