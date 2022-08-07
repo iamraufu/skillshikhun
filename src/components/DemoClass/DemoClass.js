@@ -361,7 +361,8 @@ const DemoClass = (props) => {
 
     return (
         <div style={{ backgroundColor: 'rgb(243, 245, 249)', borderRadius: '15px', border: '1px solid #ececec' }} className='hero-demo-container'>
-            <h1 style={{ fontSize: '22px', color: '#343b6d', fontWeight: '600' }} className='mt-4 text-center'>৩টি ফ্রি লাইভ ক্লাস বুকিং করে নিন</h1>
+            {/* <h1 style={{ fontSize: '22px', color: '#343b6d', fontWeight: '600' }} className='mt-4 text-center'>৩টি ফ্রি লাইভ ক্লাস বুকিং করে নিন</h1> */}
+            <h1 style={{ fontSize: '22px', color: '#343b6d', fontWeight: '600' }} className='mt-4 text-center'>লাইভ কোর্সের কিছু ভিডিও দেখুন ফ্রি তে !</h1>
 
             {/* Register Component */}
             <div id='register_demo_class'>
@@ -406,7 +407,8 @@ const DemoClass = (props) => {
                                 </div>
 
                                 <div className="col-sm-4 progress-select">
-                                    <h1 className='progress-info-text'>রেজিস্ট্রেশন</h1>
+                                    {/* <h1 className='progress-info-text'>রেজিস্ট্রেশন</h1> */}
+                                    <h1 className='progress-info-text'>কোর্স ভিডিও</h1>
                                 </div>
 
                             </div>
