@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './DemoClass.css';
 import { useForm } from "react-hook-form";
 import courseData from '../../data/course/courseData.js';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import up from '../../images/up.svg';
+import { useNavigate } from 'react-router-dom';
 
 const HeroDemo = (props) => {
     
     const phone = localStorage.getItem('phone');
+    const navigate = useNavigate();
     const [userPhoneData, setUserPhoneData] = useState({})
     const [category, setCategory] = useState(props?.course?.name || "Web Development");
     const [demoClasses, setDemoClasses] = useState([]);
@@ -59,19 +61,26 @@ const HeroDemo = (props) => {
         // }
 
         if(selectedCategory.length > 0){
-            Swal.fire({
-                title: 'আপনি ইতিমধ্যে রেজিস্ট্রেশন করে ফেলেছেন!',
-                text: `আপনার ${selectedCategory[0].category} ক্লাসের তারিখ ${selectedCategory[0].class_date} এবং ক্লাসের সময় ${selectedCategory[0].class_time}`,
-                icon: 'info',
-                confirmButtonText: 'ড্যাশবোর্ড'
-            })
-            setTimeout(() => {
-                window.location.href = '/dashboard';
-            }, 2000); 
+            navigate(`/dashboard/previous/free-class/${courseCategory[0].id}`);
+            // Swal.fire({
+            //     title: 'আপনি ইতিমধ্যে রেজিস্ট্রেশন করে ফেলেছেন!',
+            //     text: `আপনার ${selectedCategory[0].category} ক্লাসের তারিখ ${selectedCategory[0].class_date} এবং ক্লাসের সময় ${selectedCategory[0].class_time}`,
+            //     icon: 'info',
+            //     confirmButtonText: 'ড্যাশবোর্ড'
+            // })
+            // setTimeout(() => {
+            //     window.location.href = '/dashboard';
+            // }, 2000); 
         }
 
         else{
-            const demoClassDetails = {...data , phone:userPhoneData.phone};
+            const demoClassDetails = {
+                ...data , 
+                phone:userPhoneData.phone,
+                isCalled:'No',
+                wannaPurchase:'No',
+                contactedBy:'default@example.com'
+            };
             bookDemoClass(demoClassDetails);
         }
     }
@@ -88,8 +97,9 @@ const HeroDemo = (props) => {
             name: userPhoneData.name,
             email: userPhoneData.email,
             category: classDetails.category,
-            class_time: classDetails.classTime,
-            class_date: classDetails.classDate,
+            isCalled:classDetails.isCalled,
+            wannaPurchase:classDetails.wannaPurchase,
+            contactedBy:classDetails.contactedBy,
             date: `${day}-${month}-${year} at ${time}`
         };
 
@@ -109,48 +119,50 @@ const HeroDemo = (props) => {
             body: JSON.stringify(details)
         })
             .then(res => res.json())
-            Swal.fire(
-                'আপনার ফ্রি ক্লাস রেজিস্ট্রেশন সম্পন্ন হয়েছে!',
-                'আপনি ড্যাশবোর্ড থেকে ফ্রি ক্লাস টি করতে পারবেন!',
-                'success'
-                )
-                sendSMS(details);
-                scheduleSMS(details);
-                setTimeout(() => {
-                    window.location.href = '/dashboard/free-class';
-                }, 2000); 
+            console.log(props.course.id);
+            navigate(`/dashboard/previous/free-class/${courseCategory[0].id}`);
+            // Swal.fire(
+            //     'আপনার ফ্রি ক্লাস রেজিস্ট্রেশন সম্পন্ন হয়েছে!',
+            //     'আপনি ড্যাশবোর্ড থেকে ফ্রি ক্লাস টি করতে পারবেন!',
+            //     'success'
+            //     )
+            //     sendSMS(details);
+            //     scheduleSMS(details);
+            //     setTimeout(() => {
+            //         window.location.href = '/dashboard/free-class';
+            //     }, 2000); 
     }
 
     // function for send sms after class free class registration
-    const sendSMS = (details) => {
-        const api_key = 'H8w2sI5oD8vDoZ153ET6FCP05X7pEYU7ydMZapzu';
-        const name = details.name;
-        const date = details.class_date;
-        const time = details.class_time;
-        const course = details.category;
-        // const zoom_link = courseCategory[0].zoom_link;
-        const message = `প্রিয় ${name}, আপনার ${course} এর ফ্রি ক্লাস রেজিস্ট্রেশন সম্পন্ন হয়েছে | ক্লাসের তারিখ ${date} এবং ক্লাসের সময় ${time} | ক্লাসটি করতে আপনার ফোন নম্বর ও পাসওয়ার্ড দিয়ে ড্যাশবোর্ড এ লগইন করুন`
-        const sender_id = "S.Shikhun"
-        const phone = details.phone;
-        fetch(`https://api.sms.net.bd/sendsms?api_key=${api_key}&sender_id=${sender_id}&msg=${message}&to=88${phone}`)
-            .then(res => res.json())
-    }
+    // const sendSMS = (details) => {
+    //     const api_key = 'H8w2sI5oD8vDoZ153ET6FCP05X7pEYU7ydMZapzu';
+    //     const name = details.name;
+    //     const date = details.class_date;
+    //     const time = details.class_time;
+    //     const course = details.category;
+    //     // const zoom_link = courseCategory[0].zoom_link;
+    //     const message = `প্রিয় ${name}, আপনার ${course} এর ফ্রি ক্লাস রেজিস্ট্রেশন সম্পন্ন হয়েছে | ক্লাসের তারিখ ${date} এবং ক্লাসের সময় ${time} | ক্লাসটি করতে আপনার ফোন নম্বর ও পাসওয়ার্ড দিয়ে ড্যাশবোর্ড এ লগইন করুন`
+    //     const sender_id = "S.Shikhun"
+    //     const phone = details.phone;
+    //     fetch(`https://api.sms.net.bd/sendsms?api_key=${api_key}&sender_id=${sender_id}&msg=${message}&to=88${phone}`)
+    //         .then(res => res.json())
+    // }
 
     // function for scheduleSMS
-    const scheduleSMS = (details) => {
-        const api_key = 'H8w2sI5oD8vDoZ153ET6FCP05X7pEYU7ydMZapzu';
-        const name = details.name;
-        const date = details.class_date;
-        const time = details.class_time;
-        const courseName = details.category;
-        // const zoom_link = courseCategory[0].zoom_link;
-        const message = `প্রিয় ${name}, আপনার ${courseName} এর ফ্রি ক্লাস রেজিস্ট্রেশন সম্পন্ন হয়েছে | ক্লাসের তারিখ ${date} এবং ক্লাসের সময় ${time} | ক্লাসটি করতে আপনার ফোন নম্বর ও পাসওয়ার্ড দিয়ে ড্যাশবোর্ড এ লগইন করুন`
+    // const scheduleSMS = (details) => {
+    //     const api_key = 'H8w2sI5oD8vDoZ153ET6FCP05X7pEYU7ydMZapzu';
+    //     const name = details.name;
+    //     const date = details.class_date;
+    //     const time = details.class_time;
+    //     const courseName = details.category;
+    //     // const zoom_link = courseCategory[0].zoom_link;
+    //     const message = `প্রিয় ${name}, আপনার ${courseName} এর ফ্রি ক্লাস রেজিস্ট্রেশন সম্পন্ন হয়েছে | ক্লাসের তারিখ ${date} এবং ক্লাসের সময় ${time} | ক্লাসটি করতে আপনার ফোন নম্বর ও পাসওয়ার্ড দিয়ে ড্যাশবোর্ড এ লগইন করুন`
 
-        const sender_id = `S.Shikhun`;
-        const phone = details.phone;
-        fetch(`https://api.sms.net.bd/sendsms?api_key=${api_key}&sender_id=${sender_id}&msg=${message}&to=88${phone}&schedule=${time-1} 21:00:00`)
-            .then(res => res.json())
-    }
+    //     const sender_id = `S.Shikhun`;
+    //     const phone = details.phone;
+    //     fetch(`https://api.sms.net.bd/sendsms?api_key=${api_key}&sender_id=${sender_id}&msg=${message}&to=88${phone}&schedule=${time-1} 21:00:00`)
+    //         .then(res => res.json())
+    // }
 
     return (
         <section className='demo-class-container container'>
@@ -164,7 +176,8 @@ const HeroDemo = (props) => {
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
-                                <h2 style={{ fontSize: '16px', color: '#343b6d', fontWeight: '600' }} className='mt-2 text-center mx-2'>যে কোর্সের ফ্রি ক্লাস করতে চাচ্ছেন</h2>
+                                {/* <h2 style={{ fontSize: '16px', color: '#343b6d', fontWeight: '600' }} className='mt-2 text-center mx-2'>যে কোর্সের ফ্রি ক্লাস করতে চাচ্ছেন</h2> */}
+                                <h2 style={{ fontSize: '16px', color: '#343b6d', fontWeight: '600' }} className='mt-2 text-center mx-2'>যে কোর্সের ক্লাসের ভিডিও দেখতে চাচ্ছেন</h2>
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
@@ -191,7 +204,7 @@ const HeroDemo = (props) => {
                             }
 
                             {/* div for selecting class date */}
-                            <div className="d-flex justify-content-center">
+                            {/* <div className="d-flex justify-content-center">
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
@@ -199,20 +212,20 @@ const HeroDemo = (props) => {
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
-                            </div>
+                            </div> */}
 
-                            <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classDate", { required: true })}>
+                            {/* <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classDate", { required: true })}> */}
                                 {/* <option value="" disabled selected>ক্লাসের তারিখ বেছে নিন</option> */}
-                                <option value={courseCategory[0].class_date_1}>{courseCategory[0].class_date_1}</option>
+                                {/* <option value={courseCategory[0].class_date_1}>{courseCategory[0].class_date_1}</option> */}
                                 {/* <option value={courseCategory[0].class_date_2}>{courseCategory[0].class_date_2}</option> */}
-                            </select>
-                            {errors.classDate && <div className="">
+                            {/* </select> */}
+                            {/* {errors.classDate && <div className="">
                                 <img src={up} width={20} className='img-fluid' alt="required" />
                                 <span className='text-danger fw-bold'>This field is required</span>
-                            </div>}
+                            </div>} */}
 
                             {/* div for selecting class time */}
-                            <div className="d-flex justify-content-center">
+                            {/* <div className="d-flex justify-content-center">
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
@@ -220,19 +233,20 @@ const HeroDemo = (props) => {
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
-                            </div>
+                            </div> */}
 
-                            <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classTime", { required: true })}>
+                            {/* <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classTime", { required: true })}> */}
                                 {/* <option value="" disabled selected>ক্লাসের সময় বেছে নিন</option> */}
-                                <option value={courseCategory[0].class_time}>{courseCategory[0].class_time}</option>
-                            </select>
-                            {errors.classTime && <div className="">
+                                {/* <option value={courseCategory[0].class_time}>{courseCategory[0].class_time}</option> */}
+                            {/* </select> */}
+                            {/* {errors.classTime && <div className="">
                                 <img src={up} width={20} className='img-fluid' alt="required" />
                                 <span className='text-danger fw-bold'>This field is required</span>
-                            </div>}
+                            </div>} */}
                             
                             <div id="demo_submit_container">
-                                <input id='submit_btn' className='form-input-submit my-4' value='ফ্রি ক্লাস বুকিং করে নিন' type="submit" disabled={disabled} />
+                                {/* <input id='submit_btn' className='form-input-submit my-4' value='ফ্রি ক্লাস বুকিং করে নিন' type="submit" disabled={disabled} /> */}
+                                <input id='submit_btn' className='form-input-submit my-4' value='দেখা শুরু করুন' type="submit" disabled={disabled} />
                             </div>
 
                         </form>
