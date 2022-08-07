@@ -138,7 +138,7 @@ const Course = (props) => {
                                         <div className="container d-none d-lg-block">
                                             <div className="row">
                                                 <div className="col-md-6 mt-1">
-                                                    <Link to='' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3' onClick={() => myRef.current.scrollIntoView()}>৩টি ফ্রি ক্লাস করে দেখুন &#8594;</button></Link>
+                                                    <Link to='' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3' onClick={() => myRef.current.scrollIntoView()}>ক্লাসের ভিডিও দেখুন &#8594;</button></Link>
                                                 </div>
                                                 {
                                                     localStorage.getItem('token') && purchasedLiveCourses.length === 0 ? <div className="col-md-6 mt-1">
@@ -312,7 +312,7 @@ const Course = (props) => {
 
                                                 </div>
                                                 <div className="">
-                                                    ৩টি ফ্রি ক্লাস করে দেখুন
+                                                ক্লাসের ভিডিও দেখুন
                                                 </div>
                                                 <div className="">
                                                     <img src={class_black} width={35} style={{ marginTop: '0rem' }} className='img-fluid ms-1' alt="black door" />
