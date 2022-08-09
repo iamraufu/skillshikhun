@@ -62,10 +62,10 @@ const DPrevFreeClass = () => {
             <div className="container pb-5">
 
                 <div className="prev_free_live_course_container row">
-                    <div style={{ position: 'absolute', zIndex: '4', top: '60px', backgroundColor: '#f3f5f9' }} className="col-md-8 position-sticky">
+                    <div style={{ position: 'absolute', zIndex: '4', top: '55px', backgroundColor: '#f3f5f9' }} className="col-md-8 position-sticky">
                         <h1
                             style={{fontSize:'18px'}} 
-                            className='pt-2 mb-3 ps-2 fw-bold'>{course[0]?.title} ফ্রি লাইভ ক্লাস</h1>
+                            className='pt-3 mb-3 ps-2 fw-bold'>{course[0]?.title} ফ্রি লাইভ ক্লাস</h1>
                         <div className="freeClass-responsive-embed-youtube">
                             {
                                 videoId === '' ? 
@@ -110,7 +110,7 @@ const DPrevFreeClass = () => {
                         </div>
 
                         {
-                            videoTitle ? <h2 className='fs-6 mt-3 px-2 fw-bold'>Module {moduleNumber}: <span className='ms-2'>{videoTitle}</span></h2> : <div className="mt-2"><TextSkeleton /></div>
+                            videoTitle ? <h2 className='fs-6 my-3 px-2 fw-bold'>Module {moduleNumber}: <span className='ms-2'>{videoTitle}</span></h2> : <div className="mt-2"><TextSkeleton /></div>
                         }
                         {
                             videoDescription ? <p style={{ textAlign: 'justify' }} className='fs-6 mt-3 px-2 d-none d-lg-block'>{videoDescription}</p> : <div className="mt-2"><TextSkeleton /></div>
