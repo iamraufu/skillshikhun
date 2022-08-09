@@ -62,7 +62,7 @@ const DPrevFreeClass = () => {
             <div className="container pb-5">
 
                 <div className="prev_free_live_course_container row">
-                    <div style={{ position: 'absolute', zIndex: '2', top: '60px', backgroundColor: '#f3f5f9' }} className="col-md-8 position-sticky">
+                    <div style={{ position: 'absolute', zIndex: '4', top: '60px', backgroundColor: '#f3f5f9' }} className="col-md-8 position-sticky">
                         <h1
                             style={{fontSize:'18px'}} 
                             className='pt-2 mb-3 ps-2 fw-bold'>{course[0]?.title} ফ্রি লাইভ ক্লাস</h1>
