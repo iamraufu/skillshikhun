@@ -1,7 +1,7 @@
 import React from 'react';
 import Checkout from '../Checkout/Checkout';
-import checkbox from '../../images/checkbox.webp';
-import checkbox_purple from '../../images/checkbox_purple.webp';
+import checkbox from '../../images/checkbox.svg';
+import checkbox_purple from '../../images/checkbox_purple.svg';
 
 const PurchaseCheckout = () => {
     return (

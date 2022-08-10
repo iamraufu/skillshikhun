@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import './RegisterFromDemoClass.css';
-import checkbox from '../../images/checkbox.webp';
-import checkbox_purple from '../../images/checkbox_purple.webp';
+import checkbox from '../../images/checkbox.svg';
+import checkbox_purple from '../../images/checkbox_purple.svg';
 
 const RegisterFromDemoClass = () => {
 

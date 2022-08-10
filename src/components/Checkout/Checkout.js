@@ -5,16 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserShield } from '@fortawesome/free-solid-svg-icons';
 import Navbar from '../Shared/Navbar/Navbar';
 import courseData from '../../data/course/courseData.js';
-// import bkash from '../../images/bkash.webp';
-// import payment_medium from '../../images/payment-medium.webp';
+// import bkash from '../../images/bkash.svg';
+// import payment_medium from '../../images/payment-medium.svg';
 import CourseReview from '../Course/CourseReview';
 // import Payment from '../Payment/Payment';
-// import tick from '../../images/tick.webp';
-import untick from '../../images/untick.webp';
-import checkbox from '../../images/checkbox.webp';
+// import tick from '../../images/tick.svg';
+import untick from '../../images/untick.svg';
+import checkbox from '../../images/checkbox.svg';
 // import Footer from '../Shared/Footer/Footer';
 // import AwesomeSlider from 'react-awesome-slider';
-import load from '../../images/load.webp';
+import load from '../../images/load.gif';
 import Typewriter from 'typewriter-effect';
 
 const Checkout = () => {

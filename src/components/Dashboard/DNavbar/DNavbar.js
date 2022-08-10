@@ -3,10 +3,10 @@ import './DNavbar.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import logo from '../../../images/logo.webp';
-// import user from '../../../images/dashboard/user.webp';
-import web from '../../../images/dashboard/web.webp';
-import out from '../../../images/dashboard/out.webp';
+import logo from '../../../images/logo.png';
+// import user from '../../../images/dashboard/user.svg';
+import web from '../../../images/dashboard/web.svg';
+import out from '../../../images/dashboard/out.svg';
 import useAuth from '../../../hooks/useAuth';
 import { useEffect } from 'react';
 

@@ -4,7 +4,7 @@ import HeroDemo from '../../DemoClass/HeroDemo';
 import DNavbar from '../DNavbar/DNavbar';
 import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
-// import video_library from '../../../images/dashboard/video_library.webp';
+// import video_library from '../../../images/dashboard/video_library.svg';
 import courseData from '../../../data/course/courseData';
 
 // import { ZoomMtg } from '@zoomus/websdk';

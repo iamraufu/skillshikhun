@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './VideoPlayerNavbar.css';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../images/logoText.webp';
-import starImage from '../../images/star.webp';
+import logo from '../../images/logoText.png';
+import starImage from '../../images/star.svg';
 
 const VideoPlayerNavbar = (props) => {
 

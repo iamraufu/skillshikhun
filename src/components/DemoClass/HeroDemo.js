@@ -3,7 +3,7 @@ import './DemoClass.css';
 import { useForm } from "react-hook-form";
 import courseData from '../../data/course/courseData.js';
 // import Swal from 'sweetalert2';
-import up from '../../images/up.webp';
+import up from '../../images/up.svg';
 import { useNavigate } from 'react-router-dom';
 
 const HeroDemo = (props) => {

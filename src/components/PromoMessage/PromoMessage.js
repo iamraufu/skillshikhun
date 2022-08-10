@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react';
 import './PromoMessage.css';
-import playStore from '../../images/playStoreIcon.webp';
+import playStore from '../../images/playStoreIcon.svg';
 import { useEffect } from 'react';
 import TextSkeleton from '../Skeleton/TextSkeleton';
 

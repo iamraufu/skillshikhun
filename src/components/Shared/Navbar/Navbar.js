@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
-import logo from '../../../images/logo.webp';
+import logo from '../../../images/logo.png';
 import useAuth from '../../../hooks/useAuth';
 
 const Navbar = () => {

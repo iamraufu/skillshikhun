@@ -3,8 +3,8 @@ import './AllCourses.css';
 import courseData from '../../data/course/courseData';
 import { Link } from 'react-router-dom';
 import Navbar from '../Shared/Navbar/Navbar';
-import liveClass from '../../images/liveClass.webp';
-import live from '../../images/live.webp';
+import liveClass from '../../images/liveClass.svg';
+import live from '../../images/live.png';
 import Countdown from '../Countdown/Countdown';
 // import Footer from '../Shared/Footer/Footer';
 

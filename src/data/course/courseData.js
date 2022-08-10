@@ -1,15 +1,15 @@
-import videoImage from '../../images/courses/ve.webp';
-// import videoImage from '../../images/full-stack-video-editing.webp';
-import digitalImage from '../../images/courses/dm.webp';
-// import digitalImage from '../../images/full-stack-digital-marketing.webp';
-import webImage from '../../images/courses/wd.webp';
-// import webImage from '../../images/full-stack-web-development.webp';
-import graphicsImage from '../../images/courses/gd.webp';
-// import graphicsImage from '../../images/full-stack-graphic-design.webp';
-import ve_i from '../../images/ve_i.webp';
-import dm_i from '../../images/dm_i.webp';
-import wd_i from '../../images/wd_i.webp';
-import gd_i from '../../images/gd_i.webp';
+import videoImage from '../../images/courses/ve.jpg';
+// import videoImage from '../../images/full-stack-video-editing.svg';
+import digitalImage from '../../images/courses/dm.jpg';
+// import digitalImage from '../../images/full-stack-digital-marketing.svg';
+import webImage from '../../images/courses/wd.jpg';
+// import webImage from '../../images/full-stack-web-development.svg';
+import graphicsImage from '../../images/courses/gd.jpg';
+// import graphicsImage from '../../images/full-stack-graphic-design.svg';
+import ve_i from '../../images/ve_i.jpg';
+import dm_i from '../../images/dm_i.jpg';
+import wd_i from '../../images/wd_i.jpg';
+import gd_i from '../../images/gd_i.jpg';
 
 const courseData = [
     // Video Editing

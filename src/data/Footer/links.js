@@ -1,8 +1,8 @@
-import fb from '../../images/fb.webp'
-import i from '../../images/i.webp';
-import l from '../../images/l.webp';
-import yt from '../../images/yt.webp';
-import tk from '../../images/tiktok.webp';
+import fb from '../../images/fb.svg'
+import i from '../../images/i.svg';
+import l from '../../images/l.svg';
+import yt from '../../images/yt.svg';
+import tk from '../../images/tiktok.svg';
 
 const links = [
     {

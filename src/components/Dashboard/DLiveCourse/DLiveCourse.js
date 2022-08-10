@@ -3,8 +3,8 @@ import DNavbar from '../DNavbar/DNavbar';
 import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
 import courseData from '../../../data/course/courseData';
-import live from '../../../images/live.webp';
-import liveClass from '../../../images/liveClass.webp';
+import live from '../../../images/live.png';
+import liveClass from '../../../images/liveClass.svg';
 import { Link, useNavigate } from 'react-router-dom';
 
 // import { ZoomMtg } from '@zoomus/websdk';

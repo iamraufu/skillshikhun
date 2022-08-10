@@ -2,7 +2,7 @@
     "short_name": "Skill Shikhun",
     "name": "Skill Shikhun",
     "icons": [{
-        "src": "./logo.webp",
+        "src": "./logo.png",
         "type": "image/png",
         "purpose": "any maskable",
         "sizes": "1024x1024"

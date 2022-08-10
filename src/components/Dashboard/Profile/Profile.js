@@ -5,9 +5,9 @@ import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
-import update from '../../../images/dashboard/update.webp';
-import userPhoto from '../../../images/dashboard/user.webp';
-import logout from '../../../images/dashboard/logout.webp';
+import update from '../../../images/dashboard/update.svg';
+import userPhoto from '../../../images/dashboard/user.svg';
+import logout from '../../../images/dashboard/logout.svg';
 
 const Profile = () => {
 
@@ -132,10 +132,10 @@ const Profile = () => {
                         <div style={{ backgroundColor: 'white', boxShadow: '0 5px 15px #c4c4c44d', maxWidth: '500px', borderRadius: '15px' }} className="mt-3 p-4 mx-auto">
 
                             <div className="d-flex justify-content-between">
-                                <button id='update_btn' onClick={() => clickHandler()} className=''>
+                                <button id='update_btn' onClick={() => clickHandler()} className='btn'>
                                     <img src={update} width={20} alt="update" /> আপডেট
                                 </button>
-                                <button onClick={() => logOut()} className=''><img src={logout} width={18} alt="update" /> লগ আউট</button>
+                                <button onClick={() => logOut()} className='btn'><img src={logout} width={18} alt="update" /> লগ আউট</button>
                             </div>
 
                             {

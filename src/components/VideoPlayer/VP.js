@@ -3,8 +3,8 @@ import './VideoPlayer.css'
 import VideoPlayerNavbar from './VideoPlayerNavbar';
 import courseData from '../../data/course/courseData'
 import { useParams } from 'react-router-dom';
-import sunImage from '../../images/sun.webp';
-import moonImage from '../../images/moon.webp';
+import sunImage from '../../images/sun.svg';
+import moonImage from '../../images/moon.svg';
 
 const VP = () => {
 

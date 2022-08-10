@@ -5,8 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 
-// import google from '../../images/google.webp';
-// import facebook from '../../images/facebook.webp';
+// import google from '../../images/google.svg';
+// import facebook from '../../images/facebook.svg';
 
 const LoginHandler = () => {
     let navigate = useNavigate();

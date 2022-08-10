@@ -3,10 +3,10 @@ import './Course.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faClock, faCalendarDays, faPhone, faCheck, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import courseData from '../../data/course/courseData.js';
-// import courseFee from '../../images/course-fee.webp';
-import live from '../../images/liveClass.webp';
+// import courseFee from '../../images/course-fee.svg';
+import live from '../../images/liveClass.svg';
 import { Link } from 'react-router-dom';
-import paymentMethods from '../../images/payment-methods.webp';
+import paymentMethods from '../../images/payment-methods.svg';
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
 const Course2 = (props) => {

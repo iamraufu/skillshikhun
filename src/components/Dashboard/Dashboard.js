@@ -6,12 +6,12 @@ import Sidebar from './Sidebar/Sidebar.js';
 // import AwesomeSlider from 'react-awesome-slider';
 // import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import 'react-awesome-slider/dist/styles.css';
-import free_class from '../../images/dashboard/free_class.webp'
-import live from '../../images/dashboard/live.webp'
-// import liveClass from '../../images/live.webp'
-import video from '../../images/dashboard/video.webp';
-import payment from '../../images/dashboard/payment.webp';
-// import video_library from '../../images/dashboard/video_library.webp';
+import free_class from '../../images/dashboard/free_class.svg'
+import live from '../../images/dashboard/live.svg'
+// import liveClass from '../../images/live.svg'
+import video from '../../images/dashboard/video.svg';
+import payment from '../../images/dashboard/payment.svg';
+// import video_library from '../../images/dashboard/video_library.svg';
 import Menu from './Menu/Menu';
 import courseData from '../../data/course/courseData';
 // import liveClassData from '../../data/course/liveClassData';

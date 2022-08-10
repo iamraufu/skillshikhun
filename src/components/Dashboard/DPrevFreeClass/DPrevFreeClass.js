@@ -6,7 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import courseData from '../../../data/course/courseData';
 import TextSkeleton from '../../../components/Skeleton/TextSkeleton';
-import lock from '../../../images/dashboard/lock.webp';
+import lock from '../../../images/dashboard/lock.svg';
 
 const DPrevFreeClass = () => {
 

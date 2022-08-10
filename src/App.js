@@ -18,7 +18,7 @@ import DLiveCourse from './components/Dashboard/DLiveCourse/DLiveCourse';
 import DFreeClass from './components/Dashboard/DFreeClass/DFreeClass';
 import DVideoCourse from './components/Dashboard/DVideoCourse/DVideoCourse';
 import DPaymentHistory from './components/Dashboard/DPaymentHistory/DPaymentHistory';
-import logo from './images/logo.webp';
+import logo from './images/logo.png';
 import Privacy from './components/Privacy/Privacy';
 import Terms from './components/Terms/Terms';
 import DLiveCourseVideo from './components/Dashboard/DLiveCourse/DLiveCourseVideo';

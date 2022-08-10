@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css';
-import logoText from '../../../images/logoText.webp';
-import landingFront from '../../../images/landing-front.webp';
+import logoText from '../../../images/logoText.png';
+import landingFront from '../../../images/landing-front.png';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import DemoClass from '../../DemoClass/DemoClass';

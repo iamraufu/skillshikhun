@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Success.css';
 // import Navbar from '../Shared/Navbar/Navbar';
-import done from '../../images/done.webp';
+import done from '../../images/done.svg';
 import { Link } from 'react-router-dom';
 
 const Success = () => {
