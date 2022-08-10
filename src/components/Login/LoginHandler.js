@@ -5,8 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 
-// import google from '../../images/google.svg';
-// import facebook from '../../images/facebook.svg';
+// import google from '../../images/google.webp';
+// import facebook from '../../images/facebook.webp';
 
 const LoginHandler = () => {
     let navigate = useNavigate();
@@ -253,7 +253,6 @@ const LoginHandler = () => {
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
                     localStorage.setItem('name', JSON.stringify(data.data.user.name));
-                    // console.log(document.referrer)
                     navigate(from, { replace: true })
                 }
                 else {
@@ -305,9 +304,6 @@ const LoginHandler = () => {
                 // document.getElementById('password_reset_container').style.display = 'block';
             }
         })
-            .catch(err => {
-                console.log(err)
-            })
     }
 
     // function for forget password otp verification
@@ -326,7 +322,6 @@ const LoginHandler = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.status === true) {
                     document.getElementById('reset_password_otp_verification_container').style.display = 'none'
                     document.getElementById('password_reset_container').style.display = 'block';
@@ -356,7 +351,6 @@ const LoginHandler = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 Swal.fire({
                     icon: 'success',
                     title: 'Password Reset Successfully',

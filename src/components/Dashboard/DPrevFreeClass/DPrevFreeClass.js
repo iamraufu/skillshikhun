@@ -6,7 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import courseData from '../../../data/course/courseData';
 import TextSkeleton from '../../../components/Skeleton/TextSkeleton';
-import lock from '../../../images/dashboard/lock.svg';
+import lock from '../../../images/dashboard/lock.webp';
 
 const DPrevFreeClass = () => {
 
@@ -30,10 +30,7 @@ const DPrevFreeClass = () => {
         }).then(res => res.json())
             .then(result => {
                 setFreeClasses(result.data);
-            }).catch(err => {
-                console.log(err);
-            }
-            )
+            })
     }, [phone])
 
     const moduleHandler = item => {
@@ -50,7 +47,6 @@ const DPrevFreeClass = () => {
     }
 
     const shakeButton = () => {
-        console.log(document.getElementById('free-class-video_btn').classList.contains('shake'));
         document.getElementById('free-class-video_btn').classList.contains('shake') ?
             document.getElementById('free-class-video_btn').classList.remove('shake') :
             document.getElementById('free-class-video_btn').classList.add("shake");

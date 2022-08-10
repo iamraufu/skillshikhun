@@ -18,13 +18,14 @@ import DLiveCourse from './components/Dashboard/DLiveCourse/DLiveCourse';
 import DFreeClass from './components/Dashboard/DFreeClass/DFreeClass';
 import DVideoCourse from './components/Dashboard/DVideoCourse/DVideoCourse';
 import DPaymentHistory from './components/Dashboard/DPaymentHistory/DPaymentHistory';
-import logo from './images/logo.png';
+import logo from './images/logo.webp';
 import Privacy from './components/Privacy/Privacy';
 import Terms from './components/Terms/Terms';
 import DLiveCourseVideo from './components/Dashboard/DLiveCourse/DLiveCourseVideo';
 import DPrevFreeClass from './components/Dashboard/DPrevFreeClass/DPrevFreeClass';
 import User from './components/User/User';
 import DClassRecordings from './components/Dashboard/DClassRecordings/DClassRecordings';
+import VideoPlayer from './components/VideoPlayer/VideoPlayer';
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -73,6 +74,7 @@ function App() {
             <Route path="/success" element={<Success />} />
             <Route path="/checkout/:courseId" element={<Checkout />} />
             <Route path="course/live/video/:courseId" element={<DLiveCourseVideo />} />
+            <Route path="courses/:courseId" element={<VideoPlayer />} />
             {/* <Route path="/:username" element={<User />} /> */}
             
           </Route>

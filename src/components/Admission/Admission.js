@@ -7,7 +7,7 @@ const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 const Admission = () => {
 
     // const { register, handleSubmit } = useForm();
-    // const onSubmit = data => console.log(data);
+    // const onSubmit = data =>;
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)' }}>
             <Navbar />

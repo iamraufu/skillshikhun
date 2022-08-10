@@ -67,7 +67,6 @@ const FreeClassRegistration = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
                 document.getElementById('otp_verification_container').style.display = 'block';
             }
             )
@@ -97,7 +96,6 @@ const FreeClassRegistration = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
                 if (data.status === true) {
                     document.getElementById('otp_verification_container').style.display = 'none';
                 }

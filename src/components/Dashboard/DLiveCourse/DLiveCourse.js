@@ -3,18 +3,18 @@ import DNavbar from '../DNavbar/DNavbar';
 import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
 import courseData from '../../../data/course/courseData';
-import live from '../../../images/live.png';
-import liveClass from '../../../images/liveClass.svg';
+import live from '../../../images/live.webp';
+import liveClass from '../../../images/liveClass.webp';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { ZoomMtg } from '@zoomus/websdk';
+// import { ZoomMtg } from '@zoomus/websdk';
 import Countdown from '../../Countdown/Countdown';
 
-ZoomMtg.setZoomJSLib('https://source.zoom.us/2.4.5/lib', '/av');
-ZoomMtg.preLoadWasm();
-ZoomMtg.prepareWebSDK();
-ZoomMtg.i18n.load('en-US');
-ZoomMtg.i18n.reload('en-US');
+// ZoomMtg.setZoomJSLib('https://source.zoom.us/2.4.5/lib', '/av');
+// ZoomMtg.preLoadWasm();
+// ZoomMtg.prepareWebSDK();
+// ZoomMtg.i18n.load('en-US');
+// ZoomMtg.i18n.reload('en-US');
 
 const DLiveCourse = () => {
 
@@ -68,64 +68,63 @@ const DLiveCourse = () => {
 
     }, [payments])
 
-    let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
-    let sdkKey = '87rXfpYIpyQYMZSrjmcYKvF72lEqinAuroje'
+    // let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
+    // let sdkKey = '87rXfpYIpyQYMZSrjmcYKvF72lEqinAuroje'
     // let meetingNumber = ''
-    let role = 0
-    let userName = userPhoneData.name
-    let userEmail = userPhoneData.email
+    // let role = 0
+    // let userName = userPhoneData.name
+    // let userEmail = userPhoneData.email
     // let passWord = ''
-    let leaveUrl = 'https://www.skillshikhun.com/dashboard'
-    let registrantToken = ''
+    // let leaveUrl = 'https://www.skillshikhun.com/dashboard'
+    // let registrantToken = ''
 
-    async function getSignature(meetingNumber, password) {
-        // e.preventDefault();
+    // async function getSignature(meetingNumber, password) {
 
-        await fetch(signatureEndpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                meetingNumber: meetingNumber,
-                role: role
-            })
-        }).then(res => res.json())
-            .then(response => {
-                startMeeting(response.signature, meetingNumber, password)
-            }).catch(error => {
+    //     await fetch(signatureEndpoint, {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({
+    //             meetingNumber: meetingNumber,
+    //             role: role
+    //         })
+    //     }).then(res => res.json())
+    //         .then(response => {
+    //             startMeeting(response.signature, meetingNumber, password)
+    //         }).catch(error => {
 
-            })
-    }
+    //         })
+    // }
 
-    async function startMeeting(signature, meetingNumber, password) {
+    // async function startMeeting(signature, meetingNumber, password) {
 
-        document.getElementById('zmmtg-root').style.display = 'block'
-        document.getElementById('d_live').style.display = 'none'
+    //     document.getElementById('zmmtg-root').style.display = 'block'
+    //     document.getElementById('d_live').style.display = 'none'
 
-        await ZoomMtg.init({
-            leaveUrl: leaveUrl,
-            success: (success) => {
+    //     await ZoomMtg.init({
+    //         leaveUrl: leaveUrl,
+    //         success: (success) => {
 
-                ZoomMtg.join({
-                    signature: signature,
-                    meetingNumber: meetingNumber,
-                    userName: userName,
-                    sdkKey: sdkKey,
-                    userEmail: userEmail,
-                    passWord: password,
-                    tk: registrantToken,
-                    success: (success) => {
+    //             ZoomMtg.join({
+    //                 signature: signature,
+    //                 meetingNumber: meetingNumber,
+    //                 userName: userName,
+    //                 sdkKey: sdkKey,
+    //                 userEmail: userEmail,
+    //                 passWord: password,
+    //                 tk: registrantToken,
+    //                 success: (success) => {
 
-                    },
-                    error: (error) => {
+    //                 },
+    //                 error: (error) => {
 
-                    }
-                })
+    //                 }
+    //             })
 
-            },
-            error: (error) => {
-            }
-        })
-    }
+    //         },
+    //         error: (error) => {
+    //         }
+    //     })
+    // }
 
     return (
         <div>
@@ -173,7 +172,7 @@ const DLiveCourse = () => {
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
                                                                     {
                                                                         userPhoneData?.name ? <button onClick={() => {
-                                                                            getSignature(course.live_number, course.live_password)
+                                                                            // getSignature(course.live_number, course.live_password)
                                                                         }}
 
                                                                             className='see-details'>জয়েন ক্লাস</button> :
@@ -217,7 +216,7 @@ const DLiveCourse = () => {
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
                                                                     {
                                                                         userPhoneData?.name ? <button onClick={() => {
-                                                                            getSignature(course.live_number, course.live_password)
+                                                                            // getSignature(course.live_number, course.live_password)
                                                                         }}
 
                                                                             className='see-details'>জয়েন ক্লাস</button> :

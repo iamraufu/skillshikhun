@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import './RegisterFromDemoClass.css';
-import checkbox from '../../images/checkbox.svg';
-import checkbox_purple from '../../images/checkbox_purple.svg';
+import checkbox from '../../images/checkbox.webp';
+import checkbox_purple from '../../images/checkbox_purple.webp';
 
 const RegisterFromDemoClass = () => {
 
@@ -232,7 +232,6 @@ const RegisterFromDemoClass = () => {
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);
                     localStorage.setItem('name', JSON.stringify(data.data.user.name))
-                    // console.log(typeof data.data.user)
                     // navigate(from, { replace: true })
                     window.location.reload();
                 }
@@ -249,7 +248,6 @@ const RegisterFromDemoClass = () => {
 
     // function for forget password
     const forgetPassword = () => {
-        // console.log(phone);
         Swal.fire({
             title: 'পাসওয়ার্ড ভুলে গেছেন?',
             text: 'আপনি কি পাসওয়ার্ড ভুলে গেছেন?',

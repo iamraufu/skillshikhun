@@ -2,9 +2,9 @@ import React from 'react';
 import './LoginForCheckout.css';
 import LoginHandler from '../Login/LoginHandler';
 import Navbar from '../Shared/Navbar/Navbar';
-import checkbox from '../../images/checkbox.svg';
-import checkbox_purple from '../../images/checkbox_purple.svg';
-import checkbox_grey from '../../images/checkbox_grey.svg';
+import checkbox from '../../images/checkbox.webp';
+import checkbox_purple from '../../images/checkbox_purple.webp';
+import checkbox_grey from '../../images/checkbox_grey.webp';
 // import Footer from '../Shared/Footer/Footer';
 
 const LoginForCheckout = () => {

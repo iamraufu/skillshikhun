@@ -3,13 +3,13 @@ import './Sidebar.css';
 import { NavLink
     // , useNavigate 
 } from 'react-router-dom';
-import live from '../../../images/dashboard/live.svg';
-import course from '../../../images/dashboard/course.svg';
-import free from '../../../images/dashboard/free.svg';
-import payment from '../../../images/dashboard/payment.svg';
-import home from '../../../images/dashboard/home.svg';
-import profile from '../../../images/dashboard/profile.svg';
-import dashboard from '../../../images/dashboard/dashboard.svg';
+import live from '../../../images/dashboard/live.webp';
+import course from '../../../images/dashboard/course.webp';
+import free from '../../../images/dashboard/free.webp';
+import payment from '../../../images/dashboard/payment.webp';
+import home from '../../../images/dashboard/home.webp';
+import profile from '../../../images/dashboard/profile.webp';
+import dashboard from '../../../images/dashboard/dashboard.webp';
 
 const Sidebar = () => {
 

@@ -4,18 +4,18 @@ import HeroDemo from '../../DemoClass/HeroDemo';
 import DNavbar from '../DNavbar/DNavbar';
 import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
-// import video_library from '../../../images/dashboard/video_library.svg';
+// import video_library from '../../../images/dashboard/video_library.webp';
 import courseData from '../../../data/course/courseData';
 
-import { ZoomMtg } from '@zoomus/websdk';
+// import { ZoomMtg } from '@zoomus/websdk';
 import { useNavigate } from 'react-router-dom';
 // import Countdown from '../../Countdown/Countdown';
 
-ZoomMtg.setZoomJSLib('https://source.zoom.us/2.4.5/lib', '/av');
-ZoomMtg.preLoadWasm();
-ZoomMtg.prepareWebSDK();
-ZoomMtg.i18n.load('en-US');
-ZoomMtg.i18n.reload('en-US');
+// ZoomMtg.setZoomJSLib('https://source.zoom.us/2.4.5/lib', '/av');
+// ZoomMtg.preLoadWasm();
+// ZoomMtg.prepareWebSDK();
+// ZoomMtg.i18n.load('en-US');
+// ZoomMtg.i18n.reload('en-US');
 
 const DFreeClass = () => {
 
@@ -48,67 +48,68 @@ const DFreeClass = () => {
         setFreeClasses(courseData.filter(course => demo_classes.includes(course.name)))
     }, [demoClasses])
 
-    let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
-    let sdkKey = '87rXfpYIpyQYMZSrjmcYKvF72lEqinAuroje'
+    // let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
+    // let sdkKey = '87rXfpYIpyQYMZSrjmcYKvF72lEqinAuroje'
     // let meetingNumber = ''
-    let role = 0
-    let userName = userPhoneData.name
-    let userEmail = userPhoneData.email
+    // let role = 0
+    // let userName = userPhoneData.name
+    // let userEmail = userPhoneData.email
     // let passWord = ''
-    let leaveUrl = 'https://www.skillshikhun.com/dashboard'
-    let registrantToken = ''
+    // let leaveUrl = 'https://www.skillshikhun.com/dashboard'
+    // let registrantToken = ''
 
     // eslint-disable-next-line
-    async function getSignature(meetingNumber, password) {
-        // e.preventDefault();
+    // async function getSignature(meetingNumber, password) {
+    //     // e.preventDefault();
 
-        await fetch(signatureEndpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                meetingNumber: meetingNumber,
-                role: role
-            })
-        }).then(res => res.json())
-            .then(response => {
-                startMeeting(response.signature, meetingNumber, password)
-            }).catch(error => {
-                console.error('Error:', error)
-            })
-    }
+    //     await fetch(signatureEndpoint, {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({
+    //             meetingNumber: meetingNumber,
+    //             role: role
+    //         })
+    //     }).then(res => res.json())
+    //         .then(response => {
+    //             startMeeting(response.signature, meetingNumber, password)
+    //         }).catch(error => {
+    //             console.error('Error:', error)
+    //         })
+    // }
 
-    async function startMeeting(signature, meetingNumber, password) {
+    // start Meeting
+    // async function startMeeting(signature, meetingNumber, password) {
 
-        document.getElementById('zmmtg-root').style.display = 'block'
-        document.getElementById('free_class_container').style.display = 'none'
+    //     document.getElementById('zmmtg-root').style.display = 'block'
+    //     document.getElementById('free_class_container').style.display = 'none'
 
-        await ZoomMtg.init({
-            leaveUrl: leaveUrl,
-            success: (success) => {
+    //     await ZoomMtg.init({
+    //         leaveUrl: leaveUrl,
+    //         success: (success) => {
 
 
-                ZoomMtg.join({
-                    signature: signature,
-                    meetingNumber: meetingNumber,
-                    userName: userName,
-                    sdkKey: sdkKey,
-                    userEmail: userEmail,
-                    passWord: password,
-                    tk: registrantToken,
-                    success: (success) => {
+    //             ZoomMtg.join({
+    //                 signature: signature,
+    //                 meetingNumber: meetingNumber,
+    //                 userName: userName,
+    //                 sdkKey: sdkKey,
+    //                 userEmail: userEmail,
+    //                 passWord: password,
+    //                 tk: registrantToken,
+    //                 success: (success) => {
 
-                    },
-                    error: (error) => {
+    //                 },
+    //                 error: (error) => {
 
-                    }
-                })
+    //                 }
+    //             })
 
-            },
-            error: (error) => {
+    //         },
+    //         error: (error) => {
 
-            }
-        })
-    }
+    //         }
+    //     })
+    // }
 
     return (
         <div id='free_class_container' className="">

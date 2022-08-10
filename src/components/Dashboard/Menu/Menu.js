@@ -1,11 +1,11 @@
 import React from 'react';
 import './Menu.css';
-// import video from '../../../images/dashboard/video.svg';
-import live from '../../../images/dashboard/live.svg';
-import payment from '../../../images/dashboard/payment.svg';
-import profile from '../../../images/dashboard/profile.svg';
-import video_library from '../../../images/dashboard/video_library.svg';
-import free from '../../../images/dashboard/free.svg';
+// import video from '../../../images/dashboard/video.webp';
+import live from '../../../images/dashboard/live.webp';
+import payment from '../../../images/dashboard/payment.webp';
+import profile from '../../../images/dashboard/profile.webp';
+import video_library from '../../../images/dashboard/video_library.webp';
+import free from '../../../images/dashboard/free.webp';
 import { NavLink } from 'react-router-dom';
 
 const Menu = () => {

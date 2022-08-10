@@ -3,12 +3,12 @@ import './DemoClass.css';
 import { useForm } from "react-hook-form";
 import courseData from '../../data/course/courseData.js';
 // import Swal from 'sweetalert2';
-import up from '../../images/up.svg';
+import up from '../../images/up.webp';
 import { useNavigate } from 'react-router-dom';
 
 const HeroDemo = (props) => {
     
-    const phone = localStorage.getItem('phone');
+    const phone = localStorage.getItem('phone') || '';
     const navigate = useNavigate();
     const [userPhoneData, setUserPhoneData] = useState({})
     const [category, setCategory] = useState(props?.course?.name || "Web Development");
@@ -119,7 +119,6 @@ const HeroDemo = (props) => {
             body: JSON.stringify(details)
         })
             .then(res => res.json())
-            console.log(props.course.id);
             navigate(`/dashboard/previous/free-class/${courseCategory[0].id}`);
             // Swal.fire(
             //     'আপনার ফ্রি ক্লাস রেজিস্ট্রেশন সম্পন্ন হয়েছে!',

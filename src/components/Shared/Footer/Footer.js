@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from '../../../images/logo.png';
+import logo from '../../../images/logo.webp';
 import footerData from '../../../data/Footer/footerData';
 import groupsData from '../../../data/Footer/groupsData';
 import links from '../../../data/Footer/links';
-// import play from '../../../images/play.png';
-// import app from '../../../images/app.png';
-import play from '../../../images/play_store.png';
+// import play from '../../../images/play.webp';
+// import app from '../../../images/app.webp';
+import play from '../../../images/play_store.webp';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {

@@ -6,12 +6,11 @@ from 'react';
 const User = () => {
     
     // const username = useParams();
-    // console.log(username);
 
     // useEffect(() => {
     //     fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
     //         .then(res => res.json())
-    //         .then(data => console.log(data))
+    //         .then(data => )
     // },[phone])
 
     return (

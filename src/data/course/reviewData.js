@@ -1,12 +1,15 @@
-import gd1 from '../../images/reviewImages/Aayat Aroni.jpg';
-import gd2 from '../../images/reviewImages/SM Nihal Ahmed.jpg';
-import gd3 from '../../images/reviewImages/Tutul Ahmed.jpg';
-import dm1 from '../../images/reviewImages/Fowzia Yasmin.jpg';
-import dm2 from '../../images/reviewImages/Shazzad Uz Zaman.jpg';
-import ve1 from '../../images/reviewImages/Abed Hossain.jpg';   
-import ve2 from '../../images/reviewImages/Ramisa Anjum.jpg';   
-import ve3 from '../../images/reviewImages/Supto Khan.jpg';
-import wd1 from '../../images/reviewImages/Niloy Ahmed.jpg';   
+import gd1 from '../../images/reviewImages/Aayat Aroni.webp';
+import gd2 from '../../images/reviewImages/SM Nihal Ahmed.webp';
+import gd3 from '../../images/reviewImages/Tutul Ahmed.webp';
+import dm1 from '../../images/reviewImages/Fowzia Yasmin.webp';
+import dm2 from '../../images/reviewImages/Shazzad Uz Zaman.webp';
+import dm3 from '../../images/reviewImages/2.webp';
+import ve1 from '../../images/reviewImages/Abed Hossain.webp';   
+import ve2 from '../../images/reviewImages/Ramisa Anjum.webp';   
+import ve3 from '../../images/reviewImages/Supto Khan.webp';
+import wd1 from '../../images/reviewImages/Niloy Ahmed.webp';   
+import wd2 from '../../images/reviewImages/3.webp';   
+import wd3 from '../../images/reviewImages/2.webp';
 
 const reviewData = [
     {
@@ -27,7 +30,7 @@ const reviewData = [
     },      
     {
         id: 3,
-        image:'https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/MRahman550/profile_306135711.jpg',
+        image:wd2,
         name:'A.S.M. Abu Bokor Siddique',
         courseName:'Full Stack Web Development',
         route:'/web-development',
@@ -35,7 +38,7 @@ const reviewData = [
     },
     {
         id: 4,
-        image:'https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/ramim_iu/profile_59145145.jpg',
+        image:dm3,
         name:'Ramim Bin Quraishi',
         courseName:'Digital Marketing',
         route:'/digital-marketing',
@@ -43,7 +46,7 @@ const reviewData = [
     },
     {
         id: 5,
-        image:'https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/shuman/profile_97010038.jpg',
+        image:wd3,
         name:'Mohammad AM shuman',
         courseName:'Full Stack Web Development',
         route:'/web-development',

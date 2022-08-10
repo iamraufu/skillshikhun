@@ -1,7 +1,7 @@
 import React from 'react';
-import recorded_class from '../../../images/recorded_class.png';
-import live_class from '../../../images/live_class.png';
-// import tuition_solution from '../../../images/tuition_solution.png';
+import recorded_class from '../../../images/recorded_class.webp';
+import live_class from '../../../images/live_class.webp';
+// import tuition_solution from '../../../images/tuition_solution.webp';
 
 const SSModels = () => {
     return (

@@ -5,9 +5,9 @@ import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
-import update from '../../../images/dashboard/update.svg';
-import userPhoto from '../../../images/dashboard/user.svg';
-import logout from '../../../images/dashboard/logout.svg';
+import update from '../../../images/dashboard/update.webp';
+import userPhoto from '../../../images/dashboard/user.webp';
+import logout from '../../../images/dashboard/logout.webp';
 
 const Profile = () => {
 

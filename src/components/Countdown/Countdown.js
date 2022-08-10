@@ -21,14 +21,6 @@ const Countdown = (props) => {
 
     // difference between props.deadline and current time
     // const time = moment(props.deadline).diff(moment());
-    // console.log(moment(props.deadline).format('MMMM Do YYYY, h:mm:ss a'));
-    // console.log(moment(props.deadline).isValid());
-    // console.log(moment().format());
-
-
-    // console.log(days, hours, minutes, seconds);
-
-    // console.log(moment().format('MMMM Do YYYY, h:mm:ss a')-moment(props.deadline).format('MMMM Do YYYY, h:mm:ss a'));
     
     const [days, setDays] = useState(0);
     const [hours, setHours] = useState(0);

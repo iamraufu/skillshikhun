@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react';
 import './PromoMessage.css';
-import playStore from '../../images/playStoreIcon.png';
+import playStore from '../../images/playStoreIcon.webp';
 import { useEffect } from 'react';
 import TextSkeleton from '../Skeleton/TextSkeleton';
 
@@ -16,10 +16,7 @@ const PromoMessage = () => {
                 setMarketingMessage(data[0].message)
                 forceUpdate();
 
-            }).catch(err => {
-                console.log(err);
-            }
-            )
+            })
     }, [reducerValue])
 
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import DNavbar from '../DNavbar/DNavbar';
 import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
-import coming_soon from '../../../images/dashboard/coming_soon.gif';
+import coming_soon from '../../../images/dashboard/coming_soon.webp';
 
 const DVideoCourse = () => {
     return (

@@ -15,7 +15,7 @@
 
 //     const [category, setCategory] = useState("Web Development");
 //     const courseCategory = courseData.filter(course => course.name === category);
-//     // console.log("courseCategory", courseCategory[0]);
+
 
 //     const handlePhoneNumberChange = (e) => {
 //         const input = document.querySelector('input');
@@ -79,7 +79,6 @@
 //         })
 //             .then(res => res.json())
 //             .then(data => {
-//                 // console.log(data);
 //                 if(data.status ===true){
 //                     document.getElementById('otp_verification_container').style.display = 'block';
 //                 }
@@ -111,7 +110,7 @@
 //         })
 //             .then(res => res.json())
 //             .then(data => {
-//                 // console.log(data);
+
 //                 if (data.status === true) {
 //                     document.getElementById('otp_verification_container').style.display = 'none';
 //                     document.getElementById('demo_submit_button').style.display = 'none';
@@ -127,7 +126,7 @@
 //         const demoClassDetails = {...data , phone};
 //         bookDemoClass(demoClassDetails);
 //         // axios.post('https://sheet.best/api/sheets/6104d348-2a16-4ca4-9701-51f89b909f48',this.state)
-//         // .then(response=>console.log(response))
+//         // .then(response=>)
 //     }
 
 //     const bookDemoClass = (classDetails) => {
@@ -318,12 +317,12 @@
 import React, { useEffect, useState } from 'react';
 import HeroDemo from './HeroDemo';
 import RegisterFromDemoClass from './RegisterFromDemoClass';
-import checkbox from '../../images/checkbox.svg';
-import checkbox_purple from '../../images/checkbox_purple.svg';
+import checkbox from '../../images/checkbox.webp';
+import checkbox_purple from '../../images/checkbox_purple.webp';
 
 const DemoClass = (props) => {
 
-    const phone = localStorage.getItem('phone');
+    const phone = localStorage.getItem('phone') || '';
     const [demoClasses, setDemoClasses] = useState([]);
     const [userPhone, setUserPhone] = useState({});
 

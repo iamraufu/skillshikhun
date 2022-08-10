@@ -5,7 +5,7 @@
 // import Swal from 'sweetalert2';
 
 // const DemoClassHandler = (props) => {
-//     console.log(props)
+
 //     // let navigate = useNavigate();
 //     const course = props.course;
 //     const otherCourses = [courseData.filter(otherCourses => otherCourses.name !== course.name)];
@@ -15,7 +15,6 @@
     
 //     const [category, setCategory] = useState("Web Development");
 //     const courseCategory = courseData.filter(course => course.name === category);
-//     // console.log("courseCategory", courseCategory[0]);
 
 //     const handlePhoneNumberChange = (e) => {
 //         const input = document.querySelector('input');
@@ -79,7 +78,6 @@
 //         })
 //             .then(res => res.json())
 //             .then(data => {
-//                 // console.log(data);
 //                 if(data.status ===true){
 //                     document.getElementById('otp_verification_container').style.display = 'block';
 //                 }
@@ -111,7 +109,6 @@
 //         })
 //             .then(res => res.json())
 //             .then(data => {
-//                 // console.log(data);
 //                 if (data.status === true) {
 //                     document.getElementById('otp_verification_container').style.display = 'none';
 //                     document.getElementById('demo_submit_button').style.display = 'none';
@@ -127,7 +124,7 @@
 //         const demoClassDetails = {...data , phone};
 //         bookDemoClass(demoClassDetails);
 //         // axios.post('https://sheet.best/api/sheets/6104d348-2a16-4ca4-9701-51f89b909f48',this.state)
-//         // .then(response=>console.log(response))
+//         // .then(response=>)
 //     }
 
 //     const bookDemoClass = (classDetails) => {

@@ -5,16 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserShield } from '@fortawesome/free-solid-svg-icons';
 import Navbar from '../Shared/Navbar/Navbar';
 import courseData from '../../data/course/courseData.js';
-// import bkash from '../../images/bkash.jpg';
-// import payment_medium from '../../images/payment-medium.jpg';
+// import bkash from '../../images/bkash.webp';
+// import payment_medium from '../../images/payment-medium.webp';
 import CourseReview from '../Course/CourseReview';
 // import Payment from '../Payment/Payment';
-// import tick from '../../images/tick.svg';
-import untick from '../../images/untick.svg';
-import checkbox from '../../images/checkbox.svg';
+// import tick from '../../images/tick.webp';
+import untick from '../../images/untick.webp';
+import checkbox from '../../images/checkbox.webp';
 // import Footer from '../Shared/Footer/Footer';
 // import AwesomeSlider from 'react-awesome-slider';
-import load from '../../images/load.gif';
+import load from '../../images/load.webp';
 import Typewriter from 'typewriter-effect';
 
 const Checkout = () => {
@@ -153,9 +153,7 @@ const Checkout = () => {
             .then(res => res.json())
             .then(data => {
                 window.location.replace(data.payment_url);
-                // console.log(data.payment_url);
             })
-            .catch(err => console.log(err))
 
 
 
@@ -191,17 +189,17 @@ const Checkout = () => {
         // )
         //     .then(res => res.json())
         //     .then(data => window.location.replace(data.url.redirectGatewayURL))
-        //     .catch(err => console.log(err))
+        
 
         // Aamar Pay Gateway
         // await fetch('https://skillshikhun.herokuapp.com/api/aamar-pay')
         //     .then(res => res.json())
         //     .then(data => {
-        //         console.log(data);
+        
         //         // window.location.replace(data.payment_url)
         //     }
         //     )
-        //     .catch(err => console.log(err))
+        
     }
 
     return (
