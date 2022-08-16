@@ -270,10 +270,10 @@ const DLiveCourse = () => {
                                                                     <img src={live} width={30} className='img-fluid mx-2 mb-1' alt="live class" loading="lazy" />
                                                                     কোর্স</small></h3>
                                                             {/* <p style={{textAlign:'justify'}} className='px-3 text-black'>{course.short_description}</p> */}
-                                                            <Countdown
+                                                            {/* <Countdown
                                                                 deadline={course.next_batch_eng}
                                                                 text={'কোর্স শুরু হতে সময় বাকি'}
-                                                            />
+                                                            /> */}
                                                         </div>
 
                                                         <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3 pe-2">

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../Shared/Navbar/Navbar';
 import liveClass from '../../images/liveClass.svg';
 import live from '../../images/live.png';
-import Countdown from '../Countdown/Countdown';
+// import Countdown from '../Countdown/Countdown';
 // import Footer from '../Shared/Footer/Footer';
 
 const AllCourses = () => {
@@ -31,10 +31,10 @@ const AllCourses = () => {
                                                         <img src={live} width={30} className='img-fluid mx-2 mb-1' alt="live class" loading="lazy" />
                                                         কোর্স</small></h3>
                                                 {/* <p style={{textAlign:'justify'}} className='px-3 text-black'>{course.short_description}</p> */}
-                                                <Countdown 
+                                                {/* <Countdown 
                                                 deadline = {course.next_batch_eng}
                                                 text={'কোর্স শুরু হতে সময় বাকি'}
-                                                />
+                                                /> */}
                                             </div>
 
                                             <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">

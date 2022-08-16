@@ -11,7 +11,7 @@ import class_black from '../../images/class_black.svg';
 import CourseDemoClass from '../DemoClass/CourseDemoClass';
 import Tracker from '../Tracker/Tracker';
 import Footer from '../Shared/Footer/Footer';
-import Countdown from '../Countdown/Countdown';
+// import Countdown from '../Countdown/Countdown';
 // const HowToPayment = React.lazy(() => import('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
@@ -85,12 +85,12 @@ const Course = (props) => {
                                         <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.price_per_month_bn}/মাস</h2>
                                     </div>
                                 </div>
-                                <div className="d-none d-lg-block">
+                                {/* <div className="d-none d-lg-block">
                                 <Countdown
                                     deadline={course.next_batch_eng}
                                     text={'কোর্স শুরু হতে সময় বাকি'}
                                 />
-                                </div>
+                                </div> */}
 
                                 <div style={{ justifyContent: 'space-between' }} className="d-flex py-2">
                                     <div className="col-md-6">
@@ -129,7 +129,10 @@ const Course = (props) => {
                                         </div>
                                     </div>
                                 </div>
+                                
                                 {/* <h2 style={{ textDecoration: 'underline', cursor: 'pointer' }} className='fs-4 ms-2 text-center my-3'>প্রোমো কোড</h2> */}
+
+
 
                                 {
                                     purchasedLiveCourses.length ? <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block'
@@ -292,10 +295,10 @@ const Course = (props) => {
                                 </div>
                                 <div className="col-md-6">
                                     {/* <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>সিট বাকি: <b>{course.seat_left}</b></h2> */}
-                                    <Countdown 
+                                    {/* <Countdown 
                     deadline = {course.next_batch_eng}
                     text={'কোর্স শুরু হতে সময় বাকি'}
-                    />
+                    /> */}
                                 </div>
                             </div>
 
