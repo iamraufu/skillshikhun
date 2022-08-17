@@ -17,14 +17,30 @@ import checkbox from '../../images/checkbox.svg';
 import load from '../../images/load.gif';
 import Typewriter from 'typewriter-effect';
 
+let basePrice = 1250;
+
 const Checkout = () => {
 
     let navigate = useNavigate();
 
     const { courseId } = useParams();
     const course = courseData.filter(course => course.id === courseId);
-    const [price, setPrice] = useState(1250);
+    const [discount, setDiscount] = useState(0);
+    const [price, setPrice] = useState(basePrice-discount);
+    const [total, setTotal] = useState(course[0].course_duration_eng * price);
     const [remainingPrice, setRemainingPrice] = useState(0);
+
+    const code = localStorage.getItem('code');
+    const [promo, setPromo] = useState([])
+
+    useEffect(()=>{
+        if(code){
+            fetch('http://localhost:5000/getPromoCode/'+code)
+            .then(res => res.json())
+            .then(data => setPromo(data.result[0]))
+        }
+    },[code])
+
     const [disabled, setDisabled] = useState(false);
     const phone = localStorage.getItem('phone');
     const name = JSON.parse(localStorage.getItem('name'));
@@ -32,7 +48,6 @@ const Checkout = () => {
     // const [paymentGateway, setPaymentGateway] = useState([]);
 
     const [payments, setPayments] = useState([]);
-
     useEffect(() => {
         fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
             .then(res => res.json())
@@ -50,9 +65,16 @@ const Checkout = () => {
 
     payments.map(paid => paid.course).find(paid => paid === course[0].name) && navigate('/dashboard');
 
+    useEffect(()=>{
+        if(promo?.course === course[0].name){
+            setDiscount(promo?.discount)
+        }
+    },[course, promo.course, promo.discount])
+
     const handleSubscriptionStyle = (type) => {
 
         if (type === 'full') {
+            basePrice = 1250;
             document.getElementById('full_tick').style.display = 'block';
             document.getElementById('full_untick').style.display = 'none';
             document.getElementById('monthly_tick').style.display = 'none';
@@ -61,10 +83,12 @@ const Checkout = () => {
             document.getElementById('full').style.backgroundColor = "#f0f7ff";
             document.getElementById('monthly').style.border = "1px solid #dde7f3";
             document.getElementById('monthly').style.backgroundColor = "transparent";
-            setPrice(course[0].offer_price);
+            // setPrice(course[0].offer_price);
+            setPrice((basePrice*course[0].course_duration_eng)-(discount*course[0].course_duration_eng))
             setDisabled(false);
         }
         else {
+            basePrice = 1250;
             document.getElementById('monthly_tick').style.display = 'block';
             document.getElementById('monthly_untick').style.display = 'none';
             document.getElementById('full_untick').style.display = 'block';
@@ -73,7 +97,8 @@ const Checkout = () => {
             document.getElementById('full').style.backgroundColor = "transparent";
             document.getElementById('monthly').style.border = "1px solid green";
             document.getElementById('monthly').style.backgroundColor = "#f0f7ff";
-            setPrice(course[0].price_per_month);
+            // setPrice(course[0].price_per_month);
+            setPrice(basePrice-discount);
             setDisabled(false);
         }
     }
@@ -94,14 +119,14 @@ const Checkout = () => {
     // }
 
 
-    useEffect(() => {
-        if (price === 1250) {
-            setRemainingPrice(course[0].price - price);
-        }
-        else {
-            setRemainingPrice(course[0].offer_price - price);
-        }
-    }, [course, price])
+    // useEffect(() => {
+    //     if (price === 1250) {
+    //         setRemainingPrice(course[0].price - price);
+    //     }
+    //     else {
+    //         setRemainingPrice(course[0].offer_price - price);
+    //     }
+    // }, [course, price])
 
     const proceedToPayment = async () => {
         setDisabled(true);
@@ -147,11 +172,13 @@ const Checkout = () => {
                 type: "json",
                 opt_a: `${course[0].name}`,
                 opt_b: `${course[0].type}`,
-                opt_c: `${remainingPrice}`
+                opt_c: `${remainingPrice}`,
+                opt_d:`${promo.discount}`
             })
         })
             .then(res => res.json())
             .then(data => {
+                localStorage.removeItem('code');
                 window.location.replace(data.payment_url);
             })
 
@@ -202,6 +229,23 @@ const Checkout = () => {
         
     }
 
+    useEffect(()=>{
+        if(promo.discount && promo.course === course[0].name){
+            setPrice(basePrice - promo.discount)
+        }
+        // eslint-disable-next-line
+    },[promo.discount])
+
+    useEffect(()=>{
+        setTotal(basePrice*course[0].course_duration_eng - discount*course[0].course_duration_eng);
+    },[course, discount, price])
+
+    useEffect(()=>{
+        setRemainingPrice(total-price)
+    },[total,price])    
+
+    console.log("Total Price", total, "Paying Price", price, "Discount", discount, "Remaining Price", remainingPrice);
+
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)' }}>
             
@@ -230,7 +274,8 @@ const Checkout = () => {
                             </div>
                             <div className="ps-3 col-sm-6 text-center">
                                 <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold'>{course[0].slug}</h2>
-                                <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].price_per_month_bn}/মাস</h3>
+                                {/* <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].price_per_month_bn} প্রতি মাস</h3> */}
+                                <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {basePrice-discount} প্রতি মাস</h3>
                                 <h6><span className='fw-bold'>{course[0].course_duration} মাসের</span> কোর্স | কোর্সটি করেছেন <span className='fw-bold'>{course[0].course_done}</span> জন</h6>
                                 <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
                             </div>
@@ -300,7 +345,8 @@ const Checkout = () => {
                                 </div>
 
                                 <div style={{ textAlign: 'right' }} className="col-sm-3">
-                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].price_per_month_bn}</h4>
+                                    {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].price_per_month_bn}</h4> */}
+                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {basePrice-discount}</h4>
                                 </div>
 
                             </button>
@@ -318,8 +364,9 @@ const Checkout = () => {
                                 </div>
 
                                 <div style={{ textAlign: 'right' }} className="col-sm-3">
-                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price_bn}</h4>
-                                    <small className='text-success fw-bold'>খরচ বাঁচবে &#2547; {course[0].price_saved}</small>
+                                    {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price_bn}</h4> */}
+                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {(basePrice*course[0].course_duration_eng)-(discount*course[0].course_duration_eng)}</h4>
+                                    {/* <small className='text-success fw-bold'>খরচ বাঁচবে &#2547; {course[0].price_saved}</small> */}
                                 </div>
 
                             </button>

@@ -41,7 +41,7 @@ const AllCourses = () => {
                                                 <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'>
                                                     <span style={{ color: '#354895' }}></span> ৳ {course.price_per_month_bn} 
                                                     {/* <strike className='ps-2 text-muted'>{course.regular_price}</strike> */}
-                                                    <small style={{ color: '#354895' }}>/মাস</small>
+                                                    <small style={{ color: '#354895' }}> প্রতি মাস</small>
                                                     </h4>
                                                 <button onClick={() => { window.scrollTo(0, 0); }} className='see-details me-3' to={course.route}>বিস্তারিত দেখুন</button>
 

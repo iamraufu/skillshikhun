@@ -1377,7 +1377,7 @@ const courseData = [
     // Web Development
     {
         name: 'Web Development',
-        id: 'full-stack-web-development',
+        id: 'web-development',
         title: 'ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট',
         slug: 'Full Stack Web Development',
         route: '/web-development',

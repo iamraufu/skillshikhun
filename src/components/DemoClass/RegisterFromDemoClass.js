@@ -42,7 +42,8 @@ const RegisterFromDemoClass = () => {
 
     // tracking valid phone number
     const handlePhoneNumberChange = (e) => {
-        const input = document.querySelector('input');
+        // const input = document.querySelector('input');
+        const input = document.querySelector('#number_input');
 
         input.addEventListener('input', (e) => {
             let input = e.target;
