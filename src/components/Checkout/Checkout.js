@@ -35,7 +35,7 @@ const Checkout = () => {
 
     useEffect(()=>{
         if(code){
-            fetch('http://localhost:5000/getPromoCode/'+code)
+            fetch('https://skillshikhun.herokuapp.com/getPromoCode/'+code)
             .then(res => res.json())
             .then(data => setPromo(data.result[0]))
         }
