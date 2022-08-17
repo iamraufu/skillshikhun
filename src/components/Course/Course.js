@@ -448,8 +448,11 @@ const Course = (props) => {
                                                 <Link to={`/checkout/${course.id}`} className='text-decoration-none'>
                                                     <button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>
                                                         <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
-                                                            <div className='col-sm-6' style={{ fontSize: '24px' }}>
+                                                            {/* <div className='col-sm-6' style={{ fontSize: '24px' }}>
                                                                 &#2547; {course.price_per_month_bn}/মাস
+                                                            </div> */}
+                                                            <div className='col-sm-6' style={{ fontSize: '24px' }}>
+                                                                &#2547; {ppm} প্রতি মাস
                                                             </div>
                                                             <div className='col-sm-6 d-flex' style={{ fontSize: '24px' }}>
                                                                 <div className="">
