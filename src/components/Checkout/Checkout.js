@@ -69,7 +69,7 @@ const Checkout = () => {
         if(promo?.course === course[0].name){
             setDiscount(promo?.discount)
         }
-    },[course, promo.course, promo.discount])
+    },[course, promo?.course, promo?.discount])
 
     const handleSubscriptionStyle = (type) => {
 
@@ -234,7 +234,7 @@ const Checkout = () => {
             setPrice(basePrice - promo.discount)
         }
         // eslint-disable-next-line
-    },[promo.discount])
+    },[promo?.discount])
 
     useEffect(()=>{
         setTotal(basePrice*course[0].course_duration_eng - discount*course[0].course_duration_eng);
