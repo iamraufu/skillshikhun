@@ -1,5 +1,6 @@
 import React from 'react';
-// import PromoMessage from '../PromoMessage/PromoMessage';
+import PromoImages from '../PromoMessage/PromoImages';
+import PromoMessage from '../PromoMessage/PromoMessage';
 import Footer from '../Shared/Footer/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
 import Tracker from '../Tracker/Tracker';
@@ -12,10 +13,11 @@ import SSFeatures from './SSFeatures/SSFeatures';
 const Home = () => {
     return (
         <div>
-            {/* <PromoMessage /> */}
+            <PromoMessage />
             <Navbar />
             <Hero />
             <FeaturedCourses />
+            <PromoImages />
             <SSFeatures />
             {/* <SSModels /> */}
             <MainReviews />

@@ -12,6 +12,11 @@ import CourseDemoClass from '../DemoClass/CourseDemoClass';
 import Tracker from '../Tracker/Tracker';
 import Footer from '../Shared/Footer/Footer';
 import { useForm } from 'react-hook-form';
+import PromoMessage from '../PromoMessage/PromoMessage';
+// import fri from '../../images/promo/fri.png';
+// import promoImage from '../../images/promo/promo.png';
+import promo_sm from '../../images/promo/promo_sm.png';
+import clickImage from '../../images/promo/click.png';
 // import Countdown from '../Countdown/Countdown';
 // const HowToPayment = React.lazy(() => import('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
@@ -98,6 +103,8 @@ const Course = (props) => {
     }, [discount])
 
     return (
+        <>
+        <PromoMessage />
         <div style={{ backgroundColor: '#f8f9fa' }}>
             <Navbar />
             <div className="container py-5">
@@ -134,22 +141,32 @@ const Course = (props) => {
                                     </div>
                                 </div>
 
+                                {/* <div style={{backgroundColor:'rgb'}} className="d-flex justify-content-around align-items-center p-2">
+                                    <img width={80} className='img-fluid' src={fri} alt="" />
+                                    <img width={100} className='img-fluid' src={promoImage} alt="" />
+                                </div> */}
+
+                                <img className='img-fluid' src={promo_sm} alt="" />
+
                                 <div className="d-none d-lg-block">
                                     <span onClick={() => {
                                         document.getElementById('lg-promo-container').style.display === 'block' ?
                                             document.getElementById('lg-promo-container').style.display = 'none' :
                                             document.getElementById('lg-promo-container').style.display = 'block'
-                                    }} style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-5 text-center fw-bold'>প্রোমো কোড</span>
+                                    }} style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae'
+                                    // , backgroundColor:'#653dae'
+                                    , 
+                                    borderRadius: '5px', float:'left'}} className='fs-5 text-center p-2 mt-2'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /> </span>
 
-                                    <div style={{ display: 'none' }} id="lg-promo-container">
+                                    <div style={{ display: 'none', marginTop:'3px' }} id="lg-promo-container">
                                         <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
                                             <div className="d-flex justify-content-center align-items-center p-2">
-                                                <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
-                                                <input placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
-                                                <input className='btn btn-secondary' type="submit" value="অ্যাপ্লাই" />
+                                                <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width:'45px' }} className='me-2 p-2'>X</button>
+                                                <input value='FRI500' placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
+                                                <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
                                             </div>
                                         </form>
-                                        <p className='text-center fw-bold'>{message}</p>
+                                        <p className='text-center fw-bold mt-3'>{message}</p>
                                     </div>
 
                                     {/* <Countdown
@@ -364,8 +381,8 @@ const Course = (props) => {
                                 document.getElementById('sm-promo-open').style.display = 'none'
                             }
                             } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
-                            <input placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
-                            <input className='btn btn-secondary' type="submit" value="অ্যাপ্লাই" />
+                            <input value="FRI500" placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
+                            <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
                         </div>
                     </form>
                     <p className='text-center fw-bold'>{message}</p>
@@ -406,7 +423,7 @@ const Course = (props) => {
                                             document.getElementById('sm-info').style.display = 'none'
                                         }
                                         }>
-                                            <span style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold'>প্রোমো কোড</span>
+                                            <span style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /> </span>
                                         </div>
                                         {/* <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className=''>সিট বাকি: <b>{course.seat_left}</b></h2> */}
                                         {/* <Countdown 
@@ -499,6 +516,7 @@ const Course = (props) => {
             <Footer />
             <Tracker props={props} />
         </div>
+        </>
     );
 };
 

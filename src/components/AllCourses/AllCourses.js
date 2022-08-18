@@ -5,13 +5,21 @@ import { Link } from 'react-router-dom';
 import Navbar from '../Shared/Navbar/Navbar';
 import liveClass from '../../images/liveClass.svg';
 import live from '../../images/live.png';
+import PromoMessage from '../PromoMessage/PromoMessage';
 // import Countdown from '../Countdown/Countdown';
-// import Footer from '../Shared/Footer/Footer';
+import Footer from '../Shared/Footer/Footer';
 
 const AllCourses = () => {
     return (
+        <>
+            <PromoMessage />
         <div className="courses-container py-5">
-            <div style={{marginTop:'-5px'}} className="fixed-top"><Navbar /></div>
+            <div 
+            style={{marginTop:'-3.5rem'}} 
+            // className="fixed-top"
+            >
+                <Navbar />
+            </div>
             <div className='container'>
                 <h1 style={{ fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '600' }} className='pt-5 mt-5 ps-2'>আমাদের লাইভ কোর্সসমূহ</h1>
                 <div className="row">
@@ -54,8 +62,11 @@ const AllCourses = () => {
                         )}
                 </div>
             </div>
-            {/* <Footer /> */}
+            <div style={{borderTop:'1px solid lightgrey'}} className="">
+            <Footer />
+            </div>
         </div>
+        </>
     );
 };
 

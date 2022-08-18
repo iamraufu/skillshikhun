@@ -17,6 +17,7 @@ import checkbox from '../../images/checkbox.svg';
 import load from '../../images/load.gif';
 import Typewriter from 'typewriter-effect';
 import { useForm } from 'react-hook-form';
+import clickImage from '../../images/promo/click.png';
 
 let basePrice = 1250;
 
@@ -38,8 +39,14 @@ const Checkout = () => {
         if (code) {
             fetch('https://skillshikhun.herokuapp.com/getPromoCode/' + code)
                 .then(res => res.json())
-                .then(data => setPromo(data.result[0]))
+                .then(data => {
+                    // console.log(data.result.find(promo => promo.course === course[0].name));
+                    // console.log(data.result.filter(course=> course.course === course[0]?.name))
+                    // setPromo(data.result[0])
+                    setPromo(data.result.find(promo => promo.course === course[0]?.name))
+                })
         }
+        // eslint-disable-next-line
     }, [code])
 
     const [disabled, setDisabled] = useState(false);
@@ -269,7 +276,7 @@ const Checkout = () => {
             .then(data => {
                 if (data.status === true) {
                     setDiscount(data.result[0].discount);
-                    setMessage("Promo code applied");
+                    setMessage("প্রোমো একটিভ হয়েছে");
                     document.getElementById('promo-form').style.display = 'none';
                     document.getElementById('promo_code').style.display = 'none';
                     // for smaller screen
@@ -278,7 +285,7 @@ const Checkout = () => {
                     localStorage.setItem("code", data.result[0].code)
                 }
                 else {
-                    setMessage('Invalid promo code');
+                    setMessage('ভুল প্রোমো কোড দিয়েছেন');
                 }
             })
     }
@@ -450,15 +457,15 @@ const Checkout = () => {
                                         document.getElementById('lg-promo-container').style.display === 'block' ?
                                             document.getElementById('lg-promo-container').style.display = 'none' :
                                             document.getElementById('lg-promo-container').style.display = 'block'
-                                    }} style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-5 text-center fw-bold'>প্রোমো কোড</span>
+                                    }} style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae', margin:"auto", display:'block' }} className='fs-5 text-center fw-bold'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /> </span>
                                 }
 
                                 <div style={{ display: 'none' }} id="lg-promo-container">
                                     <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
                                         <div className="d-flex justify-content-center align-items-center p-2">
                                             <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
-                                            <input placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
-                                            <input className='btn btn-secondary' type="submit" value="অ্যাপ্লাই" />
+                                            <input value="FRI500" placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
+                                            <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
                                         </div>
                                     </form>
                                     <p className='text-center fw-bold'>{message}</p>
@@ -470,6 +477,8 @@ const Checkout = () => {
                                 /> */}
                             </div>
                         </div>
+                        
+                        {promo?.code && <p className='d-block d-none d-lg-block text-center mx-auto d-block bg-success fw-bold w-25 text-white p-2'>প্রোমো একটিভ হয়েছে</p>}
 
                         <p style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }} className='text-center mt-4 d-block d-none d-lg-block'><FontAwesomeIcon className='text-success' icon={faUserShield} /> নিরাপদ ও দ্রুত পেমেন্ট নিশ্চয়তা</p>
 
@@ -513,7 +522,7 @@ const Checkout = () => {
                         document.getElementById('sm-promo').style.display = 'none'
                     }
                     }>
-                        <span style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold'>প্রোমো কোড</span>
+                        <span style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold text-center mt-3'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /></span>
                     </div>
                 }
                 <div style={{ display: 'none' }} id="sm-promo-open">
@@ -531,12 +540,13 @@ const Checkout = () => {
                                 document.getElementById('sm-promo-open').style.display = 'none'
                             }
                             } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
-                            <input placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
-                            <input className='btn btn-secondary' type="submit" value="অ্যাপ্লাই" />
+                            <input value="FRI500" placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
+                            <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
                         </div>
                     </form>
                     <p className='text-center fw-bold'>{message}</p>
                 </div>
+                {promo?.code && <p className='mt-3 text-center mx-auto d-block bg-success fw-bold w-50 text-white p-2'>প্রোমো একটিভ হয়েছে</p>}
                 <p style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }} className='text-center mt-4'><FontAwesomeIcon className='text-success' icon={faUserShield} /> নিরাপদ ও দ্রুত পেমেন্ট নিশ্চয়তা</p>
                 <button style={{ height: '60px', backgroundImage: 'linear-gradient(to right , #13338b , #b94a8f)', margin: '10px 0' }}
                     onClick={() => proceedToPayment()}

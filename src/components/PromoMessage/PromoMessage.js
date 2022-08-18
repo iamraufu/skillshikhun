@@ -1,11 +1,13 @@
 import React, { useReducer, useState } from 'react';
 import './PromoMessage.css';
-import playStore from '../../images/playStoreIcon.svg';
+// import playStore from '../../images/playStoreIcon.svg';
 import { useEffect } from 'react';
-import TextSkeleton from '../Skeleton/TextSkeleton';
+// import TextSkeleton from '../Skeleton/TextSkeleton';
+import PromoImages from './PromoImages';
 
 const PromoMessage = () => {
 
+    // eslint-disable-next-line
     const [marketingMessage, setMarketingMessage] = useState([]);
     const [reducerValue, forceUpdate] = useReducer(x => x + 1, 0);
 
@@ -22,7 +24,8 @@ const PromoMessage = () => {
     return (
         <div className="">
             <div id='promo_message_container' >
-                <div className='d-flex justify-content-center align-items-center' style={{ backgroundColor: '#653dae', height: '90px' }}>
+                <PromoImages />
+                {/* <div className='d-flex justify-content-center align-items-center' style={{ backgroundColor: '#653dae', height: '90px' }}>
                     {
                         marketingMessage?.length ?
                         <div className='px-3 d-flex justify-content-center align-items-center'>
@@ -37,11 +40,11 @@ const PromoMessage = () => {
                             <img src={playStore} className='img-fluid float-right' width={120} alt="Download App" />
                         </div>
                     </a>
-                </div>
+                </div> */}
             </div>
 
             <div>
-                <button onClick={() => document.getElementById('promo_message_container').style.display = 'none'} style={{ position: 'absolute', top: '0', right: '0' }} className='btn btn-sm btn-dark m-2'>X</button>
+                <button onClick={() => document.getElementById('promo_message_container').style.display = 'none'} style={{ position: 'absolute', top: '0', right: '0' }} className='btn btn-sm text-secondary m-2'>X</button>
             </div>
         </div>
     );

@@ -27,7 +27,7 @@ const Success = () => {
                 <h2 className='text-center fw-bold'>আপনার কোর্স ক্রয় সম্পন্ন হয়েছে!</h2>
                 <p className='text-center'>আপনার ইমেইলে একটি ইনভয়েস পাঠিয়ে দেয়া হয়েছে | আপনি চাইলে ড্যাশবোর্ড থেকেও বিস্তারিত দেখে নিতে পারেন |</p>
                 <Link className="text-decoration-none" to='/dashboard'>
-                <button className='mx-auto d-block my-5 btn-success'>
+                <button className='mx-auto d-block my-5 btn-brand-success'>
                 ড্যাশবোর্ড
                 </button>
                 </Link>

@@ -7,7 +7,7 @@
     align-items: center;
 }
 
-.btn-success {
+.btn-brand-success {
     background-image: linear-gradient(to right, #13338b, #b94a8f);
     color: #f8f9fa;
     font-size: 16px;
@@ -21,7 +21,7 @@
     height: 60px;
 }
 
-.btn-success:hover {
+.btn-brand-success:hover {
     background-image: linear-gradient(to right, #0e2462, #8c396c);
     color: #f8f9fa;
 }
