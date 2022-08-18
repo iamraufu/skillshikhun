@@ -16,6 +16,7 @@ import checkbox from '../../images/checkbox.svg';
 // import AwesomeSlider from 'react-awesome-slider';
 import load from '../../images/load.gif';
 import Typewriter from 'typewriter-effect';
+import { useForm } from 'react-hook-form';
 
 let basePrice = 1250;
 
@@ -26,20 +27,20 @@ const Checkout = () => {
     const { courseId } = useParams();
     const course = courseData.filter(course => course.id === courseId);
     const [discount, setDiscount] = useState(0);
-    const [price, setPrice] = useState(basePrice-discount);
+    const [price, setPrice] = useState(basePrice - discount);
     const [total, setTotal] = useState(course[0].course_duration_eng * price);
     const [remainingPrice, setRemainingPrice] = useState(0);
 
     const code = localStorage.getItem('code');
     const [promo, setPromo] = useState([])
 
-    useEffect(()=>{
-        if(code){
-            fetch('https://skillshikhun.herokuapp.com/getPromoCode/'+code)
-            .then(res => res.json())
-            .then(data => setPromo(data.result[0]))
+    useEffect(() => {
+        if (code) {
+            fetch('https://skillshikhun.herokuapp.com/getPromoCode/' + code)
+                .then(res => res.json())
+                .then(data => setPromo(data.result[0]))
         }
-    },[code])
+    }, [code])
 
     const [disabled, setDisabled] = useState(false);
     const phone = localStorage.getItem('phone');
@@ -65,11 +66,11 @@ const Checkout = () => {
 
     payments.map(paid => paid.course).find(paid => paid === course[0].name) && navigate('/dashboard');
 
-    useEffect(()=>{
-        if(promo?.course === course[0].name){
+    useEffect(() => {
+        if (promo?.course === course[0].name) {
             setDiscount(promo?.discount)
         }
-    },[course, promo?.course, promo?.discount])
+    }, [course, promo?.course, promo?.discount])
 
     const handleSubscriptionStyle = (type) => {
 
@@ -84,7 +85,7 @@ const Checkout = () => {
             document.getElementById('monthly').style.border = "1px solid #dde7f3";
             document.getElementById('monthly').style.backgroundColor = "transparent";
             // setPrice(course[0].offer_price);
-            setPrice((basePrice*course[0].course_duration_eng)-(discount*course[0].course_duration_eng))
+            setPrice((basePrice * course[0].course_duration_eng) - (discount * course[0].course_duration_eng))
             setDisabled(false);
         }
         else {
@@ -98,7 +99,7 @@ const Checkout = () => {
             document.getElementById('monthly').style.border = "1px solid green";
             document.getElementById('monthly').style.backgroundColor = "#f0f7ff";
             // setPrice(course[0].price_per_month);
-            setPrice(basePrice-discount);
+            setPrice(basePrice - discount);
             setDisabled(false);
         }
     }
@@ -173,7 +174,7 @@ const Checkout = () => {
                 opt_a: `${course[0].name}`,
                 opt_b: `${course[0].type}`,
                 opt_c: `${remainingPrice}`,
-                opt_d:`${promo.discount}`
+                opt_d: `${promo.discount}`
             })
         })
             .then(res => res.json())
@@ -216,43 +217,79 @@ const Checkout = () => {
         // )
         //     .then(res => res.json())
         //     .then(data => window.location.replace(data.url.redirectGatewayURL))
-        
+
 
         // Aamar Pay Gateway
         // await fetch('https://skillshikhun.herokuapp.com/api/aamar-pay')
         //     .then(res => res.json())
         //     .then(data => {
-        
+
         //         // window.location.replace(data.payment_url)
         //     }
         //     )
-        
+
     }
 
-    useEffect(()=>{
-        if(promo.discount && promo.course === course[0].name){
+    useEffect(() => {
+        if (promo.discount && promo.course === course[0].name) {
             setPrice(basePrice - promo.discount)
         }
         // eslint-disable-next-line
-    },[promo?.discount])
+    }, [promo?.discount])
 
-    useEffect(()=>{
-        setTotal(basePrice*course[0].course_duration_eng - discount*course[0].course_duration_eng);
-    },[course, discount, price])
+    useEffect(() => {
+        setTotal(basePrice * course[0].course_duration_eng - discount * course[0].course_duration_eng);
+    }, [course, discount, price])
 
-    useEffect(()=>{
-        setRemainingPrice(total-price)
-    },[total,price])    
+    useEffect(() => {
+        setRemainingPrice(total - price)
+    }, [total, price])
 
-    console.log("Total Price", total, "Paying Price", price, "Discount", discount, "Remaining Price", remainingPrice);
+    const { register, handleSubmit } = useForm();
+    const { register: register2, handleSubmit: handleSubmit2 } = useForm();
+    const [message, setMessage] = useState('');
+
+    const onSubmit = data => {
+        verifyPromoCode(data.code, course[0]?.name);
+        document.getElementById('promo-form').reset();
+    }
+
+    const onSubmit2 = data => {
+        verifyPromoCode(data.code, course[0]?.name);
+        document.getElementById('promo_code').reset();
+    }
+
+    const verifyPromoCode = (code, course) => {
+        fetch('https://skillshikhun.herokuapp.com/validatePromoCode', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ code, course })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === true) {
+                    setDiscount(data.result[0].discount);
+                    setMessage("Promo code applied");
+                    document.getElementById('promo-form').style.display = 'none';
+                    document.getElementById('promo_code').style.display = 'none';
+                    // for smaller screen
+                    document.getElementById('sm-promo').style.display = 'block'
+                    document.getElementById('sm-promo-open').style.display = 'none'
+                    localStorage.setItem("code", data.result[0].code)
+                }
+                else {
+                    setMessage('Invalid promo code');
+                }
+            })
+    }
 
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)' }}>
-            
-                <Navbar />
-            <div style={{marginTop:'-5px'}} className="fixed-top">
+
+            <Navbar />
+            <div style={{ marginTop: '-5px' }} className="fixed-top">
             </div>
-            
+
             <div id='checkout_container' className="container py-4 checkout-container">
                 <div className="row">
 
@@ -275,7 +312,7 @@ const Checkout = () => {
                             <div className="ps-3 col-sm-6 text-center">
                                 <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold'>{course[0].slug}</h2>
                                 {/* <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].price_per_month_bn} প্রতি মাস</h3> */}
-                                <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {basePrice-discount} প্রতি মাস</h3>
+                                <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {basePrice - discount} প্রতি মাস</h3>
                                 <h6><span className='fw-bold'>{course[0].course_duration} মাসের</span> কোর্স | কোর্সটি করেছেন <span className='fw-bold'>{course[0].course_done}</span> জন</h6>
                                 <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
                             </div>
@@ -346,7 +383,7 @@ const Checkout = () => {
 
                                 <div style={{ textAlign: 'right' }} className="col-sm-3">
                                     {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].price_per_month_bn}</h4> */}
-                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {basePrice-discount}</h4>
+                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {basePrice - discount}</h4>
                                 </div>
 
                             </button>
@@ -365,7 +402,7 @@ const Checkout = () => {
 
                                 <div style={{ textAlign: 'right' }} className="col-sm-3">
                                     {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price_bn}</h4> */}
-                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {(basePrice*course[0].course_duration_eng)-(discount*course[0].course_duration_eng)}</h4>
+                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {(basePrice * course[0].course_duration_eng) - (discount * course[0].course_duration_eng)}</h4>
                                     {/* <small className='text-success fw-bold'>খরচ বাঁচবে &#2547; {course[0].price_saved}</small> */}
                                 </div>
 
@@ -404,6 +441,36 @@ const Checkout = () => {
                                 </button>
                             </div>
                         </div> */}
+
+                        <div className="d-block d-none d-lg-block">
+                            <div className="d-none d-lg-block mt-5">
+                                {
+                                    !localStorage.getItem('code') &&
+                                    <span onClick={() => {
+                                        document.getElementById('lg-promo-container').style.display === 'block' ?
+                                            document.getElementById('lg-promo-container').style.display = 'none' :
+                                            document.getElementById('lg-promo-container').style.display = 'block'
+                                    }} style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-5 text-center fw-bold'>প্রোমো কোড</span>
+                                }
+
+                                <div style={{ display: 'none' }} id="lg-promo-container">
+                                    <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
+                                        <div className="d-flex justify-content-center align-items-center p-2">
+                                            <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
+                                            <input placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
+                                            <input className='btn btn-secondary' type="submit" value="অ্যাপ্লাই" />
+                                        </div>
+                                    </form>
+                                    <p className='text-center fw-bold'>{message}</p>
+                                </div>
+
+                                {/* <Countdown
+                                    deadline={course.next_batch_eng}
+                                    text={'কোর্স শুরু হতে সময় বাকি'}
+                                /> */}
+                            </div>
+                        </div>
+
                         <p style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }} className='text-center mt-4 d-block d-none d-lg-block'><FontAwesomeIcon className='text-success' icon={faUserShield} /> নিরাপদ ও দ্রুত পেমেন্ট নিশ্চয়তা</p>
 
                         <button
@@ -439,6 +506,37 @@ const Checkout = () => {
 
             {/* visible on smaller screen */}
             <div style={{ boxShadow: '0 3px 10px 3px #0003' }} className="container-fluid d-lg-none fixed-bottom bg-white">
+                {
+                    !localStorage.getItem('code') &&
+                    <div id='sm-promo' className='col-md-6' onClick={() => {
+                        document.getElementById('sm-promo-open').style.display = 'block'
+                        document.getElementById('sm-promo').style.display = 'none'
+                    }
+                    }>
+                        <span style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold'>প্রোমো কোড</span>
+                    </div>
+                }
+                <div style={{ display: 'none' }} id="sm-promo-open">
+                    <span onClick={() => {
+                        document.getElementById('sm-promo').style.display = 'block'
+                        document.getElementById('sm-promo-open').style.display = 'none'
+                    }
+                    } style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold my-3'>প্রোমো কোড লিখুন</span>
+
+
+                    <form id='promo_code' onSubmit={handleSubmit2(onSubmit2)}>
+                        <div className="d-flex justify-content-center align-items-center p-2">
+                            <button onClick={() => {
+                                document.getElementById('sm-promo').style.display = 'block'
+                                document.getElementById('sm-promo-open').style.display = 'none'
+                            }
+                            } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
+                            <input placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
+                            <input className='btn btn-secondary' type="submit" value="অ্যাপ্লাই" />
+                        </div>
+                    </form>
+                    <p className='text-center fw-bold'>{message}</p>
+                </div>
                 <p style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }} className='text-center mt-4'><FontAwesomeIcon className='text-success' icon={faUserShield} /> নিরাপদ ও দ্রুত পেমেন্ট নিশ্চয়তা</p>
                 <button style={{ height: '60px', backgroundImage: 'linear-gradient(to right , #13338b , #b94a8f)', margin: '10px 0' }}
                     onClick={() => proceedToPayment()}
