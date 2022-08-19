@@ -12,10 +12,8 @@ import CourseDemoClass from '../DemoClass/CourseDemoClass';
 import Tracker from '../Tracker/Tracker';
 import Footer from '../Shared/Footer/Footer';
 import { useForm } from 'react-hook-form';
-import PromoMessage from '../PromoMessage/PromoMessage';
-// import fri from '../../images/promo/fri.png';
-// import promoImage from '../../images/promo/promo.png';
-import promo_sm from '../../images/promo/promo_sm.png';
+// import PromoMessage from '../PromoMessage/PromoMessage';
+// import promo_sm from '../../images/promo/promo_sm.png';
 import clickImage from '../../images/promo/click.png';
 // import Countdown from '../Countdown/Countdown';
 // const HowToPayment = React.lazy(() => import('./HowToPayment'));
@@ -104,7 +102,7 @@ const Course = (props) => {
 
     return (
         <>
-        <PromoMessage />
+        {/* <PromoMessage /> */}
         <div style={{ backgroundColor: '#f8f9fa' }}>
             <Navbar />
             <div className="container py-5">
@@ -146,7 +144,7 @@ const Course = (props) => {
                                     <img width={100} className='img-fluid' src={promoImage} alt="" />
                                 </div> */}
 
-                                <img className='img-fluid' src={promo_sm} alt="" />
+                                {/* <img className='img-fluid' src={promo_sm} alt="" /> */}
 
                                 <div className="d-none d-lg-block">
                                     <span onClick={() => {
@@ -162,7 +160,9 @@ const Course = (props) => {
                                         <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
                                             <div className="d-flex justify-content-center align-items-center p-2">
                                                 <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width:'45px' }} className='me-2 p-2'>X</button>
-                                                <input value='FRI500' placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
+                                                <input 
+                                                // value='FRI500' 
+                                                placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
                                                 <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
                                             </div>
                                         </form>
@@ -381,7 +381,9 @@ const Course = (props) => {
                                 document.getElementById('sm-promo-open').style.display = 'none'
                             }
                             } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
-                            <input value="FRI500" placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
+                            <input 
+                            // value="FRI500" 
+                            placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
                             <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
                         </div>
                     </form>

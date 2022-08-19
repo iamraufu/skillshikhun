@@ -254,6 +254,7 @@ const Checkout = () => {
 
     const { register, handleSubmit } = useForm();
     const { register: register2, handleSubmit: handleSubmit2 } = useForm();
+    // eslint-disable-next-line
     const [message, setMessage] = useState('');
 
     const onSubmit = data => {
@@ -464,11 +465,13 @@ const Checkout = () => {
                                     <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
                                         <div className="d-flex justify-content-center align-items-center p-2">
                                             <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
-                                            <input value="FRI500" placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
+                                            <input 
+                                            // value="FRI500" 
+                                            placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
                                             <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
                                         </div>
                                     </form>
-                                    <p className='text-center fw-bold'>{message}</p>
+                                    {/* <p className='text-center fw-bold'>{message}</p> */}
                                 </div>
 
                                 {/* <Countdown
@@ -540,11 +543,13 @@ const Checkout = () => {
                                 document.getElementById('sm-promo-open').style.display = 'none'
                             }
                             } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
-                            <input value="FRI500" placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
+                            <input 
+                            // value="FRI500" 
+                            placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
                             <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
                         </div>
                     </form>
-                    <p className='text-center fw-bold'>{message}</p>
+                    {/* <p className='text-center fw-bold'>{message}</p> */}
                 </div>
                 {promo?.code && <p className='mt-3 text-center mx-auto d-block bg-success fw-bold w-50 text-white p-2'>প্রোমো একটিভ হয়েছে</p>}
                 <p style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }} className='text-center mt-4'><FontAwesomeIcon className='text-success' icon={faUserShield} /> নিরাপদ ও দ্রুত পেমেন্ট নিশ্চয়তা</p>
