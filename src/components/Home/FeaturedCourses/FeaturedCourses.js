@@ -17,7 +17,9 @@ const FeaturedCourses = () => {
     )
 
     return (
-        <div className="featured-container py-5">
+        <div 
+        // style={{minHeight:'100vh'}} 
+        className="featured-container py-5">
             <div className='container'>
                 <h2 style={{ fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '600' }} className='pt-5 text-center'>ঘরে বসেই ক্যারিয়ার তৈরির সহজ সমাধান এখানেই</h2>
                 <h3 style={{ fontSize: '22px', lineHeight: '34px', color: '#343b6d', fontWeight: '600' }} className='text-center'>আমাদের কোর্সগুলো থেকে বাছাই করুন আপনার পছন্দের স্কিল</h3>

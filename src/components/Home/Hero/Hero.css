@@ -1,5 +1,8 @@
 .hero-container {
-    background-image: url('../../../images/waves.svg');
+    /* background-image: url('../../../images/waves.svg'); */
+    /* background-color: #12348d; */
+    /* background-color: #1a161f; */
+    background-image: linear-gradient( #091f6e, #b34fb3);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

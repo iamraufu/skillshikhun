@@ -4,7 +4,9 @@ import React from 'react';
 import Footer from '../Shared/Footer/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
 import Tracker from '../Tracker/Tracker';
+import Counter from './Counter/Counter';
 import FeaturedCourses from './FeaturedCourses/FeaturedCourses';
+import FeaturedInstallment from './FeaturedInstallment/FeaturedInstallment';
 import Hero from './Hero/Hero';
 import MainReviews from './MainReviews/MainReviews';
 import SSFeatures from './SSFeatures/SSFeatures';
@@ -17,8 +19,10 @@ const Home = () => {
             <Navbar />
             <Hero />
             <FeaturedCourses />
+            <FeaturedInstallment />
             {/* <PromoImages /> */}
             <SSFeatures />
+            <Counter />
             {/* <SSModels /> */}
             <MainReviews />
             <Footer />
