@@ -294,7 +294,7 @@ const RegisterFromDemoClass = () => {
                 {/* div for phone number input*/}
                 <div className="d-flex mx-auto d-block justify-content-center mt-3">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="d-flex">
+                        <div style={{border:'1px solid lightgrey', borderRadius: '5px' }} className="d-flex">
                             <span style={{ fontSize: '16px', lineHeight: '24px', color: '#4b5563', fontWeight: '400', backgroundColor: 'white', height: '50px', borderRadius: '5px', paddingTop: '0.8rem' }} className='px-2'>+88</span>
                             <input
                                 id='number_input'

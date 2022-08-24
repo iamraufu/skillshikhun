@@ -55,8 +55,10 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <p style={{marginBottom:'0', paddingBottom:'10px'}} className='text-center'>Developed by <a href="https://www.google.com/search?q=eftykhar+rahman" className="text-decoration-none text-muted ps-1" target="_blank" rel="noreferrer"> Eftykhar Rahman</a>
+            <p style={{marginBottom:'0', paddingBottom:'10px'}} className='text-center text-muted'>স্বত্ব &copy; ২০২১ - ২০২২ স্কিল শিখুন কতৃক সর্বস্বত্ব সংরক্ষিত
             </p>
+            {/* <p style={{marginBottom:'0', paddingBottom:'10px'}} className='text-center'>Developed by <a href="https://www.google.com/search?q=eftykhar+rahman" className="text-decoration-none text-muted ps-1" target="_blank" rel="noreferrer"> Eftykhar Rahman</a>
+            </p> */}
         </div>
     );
 };

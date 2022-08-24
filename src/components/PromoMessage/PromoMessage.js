@@ -44,7 +44,9 @@ const PromoMessage = () => {
             </div>
 
             <div>
-                <button onClick={() => document.getElementById('promo_message_container').style.display = 'none'} style={{ position: 'absolute', top: '0', right: '0' }} className='btn btn-sm text-secondary m-2'>X</button>
+                <button onClick={() => document.getElementById('promo_message_container').style.display = 'none'} style={{ position: 'absolute', top: '0', right: '0', 
+                backgroundColor:'white', height:'30px', width:'30px', borderRadius: '50%', opacity:'0.8' 
+                }} className='btn btn-sm text-secondary m-2 fw-bold'>X</button>
             </div>
         </div>
     );

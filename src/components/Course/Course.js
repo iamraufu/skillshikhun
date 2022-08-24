@@ -12,9 +12,13 @@ import CourseDemoClass from '../DemoClass/CourseDemoClass';
 import Tracker from '../Tracker/Tracker';
 import Footer from '../Shared/Footer/Footer';
 import { useForm } from 'react-hook-form';
-// import PromoMessage from '../PromoMessage/PromoMessage';
-// import promo_sm from '../../images/promo/promo_sm.png';
+import PromoMessage from '../PromoMessage/PromoMessage';
+// import fri500_sm from '../../images/promo/promo_sm.png';
+import skill999_sm from '../../images/promo/skill999_sm.png';
 import clickImage from '../../images/promo/click.png';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+import call from '../../images/courses/call.svg';
 // import Countdown from '../Countdown/Countdown';
 // const HowToPayment = React.lazy(() => import('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
@@ -66,7 +70,7 @@ const Course = (props) => {
             .then(data => {
                 if (data.status === true) {
                     setDiscount(data.result[0].discount);
-                    setMessage("Promo code applied");
+                    setMessage("প্রোমো কোড অ্যাপ্লাইড");
                     document.getElementById('promo-form').style.display = 'none';
                     document.getElementById('promo_code').style.display = 'none';
                     // for smaller screen
@@ -100,9 +104,14 @@ const Course = (props) => {
         // eslint-disable-next-line
     }, [discount])
 
+    const [open, setOpen] = useState(false);
+
+    const onOpenModal = () => setOpen(true);
+    const onCloseModal = () => setOpen(false);
+
     return (
         <>
-        {/* <PromoMessage /> */}
+        <PromoMessage />
         <div style={{ backgroundColor: '#f8f9fa' }}>
             <Navbar />
             <div className="container py-5">
@@ -144,7 +153,7 @@ const Course = (props) => {
                                     <img width={100} className='img-fluid' src={promoImage} alt="" />
                                 </div> */}
 
-                                {/* <img className='img-fluid' src={promo_sm} alt="" /> */}
+                                <img className='img-fluid' src={skill999_sm} alt="" />
 
                                 <div className="d-none d-lg-block">
                                     <span onClick={() => {
@@ -159,7 +168,7 @@ const Course = (props) => {
                                     <div style={{ display: 'none', marginTop:'3px' }} id="lg-promo-container">
                                         <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
                                             <div className="d-flex justify-content-center align-items-center p-2">
-                                                <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width:'45px' }} className='me-2 p-2'>X</button>
+                                                <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width:'30px', height:'30px', borderRadius: '50%'}} className='me-2 fw-bold'>X</button>
                                                 <input 
                                                 // value='FRI500' 
                                                 placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
@@ -235,7 +244,18 @@ const Course = (props) => {
                                             </div>
                                         </div>
                                 }
-                                <p className='text-center mt-3'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
+                                <p onClick={onOpenModal} className='text-center mt-3'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline', cursor:'pointer' }} className='text-success'>
+                                    <FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645
+                                    </span>
+                                </p>
+                                    <Modal open={open} onClose={onCloseModal} center>
+                                    <img width={100} className='img-fluid mx-auto d-block' src={call} alt="support" />
+                                    <p style={{height:'50px', width:'400px'}} className='my-4 p-3 text-center'>
+                                    কোন জিজ্ঞাসা, সমস্যা বা পরামর্শ জানাতে ফোন করুন নিচের নাম্বারে (সকাল ৯টা - রাত ১০টা )
+                                    </p>
+                                    <a href="tel:09613823645" className='text-success pt-3 d-flex justify-content-center'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a>
+                                    </Modal>
+                            
                             </div>
                         </div>
                     </div>
@@ -262,7 +282,7 @@ const Course = (props) => {
                                                 </div>
                                             </div>
                                         )}
-                                    <h5 style={{ cursor: 'pointer' }} className='text-center' onClick={seeMore}>কম দেখতে ক্লিক করুন <FontAwesomeIcon icon={faAngleUp} /></h5>
+                                    <h5 style={{ cursor: 'pointer', border:'1px solid lightgrey', borderRadius: '15px',backgroundColor: 'white', boxShadow: '0 3px 10px 3px #0003', fontSize:'16px', marginTop:'-1.3rem', zIndex:'5', position:'relative', width:'150px' }} className='text-center p-2 mx-auto d-block' onClick={seeMore}>কম দেখুন <FontAwesomeIcon icon={faAngleUp} /></h5>
                                 </div> :
                                 <div className="accordion accordion-flush" id="accordionFlushExample">
                                     {
@@ -279,7 +299,7 @@ const Course = (props) => {
                                                 </div>
                                             </div>
                                         )}
-                                    <h5 style={{ cursor: 'pointer' }} className='text-center' onClick={() => setShowMore(true)}>আরো দেখতে ক্লিক করুন <FontAwesomeIcon icon={faAngleDown} /></h5>
+                                    <h5 style={{ cursor: 'pointer', border:'1px solid lightgrey', borderRadius: '15px',backgroundColor: 'white', boxShadow: '0 3px 10px 3px #0003', fontSize:'16px', marginTop:'-1.3rem', zIndex:'5', position:'relative', width:'150px' }} className='text-center p-2 mx-auto d-block' onClick={() => setShowMore(true)}>আরো দেখুন <FontAwesomeIcon icon={faAngleDown} /></h5>
                                 </div>
                         }
 
@@ -380,7 +400,7 @@ const Course = (props) => {
                                 document.getElementById('sm-info').style.display = 'block'
                                 document.getElementById('sm-promo-open').style.display = 'none'
                             }
-                            } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
+                            } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent',width:'30px', height:'30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
                             <input 
                             // value="FRI500" 
                             placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />

@@ -359,7 +359,12 @@ const DemoClass = (props) => {
     })
 
     return (
-        <div style={{ backgroundColor: 'rgb(243, 245, 249)', borderRadius: '15px', border: '1px solid #ececec' }} className='hero-demo-container'>
+        <div style={{ 
+            // backgroundColor: 'rgb(243, 245, 249)', 
+            backgroundColor: 'white', 
+            borderRadius: '15px', border: '1px solid #ececec',
+            boxShadow: '0 5px 5px lightgrey'
+            }} className='hero-demo-container'>
             {/* <h1 style={{ fontSize: '22px', color: '#343b6d', fontWeight: '600' }} className='mt-4 text-center'>৩টি ফ্রি লাইভ ক্লাস বুকিং করে নিন</h1> */}
             <h1 style={{ fontSize: '22px', color: '#343b6d', fontWeight: '600' }} className='mt-4 text-center'>লাইভ কোর্সের কিছু ভিডিও দেখুন ফ্রি !</h1>
 

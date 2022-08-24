@@ -38,7 +38,7 @@ const Counter = () => {
     return (
         <section className='container my-5'>
             <div className="row justify-content-center align-items-center p-3">
-                <CountUp start={0} end={lg + nlg + 5000} delay={0}>
+                <CountUp start={0} end={lg + nlg + 10324} delay={0}>
                     {({ countUpRef }) => (
                         <div style={{ border: '1px solid #dde7f3', borderRadius: '15px' }} className='col-md-3 p-5 mx-2 my-2'>
                             <span className="text-center mx-auto d-block fs-2 fw-bold" ref={countUpRef} />

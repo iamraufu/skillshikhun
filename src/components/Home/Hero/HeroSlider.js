@@ -5,25 +5,22 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper";
-import courseData from '../../../data/course/courseData';
 import { Link } from 'react-router-dom';
-import f400 from '../../../images/courses/f400.png'
-import ve400 from '../../../images/courses/ve400.png'
-import dm400 from '../../../images/courses/dm400.png'
-import gd400 from '../../../images/courses/gd400.png'
-import wd400 from '../../../images/courses/wd400.png'
+// import fl from '../../../images/courses/offer/FL.png'
+import ve from '../../../images/courses/offer/VE.png'
+import dm from '../../../images/courses/offer/DM.png'
+import gd from '../../../images/courses/offer/GD.png'
+import wd from '../../../images/courses/offer/WD.png'
 
 const HeroSlider = () => {
 
     return (
-        <section
-            style={{ marginTop: '-2rem' }}
-            className="">
+        <section className="">
             <Swiper
-                spaceBetween={30}
+                spaceBetween={0}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 3500,
+                    delay: 2500,
                     disableOnInteraction: false,
                 }}
                 pagination={{
@@ -31,41 +28,97 @@ const HeroSlider = () => {
                 }}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper"
+                className="mySwiper pb-5"
             >
-                {
-                    courseData.map(course =>
-                        <>
-                            <SwiperSlide>
-                                <Link to={course.route}>
-                                    <div className="container">
-                                        <div className="d-flex">
-                                            <div className="col-sm-4">
-                                                <img className='img-fluid mx-auto d-block swiper_image p-5' src={f400} alt={course.name} />
-                                            </div>
+                <SwiperSlide className='d-none d-lg-block'>
+                    <div className="d-flex justify-content-center ">
+                        {/* <div className="col-sm-2">
+                            <Link to='/'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={fl} alt='Course' />
+                            </Link>
+                        </div> */}
 
-                                            <div className="col-sm-4">
-                                                <img className='img-fluid mx-auto d-block swiper_image p-5' src={ve400} alt={course.name} />
-                                            </div>
+                        <div className="col-sm-2">
+                            <Link to='/video-editing'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={ve} alt='Course' />
+                            </Link>
+                        </div>
 
-                                            <div className="col-sm-4">
-                                                <img className='img-fluid mx-auto d-block swiper_image p-5' src={dm400} alt={course.name} />
-                                            </div>
+                        <div className="col-sm-2">
+                            <Link to='/graphics-design'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={gd} alt='Course' />
+                            </Link>
+                        </div>
 
-                                            <div className="col-sm-4">
-                                                <img className='img-fluid mx-auto d-block swiper_image p-5' src={gd400} alt={course.name} />
-                                            </div>
+                        <div className="col-sm-2">
+                            <Link to='/web-development'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={wd} alt='Course' />
+                            </Link>
+                        </div>
 
-                                            <div className="col-sm-4">
-                                                <img className='img-fluid mx-auto d-block swiper_image p-5' src={wd400} alt={course.name} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </SwiperSlide>
-                        </>
-                    )
-                }
+                        <div className="col-sm-2">
+                            <Link to='/digital-marketing'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={dm} alt='Course' />
+                            </Link>
+                        </div>
+
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide className='d-lg-none pb-5'>
+                    <div className="d-flex justify-content-center ">
+                        {/* <div className="col-sm-6">
+                            <Link to='/'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={fl} alt='Course' />
+                            </Link>
+                        </div> */}
+
+                        <div className="col-sm-6">
+                            <Link to='/digital-marketing'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={dm} alt='Course' />
+                            </Link>
+                        </div>
+
+                        <div className="col-sm-6">
+                            <Link to='/video-editing'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={ve} alt='Course' />
+                            </Link>
+                        </div>
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide className='d-lg-none pb-5'>
+                    <div className="d-flex justify-content-center ">
+                        <div className="col-sm-6">
+                            <Link to='/graphics-design'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={gd} alt='Course' />
+                            </Link>
+                        </div>
+
+                        <div className="col-sm-6">
+                            <Link to='/web-development'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={wd} alt='Course' />
+                            </Link>
+                        </div>
+                    </div>
+                </SwiperSlide>
+
+                {/* <SwiperSlide className='d-lg-none pb-5'>
+                    <div className="d-flex justify-content-center ">
+
+                        <div className="col-sm-6">
+                             <Link to='/'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={fl} alt='Course' />
+                            </Link>
+                        </div>
+
+                        <div className="col-sm-6">
+                            <Link to='/digital-marketing'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={dm} alt='Course' />
+                            </Link>
+                        </div>
+                    </div>
+                </SwiperSlide> */}
             </Swiper>
         </section>
     );

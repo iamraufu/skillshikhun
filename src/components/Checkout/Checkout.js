@@ -464,14 +464,14 @@ const Checkout = () => {
                                 <div style={{ display: 'none' }} id="lg-promo-container">
                                     <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
                                         <div className="d-flex justify-content-center align-items-center p-2">
-                                            <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
+                                            <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent',width:'30px', height:'30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
                                             <input 
                                             // value="FRI500" 
                                             placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
                                             <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
                                         </div>
                                     </form>
-                                    {/* <p className='text-center fw-bold'>{message}</p> */}
+                                    <p className='text-center fw-bold'>{message}</p>
                                 </div>
 
                                 {/* <Countdown
@@ -542,7 +542,7 @@ const Checkout = () => {
                                 document.getElementById('sm-promo').style.display = 'block'
                                 document.getElementById('sm-promo-open').style.display = 'none'
                             }
-                            } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent' }} className='me-2 p-2'>X</button>
+                            } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent',width:'30px', height:'30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
                             <input 
                             // value="FRI500" 
                             placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
