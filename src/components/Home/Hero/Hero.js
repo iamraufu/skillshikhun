@@ -21,7 +21,7 @@ const Hero = () => {
             <div className="container">
                 <div className="row p-2">
                     <h2 className='text-white hero-text mt-3 text-center mt-5'> স্কিল শিখুন এর হাত ধরে শিখুন ঘরে বসে আয় করার মাধ্যম!</h2>
-                    <p className='text-white hero-text-sub text-center'>সাশ্রয়ী মূল্যে ঘরে বসে লাইভ ক্লাস করুন ইন্ট্রাক্টর এর সাথে!</p>
+                    <p className='text-white hero-text-sub text-center'>সাশ্রয়ী মূল্যে ঘরে বসে লাইভ ক্লাস করুন ইন্সট্রাক্টর এর সাথে!</p>
                     
                     <a style={{border:'1px solid lightgrey', borderRadius:'5px', maxWidth:'400px'}} href="tel:09613823645" className='text-decoration-none text-white text-center mb-5 p-2 mx-auto d-block row'>
                         কোর্স সম্পর্কিত যেকোনো তথ্যের জন্য কল করুন <button className='btn-hero-call btn btn-dark btn-sm py-2 text-white fs-6'><img width={25} className='img-fluid' src={call_white} alt="" /> 09613823645</button></a>
