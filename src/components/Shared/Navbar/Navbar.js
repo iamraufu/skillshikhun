@@ -14,7 +14,7 @@ const Navbar = () => {
         <div style={{ backgroundColor: 'white', boxShadow: '0 5px 15px #c4c4c44d', marginTop:'-5px' }} className="sticky-top">
             <div style={{ height: '75px' }} className="container-xl navbar-container">
 
-                <nav className="navbar navbar-expand-lg navbar-light mt-1">
+                <nav className="navbar navbar-expand-lg navbar-light">
                     <div className="container-fluid navbar-container">
 
                         <button onClick={()=>myRef.current.scrollIntoView()} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

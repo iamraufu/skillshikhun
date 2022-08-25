@@ -20,7 +20,7 @@ const Hero = () => {
             className='hero-container'>
             <div className="container">
                 <div className="row p-2">
-                    <h2 className='text-white hero-text mt-3 text-center mt-5'> স্কিল শিখুন এর হাত ধরে শিখুন ঘরে বসে আয় করার মাধ্যম!</h2>
+                    <h2 className='text-white hero-text mt-3 text-center mt-4'> স্কিল শিখুন এর হাত ধরে শিখুন ঘরে বসে আয় করার মাধ্যম!</h2>
                     <p className='text-white hero-text-sub text-center'>সাশ্রয়ী মূল্যে ঘরে বসে লাইভ ক্লাস করুন ইন্সট্রাক্টর এর সাথে!</p>
                     
                     <a style={{border:'1px solid lightgrey', borderRadius:'5px', maxWidth:'400px'}} href="tel:09613823645" className='text-decoration-none text-white text-center mb-5 p-2 mx-auto d-block row'>
