@@ -408,7 +408,7 @@ const courseData = [
         next_batch: 'সেপ্টেম্বর',
         next_batch_eng: '2022-09-04T21:00:00.000+06:00',
         course_instructor: 'সাব্বির আহমেদ',
-        instructor_designation: 'Digital Content Creator; Professional Photographer; Accomplished Video Editor;',
+        instructor_designation: 'Professional Film Editor of BFDC and PhD Researcher on Film Marketing in Malaysia.',
         class_date: [
             {
                 id: 1,
@@ -836,7 +836,7 @@ const courseData = [
         next_batch: 'সেপ্টেম্বর',
         next_batch_eng: '2022-09-04T18:30:00.000+06:00',
         course_instructor: 'আতাউল হোসেন',
-        instructor_designation: 'Top Rated Freelancer on Upwork & Fiverr. A Professional Digital Marketer.',
+        instructor_designation: 'Head of Marketing at Skill Shikhun, Top Rated Freelancer on Fiverr',
         class_date: [
             {
                 id: 1,
@@ -1326,7 +1326,7 @@ const courseData = [
         next_batch: 'সেপ্টেম্বর',
         next_batch_eng: '2022-09-04T07:45:00.000+06:00',
         course_instructor: 'সায়মা বিবি',
-        instructor_designation: 'Proficient Freelance Designer at Upwork; Chief Creative Officer, Brand Consortium.',
+        instructor_designation: 'Former Junior Lecturer at Shanto-Mariam University of Creative Technology, Freelance Creative Designer',
         class_date: [
             {
                 id: 1,
@@ -1773,7 +1773,7 @@ const courseData = [
         next_batch_eng: '2022-09-04T09:00:00.000+06:00',
         seat_left: '১১',
         course_instructor: 'ইফতিখার রহমান',
-        instructor_designation: 'Professional Full-stack Web Developer; Enriched expertise in teaching.',
+        instructor_designation: 'Head of Development at Step 2 Digital, Senior Web Developer at Skill Shikhun',
         class_date: [
             {
                 id: 1,
