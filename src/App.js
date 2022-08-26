@@ -26,7 +26,6 @@ import DPrevFreeClass from './components/Dashboard/DPrevFreeClass/DPrevFreeClass
 import User from './components/User/User';
 import DClassRecordings from './components/Dashboard/DClassRecordings/DClassRecordings';
 import VideoPlayer from './components/VideoPlayer/VideoPlayer';
-import PromoCourse from './components/Course/PromoCourse/PromoCourse';
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -50,8 +49,6 @@ function App() {
           <Route path="/video-editing" element={<Course color='#653dae' name="Video Editing" />} />
           <Route path="/web-development" element={<Course color='#13338b' name="Web Development" />} />
           <Route path="/graphics-design" element={<Course color='#df8254' name="Graphics Design" />} />
-
-          {/* <Route path='/courses/offer/:id' element={<PromoCourse />} /> */}
 
           <Route path="/admission" element={<Admission />} />
           <Route path="/contact" element={<Contact />} />
