@@ -19,7 +19,7 @@ const Profile = () => {
     const [user, setUser] = useState({});
 
     useEffect(() => {
-        fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
+        fetch(`https://api-skillshikhun.herokuapp.com/users/phone/${phone}`)
             .then(res => res.json())
             .then(data => setUser(data))
             // eslint-disable-next-line 
@@ -59,7 +59,7 @@ const Profile = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch(`https://skillshikhun.herokuapp.com/user/${user._id}`, {
+        fetch(`https://api-skillshikhun.herokuapp.com/user/${user._id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

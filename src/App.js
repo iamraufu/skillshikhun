@@ -26,6 +26,7 @@ import DPrevFreeClass from './components/Dashboard/DPrevFreeClass/DPrevFreeClass
 import User from './components/User/User';
 import DClassRecordings from './components/Dashboard/DClassRecordings/DClassRecordings';
 import VideoPlayer from './components/VideoPlayer/VideoPlayer';
+import PromoCourse from './components/Course/PromoCourse/PromoCourse';
 const Home = lazy(() => import('./components/Home/Home'));
 const Course = lazy(() => import('./components/Course/Course'));
 const Admission = lazy(() => import('./components/Admission/Admission'));
@@ -34,9 +35,9 @@ const Login = lazy(() => import('./components/Login/Login'));
 
 function App() {
   const renderLoader = () =>
-  <div style={{position:'absolute', height:'100px', width:'100px', top:'50%', left:'50%', marginLeft:'-50px', marginTop:'-50px'}}>
-    <img src={logo} id='breathing' width={100} height={100} className='img-fluid' alt="logo of Skill Shikhun" />
-  </div>
+    <div style={{ position: 'absolute', height: '100px', width: '100px', top: '50%', left: '50%', marginLeft: '-50px', marginTop: '-50px' }}>
+      <img src={logo} id='breathing' width={100} height={100} className='img-fluid' alt="logo of Skill Shikhun" />
+    </div>
 
   return (
     <AuthProvider>
@@ -50,6 +51,8 @@ function App() {
           <Route path="/web-development" element={<Course color='#13338b' name="Web Development" />} />
           <Route path="/graphics-design" element={<Course color='#df8254' name="Graphics Design" />} />
 
+          {/* <Route path='/courses/offer/:id' element={<PromoCourse />} /> */}
+
           <Route path="/admission" element={<Admission />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/courses" element={<AllCourses />} />
@@ -58,7 +61,7 @@ function App() {
 
           <Route path="/fail" element={<Fail />} />
           <Route path="/cancel" element={<Cancel />} />
-          
+
           <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/terms-conditions" element={<Terms />} />
           <Route path="/eftykharrahman" element={<User />} />
@@ -77,10 +80,10 @@ function App() {
             <Route path="course/live/video/:courseId" element={<DLiveCourseVideo />} />
             <Route path="courses/:courseId" element={<VideoPlayer />} />
             {/* <Route path="/:username" element={<User />} /> */}
-            
+
           </Route>
 
-          <Route path="/" element={<PrivateOutlet2 /> }>
+          <Route path="/" element={<PrivateOutlet2 />}>
             <Route path="/purchase/checkout/:courseId" element={<PurchaseCheckout />} />
           </Route>
 

@@ -1,27 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './Course.css';
+import '../Course.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faClock, faCalendarDays, faPhone, faCheck, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import courseData from '../../data/course/courseData.js';
-import live from '../../images/liveClass.svg';
+import courseData from '../../../data/course/courseData.js';
+import live from '../../../images/liveClass.svg';
 import { Link } from 'react-router-dom';
-import CourseReview from './CourseReview';
-import CourseDemoClass from '../DemoClass/CourseDemoClass';
-import Tracker from '../Tracker/Tracker';
-import Footer from '../Shared/Footer/Footer';
+import CourseReview from '../../../data/course/reviewData';
+import CourseDemoClass from '../../DemoClass/CourseDemoClass';
+import Tracker from '../../Tracker/Tracker';
+import Footer from '../../Shared/Footer/Footer';
 import { useForm } from 'react-hook-form';
-import PromoMessage from '../PromoMessage/PromoMessage';
+import PromoMessage from '../../PromoMessage/PromoMessage';
 // import fri500_sm from '../../images/promo/promo_sm.png';
-import skill999_sm from '../../images/promo/skill999_sm.png';
-import clickImage from '../../images/promo/click.png';
-import call from '../../images/courses/call.svg';
+import skill999_sm from '../../../images/promo/skill999_sm.png';
+import clickImage from '../../../images/promo/click.png';
+import call from '../../../images/courses/call.svg';
 // import Countdown from '../Countdown/Countdown';
 // const HowToPayment = React.lazy(() => import('./HowToPayment'));
-const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
+const Navbar = React.lazy(() => import('../../Shared/Navbar/Navbar'));
 
-const Course = (props) => {
+const PromoCourse = () => {
     const name = props.name;
-
+    console.log(props);
     const phone = localStorage.getItem('phone');
     const course = courseData?.find(course => course?.name === name);
     const courseName = course.name;
@@ -470,4 +470,4 @@ const Course = (props) => {
     );
 };
 
-export default Course;
+export default PromoCourse;

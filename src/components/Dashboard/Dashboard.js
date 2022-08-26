@@ -49,7 +49,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/users/phone/${phone}`);
             const data = await res.json();
             setUserPhoneData(data);
         }
@@ -58,7 +58,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
             const data = await res.json();
             setDemoClasses(data);
         }
@@ -67,7 +67,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
             const data = await res.json();
             setLiveCourses(data);
         }
@@ -76,7 +76,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payment/Video/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/api/get-payment/Video/${phone}`);
             const data = await res.json();
             setVideoCourses(data);
         }
@@ -85,7 +85,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payments/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/api/get-payments/${phone}`);
             const data = await res.json();
             setPayments(data);
         }
@@ -107,7 +107,7 @@ const Dashboard = () => {
         setPurchasedVideoCourses(videoCourses.filter(course => video_courses.includes(course.name)))
     }, [payments, demoClasses, videoCourses])
 
-    // let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
+    // let signatureEndpoint = 'https://api-skillshikhun.herokuapp.com/liveClass'
     // let sdkKey = '87rXfpYIpyQYMZSrjmcYKvF72lEqinAuroje'
     // let meetingNumber = ''
     // let role = 0

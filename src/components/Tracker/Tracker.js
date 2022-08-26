@@ -15,7 +15,7 @@ const Tracker = ({props}) => {
 
     useEffect(()=>{ 
         if(token){
-            fetch('https://skillshikhun.herokuapp.com/trackLoggedInUsers', {
+            fetch('https://api-skillshikhun.herokuapp.com/trackLoggedInUsers', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ const Tracker = ({props}) => {
             .then(res => res.json())
         }
         else{
-            fetch('https://skillshikhun.herokuapp.com/trackLoggedOutUsers', {
+            fetch('https://api-skillshikhun.herokuapp.com/trackLoggedOutUsers', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

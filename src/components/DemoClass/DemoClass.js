@@ -70,7 +70,7 @@
 //         }
 
 //         // send otp to user
-//         await fetch('https://skillshikhun.herokuapp.com/api/send-otp-demo', {
+//         await fetch('https://api-skillshikhun.herokuapp.com/api/send-otp-demo', {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json'
@@ -98,7 +98,7 @@
 
 //         const otp = otpData.otp;
 
-//         fetch('https://skillshikhun.herokuapp.com/api/otp-verification-demo', {
+//         fetch('https://api-skillshikhun.herokuapp.com/api/otp-verification-demo', {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json'
@@ -146,7 +146,7 @@
 //             date: `${day}-${month}-${year} at ${time}`
 //         };
 
-//         fetch('https://skillshikhun.herokuapp.com/registerForDemoClass', {
+//         fetch('https://api-skillshikhun.herokuapp.com/registerForDemoClass', {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json'
@@ -328,7 +328,7 @@ const DemoClass = (props) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
             const data = await res.json();
             setDemoClasses(data);
         }
@@ -337,7 +337,7 @@ const DemoClass = (props) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/users/phone/${phone}`);
             const data = await res.json();
             setUserPhone(data)
         }

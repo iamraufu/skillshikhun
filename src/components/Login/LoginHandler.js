@@ -119,7 +119,7 @@ const LoginHandler = () => {
         }
 
         // send otp to user
-        await fetch('https://skillshikhun.herokuapp.com/api/send-otp', {
+        await fetch('https://api-skillshikhun.herokuapp.com/api/send-otp', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -150,7 +150,7 @@ const LoginHandler = () => {
     // function for OTP verification
     const OTPVerification = (otpData) => {
         const otp = otpData.otp;
-        fetch('https://skillshikhun.herokuapp.com/api/otp-verification', {
+        fetch('https://api-skillshikhun.herokuapp.com/api/otp-verification', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -190,7 +190,7 @@ const LoginHandler = () => {
 
         const time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 
-        fetch('https://skillshikhun.herokuapp.com/api/password-input', {
+        fetch('https://api-skillshikhun.herokuapp.com/api/password-input', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -232,7 +232,7 @@ const LoginHandler = () => {
     const passwordVerification = (passwordData) => {
         const inputtedPassword = passwordData.password;
 
-        fetch('https://skillshikhun.herokuapp.com/api/password-input-login', {
+        fetch('https://api-skillshikhun.herokuapp.com/api/password-input-login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -279,7 +279,7 @@ const LoginHandler = () => {
             confirmButtonText: 'হ্যাঁ, ভুলে গেছি!'
         }).then((result) => {
             if (result.value) {
-                fetch('https://skillshikhun.herokuapp.com/api/forget-password', {
+                fetch('https://api-skillshikhun.herokuapp.com/api/forget-password', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -310,7 +310,7 @@ const LoginHandler = () => {
     const forgetPasswordOTPVerify = (data) => {
         const otp = data.otp;
 
-        fetch('https://skillshikhun.herokuapp.com/api/otp-verification', {
+        fetch('https://api-skillshikhun.herokuapp.com/api/otp-verification', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -339,7 +339,7 @@ const LoginHandler = () => {
     // function for password reset
     const passwordReset = (data) => {
         const password = data.password
-        fetch('https://skillshikhun.herokuapp.com/api/reset-password', {
+        fetch('https://api-skillshikhun.herokuapp.com/api/reset-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -37,7 +37,7 @@ const Checkout = () => {
 
     useEffect(() => {
         if (code) {
-            fetch('https://skillshikhun.herokuapp.com/getPromoCode/' + code)
+            fetch('https://api-skillshikhun.herokuapp.com/getPromoCode/' + code)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data.result.find(promo => promo.course === course[0].name));
@@ -57,14 +57,14 @@ const Checkout = () => {
 
     const [payments, setPayments] = useState([]);
     useEffect(() => {
-        fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
+        fetch(`https://api-skillshikhun.herokuapp.com/users/phone/${phone}`)
             .then(res => res.json())
             .then(data => setUserPhoneData(data))
     }, [phone])
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payments/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/api/get-payments/${phone}`);
             const data = await res.json();
             setPayments(data);
         }
@@ -173,8 +173,8 @@ const Checkout = () => {
                 // amount: 1,
                 tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
                 currency: "BDT",
-                success_url: `https://skillshikhun.herokuapp.com/api/make-payment`,
-                fail_url: `https://skillshikhun.herokuapp.com/api/payment-failure`,
+                success_url: `https://api-skillshikhun.herokuapp.com/api/make-payment`,
+                fail_url: `https://api-skillshikhun.herokuapp.com/api/payment-failure`,
                 cancel_url: `https://www.skillshikhun.com/checkout/${courseId}`,
                 desc: `Purchase ${course[0].slug} Course`,
                 type: "json",
@@ -193,7 +193,7 @@ const Checkout = () => {
 
 
         // SSL Payment Gateway
-        // fetch('https://skillshikhun.herokuapp.com/ssl-request'
+        // fetch('https://api-skillshikhun.herokuapp.com/ssl-request'
         // ,{
         //     method: 'POST',
         //     headers: { 
@@ -211,8 +211,8 @@ const Checkout = () => {
         //     // amount: '1',
         //     tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
         //     currency: "BDT",
-        //     success_url: `https://skillshikhun.herokuapp.com/api/make-payment`,
-        //     fail_url: `https://skillshikhun.herokuapp.com/api/payment-failure`,
+        //     success_url: `https://api-skillshikhun.herokuapp.com/api/make-payment`,
+        //     fail_url: `https://api-skillshikhun.herokuapp.com/api/payment-failure`,
         //     cancel_url: `https://www.skillshikhun.com/checkout/${courseId}`,
         //     desc: `Purchase ${course[0].slug} Course`,
         //     type: "json",
@@ -227,7 +227,7 @@ const Checkout = () => {
 
 
         // Aamar Pay Gateway
-        // await fetch('https://skillshikhun.herokuapp.com/api/aamar-pay')
+        // await fetch('https://api-skillshikhun.herokuapp.com/api/aamar-pay')
         //     .then(res => res.json())
         //     .then(data => {
 
@@ -268,7 +268,7 @@ const Checkout = () => {
     }
 
     const verifyPromoCode = (code, course) => {
-        fetch('https://skillshikhun.herokuapp.com/validatePromoCode', {
+        fetch('https://api-skillshikhun.herokuapp.com/validatePromoCode', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ code, course })

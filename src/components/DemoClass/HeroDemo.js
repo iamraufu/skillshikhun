@@ -19,14 +19,14 @@ const HeroDemo = (props) => {
     const otherCategory = courseData.filter(course => course.name !== category);
 
     useEffect(() => {
-        fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
+        fetch(`https://api-skillshikhun.herokuapp.com/users/phone/${phone}`)
             .then(res => res.json())
             .then(data => setUserPhoneData(data))
     }, [phone])
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
             const data = await res.json();
             setDemoClasses(data);
         }
@@ -51,7 +51,7 @@ const HeroDemo = (props) => {
         const time = day+"-"+month+"-"+year;
 
         if(time === courseCategory[0].class_date_1_deadline){
-            fetch(`https://skillshikhun.herokuapp.com/testDemoClasses/${category}`, {
+            fetch(`https://api-skillshikhun.herokuapp.com/testDemoClasses/${category}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -103,7 +103,7 @@ const HeroDemo = (props) => {
             date: `${day}-${month}-${year} at ${time}`
         };
 
-        fetch('https://skillshikhun.herokuapp.com/addToTestDemoClass',{
+        fetch('https://api-skillshikhun.herokuapp.com/addToTestDemoClass',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -111,7 +111,7 @@ const HeroDemo = (props) => {
             body: JSON.stringify(details)
         })
 
-        fetch('https://skillshikhun.herokuapp.com/registerForDemoClass', {
+        fetch('https://api-skillshikhun.herokuapp.com/registerForDemoClass', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

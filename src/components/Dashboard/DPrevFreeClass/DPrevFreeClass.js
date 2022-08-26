@@ -22,7 +22,7 @@ const DPrevFreeClass = () => {
     const [videoId, setVideoId] = useState(course[0].outline[0].video[0].videoId)
 
     useEffect(() => {
-        fetch('https://skillshikhun.herokuapp.com/demoClasses/phone/' + phone, {
+        fetch('https://api-skillshikhun.herokuapp.com/demoClasses/phone/' + phone, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

@@ -31,7 +31,7 @@ const DLiveCourse = () => {
     // fetching user info
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/users/phone/${phone}`);
             const data = await res.json();
             setUserPhoneData(data);
         }
@@ -41,7 +41,7 @@ const DLiveCourse = () => {
     // fetching user paid info
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payments/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/api/get-payments/${phone}`);
             const data = await res.json();
             setPayments(data);
         }
@@ -51,7 +51,7 @@ const DLiveCourse = () => {
     // fetching live courses
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
             const data = await res.json();
             setLiveCourses(data);
         }
@@ -68,7 +68,7 @@ const DLiveCourse = () => {
 
     }, [payments])
 
-    // let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
+    // let signatureEndpoint = 'https://api-skillshikhun.herokuapp.com/liveClass'
     // let sdkKey = '87rXfpYIpyQYMZSrjmcYKvF72lEqinAuroje'
     // let meetingNumber = ''
     // let role = 0
