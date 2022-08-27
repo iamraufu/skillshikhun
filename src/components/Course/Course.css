@@ -92,6 +92,11 @@
     color: white;
 }
 
+.whatsapp-lg:hover {
+    background-color: #25d366;
+    color: white;
+}
+
 
 /* 
 @media (max-width: 1399px) {
