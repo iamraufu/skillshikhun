@@ -87,6 +87,11 @@
     transform: translateY(-15px);
 }
 
+.messenger-lg:hover {
+    background-color: #4267B2;
+    color: white;
+}
+
 
 /* 
 @media (max-width: 1399px) {

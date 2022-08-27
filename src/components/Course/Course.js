@@ -15,8 +15,9 @@ import PromoMessage from '../PromoMessage/PromoMessage';
 import skill999_sm from '../../images/promo/skill999_sm.png';
 import clickImage from '../../images/promo/click.png';
 import call from '../../images/courses/call.svg';
+import messenger from '../../images/courses/messenger.svg';
 // import Countdown from '../Countdown/Countdown';
-// const HowToPayment = React.lazy(() => import('./HowToPayment'));
+const HowToPayment = React.lazy(() => import('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
 const Course = (props) => {
@@ -224,7 +225,11 @@ const Course = (props) => {
                                                 </div>
                                             </div>
                                     }
-                                    <p className='text-center mt-3'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
+                                    <p className='text-center mt-5 d-none d-lg-block'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
+                                    
+                                    <a style={{ border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://m.me/skillshikhun" target="_blank" rel="noreferrer" className='text-decoration-none p-2 messenger-lg mx-auto d-block text-center w-25 d-none d-lg-block'>
+                                                <img width={30} className='img-fluid pb-1' src={messenger} alt="chat in messenger" /> চ্যাট করুন
+                                            </a>
                                 </div>
                             </div>
                         </div>
@@ -299,7 +304,7 @@ const Course = (props) => {
                             </div>
 
                             {/* How to payment */}
-                            {/* <HowToPayment course={course} /> */}
+                            <HowToPayment />
 
                             {/* Demo Class Registration Form */}
                             <CourseDemoClass course={course} refProp={myRef} />
@@ -386,28 +391,34 @@ const Course = (props) => {
                                 :
                                 <div className="my-3">
                                     <div className="container-fluid d-flex justify-content-between px-2 align-items-center">
-                                        
+
                                         <div style={{ border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} className="col-sm-4 p-2 d-flex justify-content-center align-items-center mx-1">
                                             <a style={{ fontSize: '15px', textDecoration: 'none', color: 'black' }} href="tel:09613823645">
                                                 <img width={20} src={call} className='img-fluid' alt="call" /> 09613823645
                                             </a>
                                         </div>
 
-                                        <div id='sm-next-batch' className="col-sm-4">
+                                        {/* <div id='sm-next-batch' className="col-sm-2">
                                             <h2 style={{ fontSize: '13px', lineHeight: '24px' }} className='pt-2'>
                                                 ব্যাচ: <b style={{fontSize:'16px'}}>{course.next_batch}</b> ২০২২
                                             </h2>
-                                        </div>
+                                        </div> */}
 
-                                        <div className="col-md-6 mb-2">
+                                        <div className="col-sm-4 mb-2 mx-auto d-block">
                                             <div id='sm-promo' className='col-md-4' onClick={() => {
                                                 document.getElementById('sm-promo-open').style.display = 'block'
                                                 document.getElementById('sm-promo').style.display = 'none'
                                                 document.getElementById('sm-info').style.display = 'none'
                                             }
                                             }>
-                                                <span style={{ fontSize: '15px', textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='mx-auto d-block fw-bold pt-2'>প্রোমো কোড <img width={18} className='img-fluid' src={clickImage} alt="Promo" /> </span>
+                                                <span style={{ fontSize: '15px', textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='mx-auto d-block fw-bold pt-2 text-center'>প্রোমো কোড <img width={18} className='img-fluid' src={clickImage} alt="Promo" /> </span>
                                             </div>
+                                        </div>
+
+                                        <div className="col-sm-4">
+                                            <a style={{ border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://m.me/skillshikhun" target="_blank" rel="noreferrer" className='text-decoration-none text-black p-1 me-1'>
+                                                <img width={30} className='img-fluid pb-1' src={messenger} alt="chat in messenger" /> চ্যাট করুন
+                                            </a>
                                         </div>
                                     </div>
 
@@ -430,11 +441,11 @@ const Course = (props) => {
                                                         <Link to={`/checkout/${course.id}`} className='text-decoration-none'>
                                                             <button className='btn-buy mx-auto d-block' onClick={() => { window.scrollTo(0, 0); }}>
                                                                 <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
-                                                                    <div className='col-sm-6' style={{ fontSize: '18px' }}>
+                                                                    <div className='col-sm-6' style={{ fontSize: '20px' }}>
                                                                         &#2547; {ppm} প্রতি মাস
                                                                     </div>
-                                                                    <div className='col-sm-6' style={{ fontSize: '18px' }}>
-                                                                        ভর্তি হন
+                                                                    <div className='col-sm-6' style={{ fontSize: '20px' }}>
+                                                                        ভর্তি হন &#8594;
                                                                     </div>
                                                                 </div>
                                                             </button>
@@ -445,11 +456,11 @@ const Course = (props) => {
                                                         <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'>
                                                             <button className='btn-buy mx-auto d-block' onClick={() => { window.scrollTo(0, 0); }}>
                                                                 <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
-                                                                    <div className='col-sm-6' style={{ fontSize: '14px' }}>
+                                                                    <div className='col-sm-6' style={{ fontSize: '20px' }}>
                                                                         &#2547; {ppm} প্রতি মাস
                                                                     </div>
-                                                                    <div className='col-sm-6' style={{ fontSize: '14px' }}>
-                                                                        ভর্তি হন
+                                                                    <div className='col-sm-6' style={{ fontSize: '20px' }}>
+                                                                        ভর্তি হন &#8594;
                                                                     </div>
                                                                 </div>
                                                             </button>
