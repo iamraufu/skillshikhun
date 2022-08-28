@@ -9,7 +9,7 @@ import ve2 from '../../images/reviewImages/Ramisa Anjum.jpg';
 import ve3 from '../../images/reviewImages/Supto Khan.jpg';
 import wd1 from '../../images/reviewImages/Niloy Ahmed.jpg';   
 import wd2 from '../../images/reviewImages/3.jpg';   
-import wd3 from '../../images/reviewImages/2.jpg';
+import wd3 from '../../images/reviewImages/1.jpg';
 
 const reviewData = [
     {
