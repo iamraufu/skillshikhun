@@ -1,7 +1,8 @@
-import React, { useReducer, useState } from 'react';
+import React, { 
+    // useEffect, useReducer, 
+    useState } from 'react';
 import './PromoMessage.css';
 // import playStore from '../../images/playStoreIcon.svg';
-import { useEffect } from 'react';
 // import TextSkeleton from '../Skeleton/TextSkeleton';
 import PromoImages from './PromoImages';
 
@@ -9,17 +10,17 @@ const PromoMessage = () => {
 
     // eslint-disable-next-line
     const [marketingMessage, setMarketingMessage] = useState([]);
-    const [reducerValue, forceUpdate] = useReducer(x => x + 1, 0);
+    // const [reducerValue, forceUpdate] = useReducer(x => x + 1, 0);
 
-    useEffect(() => {
-        fetch('https://api-skillshikhun.herokuapp.com/marketingMessages')
-            .then(res => res.json())
-            .then(data => {
-                setMarketingMessage(data[0].message)
-                forceUpdate();
+    // useEffect(() => {
+    //     fetch('https://api-skillshikhun.herokuapp.com/marketingMessages')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setMarketingMessage(data[0].message)
+    //             forceUpdate();
 
-            })
-    }, [reducerValue])
+    //         })
+    // }, [reducerValue])
 
     return (
         <div className="">
