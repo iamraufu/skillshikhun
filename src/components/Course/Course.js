@@ -226,7 +226,7 @@ const Course = (props) => {
                                                 </div>
                                             </div>
                                     }
-                                    <p className='text-center mt-5 d-none d-lg-block'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
+                                    <p className='text-center mt-3 d-none d-lg-block'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
                                     
                                     <a style={{ fontSize:'14px',border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://m.me/skillshikhun" target="_blank" rel="noreferrer" className='text-decoration-none p-2 messenger-lg mx-auto d-block text-center w-25 d-none d-lg-block'>
                                                 <img width={30} className='img-fluid pb-1' src={messenger} alt="chat in messenger" /> চ্যাট করুন
