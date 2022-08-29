@@ -1784,14 +1784,14 @@ const courseData = [
                 date: '2022-03-06'
             }
         ],
-        class_time: '9PM - 10:00PM',
+        class_time: '10:15PM - 11:45PM',
         class_date_1: '6, 8, 10 (August 2022)',
         class_date_1_value: '2022-08-06',
-        class_date_1_deadline: '2022-08-06T21:00:00.000+06:00',
+        class_date_1_deadline: '2022-08-06T22:15:00.000+06:00',
         // class_date_1_deadline:'July 30th 2022, 9:00:00 pm',
         class_date_2: '6, 8, 10 (August 2022)',
         class_date_2_value: '2022-08-06',
-        class_date_2_deadline: '2022-08-06T21:00:00.000+06:00',
+        class_date_2_deadline: '2022-08-06T22:15:00.000+06:00',
         // class_date_2_deadline:'August 6th 2022, 9:00:00 pm',
         free_number: '83489456820',
         free_password: '297121',
