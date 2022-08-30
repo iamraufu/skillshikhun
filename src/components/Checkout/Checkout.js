@@ -18,6 +18,7 @@ import load from '../../images/load.gif';
 import Typewriter from 'typewriter-effect';
 import { useForm } from 'react-hook-form';
 import clickImage from '../../images/promo/click.png';
+import HowToPayment from '../Course/HowToPayment';
 
 let basePrice = 1250;
 
@@ -415,9 +416,8 @@ const Checkout = () => {
                                 </div>
 
                             </button>
-
                         </div>
-
+                        <HowToPayment />
                     </div>
 
                 </div>
