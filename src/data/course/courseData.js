@@ -406,7 +406,7 @@ const courseData = [
         course_done: '১৫০',
         seat_left: '১৭',
         next_batch: 'সেপ্টেম্বর',
-        next_batch_eng: '2022-09-04T21:00:00.000+06:00',
+        next_batch_eng: '2022-09-11T21:00:00.000+06:00',
         course_instructor: 'সাব্বির আহমেদ',
         instructor_designation: 'Professional Film Editor of BFDC and PhD Researcher on Film Marketing in Malaysia.',
         class_date: [
@@ -834,7 +834,7 @@ const courseData = [
         course_done: '২১০',
         seat_left: '৮',
         next_batch: 'সেপ্টেম্বর',
-        next_batch_eng: '2022-09-04T18:30:00.000+06:00',
+        next_batch_eng: '2022-09-11T18:30:00.000+06:00',
         course_instructor: 'আতাউল হোসেন',
         instructor_designation: 'Head of Marketing at Skill Shikhun, Top Rated Freelancer on Fiverr',
         class_date: [
@@ -1324,7 +1324,7 @@ const courseData = [
         course_done: '১৩৯',
         seat_left: '১৪',
         next_batch: 'সেপ্টেম্বর',
-        next_batch_eng: '2022-09-04T07:45:00.000+06:00',
+        next_batch_eng: '2022-09-11T07:45:00.000+06:00',
         course_instructor: 'সায়মা বিবি',
         instructor_designation: 'Former Junior Lecturer at Shanto-Mariam University of Creative Technology, Freelance Creative Designer',
         class_date: [
@@ -1770,7 +1770,7 @@ const courseData = [
         price_saved: '২৫০',
         course_done: '২৩৪',
         next_batch: 'সেপ্টেম্বর',
-        next_batch_eng: '2022-09-04T09:00:00.000+06:00',
+        next_batch_eng: '2022-09-11T09:00:00.000+06:00',
         seat_left: '১১',
         course_instructor: 'ইফতিখার রহমান',
         instructor_designation: 'Head of Development at Step 2 Digital, Senior Web Developer at Skill Shikhun',
