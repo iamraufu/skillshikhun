@@ -156,9 +156,15 @@ const RegisterFromDemoClass = () => {
         const name = passwordData.name;
         const email = passwordData.email;
 
-        const year = new Date().getFullYear();
-        const month = new Date().getMonth() + 1;
         const day = new Date().getDate();
+        const month = new Date().getMonth() + 1;
+        const year = new Date().getFullYear();
+
+        const date = formatTime(year) + "-" + formatTime(month) + "-" + formatTime(day)  ;
+
+        function formatTime(time) {
+            return time < 10 ? (`0${time}`) : time;
+        }
 
         const time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 
@@ -184,7 +190,17 @@ const RegisterFromDemoClass = () => {
                     //     'স্কিল শিখুন এ আপনাকে স্বাগতম!',
                     //     'success'
                     // )
-                    let phoneUser = { displayName: name, email: email, phoneNumber: phone, photoURL: '', password: inputtedPassword, user_created_date: `${day}-${month}-${year} at ${time}`, fromDemo: "Yes", fromLogin: "No" };
+                    let phoneUser = { 
+                        displayName: name, 
+                        email: email, 
+                        phoneNumber: phone, 
+                        photoURL: '', 
+                        password: inputtedPassword, 
+                        user_created_date: `${date} at ${time}`, 
+                        fromDemo: "Yes", 
+                        fromLogin: "No" 
+                    };
+                    
                     registerUser(phoneUser);
                     localStorage.setItem('token', 'bearer ' + data.status);
                     localStorage.setItem('phone', phone);

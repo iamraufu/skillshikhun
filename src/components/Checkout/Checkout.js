@@ -161,8 +161,8 @@ const Checkout = () => {
             body: JSON.stringify({
                 store_id: "skillshikhun",
                 // store_id: "aamarpaytest",
-                signature_key: "7445cc98363b6b9cae4af766ef0f0186",
-                // signature_key: "dbb74894e82415a2f7ff0ec3a97e4183",
+                signature_key: "7445cc98363b6b9cae4af766ef0f0186", 
+                // signature_key: "dbb74894e82415a2f7ff0ec3a97e4183",  // test
                 cus_name: `${userPhoneData.name}`,
                 cus_email: `${userPhoneData.email}`,
                 cus_phone: `${userPhoneData.phone}`,
@@ -175,9 +175,10 @@ const Checkout = () => {
                 tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
                 currency: "BDT",
                 success_url: `https://api-skillshikhun.herokuapp.com/api/make-payment`,
+                // success_url: `http://localhost:5000/api/make-payment`,   // test
                 fail_url: `https://api-skillshikhun.herokuapp.com/api/payment-failure`,
                 cancel_url: `https://www.skillshikhun.com/checkout/${courseId}`,
-                desc: `Purchase ${course[0].slug} Course`,
+                desc: `${course[0].slug} Course`,
                 type: "json",
                 opt_a: `${course[0].name}`,
                 opt_b: `${course[0].type}`,

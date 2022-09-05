@@ -7,7 +7,7 @@ import up from '../../images/up.svg';
 import { useNavigate } from 'react-router-dom';
 
 const HeroDemo = (props) => {
-    
+
     const phone = localStorage.getItem('phone') || '';
     const navigate = useNavigate();
     const [userPhoneData, setUserPhoneData] = useState({})
@@ -31,13 +31,13 @@ const HeroDemo = (props) => {
             setDemoClasses(data);
         }
         fetchData();
-    },[phone])
+    }, [phone])
 
-    const { register, handleSubmit, formState: { errors }} = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
         setDisabled(true);
-        const selectedCategory =  demoClasses.filter (category => category.category === data.category);
+        const selectedCategory = demoClasses.filter(category => category.category === data.category);
 
         // const deadline = new Date().getTime() + (1000 * 60 * 60 * 24 * 14);
         // const currentTime = new Date().getTime();
@@ -47,20 +47,24 @@ const HeroDemo = (props) => {
         const day = new Date().getDate();
         const month = new Date().getMonth() + 1;
         const year = new Date().getFullYear();
-        
-        const time = day+"-"+month+"-"+year;
 
-        if(time === courseCategory[0].class_date_1_deadline){
+        const time = formatTime(year) + "-" + formatTime(day) + "-" + formatTime(month);
+
+        function formatTime(time) {
+            return time < 10 ? (`0${time}`) : time;
+        }
+
+        if (time === courseCategory[0].class_date_1_deadline) {
             fetch(`https://api-skillshikhun.herokuapp.com/testDemoClasses/${category}`, {
                 method: 'DELETE'
             })
-            .then(res => res.json())
+                .then(res => res.json())
         }
         // else if(time === courseCategory[0].class_date_2_deadline){
-            
+
         // }
 
-        if(selectedCategory.length > 0){
+        if (selectedCategory.length > 0) {
             navigate(`/dashboard/previous/free-class/${courseCategory[0].id}`);
             // Swal.fire({
             //     title: 'আপনি ইতিমধ্যে রেজিস্ট্রেশন করে ফেলেছেন!',
@@ -73,37 +77,43 @@ const HeroDemo = (props) => {
             // }, 2000); 
         }
 
-        else{
+        else {
             const demoClassDetails = {
-                ...data , 
-                phone:userPhoneData.phone,
-                isCalled:'No',
-                wannaPurchase:'No',
-                contactedBy:'default@example.com'
+                ...data,
+                phone: userPhoneData.phone,
+                isCalled: 'No',
+                wannaPurchase: 'No',
+                contactedBy: 'default@example.com'
             };
             bookDemoClass(demoClassDetails);
         }
     }
 
     const bookDemoClass = (classDetails) => {
-        const year = new Date().getFullYear();
-        const month = new Date().getMonth() + 1;
         const day = new Date().getDate();
+        const month = new Date().getMonth() + 1;
+        const year = new Date().getFullYear();
+
+        const date = formatTime(year) + "-" + formatTime(month) + "-" + formatTime(day)  ;
+
+        function formatTime(time) {
+            return time < 10 ? (`0${time}`) : time;
+        }
 
         const time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-        
+
         const details = {
             phone: userPhoneData.phone,
             name: userPhoneData.name,
             email: userPhoneData.email,
             category: classDetails.category,
-            isCalled:classDetails.isCalled,
-            wannaPurchase:classDetails.wannaPurchase,
-            contactedBy:classDetails.contactedBy,
-            date: `${day}-${month}-${year} at ${time}`
+            isCalled: classDetails.isCalled,
+            wannaPurchase: classDetails.wannaPurchase,
+            contactedBy: classDetails.contactedBy,
+            date: `${date} at ${time}`
         };
 
-        fetch('https://api-skillshikhun.herokuapp.com/addToTestDemoClass',{
+        fetch('https://api-skillshikhun.herokuapp.com/addToTestDemoClass', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -119,17 +129,17 @@ const HeroDemo = (props) => {
             body: JSON.stringify(details)
         })
             .then(res => res.json())
-            navigate(`/dashboard/previous/free-class/${courseCategory[0].id}`);
-            // Swal.fire(
-            //     'আপনার ফ্রি ক্লাস রেজিস্ট্রেশন সম্পন্ন হয়েছে!',
-            //     'আপনি ড্যাশবোর্ড থেকে ফ্রি ক্লাস টি করতে পারবেন!',
-            //     'success'
-            //     )
-            //     sendSMS(details);
-            //     scheduleSMS(details);
-            //     setTimeout(() => {
-            //         window.location.href = '/dashboard/free-class';
-            //     }, 2000); 
+        navigate(`/dashboard/previous/free-class/${courseCategory[0].id}`);
+        // Swal.fire(
+        //     'আপনার ফ্রি ক্লাস রেজিস্ট্রেশন সম্পন্ন হয়েছে!',
+        //     'আপনি ড্যাশবোর্ড থেকে ফ্রি ক্লাস টি করতে পারবেন!',
+        //     'success'
+        //     )
+        //     sendSMS(details);
+        //     scheduleSMS(details);
+        //     setTimeout(() => {
+        //         window.location.href = '/dashboard/free-class';
+        //     }, 2000); 
     }
 
     // function for send sms after class free class registration
@@ -167,43 +177,43 @@ const HeroDemo = (props) => {
         <section className='demo-class-container container'>
             {/* <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="container mt-5"> */}
 
-                <div style={{ margin: 'auto' }} className="col-lg-12 col-md-12 col-sm-12 py-3">
+            <div style={{ margin: 'auto' }} className="col-lg-12 col-md-12 col-sm-12 py-3">
 
-                    <div id="demo_class_registration_container">
-                        <form className='' onSubmit={handleSubmit(onSubmit)}>
-                            <div className="d-flex justify-content-center">
-                                <div className="col-sm-2">
-                                    <hr />
-                                </div>
-                                {/* <h2 style={{ fontSize: '16px', color: '#343b6d', fontWeight: '600' }} className='mt-2 text-center mx-2'>যে কোর্সের ফ্রি ক্লাস করতে চাচ্ছেন</h2> */}
-                                <h2 style={{ fontSize: '16px', color: '#343b6d', fontWeight: '600' }} className='mt-2 text-center mx-2'>যে কোর্সের ক্লাসের ভিডিও দেখতে চাচ্ছেন</h2>
-                                <div className="col-sm-2">
-                                    <hr />
-                                </div>
+                <div id="demo_class_registration_container">
+                    <form className='' onSubmit={handleSubmit(onSubmit)}>
+                        <div className="d-flex justify-content-center">
+                            <div className="col-sm-2">
+                                <hr />
                             </div>
+                            {/* <h2 style={{ fontSize: '16px', color: '#343b6d', fontWeight: '600' }} className='mt-2 text-center mx-2'>যে কোর্সের ফ্রি ক্লাস করতে চাচ্ছেন</h2> */}
+                            <h2 style={{ fontSize: '16px', color: '#343b6d', fontWeight: '600' }} className='mt-2 text-center mx-2'>যে কোর্সের ক্লাসের ভিডিও দেখতে চাচ্ছেন</h2>
+                            <div className="col-sm-2">
+                                <hr />
+                            </div>
+                        </div>
 
-                            <select id='course_category'
-                            onChangeCapture={()=>{
+                        <select id='course_category'
+                            onChangeCapture={() => {
                                 setDisabled(false);
                                 setCategory(document.getElementById('course_category').querySelector('option:checked').value);
-                            }} 
-                            style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("category", { required: true })}>
-                                {/* <option value="" disabled selected>যে কোর্সের ফ্রি ক্লাস করতে চাচ্ছেন</option> */}
-                                <option value={category}>{category}</option>
-                                {otherCategory.map(course =>
-                                    <option key={course.id} value={course.name} className='p-2 form-select-input'>{course.name}</option>
-                                )}
-                            </select>
-                            
-                            {errors.category && 
+                            }}
+                            style={{ margin: '5px 0' }} className='p-2 form-select-input' {...register("category", { required: true })}>
+                            {/* <option value="" disabled selected>যে কোর্সের ফ্রি ক্লাস করতে চাচ্ছেন</option> */}
+                            <option value={category}>{category}</option>
+                            {otherCategory.map(course =>
+                                <option key={course.id} value={course.name} className='p-2 form-select-input'>{course.name}</option>
+                            )}
+                        </select>
+
+                        {errors.category &&
                             <div className="">
                                 <img src={up} width={20} className='img-fluid' alt="required" />
                                 <span className='text-danger fw-bold'>This field is required</span>
                             </div>
-                            }
+                        }
 
-                            {/* div for selecting class date */}
-                            {/* <div className="d-flex justify-content-center">
+                        {/* div for selecting class date */}
+                        {/* <div className="d-flex justify-content-center">
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
@@ -213,18 +223,18 @@ const HeroDemo = (props) => {
                                 </div>
                             </div> */}
 
-                            {/* <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classDate", { required: true })}> */}
-                                {/* <option value="" disabled selected>ক্লাসের তারিখ বেছে নিন</option> */}
-                                {/* <option value={courseCategory[0].class_date_1}>{courseCategory[0].class_date_1}</option> */}
-                                {/* <option value={courseCategory[0].class_date_2}>{courseCategory[0].class_date_2}</option> */}
-                            {/* </select> */}
-                            {/* {errors.classDate && <div className="">
+                        {/* <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classDate", { required: true })}> */}
+                        {/* <option value="" disabled selected>ক্লাসের তারিখ বেছে নিন</option> */}
+                        {/* <option value={courseCategory[0].class_date_1}>{courseCategory[0].class_date_1}</option> */}
+                        {/* <option value={courseCategory[0].class_date_2}>{courseCategory[0].class_date_2}</option> */}
+                        {/* </select> */}
+                        {/* {errors.classDate && <div className="">
                                 <img src={up} width={20} className='img-fluid' alt="required" />
                                 <span className='text-danger fw-bold'>This field is required</span>
                             </div>} */}
 
-                            {/* div for selecting class time */}
-                            {/* <div className="d-flex justify-content-center">
+                        {/* div for selecting class time */}
+                        {/* <div className="d-flex justify-content-center">
                                 <div className="col-sm-2">
                                     <hr />
                                 </div>
@@ -234,24 +244,24 @@ const HeroDemo = (props) => {
                                 </div>
                             </div> */}
 
-                            {/* <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classTime", { required: true })}> */}
-                                {/* <option value="" disabled selected>ক্লাসের সময় বেছে নিন</option> */}
-                                {/* <option value={courseCategory[0].class_time}>{courseCategory[0].class_time}</option> */}
-                            {/* </select> */}
-                            {/* {errors.classTime && <div className="">
+                        {/* <select style={{margin:'5px 0'}} className='p-2 form-select-input' {...register("classTime", { required: true })}> */}
+                        {/* <option value="" disabled selected>ক্লাসের সময় বেছে নিন</option> */}
+                        {/* <option value={courseCategory[0].class_time}>{courseCategory[0].class_time}</option> */}
+                        {/* </select> */}
+                        {/* {errors.classTime && <div className="">
                                 <img src={up} width={20} className='img-fluid' alt="required" />
                                 <span className='text-danger fw-bold'>This field is required</span>
                             </div>} */}
-                            
-                            <div id="demo_submit_container">
-                                {/* <input id='submit_btn' className='form-input-submit my-4' value='ফ্রি ক্লাস বুকিং করে নিন' type="submit" disabled={disabled} /> */}
-                                <input id='submit_btn' className='form-input-submit my-4' value='দেখা শুরু করুন' type="submit" disabled={disabled} />
-                            </div>
 
-                        </form>
-                    </div>
+                        <div id="demo_submit_container">
+                            {/* <input id='submit_btn' className='form-input-submit my-4' value='ফ্রি ক্লাস বুকিং করে নিন' type="submit" disabled={disabled} /> */}
+                            <input id='submit_btn' className='form-input-submit my-4' value='দেখা শুরু করুন' type="submit" disabled={disabled} />
+                        </div>
 
+                    </form>
                 </div>
+
+            </div>
             {/* </div> */}
         </section>
     );
