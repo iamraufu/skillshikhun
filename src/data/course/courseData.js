@@ -497,7 +497,7 @@ const courseData = [
                     {
                         isFree: true,
                         subtitle: 'ক্লাস ১ - ইন্ট্রডাকশন (Introduction)',
-                        videoId: 'wgzq0zWASEU'
+                        videoId: 'KrXq8LAvmzk'
                     }
                 ]
             },
