@@ -1420,7 +1420,7 @@ const courseData = [
                     {
                         isFree: true,
                         subtitle: 'ক্লাস ১ - সূচনা (Introduction)',
-                        videoId: 'ePpS8gKVVlc'
+                        videoId: 'w7HXimwl7YE'
                     }
                     // ,
                     // {
