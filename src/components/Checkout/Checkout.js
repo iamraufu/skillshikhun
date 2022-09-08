@@ -154,13 +154,13 @@ const Checkout = () => {
         }, 1000);
 
         // Aamar Pay Payment Gateway
-        // await fetch('https://sandbox.aamarpay.com/jsonpost.php', {
+        // await fetch('https://sandbox.aamarpay.com/jsonpost.php', {   // test
         await fetch('https://secure.aamarpay.com/jsonpost.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
             body: JSON.stringify({
                 store_id: "skillshikhun",
-                // store_id: "aamarpaytest",
+                // store_id: "aamarpaytest", // test
                 signature_key: "7445cc98363b6b9cae4af766ef0f0186", 
                 // signature_key: "dbb74894e82415a2f7ff0ec3a97e4183",  // test
                 cus_name: `${userPhoneData.name}`,
@@ -171,7 +171,7 @@ const Checkout = () => {
                 cus_city: "Dhaka",
                 cus_country: "Bangladesh",
                 amount: `${price}`,
-                // amount: 1,
+                // amount: 1,  // test
                 tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
                 currency: "BDT",
                 success_url: `https://api-skillshikhun.herokuapp.com/api/make-payment`,

@@ -1443,8 +1443,8 @@ const courseData = [
                 video: [
                     {
                         isFree: true,
-                        subtitle: 'ক্লাস ২ - ফ্রিল্যান্সিং এবং গ্রাফিক্স (Freelancing and Graphics)',
-                        videoId: 'mP3t9ZQBfrA'
+                        subtitle: 'ক্লাস ২ - গ্রাফিক ডিজাইনিং এর বেসিক এবং কেন শিক্ষা উচিত (Basics of Graphics Design and why you should learn it)',
+                        videoId: 'CKx4KOvEDj4'
                     }
                 ]
             },
