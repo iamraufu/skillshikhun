@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import courseData from '../../../data/course/courseData';
 import TextSkeleton from '../../../components/Skeleton/TextSkeleton';
 import lock from '../../../images/dashboard/lock.svg';
+import play from '../../../images/dashboard/play.svg';
+import rounded_play from '../../../images/dashboard/rounded_play.svg';
 
 const DPrevFreeClass = () => {
 
@@ -141,13 +143,13 @@ const DPrevFreeClass = () => {
 
 
                                                 <div className="d-flex justify-content-between align-items-center">
-                                                    <div className="">Module {index + 1}: {item.title}</div>
 
-                                                    <div className="">
+                                                    <div className=" me-2">
                                                         {
-                                                            !item.isFree === true ? <img className='img-fluid ms-1 mb-1' width={18} src={lock} alt="Enroll to See the Full Course" /> : null
+                                                            !item.isFree === true ? <img className='img-fluid mb-1' width={18} src={lock} alt="Enroll to See the Full Course" /> : <img className='img-fluid mb-1' width={18} src={play} alt="Play" />
                                                         }
                                                     </div>
+                                                        <div className="">Module {index + 1}: {item.title}</div>
                                                 </div>
 
                                             </button>
@@ -166,12 +168,11 @@ const DPrevFreeClass = () => {
                                                         videoHandler(item);
                                                         setVideoId(item.videoId)
                                                         setVideoTitle(item.subtitle)
-                                                    }} className="accordion-body course-video-item_hover mt-2">{item.subtitle}
-
+                                                    }} className="accordion-body course-video-item_hover mt-2">
                                                         {
-                                                            !item.isFree === true ? <img className='img-fluid ms-2 mb-1' width={18} src={lock} alt="Enroll to See the Full Course" /> : null
+                                                            !item.isFree === true ? <img className='img-fluid' width={18} src={lock} alt="Enroll to See the Full Course" /> : <img className='img-fluid me-2' width={18} src={rounded_play} alt="Play" />
                                                         }
-
+                                                        {item.subtitle}
                                                     </div>
                                                 )
                                             }
