@@ -505,12 +505,12 @@ const courseData = [
                 id: 'Two',
                 title: 'ইনস্টলেশন এবং শুরু',
                 description: 'এই ক্লাসে, আমি দেখাবো কিভাবে আমরা অ্যাডবি প্রিমিয়ার প্রো ইন্সটল করে তার মাধ্যমে কাজ শুরু করতে পারি।',
-                isFree: true,
+                isFree: false,
                 video: [
                     {
-                        isFree: true,
+                        isFree: false,
                         subtitle: 'ক্লাস ২ - ইনস্টলেশন এবং শুরু',
-                        videoId: 'VN_lfbqhz04'
+                        videoId: ''
                     }
                 ]
             },
@@ -518,12 +518,12 @@ const courseData = [
                 id: 'Three',
                 title: 'প্রোজেক্ট তৈরি',
                 description: 'এই ক্লাসে আমরা শিখবো কিভাবে প্রিমিয়ার প্রো এ এডিট করার জন্য প্রোজেক্ট তৈরি করতে হয়।',
-                isFree: false,
+                isFree: true,
                 video: [
                     {
-                        isFree: false,
-                        subtitle: 'ক্লাস ৩ - ',
-                        videoId: ''
+                        isFree: true,
+                        subtitle: 'ক্লাস ২ - প্রোজেক্ট তৈরি',
+                        videoId: 'cCBuVRGuUq8'
                     }
                 ]
             },
@@ -531,15 +531,15 @@ const courseData = [
                 id: 'Four',
                 title: 'ওয়ার্কস্পেস এবং পানেল',
                 description: 'নির্ভুল এবং দ্রুত এডিটিং এর জন্য সঠিক ওয়ার্কস্পেস থাকা খুবই গুরুত্বপূর্ণ। এই ক্লাসে আমি দেখাবো কিভাবে আমরা সেরা এডিটিং অভিজ্ঞতার জন্য সবচেয়ে সুবিধাজনক ওয়ার্কস্পেস ব্যবহার করতে পারি।',
-                isFree: true,
+                isFree: false,
                 video: [
                     {
-                        isFree: true,
+                        isFree: false,
                         subtitle: 'ক্লাস ৪ - ওয়ার্কস্পেস এবং পানেল',
                         videoId: 't5Mp65o6edM'
                     },
                     {
-                        isFree: true,
+                        isFree: false,
                         subtitle: 'ক্লাস ৫ - Q and A',
                         videoId: 'JuYP_e9q7hE'
                     }
@@ -549,12 +549,12 @@ const courseData = [
                 id: 'Five',
                 title: 'মিডিয়া ইম্পোর্ট',
                 description: 'একটি প্রজেক্টে কাজ শুরু করার জন্য আমাদের মিডিয়া ফাইল আমদানি করতে হয়। আমি দেখাবো কিভাবে কম্পিউটার থেকে প্রিমিয়ার প্রো প্রোজেক্টে মিডিয়া ইম্পোর্ট করতে হয়।',
-                isFree: false,
+                isFree: true,
                 video: [
                     {
-                        isFree: false,
-                        subtitle: 'ক্লাস - ',
-                        videoId: ''
+                        isFree: true,
+                        subtitle: 'ক্লাস ৩ - মিডিয়া ইম্পোর্ট',
+                        videoId: 'psSMJ0YvtoQ'
                     }
                 ]
             },
@@ -562,12 +562,17 @@ const courseData = [
                 id: 'Six',
                 title: 'সিকুয়েন্স কি?',
                 description: 'এই ক্লাসে আমি আপনাদের সিকুয়েন্স এর সাথে পরিচয় করিয়ে দিব এবং কোর্স আগানোর সাথে সাথে আমরা এটি সম্পর্কে আরও শিখবো।',
-                isFree: false,
+                isFree: true,
                 video: [
                     {
-                        isFree: false,
-                        subtitle: 'ক্লাস - ',
-                        videoId: ''
+                        isFree: true,
+                        subtitle: 'ক্লাস ৪ - সিকুয়েন্স',
+                        videoId: 'Ksz5tWgAEmM'
+                    },
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ৫ - কিভাবে ভিডিও এডিট করবেন?',
+                        videoId: 'hfsl1YPrmXI'
                     }
                 ]
             },
