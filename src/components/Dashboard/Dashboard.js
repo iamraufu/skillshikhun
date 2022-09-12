@@ -17,7 +17,7 @@ import courseData from '../../data/course/courseData';
 // import liveClassData from '../../data/course/liveClassData';
 
 // import { ZoomMtg } from '@zoomus/websdk';
-import Countdown from '../Countdown/Countdown';
+// import Countdown from '../Countdown/Countdown';
 
 // ZoomMtg.setZoomJSLib('https://source.zoom.us/2.4.5/lib', '/av');
 // ZoomMtg.preLoadWasm();
@@ -270,22 +270,27 @@ const Dashboard = () => {
                                                                 <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                 <div className="bg-white py-4">
                                                                     <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
-                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
+                                                                    {/* <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
-                                                                    </h4>
-                                                                    <Countdown
+                                                                    </h4> */}
+                                                                    {/* <Countdown
                                                                         deadline={course.next_batch_eng}
                                                                         text={'কোর্স শুরু হতে সময় বাকি'}
-                                                                    />
+                                                                    /> */}
                                                                 </div>
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
                                                                     {
-                                                                        userPhoneData?.name ? <button onClick={() => {
-                                                                            // getSignature(course.live_number, course.live_password)
-                                                                        }}
+                                                                        userPhoneData?.name ? 
+                                                                        // <button onClick={() => {
+                                                                        //     // getSignature(course.live_number, course.live_password)
+                                                                        // }}
 
-                                                                            className='see-details'> জয়েন ক্লাস</button> :
+                                                                        //     className='see-details'> জয়েন ক্লাস</button> 
+                                                                        <a href={course.live_link} target='_blank' rel="noreferrer" className='see-details'
+                                                                        // onClick={() => { window.scrollTo(0, 0); }}
+                                                                        >জয়েন ক্লাস</a>
+                                                                            :
                                                                             <button className='see-details-fade'><div className="spinner-border" style={{ height: '15px', width: '15px' }} role="status">
                                                                             </div> জয়েন ক্লাস</button>
                                                                     }
@@ -316,22 +321,27 @@ const Dashboard = () => {
                                                                 <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                 <div className="bg-white py-4">
                                                                     <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
-                                                                    <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
+                                                                    {/* <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
                                                                         <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
-                                                                    </h4>
-                                                                    <Countdown
+                                                                    </h4> */}
+                                                                    {/* <Countdown
                                                                         deadline={course.next_batch_eng}
                                                                         text={'কোর্স শুরু হতে সময় বাকি'}
-                                                                    />
+                                                                    /> */}
                                                                 </div>
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-2">
                                                                     {
-                                                                        userPhoneData?.name ? <button onClick={() => {
-                                                                            // getSignature(course.live_number, course.live_password)
-                                                                        }}
+                                                                        userPhoneData?.name ?      
+                                                                        // <button onClick={() => {
+                                                                        //     // getSignature(course.live_number, course.live_password)
+                                                                        // }}
 
-                                                                            className='see-details'>জয়েন ক্লাস</button> :
+                                                                        //     className='see-details'>জয়েন ক্লাস</button> 
+                                                                        <a href={course.live_link} target='_blank' rel="noreferrer" className='see-details'
+                                                                        // onClick={() => { window.scrollTo(0, 0); }}
+                                                                        >জয়েন ক্লাস</a>
+                                                                            :
                                                                             <button className='see-details-fade'><div className="spinner-border" style={{ height: '15px', width: '15px' }} role="status">
                                                                             </div> জয়েন ক্লাস</button>
                                                                     }
@@ -382,9 +392,9 @@ const Dashboard = () => {
                                                                     <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                     <div className="bg-white py-4">
                                                                         <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
-                                                                        <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
+                                                                        {/* <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
                                                                             <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
-                                                                        </h4>
+                                                                        </h4> */}
                                                                     </div>
 
                                                                     <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">
@@ -409,9 +419,9 @@ const Dashboard = () => {
                                                                     <img style={{ borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }} width={600} src={course.image} alt={course.title} className='img-fluid' loading="lazy" />
                                                                     <div className="bg-white py-4">
                                                                         <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3 text-center'>{course.title}</h3>
-                                                                        <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
+                                                                        {/* <h4 style={{ fontSize: '16px', lineHeight: '26px', fontWeight: '600', color: '#b94a8f' }} className='text-center px-3 price mt-2'>
                                                                             <span style={{ color: '#354895', fontSize: '14px' }}>সময়: </span>{course.class_time}
-                                                                        </h4>
+                                                                        </h4> */}
                                                                     </div>
 
                                                                     <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex py-3">

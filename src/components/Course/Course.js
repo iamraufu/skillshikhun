@@ -32,7 +32,7 @@ const Course = (props) => {
     // eslint-disable-next-line
     const [liveCourses, setLiveCourses] = useState([]);
     const [purchasedLiveCourses, setPurchasedLiveCourses] = useState([]);
-    const [ppm, setPpm] = useState(1250)
+    const [ppm, setPpm] = useState(1500)
     const [discount, setDiscount] = useState(0);
     const [message, setMessage] = useState('');
 
@@ -130,86 +130,89 @@ const Course = (props) => {
                                 // borderBottomLeftRadius: '15px', borderBottomRightRadius:'15px', 
                                 border: '1px solid #ececec', top: '90px'
                             }} className="container position-sticky">
-                                <div className="row py-3">
-                                    <div style={{ justifyContent: 'space-between' }} className="d-flex">
-                                        <div className="py-3 d-none d-lg-block">
-                                            <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>১১ {course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
-                                        </div>
-                                        <div className="py-3 d-none d-lg-block">
-                                            {/* <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.price_per_month_bn}/মাস</h2> */}
-                                            <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {ppm} প্রতি মাস</h2>
-                                        </div>
-                                    </div>
-                                    {/* <img className='img-fluid' src={skill999_sm} alt="" /> */}
 
-                                    <div className="d-none d-lg-block">
-                                        <span onClick={() => {
-                                            document.getElementById('lg-promo-container').style.display === 'block' ?
-                                                document.getElementById('lg-promo-container').style.display = 'none' :
-                                                document.getElementById('lg-promo-container').style.display = 'block'
-                                        }} style={{
-                                            textDecoration: 'underline', cursor: 'pointer', color: '#653dae'
-                                            // , backgroundColor:'#653dae'
-                                            ,
-                                            borderRadius: '5px', float: 'left'
-                                        }} className='fs-5 text-center p-2 mt-2'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /> </span>
-
-                                        <div style={{ display: 'none', marginTop: '3px' }} id="lg-promo-container">
-                                            <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
-                                                <div className="d-flex justify-content-center align-items-center p-2">
-                                                    <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width: '30px', height: '30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
-                                                    <input
-                                                        // value='FRI500' 
-                                                        placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
-                                                    <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
-                                                </div>
-                                            </form>
-                                            <p className='text-center fw-bold mt-3'>{message}</p>
-                                        </div>
-                                    </div>
-
-                                    <div style={{ justifyContent: 'space-between' }} className="d-flex py-2">
-                                        <div className="col-md-6">
-                                            <div className="d-flex justify-content-center">
-                                                <div className="mt-2 me-2 fs-4">
-                                                    <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faUsers} />
-                                                </div>
-                                                <div className="">
-                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> কোর্সটি করেছেন<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_done} জন</span></p>
-                                                </div>
-                                            </div>
-
-                                            <div className="d-flex justify-content-center">
-                                                <div className="mt-3 me-2 fs-4">
-                                                    <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faCalendarDays} />
-                                                </div>
-                                                <div className="">
-                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center mt-2'> নেক্সট ব্যাচ<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '14px', lineHeight: '24px' }} className='fw-bold px-3'>১১ {course.next_batch} ২০২২</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <div className="d-flex justify-content-center">
-                                                <div className="mt-2 me-2 fs-4">
-                                                    <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faClock} />
-                                                </div>
-                                                <div className="">
-                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> সময় লাগবে<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_duration} মাস</span></p>
-                                                </div>
-                                            </div>
-
-                                            <div className="d-flex justify-content-center">
-                                                <div className="">
-                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'><img src={live} className='img-fluid pe-1' width={35} alt="live class" /> লাইভ ক্লাস সংখ্যা<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3 ms-4'>{course.total_classes} টি</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {
-                                        purchasedLiveCourses.length ? <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block'
+                                {
+                                    purchasedLiveCourses.length ?
+                                        <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block my-3 w-100'
                                         // onClick={() => { window.scrollTo(0, 0); }}
                                         >জয়েন ক্লাস</a> :
+
+                                        <div className="row py-3">
+                                            <div style={{ justifyContent: 'space-between' }} className="d-flex">
+                                                <div className="py-3 d-none d-lg-block">
+                                                    <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>১৬ {course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
+                                                </div>
+                                                <div className="py-3 d-none d-lg-block">
+                                                    {/* <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.price_per_month_bn}/মাস</h2> */}
+                                                    <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {ppm} প্রতি মাস</h2>
+                                                </div>
+                                            </div>
+                                            {/* <img className='img-fluid' src={skill999_sm} alt="" /> */}
+
+                                            <div className="d-none d-lg-block">
+                                                <span onClick={() => {
+                                                    document.getElementById('lg-promo-container').style.display === 'block' ?
+                                                        document.getElementById('lg-promo-container').style.display = 'none' :
+                                                        document.getElementById('lg-promo-container').style.display = 'block'
+                                                }} style={{
+                                                    textDecoration: 'underline', cursor: 'pointer', color: '#653dae'
+                                                    // , backgroundColor:'#653dae'
+                                                    ,
+                                                    borderRadius: '5px', float: 'left'
+                                                }} className='fs-5 text-center p-2 mt-2'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /> </span>
+
+                                                <div style={{ display: 'none', marginTop: '3px' }} id="lg-promo-container">
+                                                    <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
+                                                        <div className="d-flex justify-content-center align-items-center p-2">
+                                                            <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width: '30px', height: '30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
+                                                            <input
+                                                                // value='FRI500' 
+                                                                placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
+                                                            <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
+                                                        </div>
+                                                    </form>
+                                                    <p className='text-center fw-bold mt-3'>{message}</p>
+                                                </div>
+                                            </div>
+
+                                            <div style={{ justifyContent: 'space-between' }} className="d-flex py-2">
+                                                <div className="col-md-6">
+                                                    <div className="d-flex justify-content-center">
+                                                        <div className="mt-2 me-2 fs-4">
+                                                            <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faUsers} />
+                                                        </div>
+                                                        <div className="">
+                                                            <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> কোর্সটি করেছেন<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_done} জন</span></p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="d-flex justify-content-center">
+                                                        <div className="mt-3 me-2 fs-4">
+                                                            <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faCalendarDays} />
+                                                        </div>
+                                                        <div className="">
+                                                            <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center mt-2'> নেক্সট ব্যাচ<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '14px', lineHeight: '24px' }} className='fw-bold px-3'>১৬ {course.next_batch} ২০২২</span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <div className="d-flex justify-content-center">
+                                                        <div className="mt-2 me-2 fs-4">
+                                                            <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faClock} />
+                                                        </div>
+                                                        <div className="">
+                                                            <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> সময় লাগবে<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_duration} মাস</span></p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="d-flex justify-content-center">
+                                                        <div className="">
+                                                            <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'><img src={live} className='img-fluid pe-1' width={35} alt="live class" /> লাইভ ক্লাস সংখ্যা<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3 ms-4'>{course.total_classes} টি</span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div className="container d-none d-lg-block">
                                                 <div className="row">
                                                     <div className="col-md-6 mt-1">
@@ -225,17 +228,38 @@ const Course = (props) => {
 
                                                 </div>
                                             </div>
-                                    }
-                                    <p className='text-center mt-3 d-none d-lg-block'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
-                                    
-                                    <a style={{ fontSize:'14px',border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://m.me/skillshikhun" target="_blank" rel="noreferrer" className='text-decoration-none p-2 messenger-lg mx-auto d-block text-center w-25 d-none d-lg-block'>
+
+                                            {/* {
+                                    purchasedLiveCourses.length ? <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block'
+                                    // onClick={() => { window.scrollTo(0, 0); }}
+                                    >জয়েন ক্লাস</a> :
+                                        <div className="container d-none d-lg-block">
+                                            <div className="row">
+                                                <div className="col-md-6 mt-1">
+                                                    <Link to='' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3' onClick={() => myRef.current.scrollIntoView()}>ক্লাসের ভিডিও দেখুন &#8594;</button></Link>
+                                                </div>
+                                                {
+                                                    localStorage.getItem('token') && purchasedLiveCourses.length === 0 ? <div className="col-md-6 mt-1">
+                                                        <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
+                                                    </div> : <div className="col-md-6 mt-1">
+                                                        <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
+                                                    </div>
+                                                }
+
+                                            </div>
+                                        </div>
+                                } */}
+                                            <p className='text-center mt-3 d-none d-lg-block'>কোর্সটি সম্পর্কে বিস্তারিত জানতে <span style={{ textDecoration: 'underline' }}><a href="tel:09613823645" className='text-success'><FontAwesomeIcon style={{ textDecoration: 'none' }} className='mx-1' icon={faPhone} />কল করুন: 09613823645</a></span></p>
+
+                                            <a style={{ fontSize: '14px', border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://m.me/skillshikhun" target="_blank" rel="noreferrer" className='text-decoration-none p-2 messenger-lg mx-auto d-block text-center w-25 d-none d-lg-block'>
                                                 <img width={30} className='img-fluid pb-1' src={messenger} alt="chat in messenger" /> চ্যাট করুন
                                             </a>
 
-                                    <a style={{ fontSize:'14px',border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://wa.me/message/ENYNMXKMSDMGK1" target="_blank" rel="noreferrer" className='text-decoration-none p-2 whatsapp-lg mx-auto d-block text-center w-25 d-none d-lg-block'>
+                                            <a style={{ fontSize: '14px', border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://wa.me/message/ENYNMXKMSDMGK1" target="_blank" rel="noreferrer" className='text-decoration-none p-2 whatsapp-lg mx-auto d-block text-center w-25 d-none d-lg-block'>
                                                 <img width={30} className='img-fluid pb-1' src={whatsapp} alt="chat in whatsapp" /> চ্যাট করুন
                                             </a>
-                                </div>
+                                        </div>
+                                }
                             </div>
                         </div>
 
@@ -395,7 +419,7 @@ const Course = (props) => {
                             >জয়েন ক্লাস</a>
                                 :
                                 <div className="my-3">
-                                    <h2 style={{ fontSize: '14px', lineHeight: '18px' }} className='text-center'>ক্লাস শুরু হচ্ছে : ১১ {course.next_batch} ২০২২</h2>
+                                    <h2 style={{ fontSize: '14px', lineHeight: '18px' }} className='text-center'>ক্লাস শুরু হচ্ছে : ১৬ {course.next_batch} ২০২২</h2>
                                     <div className="container-fluid d-flex justify-content-between px-2 align-items-center">
 
                                         <div style={{ border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} className="col-sm-3 p-2 d-flex justify-content-center align-items-center mx-1">
@@ -422,13 +446,13 @@ const Course = (props) => {
                                         </div>
 
                                         <div className="col-sm-2">
-                                            <a style={{ fontSize:'10px',border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://m.me/skillshikhun" target="_blank" rel="noreferrer" className='text-decoration-none text-black p-2 me-1'>
+                                            <a style={{ fontSize: '10px', border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://m.me/skillshikhun" target="_blank" rel="noreferrer" className='text-decoration-none text-black p-2 me-1'>
                                                 <img width={20} className='img-fluid pb-1' src={messenger} alt="chat in messenger" /> চ্যাট
                                             </a>
                                         </div>
 
                                         <div className="col-sm-2">
-                                            <a style={{ fontSize:'10px',border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://wa.me/message/ENYNMXKMSDMGK1" target="_blank" rel="noreferrer" className='text-decoration-none text-black p-2 me-1'>
+                                            <a style={{ fontSize: '10px', border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://wa.me/message/ENYNMXKMSDMGK1" target="_blank" rel="noreferrer" className='text-decoration-none text-black p-2 me-1'>
                                                 <img width={20} className='img-fluid pb-1' src={whatsapp} alt="chat in whatsapp" /> চ্যাট
                                             </a>
                                         </div>

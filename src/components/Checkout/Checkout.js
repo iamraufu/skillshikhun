@@ -20,7 +20,7 @@ import { useForm } from 'react-hook-form';
 import clickImage from '../../images/promo/click.png';
 import HowToPayment from '../Course/HowToPayment';
 
-let basePrice = 1250;
+let basePrice = 1500;
 
 const Checkout = () => {
 
@@ -83,7 +83,7 @@ const Checkout = () => {
     const handleSubscriptionStyle = (type) => {
 
         if (type === 'full') {
-            basePrice = 1250;
+            basePrice = 1500;
             document.getElementById('full_tick').style.display = 'block';
             document.getElementById('full_untick').style.display = 'none';
             document.getElementById('monthly_tick').style.display = 'none';
@@ -97,7 +97,7 @@ const Checkout = () => {
             setDisabled(false);
         }
         else {
-            basePrice = 1250;
+            basePrice = 1500;
             document.getElementById('monthly_tick').style.display = 'block';
             document.getElementById('monthly_untick').style.display = 'none';
             document.getElementById('full_untick').style.display = 'block';
