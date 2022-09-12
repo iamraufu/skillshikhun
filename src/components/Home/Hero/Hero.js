@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 // import courseData from '../../../data/course/courseData';
 // import { Link } from 'react-router-dom';
 import call_white from '../../../images/call_white.svg'
-// import HeroSlider from './HeroSlider';
+import HeroSlider from './HeroSlider';
 
 const Hero = () => {
 
@@ -40,7 +40,7 @@ const Hero = () => {
                     <div 
                     // data-aos='zoom-in' 
                     className="col-xl-12 px-2 pb-5">
-                        {/* <HeroSlider /> */}
+                        <HeroSlider />
                     </div>
 
                     {/* <div className="col-xl-4 col-lg-5 col-md-6 hero-demo-container p-2 mx-auto d-block pb-5">

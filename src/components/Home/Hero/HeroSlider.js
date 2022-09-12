@@ -7,10 +7,14 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { Link } from 'react-router-dom';
 // import fl from '../../../images/courses/offer/FL.png'
-import ve from '../../../images/courses/offer/VE.png'
-import dm from '../../../images/courses/offer/DM.png'
-import gd from '../../../images/courses/offer/GD.png'
-import wd from '../../../images/courses/offer/WD.png'
+// import ve from '../../../images/courses/offer/VE.png'
+import ve from '../../../images/courses/1500/VE.png'
+// import dm from '../../../images/courses/offer/DM.png'
+import dm from '../../../images/courses/1500/DM.png'
+// import gd from '../../../images/courses/offer/GD.png'
+import gd from '../../../images/courses/1500/GD.png'
+// import wd from '../../../images/courses/offer/WD.png'
+import wd from '../../../images/courses/1500/WD.png'
 
 const HeroSlider = () => {
 
