@@ -10,9 +10,9 @@ import CourseDemoClass from '../DemoClass/CourseDemoClass';
 import Tracker from '../Tracker/Tracker';
 import Footer from '../Shared/Footer/Footer';
 import { useForm } from 'react-hook-form';
-import PromoMessage from '../PromoMessage/PromoMessage';
+// import PromoMessage from '../PromoMessage/PromoMessage';
 // import fri500_sm from '../../images/promo/promo_sm.png';
-import skill999_sm from '../../images/promo/skill999_sm.png';
+// import skill999_sm from '../../images/promo/skill999_sm.png';
 import clickImage from '../../images/promo/click.png';
 import call from '../../images/courses/call.svg';
 import messenger from '../../images/courses/messenger.svg';
@@ -104,7 +104,7 @@ const Course = (props) => {
 
     return (
         <>
-            <PromoMessage />
+            {/* <PromoMessage /> */}
             <div style={{ backgroundColor: '#f8f9fa' }}>
                 <Navbar />
                 <div className="container py-5">
@@ -140,7 +140,7 @@ const Course = (props) => {
                                             <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {ppm} প্রতি মাস</h2>
                                         </div>
                                     </div>
-                                    <img className='img-fluid' src={skill999_sm} alt="" />
+                                    {/* <img className='img-fluid' src={skill999_sm} alt="" /> */}
 
                                     <div className="d-none d-lg-block">
                                         <span onClick={() => {
