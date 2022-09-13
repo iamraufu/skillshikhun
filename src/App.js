@@ -44,7 +44,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
 
-          <Route path="/freelancing-for-all" element={<Course color='#2c3493' name="Freelancing for All" />} />
+          <Route path="/shobar-jnno-freelancing" element={<Course color='#2c3493' name="সবার জন্য ফ্রিল্যান্সিং" />} />
           <Route path="/digital-marketing" element={<Course color='#2c3493' name="Digital Marketing" />} />
           <Route path="/video-editing" element={<Course color='#653dae' name="Video Editing" />} />
           <Route path="/web-development" element={<Course color='#13338b' name="Web Development" />} />

@@ -35,7 +35,6 @@ const Course = (props) => {
     const [ppm, setPpm] = useState(1500)
     const [discount, setDiscount] = useState(0);
     const [message, setMessage] = useState('');
-
     const [showMore, setShowMore] = useState(false);
 
     const myRef = useRef(null);
@@ -144,47 +143,58 @@ const Course = (props) => {
                                                 </div>
                                                 <div className="py-3 d-none d-lg-block">
                                                     {/* <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.price_per_month_bn}/মাস</h2> */}
-                                                    <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {ppm} প্রতি মাস</h2>
+                                                    {
+                                                        course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
+                                                            <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; ৫৫০</h2> :
+                                                            <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {ppm} প্রতি মাস</h2>
+                                                    }
                                                 </div>
                                             </div>
                                             {/* <img className='img-fluid' src={skill999_sm} alt="" /> */}
 
-                                            <div className="d-none d-lg-block">
-                                                <span onClick={() => {
-                                                    document.getElementById('lg-promo-container').style.display === 'block' ?
-                                                        document.getElementById('lg-promo-container').style.display = 'none' :
-                                                        document.getElementById('lg-promo-container').style.display = 'block'
-                                                }} style={{
-                                                    textDecoration: 'underline', cursor: 'pointer', color: '#653dae'
-                                                    // , backgroundColor:'#653dae'
-                                                    ,
-                                                    borderRadius: '5px', float: 'left'
-                                                }} className='fs-5 text-center p-2 mt-2'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /> </span>
+                                            {
+                                                !course.name === 'সবার জন্য ফ্রিল্যান্সিং' &&
+                                                <div className="d-none d-lg-block">
+                                                    <span onClick={() => {
+                                                        document.getElementById('lg-promo-container').style.display === 'block' ?
+                                                            document.getElementById('lg-promo-container').style.display = 'none' :
+                                                            document.getElementById('lg-promo-container').style.display = 'block'
+                                                    }} style={{
+                                                        textDecoration: 'underline', cursor: 'pointer', color: '#653dae'
+                                                        // , backgroundColor:'#653dae'
+                                                        ,
+                                                        borderRadius: '5px', float: 'left'
+                                                    }} className='fs-5 text-center p-2 mt-2'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /> </span>
 
-                                                <div style={{ display: 'none', marginTop: '3px' }} id="lg-promo-container">
-                                                    <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
-                                                        <div className="d-flex justify-content-center align-items-center p-2">
-                                                            <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width: '30px', height: '30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
-                                                            <input
-                                                                // value='FRI500' 
-                                                                placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
-                                                            <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
-                                                        </div>
-                                                    </form>
-                                                    <p className='text-center fw-bold mt-3'>{message}</p>
+                                                    <div style={{ display: 'none', marginTop: '3px' }} id="lg-promo-container">
+                                                        <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
+                                                            <div className="d-flex justify-content-center align-items-center p-2">
+                                                                <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width: '30px', height: '30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
+                                                                <input
+                                                                    // value='FRI500' 
+                                                                    placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
+                                                                <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
+                                                            </div>
+                                                        </form>
+                                                        <p className='text-center fw-bold mt-3'>{message}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            }
 
                                             <div style={{ justifyContent: 'space-between' }} className="d-flex py-2">
                                                 <div className="col-md-6">
-                                                    <div className="d-flex justify-content-center">
-                                                        <div className="mt-2 me-2 fs-4">
-                                                            <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faUsers} />
-                                                        </div>
-                                                        <div className="">
-                                                            <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> কোর্সটি করেছেন<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_done} জন</span></p>
-                                                        </div>
-                                                    </div>
+                                                    {
+                                                        course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
+                                                            null :
+                                                            <div className="d-flex justify-content-center">
+                                                                <div className="mt-2 me-2 fs-4">
+                                                                    <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faUsers} />
+                                                                </div>
+                                                                <div className="">
+                                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> কোর্সটি করেছেন<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_done} জন</span></p>
+                                                                </div>
+                                                            </div>
+                                                    }
 
                                                     <div className="d-flex justify-content-center">
                                                         <div className="mt-3 me-2 fs-4">
@@ -196,14 +206,18 @@ const Course = (props) => {
                                                     </div>
                                                 </div>
                                                 <div className="col-md-6">
-                                                    <div className="d-flex justify-content-center">
-                                                        <div className="mt-2 me-2 fs-4">
-                                                            <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faClock} />
-                                                        </div>
-                                                        <div className="">
-                                                            <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> সময় লাগবে<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_duration} মাস</span></p>
-                                                        </div>
-                                                    </div>
+                                                    {
+                                                        course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
+                                                            null :
+                                                            <div className="d-flex justify-content-center">
+                                                                <div className="mt-2 me-2 fs-4">
+                                                                    <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faClock} />
+                                                                </div>
+                                                                <div className="">
+                                                                    <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center'> সময় লাগবে<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '16px', lineHeight: '24px' }} className='fw-bold px-3'>{course.course_duration} মাস</span></p>
+                                                                </div>
+                                                            </div>
+                                                    }
 
                                                     <div className="d-flex justify-content-center">
                                                         <div className="">
@@ -221,11 +235,11 @@ const Course = (props) => {
                                                     {
                                                         localStorage.getItem('token') && purchasedLiveCourses.length === 0 ? <div className="col-md-6 mt-1">
                                                             <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
-                                                        </div> : <div className="col-md-6 mt-1">
-                                                            <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
-                                                        </div>
+                                                        </div> :
+                                                            <div className="col-md-6 mt-1">
+                                                                <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
+                                                            </div>
                                                     }
-
                                                 </div>
                                             </div>
 
@@ -339,7 +353,9 @@ const Course = (props) => {
                             <CourseDemoClass course={course} refProp={myRef} />
 
                             {/* Course Review */}
-                            <CourseReview course={course} />
+                            {
+                                course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ? null : <CourseReview course={course} />
+                            }
 
                         </div>
 
@@ -370,7 +386,7 @@ const Course = (props) => {
 
                                                 {/* <h4 style={{ fontSize: '20px', lineHeight: '28px', color: '#454c7e' }} className='ps-2 pt-2 fw-bold'>৳ 2600</h4>
                                         <Link onClick={() => { window.scrollTo(0, 0); }} to={otherCourse.route} className='text-decoration-none'><p style={{ fontSize: '15px', lineHeight: '24px', color: '#b94a8f' }} className='pe-3 pt-2 fw-bold'>বিস্তারিত দেখুন</p></Link> */}
-                                                <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'><span style={{ color: '#354895' }}>মাত্র</span> ৳ {course.price_per_month_bn}<small style={{ color: '#354895' }}> প্রতি মাস</small>
+                                                <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'><span style={{ color: '#354895' }}>মাত্র</span> ৳ {course.price_per_month_bn}<small style={{ color: '#354895' }}> {otherCourse.name ==='সবার জন্য ফ্রিল্যান্সিং' ? null : "প্রতি মাস"}</small>
                                                     {/* <strike className='ps-2 text-muted'>{course.regular_price}</strike> */}
                                                 </h4>
                                                 <button onClick={() => { window.scrollTo(0, 0); }} className='see-details me-3' to={course.route}>বিস্তারিত দেখুন</button>
@@ -386,31 +402,36 @@ const Course = (props) => {
 
                 <div style={{ boxShadow: '0 3px 10px 3px #0003', padding: '0' }} className="container-fluid d-lg-none fixed-bottom bg-white">
 
-                    <div style={{ display: 'none' }} id="sm-promo-open">
-                        <span onClick={() => {
-                            document.getElementById('sm-promo').style.display = 'block'
-                            document.getElementById('sm-info').style.display = 'block'
-                            document.getElementById('sm-promo-open').style.display = 'none'
-                        }
-                        } style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold p-2'>প্রোমো কোড লিখুন</span>
-
-
-                        <form id='promo_code' onSubmit={handleSubmit2(onSubmit2)}>
-                            <div className="d-flex justify-content-center align-items-center p-2">
-                                <button onClick={() => {
+                    {
+                        course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
+                            null
+                            :
+                            <div style={{ display: 'none' }} id="sm-promo-open">
+                                <span onClick={() => {
                                     document.getElementById('sm-promo').style.display = 'block'
                                     document.getElementById('sm-info').style.display = 'block'
                                     document.getElementById('sm-promo-open').style.display = 'none'
                                 }
-                                } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width: '30px', height: '30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
-                                <input
-                                    // value="FRI500" 
-                                    placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
-                                <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
+                                } style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold p-2'>প্রোমো কোড লিখুন</span>
+
+
+                                <form id='promo_code' onSubmit={handleSubmit2(onSubmit2)}>
+                                    <div className="d-flex justify-content-center align-items-center p-2">
+                                        <button onClick={() => {
+                                            document.getElementById('sm-promo').style.display = 'block'
+                                            document.getElementById('sm-info').style.display = 'block'
+                                            document.getElementById('sm-promo-open').style.display = 'none'
+                                        }
+                                        } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width: '30px', height: '30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
+                                        <input
+                                            // value="FRI500" 
+                                            placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
+                                        <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
+                                    </div>
+                                </form>
+                                <p className='text-center fw-bold'>{message}</p>
                             </div>
-                        </form>
-                        <p className='text-center fw-bold'>{message}</p>
-                    </div>
+                    }
 
                     <div id="sm-info">
                         {
@@ -434,16 +455,19 @@ const Course = (props) => {
                                             </h2>
                                         </div> */}
 
-                                        <div className="col-sm-4 mb-2 mx-auto d-block">
-                                            <div id='sm-promo' className='col-md-4' onClick={() => {
-                                                document.getElementById('sm-promo-open').style.display = 'block'
-                                                document.getElementById('sm-promo').style.display = 'none'
-                                                document.getElementById('sm-info').style.display = 'none'
-                                            }
-                                            }>
-                                                <span style={{ fontSize: '15px', textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='mx-auto d-block fw-bold pt-2 text-center'>প্রোমো কোড <img width={18} className='img-fluid' src={clickImage} alt="Promo" /> </span>
-                                            </div>
-                                        </div>
+                                        {
+                                            course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ? null :
+                                                <div className="col-sm-4 mb-2 mx-auto d-block">
+                                                    <div id='sm-promo' className='col-md-4' onClick={() => {
+                                                        document.getElementById('sm-promo-open').style.display = 'block'
+                                                        document.getElementById('sm-promo').style.display = 'none'
+                                                        document.getElementById('sm-info').style.display = 'none'
+                                                    }
+                                                    }>
+                                                        <span style={{ fontSize: '15px', textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='mx-auto d-block fw-bold pt-2 text-center'>প্রোমো কোড <img width={18} className='img-fluid' src={clickImage} alt="Promo" /> </span>
+                                                    </div>
+                                                </div>
+                                        }
 
                                         <div className="col-sm-2">
                                             <a style={{ fontSize: '10px', border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} href="https://m.me/skillshikhun" target="_blank" rel="noreferrer" className='text-decoration-none text-black p-2 me-1'>
@@ -477,9 +501,15 @@ const Course = (props) => {
                                                         <Link to={`/checkout/${course.id}`} className='text-decoration-none'>
                                                             <button className='btn-buy mx-auto d-block' onClick={() => { window.scrollTo(0, 0); }}>
                                                                 <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
-                                                                    <div className='col-sm-6' style={{ fontSize: '20px' }}>
-                                                                        &#2547; {ppm} প্রতি মাস
-                                                                    </div>
+                                                                    {
+                                                                        course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
+                                                                            <div className='col-sm-6' style={{ fontSize: '20px' }}>
+                                                                                &#2547; ৫৫০
+                                                                            </div> :
+                                                                            <div className='col-sm-6' style={{ fontSize: '20px' }}>
+                                                                                &#2547; {ppm} প্রতি মাস
+                                                                            </div>
+                                                                    }
                                                                     <div className='col-sm-6' style={{ fontSize: '20px' }}>
                                                                         ভর্তি হন &#8594;
                                                                     </div>
@@ -492,9 +522,15 @@ const Course = (props) => {
                                                         <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'>
                                                             <button className='btn-buy mx-auto d-block' onClick={() => { window.scrollTo(0, 0); }}>
                                                                 <div style={{ justifyContent: 'space-between' }} className="d-flex align-items-center">
-                                                                    <div className='col-sm-6' style={{ fontSize: '20px' }}>
-                                                                        &#2547; {ppm} প্রতি মাস
-                                                                    </div>
+                                                                    {
+                                                                        course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
+                                                                            <div className='col-sm-6' style={{ fontSize: '20px' }}>
+                                                                                &#2547; ৭৫০ প্রতি মাস
+                                                                            </div> :
+                                                                            <div className='col-sm-6' style={{ fontSize: '20px' }}>
+                                                                                &#2547; {ppm} প্রতি মাস
+                                                                            </div>
+                                                                    }
                                                                     <div className='col-sm-6' style={{ fontSize: '20px' }}>
                                                                         ভর্তি হন &#8594;
                                                                     </div>

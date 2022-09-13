@@ -29,12 +29,19 @@ const Checkout = () => {
     const { courseId } = useParams();
     const course = courseData.filter(course => course.id === courseId);
     const [discount, setDiscount] = useState(0);
-    const [price, setPrice] = useState(basePrice - discount);
-    const [total, setTotal] = useState(course[0].course_duration_eng * price);
     const [remainingPrice, setRemainingPrice] = useState(0);
 
     const code = localStorage.getItem('code');
     const [promo, setPromo] = useState([])
+
+    useEffect(()=>{
+        if (course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং') {
+            basePrice = 550;
+        }
+        else {
+            basePrice = 1500;
+        }
+    },[course])
 
     useEffect(() => {
         if (code) {
@@ -54,6 +61,8 @@ const Checkout = () => {
     const phone = localStorage.getItem('phone');
     const name = JSON.parse(localStorage.getItem('name'));
     const [userPhoneData, setUserPhoneData] = useState({})
+    const [price, setPrice] = useState(basePrice - discount);
+    const [total, setTotal] = useState(course[0].course_duration_eng * price);
     // const [paymentGateway, setPaymentGateway] = useState([]);
 
     const [payments, setPayments] = useState([]);
@@ -84,6 +93,12 @@ const Checkout = () => {
 
         if (type === 'full') {
             basePrice = 1500;
+            // if (course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং') {
+            //     basePrice = 550;
+            // }
+            // else {
+            //     basePrice = 1500;
+            // }
             document.getElementById('full_tick').style.display = 'block';
             document.getElementById('full_untick').style.display = 'none';
             document.getElementById('monthly_tick').style.display = 'none';
@@ -98,6 +113,12 @@ const Checkout = () => {
         }
         else {
             basePrice = 1500;
+            // if (course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং') {
+            //     basePrice = 550;
+            // }
+            // else {
+            //     basePrice = 1500;
+            // }
             document.getElementById('monthly_tick').style.display = 'block';
             document.getElementById('monthly_untick').style.display = 'none';
             document.getElementById('full_untick').style.display = 'block';
@@ -161,7 +182,7 @@ const Checkout = () => {
             body: JSON.stringify({
                 store_id: "skillshikhun",
                 // store_id: "aamarpaytest", // test
-                signature_key: "7445cc98363b6b9cae4af766ef0f0186", 
+                signature_key: "7445cc98363b6b9cae4af766ef0f0186",
                 // signature_key: "dbb74894e82415a2f7ff0ec3a97e4183",  // test
                 cus_name: `${userPhoneData.name}`,
                 cus_email: `${userPhoneData.email}`,
@@ -293,6 +314,8 @@ const Checkout = () => {
             })
     }
 
+    console.log(basePrice);
+
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)' }}>
 
@@ -322,18 +345,31 @@ const Checkout = () => {
                             <div className="ps-3 col-sm-6 text-center">
                                 <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold'>{course[0].slug}</h2>
                                 {/* <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].price_per_month_bn} প্রতি মাস</h3> */}
-                                <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {basePrice - discount} প্রতি মাস</h3>
-                                <h6><span className='fw-bold'>{course[0].course_duration} মাসের</span> কোর্স | কোর্সটি করেছেন <span className='fw-bold'>{course[0].course_done}</span> জন</h6>
-                                <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
+                                {
+                                    course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
+                                        <>
+                                            <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; ৫৫০</h3>
+                                            <h6><span className='fw-bold'>{course[0].course_duration} দিনের</span> কোর্স</h6>
+                                            <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
+                                        </> :
+                                        <>
+                                            <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {basePrice - discount} প্রতি মাস</h3>
+                                            <h6><span className='fw-bold'>{course[0].course_duration} মাসের</span> কোর্স | কোর্সটি করেছেন <span className='fw-bold'>{course[0].course_done}</span> জন</h6>
+                                            <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
+                                        </>
+                                }
                             </div>
                         </div>
                     </div>
 
-                    <div className="col-lg-6 subscription-container">
-                        <h2 style={{ fontSize: '20px', lineHeight: '26px', fontWeight: '400' }} className='fw-bold text-center'>সাবস্ক্রিপশন নির্বাচন করুন</h2>
+                    {
+                        course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
+                            null :
+                            <div className="col-lg-6 subscription-container">
+                                <h2 style={{ fontSize: '20px', lineHeight: '26px', fontWeight: '400' }} className='fw-bold text-center'>সাবস্ক্রিপশন নির্বাচন করুন</h2>
 
-                        {/* div for choosing subscription mode */}
-                        {/* 
+                                {/* div for choosing subscription mode */}
+                                {/* 
                         <div style={{ borderRadius: '10px', boxShadow: '0 5.44687px 20.4258px #0000000d' }} className="bg-white p-3 subscription-choose">
                             <div className="checkout-modes">
 
@@ -377,57 +413,63 @@ const Checkout = () => {
                             </div>
                         </div> 
                         */}
-                        {/* <p id='subscription_mode_warning' className="text-danger mt-3 fw-bold ms-2">* সাবস্ক্রিপশন মোড নির্বাচন করুন</p> */}
+                                {/* <p id='subscription_mode_warning' className="text-danger mt-3 fw-bold ms-2">* সাবস্ক্রিপশন মোড নির্বাচন করুন</p> */}
 
-                        <div className="row course-fee-container">
-                            <button style={{ border: '1px solid green', backgroundColor: '#f0f7ff' }} onClick={() => handleSubscriptionStyle('monthly')} id='monthly' className='d-flex p-2 justify-content-around align-items-center subscription-btn'>
-                                <div className="col-sm-2">
-                                    <img id='monthly_tick' src={checkbox} width={25} className='img-fluid' alt="tick svg" />
-                                    <img id='monthly_untick' src={untick} style={{ display: 'none' }} width={20} className='img-fluid' alt="untick svg" />
+                                <div className="row course-fee-container">
+                                    <button style={{ border: '1px solid green', backgroundColor: '#f0f7ff' }} onClick={() => handleSubscriptionStyle('monthly')} id='monthly' className='d-flex p-2 justify-content-around align-items-center subscription-btn'>
+                                        <div className="col-sm-2">
+                                            <img id='monthly_tick' src={checkbox} width={25} className='img-fluid' alt="tick svg" />
+                                            <img id='monthly_untick' src={untick} style={{ display: 'none' }} width={20} className='img-fluid' alt="untick svg" />
+                                        </div>
+
+                                        <div className="col-sm-7">
+                                            <h3 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }}>{course[0].next_batch} মাসের ফি</h3>
+                                            <p style={{ fontSize: '14px', lineHeight: '22px' }}>মাসিক ভিত্তিতে একমাসের ফি</p>
+                                        </div>
+
+                                        <div style={{ textAlign: 'right' }} className="col-sm-3">
+                                            {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].price_per_month_bn}</h4> */}
+                                            <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {basePrice - discount}</h4>
+                                        </div>
+
+                                    </button>
+
+                                    <button onClick={() => handleSubscriptionStyle('full')} id='full' className='d-flex p-2 justify-content-around align-items-center mt-2 subscription-btn'>
+
+                                        <div className="col-sm-2">
+                                            <img id='full_tick' src={checkbox} style={{ display: 'none' }} width={25} className='img-fluid' alt="tick svg" />
+                                            <img id='full_untick' src={untick} width={20} className='img-fluid' alt="untick svg" />
+                                        </div>
+
+                                        <div className="col-sm-7">
+                                            <h3 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }}>{course[0].course_duration} মাসের ফি</h3>
+                                            <p style={{ fontSize: '14px', lineHeight: '22px' }}>একত্রে {course[0].next_batch} মাস সহ {course[0].course_duration} মাসের ফি</p>
+                                        </div>
+
+                                        <div style={{ textAlign: 'right' }} className="col-sm-3">
+                                            {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price_bn}</h4> */}
+                                            <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {(basePrice * course[0].course_duration_eng) - (discount * course[0].course_duration_eng)}</h4>
+                                            {/* <small className='text-success fw-bold'>খরচ বাঁচবে &#2547; {course[0].price_saved}</small> */}
+                                        </div>
+
+                                    </button>
                                 </div>
-
-                                <div className="col-sm-7">
-                                    <h3 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }}>{course[0].next_batch} মাসের ফি</h3>
-                                    <p style={{ fontSize: '14px', lineHeight: '22px' }}>মাসিক ভিত্তিতে একমাসের ফি</p>
-                                </div>
-
-                                <div style={{ textAlign: 'right' }} className="col-sm-3">
-                                    {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].price_per_month_bn}</h4> */}
-                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {basePrice - discount}</h4>
-                                </div>
-
-                            </button>
-
-                            <button onClick={() => handleSubscriptionStyle('full')} id='full' className='d-flex p-2 justify-content-around align-items-center mt-2 subscription-btn'>
-
-                                <div className="col-sm-2">
-                                    <img id='full_tick' src={checkbox} style={{ display: 'none' }} width={25} className='img-fluid' alt="tick svg" />
-                                    <img id='full_untick' src={untick} width={20} className='img-fluid' alt="untick svg" />
-                                </div>
-
-                                <div className="col-sm-7">
-                                    <h3 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }}>{course[0].course_duration} মাসের ফি</h3>
-                                    <p style={{ fontSize: '14px', lineHeight: '22px' }}>একত্রে {course[0].next_batch} মাস সহ {course[0].course_duration} মাসের ফি</p>
-                                </div>
-
-                                <div style={{ textAlign: 'right' }} className="col-sm-3">
-                                    {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price_bn}</h4> */}
-                                    <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {(basePrice * course[0].course_duration_eng) - (discount * course[0].course_duration_eng)}</h4>
-                                    {/* <small className='text-success fw-bold'>খরচ বাঁচবে &#2547; {course[0].price_saved}</small> */}
-                                </div>
-
-                            </button>
-                        </div>
-                        <HowToPayment />
-                    </div>
+                                <HowToPayment />
+                            </div>
+                    }
 
                 </div>
 
                 <div className="row">
 
-                    <div className="d-none d-lg-block d-xl-block col-lg-6 checkout_course_review_container">
-                        <CourseReview course={course[0]} />
-                    </div>
+                    {
+                        course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
+                            null :
+                            // visible on larger screen but hide on smaller screen
+                            <div className="d-none d-lg-block d-xl-block col-lg-6 checkout_course_review_container">
+                                <CourseReview course={course[0]} />
+                            </div>
+                    }
 
                     <div className="col-lg-6">
                         {/* <h2 style={{ fontSize: '22px', lineHeight:'26px', fontWeight: '400' }} className='fw-bold mt-4 text-center'>পেমেন্ট মেথড নির্বাচন করুন</h2> */}
@@ -451,38 +493,42 @@ const Checkout = () => {
                             </div>
                         </div> */}
 
-                        <div className="d-block d-none d-lg-block">
-                            <div className="d-none d-lg-block mt-5">
-                                {
-                                    !localStorage.getItem('code') &&
-                                    <span onClick={() => {
-                                        document.getElementById('lg-promo-container').style.display === 'block' ?
-                                            document.getElementById('lg-promo-container').style.display = 'none' :
-                                            document.getElementById('lg-promo-container').style.display = 'block'
-                                    }} style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae', margin:"auto", display:'block' }} className='fs-5 text-center fw-bold'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /> </span>
-                                }
+                        {
+                            course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
+                                null :
+                                <div className="d-block d-none d-lg-block">
+                                    <div className="d-none d-lg-block mt-5">
+                                        {
+                                            !localStorage.getItem('code') &&
+                                            <span onClick={() => {
+                                                document.getElementById('lg-promo-container').style.display === 'block' ?
+                                                    document.getElementById('lg-promo-container').style.display = 'none' :
+                                                    document.getElementById('lg-promo-container').style.display = 'block'
+                                            }} style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae', margin: "auto", display: 'block' }} className='fs-5 text-center fw-bold'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /> </span>
+                                        }
 
-                                <div style={{ display: 'none' }} id="lg-promo-container">
-                                    <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
-                                        <div className="d-flex justify-content-center align-items-center p-2">
-                                            <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent',width:'30px', height:'30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
-                                            <input 
-                                            // value="FRI500" 
-                                            placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
-                                            <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
+                                        <div style={{ display: 'none' }} id="lg-promo-container">
+                                            <form id='promo-form' onSubmit={handleSubmit(onSubmit)}>
+                                                <div className="d-flex justify-content-center align-items-center p-2">
+                                                    <button onClick={() => document.getElementById('lg-promo-container').style.display = 'none'} style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width: '30px', height: '30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
+                                                    <input
+                                                        // value="FRI500" 
+                                                        placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register("code", { required: true })} />
+                                                    <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
+                                                </div>
+                                            </form>
+                                            <p className='text-center fw-bold'>{message}</p>
                                         </div>
-                                    </form>
-                                    <p className='text-center fw-bold'>{message}</p>
-                                </div>
 
-                                {/* <Countdown
+                                        {/* <Countdown
                                     deadline={course.next_batch_eng}
                                     text={'কোর্স শুরু হতে সময় বাকি'}
                                 /> */}
-                            </div>
-                        </div>
-                        
-                        {promo?.code && <p className='d-block d-none d-lg-block text-center mx-auto d-block bg-success fw-bold w-25 text-white p-2'>প্রোমো একটিভ হয়েছে</p>}
+                                    </div>
+                                </div>
+
+                            // {promo?.code && <p className='d-block d-none d-lg-block text-center mx-auto d-block bg-success fw-bold w-25 text-white p-2'>প্রোমো একটিভ হয়েছে</p>}
+                        }
 
                         <p style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }} className='text-center mt-4 d-block d-none d-lg-block'><FontAwesomeIcon className='text-success' icon={faUserShield} /> নিরাপদ ও দ্রুত পেমেন্ট নিশ্চয়তা</p>
 
@@ -493,10 +539,24 @@ const Checkout = () => {
 
                     </div>
 
+                    {/* visible on smaller screen but hide on larger screen */}
                     <div className="d-lg-none col-lg-6 checkout_course_review_container">
-                        <CourseReview course={course[0]} />
+                        {
+                            course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
+                                <div style={{ borderRadius: '10px', boxShadow: '0 3px 10px 3px rgba(127, 127, 127, 0.2)', maxHeight: '370px' }} className="row justify-content-center align-items-center bg-white p-3">
+                                    <div className="col-sm-6">
+                                        <img src={course[0].image} style={{ borderRadius: '10px' }} width={400} height={100} className='img-fluid' alt={course[0].slug} loading="lazy" />
+                                    </div>
+                                    <div className="ps-3 col-sm-6 text-center">
+                                        <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold'>{course[0].slug}</h2>
+                                        <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; ৫৫০</h3>
+                                        <h6><span className='fw-bold'>{course[0].course_duration} দিনের</span> কোর্স</h6>
+                                        <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
+                                    </div>
+                                </div> :
+                                <CourseReview course={course[0]} />
+                        }
                     </div>
-
                 </div>
             </div>
 
@@ -526,7 +586,10 @@ const Checkout = () => {
                         document.getElementById('sm-promo').style.display = 'none'
                     }
                     }>
-                        <span style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold text-center mt-3'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /></span>
+                        {
+                            course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং' ? null :
+                            <span style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold text-center mt-3'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /></span>
+                        }
                     </div>
                 }
                 <div style={{ display: 'none' }} id="sm-promo-open">
@@ -543,10 +606,10 @@ const Checkout = () => {
                                 document.getElementById('sm-promo').style.display = 'block'
                                 document.getElementById('sm-promo-open').style.display = 'none'
                             }
-                            } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent',width:'30px', height:'30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
-                            <input 
-                            // value="FRI500" 
-                            placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
+                            } style={{ border: '1px solid lightgrey', backgroundColor: 'transparent', width: '30px', height: '30px', borderRadius: '50%' }} className='me-2 fw-bold'>X</button>
+                            <input
+                                // value="FRI500" 
+                                placeholder="প্রোমো কোড লিখুন" className='form-control w-50' type="text" {...register2("code", { required: true })} />
                             <input className='btn btn-success' type="submit" value="অ্যাপ্লাই" />
                         </div>
                     </form>

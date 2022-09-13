@@ -15,6 +15,7 @@ import dm from '../../../images/courses/1500/DM.png'
 import gd from '../../../images/courses/1500/GD.png'
 // import wd from '../../../images/courses/offer/WD.png'
 import wd from '../../../images/courses/1500/WD.png'
+import fl from '../../../images/courses/fg/FG550.png'
 
 const HeroSlider = () => {
 
@@ -36,11 +37,11 @@ const HeroSlider = () => {
             >
                 <SwiperSlide className='d-none d-lg-block'>
                     <div className="d-flex justify-content-center ">
-                        {/* <div className="col-sm-2">
-                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/'>
+                        <div className="col-sm-2">
+                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/shobar-jnno-freelancing'>
                                 <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={fl} alt='Course' />
                             </Link>
-                        </div> */}
+                        </div>
 
                         <div className="col-sm-2">
                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/video-editing'>
@@ -71,15 +72,42 @@ const HeroSlider = () => {
 
                 <SwiperSlide className='d-lg-none pb-5'>
                     <div className="d-flex justify-content-center ">
-                        {/* <div className="col-sm-6">
-                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/'>
+                        <div className="col-sm-6">
+                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/shobar-jnno-freelancing'>
                                 <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={fl} alt='Course' />
                             </Link>
-                        </div> */}
+                        </div>
 
+                        <div className="col-sm-6">
+                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/web-development'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={wd} alt='Course' />
+                            </Link>
+                        </div>
+
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide className='d-lg-none pb-5'>
+                    <div className="d-flex justify-content-center ">
                         <div className="col-sm-6">
                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/digital-marketing'>
                                 <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={dm} alt='Course' />
+                            </Link>
+                        </div>
+
+                        <div className="col-sm-6">
+                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/graphics-design'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={gd} alt='Course' />
+                            </Link>
+                        </div>
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide className='d-lg-none pb-5'>
+                    <div className="d-flex justify-content-center ">
+                        <div className="col-sm-6">
+                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/shobar-jnno-freelancing'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={fl} alt='Course' />
                             </Link>
                         </div>
 
@@ -91,38 +119,6 @@ const HeroSlider = () => {
                     </div>
                 </SwiperSlide>
 
-                <SwiperSlide className='d-lg-none pb-5'>
-                    <div className="d-flex justify-content-center ">
-                        <div className="col-sm-6">
-                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/graphics-design'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={gd} alt='Course' />
-                            </Link>
-                        </div>
-
-                        <div className="col-sm-6">
-                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/web-development'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={wd} alt='Course' />
-                            </Link>
-                        </div>
-                    </div>
-                </SwiperSlide>
-
-                {/* <SwiperSlide className='d-lg-none pb-5'>
-                    <div className="d-flex justify-content-center ">
-
-                        <div className="col-sm-6">
-                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={fl} alt='Course' />
-                            </Link>
-                        </div>
-
-                        <div className="col-sm-6">
-                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/digital-marketing'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={dm} alt='Course' />
-                            </Link>
-                        </div>
-                    </div>
-                </SwiperSlide> */}
             </Swiper>
         </section>
     );

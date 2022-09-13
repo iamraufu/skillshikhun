@@ -6,6 +6,7 @@ import webImage from '../../images/courses/wd.jpg';
 // import webImage from '../../images/full-stack-web-development.svg';
 import graphicsImage from '../../images/courses/gd.jpg';
 // import graphicsImage from '../../images/full-stack-graphic-design.svg';
+import shobarJnnoFreelancingImage from '../../images/courses/sjf.png';
 import ve_i from '../../images/ve_i.jpg';
 import dm_i from '../../images/dm_i.jpg';
 import wd_i from '../../images/wd_i.jpg';
@@ -14,371 +15,398 @@ import wd400 from '../../images/courses/wd400.png'
 import ve400 from '../../images/courses/wd400.png'
 import dm400 from '../../images/courses/dm400.png'
 import gd400 from '../../images/courses/gd400.png'
+import fl from '../../images/courses/FL.png'
 
 const courseData = [
     // Freelancing for All
-    // {
-    //     name: 'Freelancing for All',
-    //     id: 'freelancing-for-all',
-    //     title: 'Freelancing for All',
-    //     slug: 'Freelancing for All',
-    //     route: '/freelancing-for-all',
-    //     alt_title: 'Freelancing for All',
-    //     description: 'Freelancing for All',
-    //     short_description: 'Freelancing for All',
-    //     source: 'https://www.youtube.com/embed/xop7oG9ga9c?autoplay=1&mute=1',
-    //     videoId: 'xop7oG9ga9c',
-    //     type: 'Live',
-    //     course_duration: '১',
-    //     course_duration_eng: 1,
-    //     total_classes: '১০',
-    //     regular_price: '৯,৯৯৯',
-    //     price: 2500,
-    //     price_bn: '২৫০০',
-    //     offer_price: 2300,
-    //     offer_price_bn: '২৩০০',
-    //     price_per_month: 1250,
-    //     price_per_month_bn: '১২৫০',
-    //     price_saved: '২০০',
-    //     course_done: '১৫০',
-    //     seat_left: '১২',
-    //     next_batch: 'সেপ্টেম্বর',
-    //     next_batch_eng: '2022-09-04T21:00:00.000+06:00',
-    //     course_instructor: 'আতাউল হোসেন',
-    //     instructor_designation: 'Top Rated Freelancer on Upwork & Fiverr. A Professional Digital Marketer.',
-    //     class_date: [
-    //         {
-    //             id: 1,
-    //             date: '2022-05-13'
-    //         },
-    //         {
-    //             id: 2,
-    //             date: '2022-05-27'
-    //         }
-    //     ],
-    //     class_time: '9PM - 10:00PM',
-    //     class_date_1: '6, 8, 10 (August 2022)',
-    //     class_date_1_value: '2022-08-06',
-    //     class_date_1_deadline: '2022-08-06T21:00:00.000+06:00',
-    //     // class_date_1_deadline:'July 30th 2022, 9:00:00 pm',
-    //     class_date_2: '6, 8, 10 (August 2022)',
-    //     class_date_2_value: '2022-08-06',
-    //     class_date_2_deadline: '2022-08-06T21:00:00.000+06:00',
-    //     // class_date_2_deadline:'August 6th 2022, 9:00:00 pm',
-    //     free_number: '92939532748',
-    //     free_password: '153338',
-    //     free_video_count: '৪',
-    //     live_number: '84551599695',
-    //     live_password: '870201',
-    //     // free_link:'https://zoom.us/wc/92939532748/start',
-    //     free_link: 'https://us06web.zoom.us/j/92939532748?pwd=d1RMRkFnUy9hM2F6TUlPbXAxNlFBZz09',
-    //     // live_link:'https://zoom.us/wc/84551599695/start',
-    //     live_link: 'https://us06web.zoom.us/j/84551599695?pwd=aU5EVHB6SFhqV3NMeEJ6bWV4VHdqUT09',
-    //     instructor_image: ve_i,
-    //     image: videoImage,
-    //     promo_poster:dm400,
-    //     feature_alt: [
-    //         {
-    //             id: 1,
-    //             item: 'এই কোর্সটি সম্পূর্ণ নতুনদের জন্য। ভিডিও এডিটিং সম্পর্কে আপনার পূর্ব কোনো ধারনা থাকার দরকার নেই।'
-    //         },
-    //         {
-    //             id: 2,
-    //             item: 'ইন্টারনেট কানেকশন সহ একটি কম্পিউটার।'
-    //         },
-    //         {
-    //             id: 3,
-    //             item: 'একটি কোর্সের ভিতর পাচ্ছেন জুম এর মাধ্যমে লাইভ ক্লাস আকারে মোট ২৪ টি ক্লাস।'
-    //         },
-    //         {
-    //             id: 4,
-    //             item: 'কোর্স ইন্সট্রাক্টর কর্তৃক সরাসরি কোর্স সংক্রান্ত আপনার সকল সমস্যার সমাধানের সুব্যবস্থা।'
-    //         }
-    //     ],
-    //     features: [
-    //         {
-    //             id: 1,
-    //             item: 'Adobe Premiere Pro এবং Adobe After Effects যেভাবে ব্যবহার করবেন।'
-    //         },
-    //         {
-    //             id: 2,
-    //             item: 'বেসিক থেকে অ্যাডভান্স লেভেল পর্যন্ত ভিডিও এডিটিং এবং মোশন ডিজাইন এর সকল খুঁটিনাটি।'
-    //         },
-    //         {
-    //             id: 3,
-    //             item: 'লোকাল এবং ইন্টারন্যাশনাল মার্কেটে ভিডিও এডিটিং দক্ষতা কাজে লাগিয়ে যেভাবে ক্যারিয়ার গড়বেন।'
-    //         },
-    //         {
-    //             id: 4,
-    //             item: 'ফ্রিল্যান্সার হিসেবে রিমোট জব এর মাধ্যমে যেভাবে ঘরে বসেই আয় করবেন।'
-    //         }
-    //     ],
-    //     featuresDescription: '২ মাসে ২৪ টি ক্লাসের এই কোর্সটি সাজানো হয়েছে যেন সহজভাবে ভিডিও এডিটিং এর প্রধান বিষয়গুলো নিয়ে আলোচনা করা হয় এবং সেগুলোর উপর কুইজের মাধ্যমে হাতে-কলমে নিজেকে যাচাই করা যায়।',
-    //     featureBonus: [
-    //         {
-    //             id: 1,
-    //             item: 'দ্রুত ও বন্ধুত্বসুলভ প্রশ্নোত্তর ব্যবস্থা।'
-    //         },
-    //         {
-    //             id: 2,
-    //             item: 'সফলভাবে কোর্স সমাপ্তির পর ডাউনলোডযোগ্য ইউনিক সার্টিফিকেট।'
-    //         }
-    //     ],
-    //     outline: [
-    //         {
-    //             id: 'One',
-    //             title: 'ফ্রিল্যান্সিং কি? What is Freelancing?',
-    //             description: 'এই ক্লাসটি হবে মূলত আমার এবং শিক্ষার্থীদের পরিচয়পর্ব। আমি নিজেকে পরিচয় করিয়ে দিব- আমি কে, আমি Fiverr এবং অন্যান্য ফ্রিল্যান্স প্ল্যাটফর্মে ভিডিও এডিটিং এর মাধ্যমে কীভাবে আয় করছি, একইসাথে শিক্ষার্থীদের সম্পর্কে জানবো উপযুক্ত পরিবেশে শেখানোর জন্য যোগাযোগ গুরুত্বপূর্ণ।',
-    //             isFree: true,
-    //             video: [
-    //                 {
-    //                     isFree: true,
-    //                     subtitle: 'ক্লাস ১ - ইন্ট্রডাকশন (Introduction)',
-    //                     videoId: 'wgzq0zWASEU'
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Two',
-    //             title: 'ফ্রিল্যান্সিং করতে কি ইংরেজি জানা প্রয়োজন? Do you need English for Freelancing?',
-    //             description: 'এই ক্লাসে, আমি দেখাবো কিভাবে আমরা অ্যাডবি প্রিমিয়ার প্রো ইন্সটল করে তার মাধ্যমে কাজ শুরু করতে পারি।',
-    //             isFree: true,
-    //             video: [
-    //                 {
-    //                     isFree: true,
-    //                     subtitle: 'ক্লাস ২ - ইনস্টলেশন এবং শুরু',
-    //                     videoId: 'VN_lfbqhz04'
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Three',
-    //             title: 'কিভাবে নিজের Niche নির্বাচন করবেন? Choose your Niche',
-    //             description: 'এই ক্লাসে আমরা শিখবো কিভাবে প্রিমিয়ার প্রো এ এডিট করার জন্য প্রোজেক্ট তৈরি করতে হয়।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস ৩ - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Four',
-    //             title: 'একটি স্কিল শিখে, সেইটিতে দক্ষ হওয়ার প্রক্রিয়া Learn your skill & be as expert as you can on it',
-    //             description: 'নির্ভুল এবং দ্রুত এডিটিং এর জন্য সঠিক ওয়ার্কস্পেস থাকা খুবই গুরুত্বপূর্ণ। এই ক্লাসে আমি দেখাবো কিভাবে আমরা সেরা এডিটিং অভিজ্ঞতার জন্য সবচেয়ে সুবিধাজনক ওয়ার্কস্পেস ব্যবহার করতে পারি।',
-    //             isFree: true,
-    //             video: [
-    //                 {
-    //                     isFree: true,
-    //                     subtitle: 'ক্লাস ৪ - ওয়ার্কস্পেস এবং পানেল',
-    //                     videoId: 't5Mp65o6edM'
-    //                 },
-    //                 {
-    //                     isFree: true,
-    //                     subtitle: 'ক্লাস ৫ - Q and A',
-    //                     videoId: 'JuYP_e9q7hE'
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Five',
-    //             title: 'মার্কেটপ্লেস কি? What is Marketplace?',
-    //             description: 'একটি প্রজেক্টে কাজ শুরু করার জন্য আমাদের মিডিয়া ফাইল আমদানি করতে হয়। আমি দেখাবো কিভাবে কম্পিউটার থেকে প্রিমিয়ার প্রো প্রোজেক্টে মিডিয়া ইম্পোর্ট করতে হয়।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Six',
-    //             title: 'ফাইবার মার্কেটপ্লেস সম্পর্কে বিস্তর ধারণা Introduction to Fiverr Marketplace',
-    //             description: 'এই ক্লাসে আমি আপনাদের সিকুয়েন্স এর সাথে পরিচয় করিয়ে দিব এবং কোর্স আগানোর সাথে সাথে আমরা এটি সম্পর্কে আরও শিখবো।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Seven',
-    //             title: 'আপ ওয়ার্ক মার্কেটপ্লেস সম্পর্কে বিস্তর ধারণা Introduction to Upwork Marketplace',
-    //             description: 'কখনও কখনও প্রিমিয়ার প্রো আমাদের ইম্পোর্ট করা ভিডিও এবং অ্যাসেটগুলো খুঁজে পেতে ব্যর্থ হয়। এই ক্লাসে কীভাবে সেগুলি পুনরায় লিঙ্ক করতে হয় এবং হারিয়ে যাওয়া ফাইলগুলি খুঁজে পেতে হয় তা শেখাবো।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Eight',
-    //             title: 'মার্কেটপ্লেস গাইডলাইন Marketplace guidelines',
-    //             description: 'প্রিমিয়ার প্রো এডিটিং আরও দক্ষতার সাথে করার জন্য একটি দুর্দান্ত এবং সহজ পদ্ধতি ব্যবহার করে দুটি মনিটর ব্যবহার করে। এই ক্লাসে আমি শিক্ষার্থীদের এই পদ্ধতির সাথে পরিচয় করিয়ে দিবো এবং আমরা এগিয়ে যাওয়ার সাথে সাথে এটি সম্পর্কে আরও জানবো।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Nine',
-    //             title: 'কিভাবে একটি ফাইবার একাউন্ট খুলবেন? How to Open a Fiverr Account?',
-    //             description: 'দ্রুত এডিট করার জন্য কী-বাইন্ড এবং শর্টকাট গুলো খুবই জরুরী। আমি এই ক্লাসে কীভাবে শর্টকাট দিয়ে দ্রুত এডিট করতে পারি তার প্রো টিপস শেয়ার করবো।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Ten',
-    //             title: 'কিভাবে আপনার গিগ তৈরি করবেন? How to create a gig?',
-    //             description: 'ভিডিওগুলোকে একত্রিত করতে এবং তা থেকে একটি গল্প তৈরি করতে ট্রিমিং প্রয়োজন। এই ক্লাসে আমি ট্রিমিং এর সবচেয়ে কার্যকর টুল এবং কৌশলগুলোর ব্যবহারর শেখাবো। ',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Eleven',
-    //             title: 'কিভাবে বায়ার রিকোয়েস্ট পাঠাবেন? How to send Buyer Requests',
-    //             description: 'এই ক্লাসে আমি  L কাট এবং J কাট ব্যবহার করে একটি ভিডিও বা মুভিকে কীভাবে আরও আকর্ষনীয় করা যায় সেসব কার্যকর পদ্ধতিগুলো শেখাবো। এছাড়াও অন্যান্য বিভিন্ন পদ্ধতি সম্পর্কেও ধারনা দিবো।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Twelve',
-    //             title: 'ক্লায়েন্টদের সাথে কথা বলার সময়ে যেসব বিষয় মাথায় রাখবেন Things to consider when communicating with a client',
-    //             description: 'একটি ভিডিওকে আকর্ষনীয় করার জন্য অডিও এর কাজও সমান গুরুত্বপূর্ণ। এই ক্লাসে আমরা শিখবো কীভাবে ভিডিও এর অডিও বর্ধিত করে একে আরও চিত্তাকর্ষক বানানো যায়।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Thirteen',
-    //             title: 'আপনার প্রথম অর্ডার Get your first order.',
-    //             description: 'ট্রানজিশন হল ভিডিও এডিটিং এর সবচেয়ে গুরুত্বপূর্ণ প্রভাবগুলির মধ্যে একটি। এই ক্লাসে আমরা নিখুতঁভাবে ভিডিও এর একটি দৃশ্য থেকে অন্য দৃশ্যে মসৃণভাবে সরানো শিখবো।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Fourteen',
-    //             title: 'কিভাবে রিভিউ চাইবেন? How to ask for a review?',
-    //             description: 'এই ক্লাসে আমরা কী-ফ্রেম এবং পজিশনিং সম্পর্কে শিখবো এবং এগিয়ে যাওয়ার সাথে সাথে এটি সম্পর্কে আরও বিস্তারিত জানতে পারবো।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Fifteen',
-    //             title: 'কিভাবে একটি পাইয়োনিয়ার একাউন্ট খুলবেন? How to Open a Payoneer Account?',
-    //             description: 'এই ক্লাসে আমরা ভিডিও এর দুটি প্রয়োজনীয় বিষয়, মোশন এবং অপ্যাসিটি সম্পর্কে শিখবো এবং এগিয়ে যাওয়ার সাথে সাথে এটি সম্পর্কে আরও বিস্তারিত জানতে পারবো।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Sixteen',
-    //             title: 'কিভাবে আপনার আয় করা অর্থ ক্যাশ আউট করবেন? How to Withdraw your earnings.',
-    //             description: 'এই ক্লাসে আমরা শিখবো কিভাবে একটি ভিডিওতে ফাস্ট ফরওয়ার্ড এবং স্লো মোশন ব্যবহার করতে হয়। এছাড়াও ভিডিও এর গতি বিষয়ক অন্যান্য টুল সম্পর্কে জানবো।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Seventeen',
-    //             title: 'মার্কেটপ্লেসের বাইরে কিভাবে আপনার ক্লায়েন্টদেরকে নিয়ে যাবেন? How to take your clients outside of Marketplace',
-    //             description: 'এই ক্লাসে আমরা শিখবো কিভাবে ভিডিও স্পীড ব্যবহার করে একটি ভিডিওকে আরো প্রফেশনাল এবং ডাইনামিক দেখাতে হয়।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Eighteen',
-    //             title: 'মার্কেটপ্লেসের বাইরে কিভাবে কাজের পেমেন্ট নিবেন? How to take payments outside of Marketplace',
-    //             description: 'এই ক্লাসে আমি শিক্ষার্থীদের শেখাবো কিভাবে শুধু এক ক্লিকে একটি নড়বড়ে ফুটেজ ঠিক করতে হয়।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             id: 'Nineteen',
-    //             title: 'ফ্রিল্যান্সিং সম্পর্কে শেষ কিছু কথা Final Thoughts on Freelancing.',
-    //             description: 'এই ক্লাসে আমি বিভিন্ন পেশাদার টাইটেল অ্যানিমেশন এবং গ্রাফিক্স টুলগুলোর ব্যবহার শেখাবো।',
-    //             isFree: false,
-    //             video: [
-    //                 {
-    //                     isFree: false,
-    //                     subtitle: 'ক্লাস - ',
-    //                     videoId: ''
-    //                 }
-    //             ]
-    //         }
-    //     ]
-    // },
+    {
+        name: 'সবার জন্য ফ্রিল্যান্সিং',
+        id: 'shobar-jnno-freelancing',
+        title: 'সবার জন্য ফ্রিল্যান্সিং',
+        slug: 'সবার জন্য ফ্রিল্যান্সিং',
+        route: '/shobar-jnno-freelancing',
+        alt_title: 'সবার জন্য ফ্রিল্যান্সিং',
+        description: 'সবার জন্য ফ্রিল্যান্সিং',
+        short_description: 'সবার জন্য ফ্রিল্যান্সিং',
+        source: 'https://www.youtube.com/embed/HX8oEbUVABA?autoplay=1&mute=1',
+        videoId: 'HX8oEbUVABA',
+        type: 'Live',
+        course_duration: '৭',
+        course_duration_eng: 7,
+        total_classes: '৭',
+        regular_price: '৯,৯৯৯',
+        price: 1500,
+        price_bn: '১৫০০',
+        offer_price: 550,
+        offer_price_bn: '৫৫০',
+        price_per_month: 550,
+        price_per_month_bn: '৫৫০',
+        price_saved: '২০০',
+        course_done: '১৫০',
+        seat_left: '১২',
+        next_batch: 'অক্টোবর',
+        next_batch_eng: '2022-10-16T21:00:00.000+06:00',
+        course_instructor: 'আতাউল হোসেন',
+        instructor_designation: 'Top Rated Freelancer on Upwork & Fiverr. A Professional Digital Marketer.',
+        class_date: [
+            {
+                id: 1,
+                date: '2022-05-13'
+            },
+            {
+                id: 2,
+                date: '2022-05-27'
+            }
+        ],
+        class_time: '9PM - 10:00PM',
+        class_date_1: '6, 8, 10 (August 2022)',
+        class_date_1_value: '2022-08-06',
+        class_date_1_deadline: '2022-08-06T21:00:00.000+06:00',
+        // class_date_1_deadline:'July 30th 2022, 9:00:00 pm',
+        class_date_2: '6, 8, 10 (August 2022)',
+        class_date_2_value: '2022-08-06',
+        class_date_2_deadline: '2022-08-06T21:00:00.000+06:00',
+        // class_date_2_deadline:'August 6th 2022, 9:00:00 pm',
+        free_number: '',
+        free_password: '',
+        free_video_count: '৮',
+        live_number: '',
+        live_password: '',
+        // free_link:'https://zoom.us/wc/92939532748/start',
+        free_link: '',
+        // live_link:'https://zoom.us/wc/84551599695/start',
+        live_link: '',
+        instructor_image: dm_i,
+        image: shobarJnnoFreelancingImage,
+        promo_poster:fl,
+        feature_alt: [
+            {
+                id: 1,
+                item: 'এই কোর্সটি সম্পূর্ণ নতুনদের জন্য। আপনার পূর্ব কোনো ধারনা থাকার দরকার নেই।'
+            },
+            {
+                id: 2,
+                item: 'ইন্টারনেট কানেকশন সহ একটি কম্পিউটার।'
+            },
+            {
+                id: 3,
+                item: 'একটি কোর্সের ভিতর পাচ্ছেন জুম এর মাধ্যমে লাইভ ক্লাস আকারে মোট ৭ টি ক্লাস।'
+            },
+            {
+                id: 4,
+                item: 'কোর্স ইন্সট্রাক্টর কর্তৃক সরাসরি কোর্স সংক্রান্ত আপনার সকল সমস্যার সমাধানের সুব্যবস্থা।'
+            }
+        ],
+        features: [
+            {
+                id: 1,
+                item: 'ফ্রিল্যান্সিং ক্যারিয়ার রোডম্যাপ নিয়ে পরিষ্কার ধারণা'
+            },
+            {
+                id: 2,
+                item: 'ফ্রিল্যান্সিং জগতে পা রাখার পূর্ব প্রস্তুতি নিয়ে বিস্তর আলোচনা'
+            },
+            {
+                id: 3,
+                item: 'ফ্রিল্যান্সিং মার্কেটের খুঁটিনাটি তথ্য'
+            },
+            {
+                id: 4,
+                item: 'ফ্রিল্যান্সিং একাউন্ট পরিচালনার সঠিক উপায়'
+            },
+            {
+                id: 5,
+                item: 'কাস্টমারদের সাথে যোগাযোগের সঠিক ও প্রফেশনাল উপায়'
+            },
+            {
+                id: 6,
+                item: 'একজন দক্ষ ফ্রিল্যান্সার হিসেবে তৈরি করে নেয়ার ধাপ সমূহ'
+            }
+        ],
+        featuresDescription: '',
+        featureBonus: [
+            {
+                id: 1,
+                item: 'দ্রুত ও বন্ধুত্বসুলভ প্রশ্নোত্তর ব্যবস্থা।'
+            },
+            {
+                id: 2,
+                item: 'সফলভাবে কোর্স সমাপ্তির পর ডাউনলোডযোগ্য ইউনিক সার্টিফিকেট।'
+            }
+        ],
+        outline: [
+            {
+                id: 'One',
+                title: 'ফ্রিল্যান্সিং কি? (What is Freelancing?)',
+                description: 'এই ক্লাস এ আমরা জানবো ফ্রিল্যান্সিং আসলে কি ? এবং কীভাবে ফ্রিল্যান্সিং আমাদের জন্য একটি ক্যারিয়ার অপশন হয়ে পারে।',
+                isFree: true,
+                video: [
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ১ - ফ্রিল্যান্সিং কি? (What is Freelancing?)',
+                        videoId: 'tiHiZ2eaabc'
+                    },
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ২ - ফ্রিল্যান্সিং (Freelancing Explained)',
+                        videoId: 'yMwCTCkNLsQ'
+                    }
+                ]
+            },
+            {
+                id: 'Two',
+                title: 'ফ্রিল্যান্সিং এ কম্পিউটার এর প্রয়োজনীয়তা (Computer for Freelancing)',
+                description: 'এই ক্লাসে আমরা জানবো ফ্রিল্যান্সিং ক্যারিয়ার গড়তে আমাদের কম্পিউটারের দক্ষতা থাকা কতটা প্রয়োজনীয়',
+                isFree: true,
+                video: [
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ৩ - ফ্রিল্যান্সিং এ কম্পিউটার',
+                        videoId: '7X22CH_csfw'
+                    }
+                ]
+            },
+            {
+                id: 'Three',
+                title: 'ফ্রিল্যান্সিং করতে কি ইংরেজি জানা প্রয়োজন? (Do you need English for Freelancing?)',
+                description: 'এই ক্লাসে আমরা শিখবো ফ্রিল্যান্সিং কাজ করার সময় ইংরেজির উপরে ঠিক কতটুকু দক্ষতা প্রয়োজন',
+                isFree: true,
+                video: [
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ৪ - ফ্রিল্যান্সিং এ ইংরেজি',
+                        videoId: 'eAeAPEzwEEQ'
+                    }
+                ]
+            },
+            {
+                id: 'Four',
+                title: 'কিভাবে নিজের Niche নির্বাচন করবেন? (Choose your Niche)',
+                description: 'এই ক্লাসে আমরা নিজের পছন্দের ও  স্বতঃস্ফূর্তআর উপরে ভিত্তি করে Niche নির্বাচন করার প্রয়োজনীয়তা ও উপার সম্পর্কে জানবো',
+                isFree: true,
+                video: [
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ৫ - Niche নির্বাচন',
+                        videoId: 'p3yC0LWy2Pg'
+                    },
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ৬ - কিভাবে Niche নির্বাচন করবেন',
+                        videoId: 'f07wpjA4kl0'
+                    }
+                ]
+            },
+            {
+                id: 'Five',
+                title: 'একটি স্কিল শিখে, সেইটিতে দক্ষ হওয়ার প্রক্রিয়া (Learn your skill & be as expert as you can on it)',
+                description: 'এই ক্লাসে আমরা জানবো কিভাবে ও কেনো যেকোনো একটি বিষয়ে ফোকাস করে দক্ষতা বাড়াতে হয়',
+                isFree: true,
+                video: [
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ৭ - আপনার দক্ষতা বাছাই করুন',
+                        videoId: 'QrbG6r5av8c'
+                    }
+                ]
+            },
+            {
+                id: 'Six',
+                title: 'মার্কেটপ্লেস কি? (What is Marketplace?)',
+                description: 'এই ক্লাসে সকলকে ফ্রিল্যান্সিং মার্কেটপ্লেস সম্পর্কে ধারণা দেয়া হবে',
+                isFree: true,
+                video: [
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ৮ - একজন ক্রেতা হিসাবে Fiverr এর পরিচিতি',
+                        videoId: 'HydqbYM-KFY'
+                    }
+                ]
+            },
+            {
+                id: 'Seven',
+                title: 'ফাইবার মার্কেটপ্লেস সম্পর্কে বিস্তর ধারণা (Introduction to Fiverr Marketplace)',
+                description: 'পুর্বের ক্লাসের ধারাবাহিকতায় এই ক্লাসে ফ্রিল্যান্সিং মার্কেটপ্লেসে ফাইবারের অবস্থান ও বিষেশত্ত বোঝানো হবে',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Eight',
+                title: 'আপ ওয়ার্ক মার্কেটপ্লেস সম্পর্কে বিস্তর ধারণা (Introduction to Upwork Marketplace)',
+                description: 'পুর্বের ক্লাসের ধারাবাহিকতায় এই ক্লাসে ফ্রিল্যান্সিং মার্কেটপ্লেসে আপ ওয়ার্কের অবস্থান ও বিষেশত্ত বোঝানো হবে',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Nine',
+                title: 'মার্কেটপ্লেস গাইডলাইন (Marketplace guidelines)',
+                description: 'সব শেষে এই ক্লাসে কিভাবে যেকোনো মার্কেট রিসার্চ করতে হয় ও মার্কেটের চাহিদা মোতাবেক নিজেকে প্রস্তুত করতে হয় সেই খুঁটিনাটি ট্রিপস দেয় হবে।',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Ten',
+                title: 'কিভাবে একটি ফাইবার একাউন্ট খুলবেন? (How to Open a Fiverr Account?)',
+                description: 'এই ক্লাসে শিক্ষার্থীদের,তাদের নিজস্ব ফাইবার একাউন্ট খুলতে সাহায্য করা হবে',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Eleven',
+                title: 'কিভাবে আপনার গিগ তৈরি করবেন? (How to create a gig?)',
+                description: 'এই ক্লাসে, তাদের নিজস্ব কাজের গিগ কিভাবে তৈরি করে সেইটি শেখানো হবে',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Twelve',
+                title: 'কিভাবে বায়ার রিকোয়েস্ট পাঠাবেন? (How to send Buyer Requests)',
+                description: 'এই ক্লাসে ক্লায়েন্ট নির্বাবন ও বায়ার রিকোয়েস্ট পাঠানোর সঠিক ও প্রফেশনাল উপায় শেখানো হবে',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Thirteen',
+                title: 'ক্লায়েন্টদের সাথে কথা বলার সময়ে যেসব বিষয় মাথায় রাখবেন (Things to consider when communicating with a client)',
+                description: 'এই ক্লাসে শেখানো হবে ক্লায়েন্টদের সাথে কথা বলার সঠিক ও প্রফেশনাল উপায়',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Fourteen',
+                title: 'আপনার প্রথম অর্ডার (Get your first order.)',
+                description: 'এই ক্লাসে আপনাদের শেখানো হবে কীভাবে আপনি আপনার প্রথম অর্ডারের জন্য প্রস্তুতি নিবেন',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Fifteen',
+                title: 'কিভাবে রিভিউ চাইবেন? (How to ask for a review?)',
+                description: 'এই ক্লাসে শেখানো হবে কিভাবে একটি কাজ শেষ করার পরে ক্লায়েন্ট এর কাছে সেই কাজের রিভিউ চাইতে হয়',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Sixteen',
+                title: 'কিভাবে একটি পাইয়োনিয়ার একাউন্ট খুলবেন? (How to Open a Payoneer Account?)',
+                description: 'এই ক্লাসে শিক্ষার্থীদের,তাদের নিজস্ব পাইয়োনিয়ার একাউন্ট খুলতে সাহায্য করা হবে',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Seventeen',
+                title: 'কিভাবে আপনার আয় করা অর্থ ক্যাশ আউট করবেন? (How to Withdraw your earnings.)',
+                description: 'এই ক্লাসে আপনাকে শেখানো হবে কিভাবে আপনার আয় করা অর্থ ক্যাশ আউট করবেন',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Eighteen',
+                title: 'মার্কেটপ্লেসের বাইরে কিভাবে আপনার ক্লায়েন্টদেরকে নিয়ে যাবেন? (How to take your clients outside of Marketplace)',
+                description: 'অনেক ক্ষেত্রেই আপনার ক্লায়েন্টদের সাথে আপনি মার্কেটপ্লেসের বাইরেও কাজ করতে পারবেন। এর এই ক্লাসে আপনাকে সেই কৌশল শেখানো হবে',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Nineteen',
+                title: 'মার্কেটপ্লেসের বাইরে কিভাবে কাজের পেমেন্ট নিবেন? (How to take payments outside of Marketplace)',
+                description: 'মার্কেটপ্লেসের বাইরে যখন বিদেশী ক্লায়েন্টদের সাথে কাজ করবেন, তখন কীভাবে আপনার কাজের পেমেন্ট নিবেন এই উপার আপানের এই ক্লাসে শেখানো হবে',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Tweenty',
+                title: 'ফ্রিল্যান্সিং সম্পর্কে শেষ কিছু কথা (Final Thoughts on Freelancing.)',
+                description: 'সবশেষে আপনার ক্যারিইয়ার ও ফ্রিল্যান্সিং সম্পর্কে কিছু গুরুত্ত্বপূর্ন পরামর্শ দেয়া হবে',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            }
+        ]
+    },
     // Video Editing
     {
         name: 'Video Editing',

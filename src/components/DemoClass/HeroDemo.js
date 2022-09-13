@@ -11,7 +11,7 @@ const HeroDemo = (props) => {
     const phone = localStorage.getItem('phone') || '';
     const navigate = useNavigate();
     const [userPhoneData, setUserPhoneData] = useState({})
-    const [category, setCategory] = useState(props?.course?.name || "Web Development");
+    const [category, setCategory] = useState(props?.course?.name || "সবার জন্য ফ্রিল্যান্সিং");
     const [demoClasses, setDemoClasses] = useState([]);
     const [disabled, setDisabled] = useState(false);
 

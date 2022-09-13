@@ -36,7 +36,7 @@ const AllCourses = () => {
                                                     className="bg-white py-4">
                                                     <h3 style={{ fontSize: '15px', lineHeight: '24px', fontWeight: '600', color: '#354895' }} className='px-3'>{course.title}
                                                         <img src={liveClass} className='img-fluid ps-2' width={40} alt="live class" loading="lazy" />
-                                                        <br /> <small>- {course.course_duration} মাসের
+                                                        <br /> <small>- {course.course_duration} {course.name ==='সবার জন্য ফ্রিল্যান্সিং' ? "দিনের" : "মাসের"}
                                                             <img src={live} width={30} className='img-fluid mx-2 mb-1' alt="live class" loading="lazy" />
                                                             কোর্স</small></h3>
                                                     {/* <p style={{textAlign:'justify'}} className='px-3 text-black'>{course.short_description}</p> */}
@@ -50,7 +50,10 @@ const AllCourses = () => {
                                                     <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'>
                                                         <span style={{ color: '#354895' }}></span> ৳ {course.price_per_month_bn}
                                                         {/* <strike className='ps-2 text-muted'>{course.regular_price}</strike> */}
+                                                        {
+                                                        course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ? null :
                                                         <small style={{ color: '#354895' }}> প্রতি মাস</small>
+                                                    }
                                                     </h4>
                                                     <button onClick={() => { window.scrollTo(0, 0); }} className='see-details me-3' to={course.route}>বিস্তারিত দেখুন</button>
 
