@@ -27,7 +27,6 @@ const DLiveCourse = () => {
     const [liveCourses, setLiveCourses] = useState([]);
     const [purchasedLiveCourses, setPurchasedLiveCourses] = useState([]);
     const [otherLiveCourses, setOtherLiveCourses] = useState([]);
-
     const [payments, setPayments] = useState([]);
 
     // fetching user info
@@ -190,7 +189,7 @@ const DLiveCourse = () => {
                                                                         window.scrollTo(0, 0);
                                                                         // navigate('/course/live/video/' + course.id)
                                                                         window.location.replace(course.recording_link)
-                                                                    }} className='class-video'>ক্লাস ভিডিও</button>
+                                                                    }} className='class-video'>ক্লাস রেকর্ডিংস</button>
                                                                 </div>
                                                             </div>
                                                         </section>
@@ -241,7 +240,7 @@ const DLiveCourse = () => {
                                                                         window.scrollTo(0, 0);
                                                                         // navigate('/course/live/video/' + course.id)
                                                                         window.location.replace(course.recording_link)
-                                                                    }} className='class-video'>ক্লাস ভিডিও</button>
+                                                                    }} className='class-video'>ক্লাস রেকর্ডিংস</button>
                                                                 </div>
                                                             </div>
                                                         </section>

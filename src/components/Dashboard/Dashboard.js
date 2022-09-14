@@ -299,7 +299,7 @@ const Dashboard = () => {
                                                                         window.scrollTo(0, 0);
                                                                         // navigate('/course/live/video/' + course.id)
                                                                         window.location.replace(course.recording_link)
-                                                                    }} className='class-video'>ক্লাস ভিডিও</button>
+                                                                    }} className='class-video'>ক্লাস রেকর্ডিংস</button>
                                                                 </div>
                                                             </div>
                                                             {/* </a> */}
@@ -352,7 +352,7 @@ const Dashboard = () => {
                                                                         window.scrollTo(0, 0);
                                                                         // navigate('/course/live/video/' + course.id)
                                                                         window.location.replace(course.recording_link)
-                                                                    }} className='class-video px-1'>ক্লাস ভিডিও</button>
+                                                                    }} className='class-video px-1'>ক্লাস রেকর্ডিংস</button>
                                                                 </div>
                                                             </div>
                                                             {/* </a> */}

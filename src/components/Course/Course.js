@@ -132,9 +132,15 @@ const Course = (props) => {
 
                                 {
                                     purchasedLiveCourses.length ?
-                                        <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block my-3 w-100'
-                                        // onClick={() => { window.scrollTo(0, 0); }}
-                                        >জয়েন ক্লাস</a> :
+                                        <>
+                                            <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block my-3 w-100'
+                                            // onClick={() => { window.scrollTo(0, 0); }}
+                                            >জয়েন ক্লাস</a>
+                                            <div className="">
+                                                <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a>
+                                            </div>
+                                        </>
+                                        :
 
                                         <div className="row py-3">
                                             <div style={{ justifyContent: 'space-between' }} className="d-flex">
@@ -386,7 +392,7 @@ const Course = (props) => {
 
                                                 {/* <h4 style={{ fontSize: '20px', lineHeight: '28px', color: '#454c7e' }} className='ps-2 pt-2 fw-bold'>৳ 2600</h4>
                                         <Link onClick={() => { window.scrollTo(0, 0); }} to={otherCourse.route} className='text-decoration-none'><p style={{ fontSize: '15px', lineHeight: '24px', color: '#b94a8f' }} className='pe-3 pt-2 fw-bold'>বিস্তারিত দেখুন</p></Link> */}
-                                                <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'><span style={{ color: '#354895' }}>মাত্র</span> ৳ {otherCourse.price_per_month_bn}<small style={{ color: '#354895' }}> {otherCourse.name ==='সবার জন্য ফ্রিল্যান্সিং' ? null : "প্রতি মাস"}</small>
+                                                <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'><span style={{ color: '#354895' }}>মাত্র</span> ৳ {otherCourse.price_per_month_bn}<small style={{ color: '#354895' }}> {otherCourse.name === 'সবার জন্য ফ্রিল্যান্সিং' ? null : "প্রতি মাস"}</small>
                                                     {/* <strike className='ps-2 text-muted'>{course.regular_price}</strike> */}
                                                 </h4>
                                                 <button onClick={() => { window.scrollTo(0, 0); }} className='see-details me-3' to={course.route}>বিস্তারিত দেখুন</button>
@@ -435,9 +441,15 @@ const Course = (props) => {
 
                     <div id="sm-info">
                         {
-                            purchasedLiveCourses.length ? <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center'
-                            // onClick={() => { window.scrollTo(0, 0); }}
-                            >জয়েন ক্লাস</a>
+                            purchasedLiveCourses.length ?
+                                <>
+                                    <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center'
+                                    // onClick={() => { window.scrollTo(0, 0); }}
+                                    >জয়েন ক্লাস</a>
+                                    <div className="px-1">
+                                        <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a>
+                                    </div>
+                                </>
                                 :
                                 <div className="my-3">
                                     <h2 style={{ fontSize: '14px', lineHeight: '18px' }} className='text-center'>ক্লাস শুরু হচ্ছে : ১৬ {course.next_batch} ২০২২</h2>
