@@ -15,7 +15,7 @@ import wd400 from '../../images/courses/wd400.png'
 import ve400 from '../../images/courses/wd400.png'
 import dm400 from '../../images/courses/dm400.png'
 import gd400 from '../../images/courses/gd400.png'
-import fl from '../../images/courses/FL.png'
+import fl from '../../images/courses/fg/FG.png'
 
 const courseData = [
     // Freelancing for All

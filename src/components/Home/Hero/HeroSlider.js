@@ -15,7 +15,7 @@ import dm from '../../../images/courses/1500/DM.png'
 import gd from '../../../images/courses/1500/GD.png'
 // import wd from '../../../images/courses/offer/WD.png'
 import wd from '../../../images/courses/1500/WD.png'
-import fl from '../../../images/courses/fg/FG550.png'
+import fl from '../../../images/courses/fg/FG.png'
 
 const HeroSlider = () => {
 

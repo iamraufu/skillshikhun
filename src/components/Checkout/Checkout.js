@@ -20,7 +20,7 @@ import { useForm } from 'react-hook-form';
 import clickImage from '../../images/promo/click.png';
 import HowToPayment from '../Course/HowToPayment';
 
-let basePrice = 1500;
+// let basePrice = 1500;
 
 const Checkout = () => {
 
@@ -34,14 +34,16 @@ const Checkout = () => {
     const code = localStorage.getItem('code');
     const [promo, setPromo] = useState([])
 
-    useEffect(()=>{
-        if (course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং') {
-            basePrice = 550;
-        }
-        else {
-            basePrice = 1500;
-        }
-    },[course])
+    // useEffect(()=>{
+    //     if (course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং') {
+    //         basePrice = 550;
+            
+    //     }
+    //     else {
+    //         basePrice = 1500;
+    //         console.log("first")
+    //     }
+    // },[course])
 
     useEffect(() => {
         if (code) {
@@ -61,7 +63,8 @@ const Checkout = () => {
     const phone = localStorage.getItem('phone');
     const name = JSON.parse(localStorage.getItem('name'));
     const [userPhoneData, setUserPhoneData] = useState({})
-    const [price, setPrice] = useState(basePrice - discount);
+    // const [price, setPrice] = useState(basePrice - discount);
+    const [price, setPrice] = useState(course[0].price_per_month - discount);
     const [total, setTotal] = useState(course[0].course_duration_eng * price);
     // const [paymentGateway, setPaymentGateway] = useState([]);
 
@@ -92,9 +95,10 @@ const Checkout = () => {
     const handleSubscriptionStyle = (type) => {
 
         if (type === 'full') {
-            basePrice = 1500;
+            // basePrice = 1500;
             // if (course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং') {
             //     basePrice = 550;
+            //     console.log("full");
             // }
             // else {
             //     basePrice = 1500;
@@ -108,13 +112,16 @@ const Checkout = () => {
             document.getElementById('monthly').style.border = "1px solid #dde7f3";
             document.getElementById('monthly').style.backgroundColor = "transparent";
             // setPrice(course[0].offer_price);
-            setPrice((basePrice * course[0].course_duration_eng) - (discount * course[0].course_duration_eng))
+            
+            // setPrice((basePrice * course[0].course_duration_eng) - (discount * course[0].course_duration_eng))
+            setPrice((course[0].price_per_month * course[0].course_duration_eng) - (discount * course[0].course_duration_eng))
             setDisabled(false);
         }
         else {
-            basePrice = 1500;
+            // basePrice = 1500;
             // if (course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং') {
             //     basePrice = 550;
+            //     console.log("half")
             // }
             // else {
             //     basePrice = 1500;
@@ -128,7 +135,9 @@ const Checkout = () => {
             document.getElementById('monthly').style.border = "1px solid green";
             document.getElementById('monthly').style.backgroundColor = "#f0f7ff";
             // setPrice(course[0].price_per_month);
-            setPrice(basePrice - discount);
+            
+            // setPrice(basePrice - discount);
+            setPrice(course[0].price_per_month - discount);
             setDisabled(false);
         }
     }
@@ -262,13 +271,15 @@ const Checkout = () => {
 
     useEffect(() => {
         if (promo.discount && promo.course === course[0].name) {
-            setPrice(basePrice - promo.discount)
+            // setPrice(basePrice - promo.discount)
+            setPrice(course[0].price_per_month - promo.discount)
         }
         // eslint-disable-next-line
     }, [promo?.discount])
 
     useEffect(() => {
-        setTotal(basePrice * course[0].course_duration_eng - discount * course[0].course_duration_eng);
+        // setTotal(basePrice * course[0].course_duration_eng - discount * course[0].course_duration_eng);
+        setTotal(course[0].price_per_month * course[0].course_duration_eng - discount * course[0].course_duration_eng);
     }, [course, discount, price])
 
     useEffect(() => {
@@ -314,7 +325,7 @@ const Checkout = () => {
             })
     }
 
-    console.log(basePrice);
+    // console.log(basePrice, price, course[0].price_per_month);
 
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)' }}>
@@ -353,7 +364,8 @@ const Checkout = () => {
                                             <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
                                         </> :
                                         <>
-                                            <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {basePrice - discount} প্রতি মাস</h3>
+                                            {/* <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {basePrice - discount} প্রতি মাস</h3> */}
+                                            <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].price_per_month - discount} প্রতি মাস</h3>
                                             <h6><span className='fw-bold'>{course[0].course_duration} মাসের</span> কোর্স | কোর্সটি করেছেন <span className='fw-bold'>{course[0].course_done}</span> জন</h6>
                                             <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
                                         </>
@@ -429,7 +441,8 @@ const Checkout = () => {
 
                                         <div style={{ textAlign: 'right' }} className="col-sm-3">
                                             {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].price_per_month_bn}</h4> */}
-                                            <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {basePrice - discount}</h4>
+                                            {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {basePrice - discount}</h4> */}
+                                            <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].price_per_month - discount}</h4>
                                         </div>
 
                                     </button>
@@ -448,7 +461,10 @@ const Checkout = () => {
 
                                         <div style={{ textAlign: 'right' }} className="col-sm-3">
                                             {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price_bn}</h4> */}
-                                            <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {(basePrice * course[0].course_duration_eng) - (discount * course[0].course_duration_eng)}</h4>
+                                            
+                                            {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {(basePrice * course[0].course_duration_eng) - (discount * course[0].course_duration_eng)}</h4> */}
+                                            <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {(course[0].price_per_month * course[0].course_duration_eng) - (discount * course[0].course_duration_eng)}</h4>
+                                            
                                             {/* <small className='text-success fw-bold'>খরচ বাঁচবে &#2547; {course[0].price_saved}</small> */}
                                         </div>
 
