@@ -359,7 +359,7 @@ const Checkout = () => {
                                 {
                                     course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
                                         <>
-                                            <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; ৫৫০</h3>
+                                            <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].price_per_month_bn}</h3>
                                             <h6><span className='fw-bold'>{course[0].course_duration} দিনের</span> কোর্স</h6>
                                             <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
                                         </> :
@@ -565,7 +565,7 @@ const Checkout = () => {
                                     </div>
                                     <div className="ps-3 col-sm-6 text-center">
                                         <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold'>{course[0].slug}</h2>
-                                        <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; ৫৫০</h3>
+                                        <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].offer_price_bn}</h3>
                                         <h6><span className='fw-bold'>{course[0].course_duration} দিনের</span> কোর্স</h6>
                                         <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
                                     </div>
