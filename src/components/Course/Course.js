@@ -145,7 +145,7 @@ const Course = (props) => {
                                         <div className="row py-3">
                                             <div style={{ justifyContent: 'space-between' }} className="d-flex">
                                                 <div className="py-3 d-none d-lg-block">
-                                                    <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>১৬ {course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
+                                                    <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>৬ {course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
                                                 </div>
                                                 <div className="py-3 d-none d-lg-block">
                                                     {/* <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.price_per_month_bn}/মাস</h2> */}
@@ -207,7 +207,7 @@ const Course = (props) => {
                                                             <FontAwesomeIcon style={{ fontSize: '16px', lineHeight: '24px' }} icon={faCalendarDays} />
                                                         </div>
                                                         <div className="">
-                                                            <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center mt-2'> নেক্সট ব্যাচ<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '14px', lineHeight: '24px' }} className='fw-bold px-3'>১৬ {course.next_batch} ২০২২</span></p>
+                                                            <p style={{ fontSize: '14px', lineHeight: '22px' }} className='text-center mt-2'> নেক্সট ব্যাচ<br /><span style={{ borderRadius: '15px', border: '1px solid #12348d', fontSize: '14px', lineHeight: '24px' }} className='fw-bold px-3'>৬ {course.next_batch} ২০২২</span></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -452,7 +452,7 @@ const Course = (props) => {
                                 </>
                                 :
                                 <div className="my-3">
-                                    <h2 style={{ fontSize: '14px', lineHeight: '18px' }} className='text-center'>ক্লাস শুরু হচ্ছে : ১৬ {course.next_batch} ২০২২</h2>
+                                    <h2 style={{ fontSize: '14px', lineHeight: '18px' }} className='text-center'>ক্লাস শুরু হচ্ছে : ৬ {course.next_batch} ২০২২</h2>
                                     <div className="container-fluid d-flex justify-content-between px-2 align-items-center">
 
                                         <div style={{ border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} className="col-sm-3 p-2 d-flex justify-content-center align-items-center mx-1">
