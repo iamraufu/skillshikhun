@@ -145,7 +145,7 @@ const Course = (props) => {
                                                     {/* <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.price_per_month_bn}/মাস</h2> */}
                                                     {
                                                         course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
-                                                            <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; ৫৫০</h2> :
+                                                            <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; ৭৫০</h2> :
                                                             <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {ppm} প্রতি মাস</h2>
                                                     }
                                                 </div>
@@ -386,7 +386,7 @@ const Course = (props) => {
 
                                                 {/* <h4 style={{ fontSize: '20px', lineHeight: '28px', color: '#454c7e' }} className='ps-2 pt-2 fw-bold'>৳ 2600</h4>
                                         <Link onClick={() => { window.scrollTo(0, 0); }} to={otherCourse.route} className='text-decoration-none'><p style={{ fontSize: '15px', lineHeight: '24px', color: '#b94a8f' }} className='pe-3 pt-2 fw-bold'>বিস্তারিত দেখুন</p></Link> */}
-                                                <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'><span style={{ color: '#354895' }}>মাত্র</span> ৳ {course.price_per_month_bn}<small style={{ color: '#354895' }}> {otherCourse.name ==='সবার জন্য ফ্রিল্যান্সিং' ? null : "প্রতি মাস"}</small>
+                                                <h4 style={{ fontSize: '16px', lineHeight: '27px', fontWeight: '600', color: '#069654' }} className='pt-1 ps-3 price'><span style={{ color: '#354895' }}>মাত্র</span> ৳ {otherCourse.price_per_month_bn}<small style={{ color: '#354895' }}> {otherCourse.name ==='সবার জন্য ফ্রিল্যান্সিং' ? null : "প্রতি মাস"}</small>
                                                     {/* <strike className='ps-2 text-muted'>{course.regular_price}</strike> */}
                                                 </h4>
                                                 <button onClick={() => { window.scrollTo(0, 0); }} className='see-details me-3' to={course.route}>বিস্তারিত দেখুন</button>
@@ -504,7 +504,7 @@ const Course = (props) => {
                                                                     {
                                                                         course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
                                                                             <div className='col-sm-6' style={{ fontSize: '20px' }}>
-                                                                                &#2547; ৫৫০
+                                                                                &#2547; ৭৫০
                                                                             </div> :
                                                                             <div className='col-sm-6' style={{ fontSize: '20px' }}>
                                                                                 &#2547; {ppm} প্রতি মাস
