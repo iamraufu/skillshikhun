@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import live from '../../../images/dashboard/live.svg';
 
 const DClassRecordings = () => {
-    
+
     const phone = localStorage.getItem('phone');
     const navigate = useNavigate();
     const [demoClasses, setDemoClasses] = useState([]);
@@ -64,12 +64,12 @@ const DClassRecordings = () => {
 
                     {/* right container */}
                     <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px' }} className="col-xl-9 col-lg-9 col-md-12 p-5 mb-5">
-                        
+
                         <div className="row justify-content-center align-items-center mb-5">
                             <h2 className='fs-5 fw-bold my-2'>ডেমো ক্লাসের রেকর্ডিংসমূহ</h2>
                             {
                                 freeClasses.map(course =>
-                                    <div key={course.id} onClick={()=>{
+                                    <div key={course.id} onClick={() => {
                                         navigate(`/dashboard/previous/free-class/${course.id}`)
                                     }} style={{ borderRadius: '10px' }} className="col-sm-5 bg-white m-2 class-recording-course-items">
                                         <div className="row justify-content-center align-items-center mt-2">
@@ -81,19 +81,24 @@ const DClassRecordings = () => {
                                             <div className="col-md-6 pt-2">
                                                 <h2 className='fs-6 fw-bold'>{course.title}</h2>
                                                 <h2 className='fs-6'>{course.course_instructor}</h2>
-                                                <h2 style={{backgroundColor:'#f1f1f1', borderRadius: '15px'}} className='fs-6 float-end p-2'><span className='fw-bold'>{course.free_video_count}</span> টি ভিডিও</h2>
+                                                <h2 style={{ backgroundColor: '#f1f1f1', borderRadius: '15px' }} className='fs-6 float-end p-2'><span className='fw-bold'>{course.free_video_count}</span> টি ভিডিও</h2>
                                             </div>
                                         </div>
                                     </div>
                                 )}
-                                <h2 className='fs-5 fw-bold my-2'><img src={live} width={40} alt="class recordings" /> ক্লাস রেকর্ডিংস</h2>
-                               
-                                    {
-                                        purchasedLiveCourses.map(course =>  
-                                        <div className="mt-3">
-                                            <a href={course.recording_link} target="_blank" rel="noreferrer" className='class-video my-2 text-decoration-none text-center fs-6 text-white'><span className="me-2 fw-bold">{course.title}</span> ক্লাস রেকর্ডিংস</a>
-                                        </div>)
-                                    }
+                            <h2 className='fs-5 fw-bold my-2'><img src={live} width={40} alt="class recordings" /> ক্লাস রেকর্ডিংস</h2>
+
+                            {
+                                purchasedLiveCourses.map(course =>
+                                    <div className="mt-3">
+                                        <button onClick={() => {
+                                            window.scrollTo(0, 0);
+                                            navigate('/course/live/video/' + course.id)
+                                            // window.location.replace(course.recording_link)
+                                        }} className='class-video'>{course.name}</button>
+                                        {/* <a href={course.recording_link} target="_blank" rel="noreferrer" className='class-video my-2 text-decoration-none text-center fs-6 text-white m-3'><span className="me-2 fw-bold">{course.title}</span> ক্লাস রেকর্ডিংস</a> */}
+                                    </div>)
+                            }
                         </div>
                     </div>
                 </div>

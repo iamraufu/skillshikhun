@@ -6,7 +6,7 @@ import courseData from '../../../data/course/courseData';
 import live from '../../../images/live.png';
 import liveClass from '../../../images/liveClass.svg';
 import { Link
-    // , useNavigate 
+    , useNavigate 
 } from 'react-router-dom';
 
 // import { ZoomMtg } from '@zoomus/websdk';
@@ -20,7 +20,7 @@ import { Link
 
 const DLiveCourse = () => {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const phone = localStorage.getItem('phone');
     const [userPhoneData, setUserPhoneData] = useState({})
     // eslint-disable-next-line
@@ -187,8 +187,8 @@ const DLiveCourse = () => {
                                                                     }
                                                                     <button onClick={() => {
                                                                         window.scrollTo(0, 0);
-                                                                        // navigate('/course/live/video/' + course.id)
-                                                                        window.location.replace(course.recording_link)
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                        // window.location.replace(course.recording_link)
                                                                     }} className='class-video'>ক্লাস রেকর্ডিংস</button>
                                                                 </div>
                                                             </div>
@@ -238,8 +238,8 @@ const DLiveCourse = () => {
                                                                     }
                                                                     <button onClick={() => {
                                                                         window.scrollTo(0, 0);
-                                                                        // navigate('/course/live/video/' + course.id)
-                                                                        window.location.replace(course.recording_link)
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                        // window.location.replace(course.recording_link)
                                                                     }} className='class-video'>ক্লাস রেকর্ডিংস</button>
                                                                 </div>
                                                             </div>

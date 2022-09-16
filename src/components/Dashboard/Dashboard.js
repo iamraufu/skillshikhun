@@ -297,8 +297,8 @@ const Dashboard = () => {
                                                                     {/* <button onClick={() => getSignature(course.live_number, course.live_password)} className='see-details mx-auto d-block'>জয়েন ক্লাস</button> */}
                                                                     <button onClick={() => {
                                                                         window.scrollTo(0, 0);
-                                                                        // navigate('/course/live/video/' + course.id)
-                                                                        window.location.replace(course.recording_link)
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                        // window.location.replace(course.recording_link)
                                                                     }} className='class-video'>ক্লাস রেকর্ডিংস</button>
                                                                 </div>
                                                             </div>
@@ -350,8 +350,8 @@ const Dashboard = () => {
                                                                         getSignature(course.live_number, course.live_password)}} className='see-details px-1'>জয়েন ক্লাস</button> */}
                                                                     <button onClick={() => {
                                                                         window.scrollTo(0, 0);
-                                                                        // navigate('/course/live/video/' + course.id)
-                                                                        window.location.replace(course.recording_link)
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                        // window.location.replace(course.recording_link)
                                                                     }} className='class-video px-1'>ক্লাস রেকর্ডিংস</button>
                                                                 </div>
                                                             </div>

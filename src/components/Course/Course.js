@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faClock, faCalendarDays, faPhone, faCheck, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import courseData from '../../data/course/courseData.js';
 import live from '../../images/liveClass.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CourseReview from './CourseReview';
 import CourseDemoClass from '../DemoClass/CourseDemoClass';
 import Tracker from '../Tracker/Tracker';
@@ -23,7 +23,7 @@ const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 
 const Course = (props) => {
     const name = props.name;
-
+    const navigate = useNavigate()
     const phone = localStorage.getItem('phone');
     const course = courseData?.find(course => course?.name === name);
     const courseName = course.name;
@@ -137,7 +137,12 @@ const Course = (props) => {
                                             // onClick={() => { window.scrollTo(0, 0); }}
                                             >জয়েন ক্লাস</a>
                                             <div className="">
-                                                <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a>
+                                                <button onClick={() => {
+                                                    window.scrollTo(0, 0);
+                                                    navigate('/course/live/video/' + course.id)
+                                                    // window.location.replace(course.recording_link)
+                                                }} className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white d-none d-lg-block w-100'>ক্লাস রেকর্ডিংস</button>
+                                                {/* <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a> */}
                                             </div>
                                         </>
                                         :
@@ -447,7 +452,12 @@ const Course = (props) => {
                                     // onClick={() => { window.scrollTo(0, 0); }}
                                     >জয়েন ক্লাস</a>
                                     <div className="px-1">
-                                        <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a>
+                                        <button onClick={() => {
+                                            window.scrollTo(0, 0);
+                                            navigate('/course/live/video/' + course.id)
+                                            // window.location.replace(course.recording_link)
+                                        }} className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white w-100'>ক্লাস রেকর্ডিংস</button>
+                                        {/* <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a> */}
                                     </div>
                                 </>
                                 :
