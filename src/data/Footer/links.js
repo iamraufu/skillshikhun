@@ -1,32 +1,26 @@
-import fb from '../../images/fb.svg'
-import i from '../../images/i.svg';
-import l from '../../images/l.svg';
-import yt from '../../images/yt.svg';
-import tk from '../../images/tiktok.svg';
-
 const links = [
     {
-        icon: fb,
+        icon: "https://cdn.skillshikhun.com/images/fb.svg",
         link:'https://www.facebook.com/skillshikhun',
         name:'Facebook'
     },
     {
-        icon:i,
+        icon: "https://cdn.skillshikhun.com/images/i.svg",
         link:'https://www.instagram.com/skillshikhun/',
         name:'Instagram'
     },
     {
-        icon:l,
+        icon: "https://cdn.skillshikhun.com/images/l.svg",
         link:'https://www.linkedin.com/company/skill-shikhun/',
         name:'Linked In'
     },
     {
-        icon:yt,
+        icon: "https://cdn.skillshikhun.com/images/yt.svg",
         link:'https://www.youtube.com/channel/UCojDv5J9f0hEuLZSW22Xfkw?sub_confirmation=1',
         name:'YouTube'
     },
     {
-        icon:tk,
+        icon: "https://cdn.skillshikhun.com/images/tiktok.svg",
         link:'https://www.tiktok.com/@skill.shikhun',
         name:'TikTok'
     }

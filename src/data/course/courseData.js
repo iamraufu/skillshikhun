@@ -1,22 +1,3 @@
-import videoImage from '../../images/courses/ve.jpg';
-// import videoImage from '../../images/full-stack-video-editing.svg';
-import digitalImage from '../../images/courses/dm.jpg';
-// import digitalImage from '../../images/full-stack-digital-marketing.svg';
-import webImage from '../../images/courses/wd.jpg';
-// import webImage from '../../images/full-stack-web-development.svg';
-import graphicsImage from '../../images/courses/gd.jpg';
-// import graphicsImage from '../../images/full-stack-graphic-design.svg';
-import shobarJnnoFreelancingImage from '../../images/courses/sjf.png';
-import ve_i from '../../images/ve_i.jpg';
-import dm_i from '../../images/dm_i.jpg';
-import wd_i from '../../images/wd_i.jpg';
-import gd_i from '../../images/gd_i.jpg';
-import wd400 from '../../images/courses/wd400.png'
-import ve400 from '../../images/courses/wd400.png'
-import dm400 from '../../images/courses/dm400.png'
-import gd400 from '../../images/courses/gd400.png'
-import fl from '../../images/courses/fg/FG.png'
-
 const courseData = [
     // Freelancing for All
     {
@@ -76,10 +57,10 @@ const courseData = [
         free_link: '',
         // live_link:'https://zoom.us/wc/84551599695/start',
         live_link: '',
-        recording_link:'',
-        instructor_image: dm_i,
-        image: shobarJnnoFreelancingImage,
-        promo_poster:fl,
+        recording_link: '',
+        instructor_image: 'https://cdn.skillshikhun.com/images/dm_i.jpg',
+        image: 'https://cdn.skillshikhun.com/images/courses/sjf.png',
+        promo_poster: 'https://cdn.skillshikhun.com/images/courses/fg/FG.png',
         feature_alt: [
             {
                 id: 1,
@@ -466,10 +447,10 @@ const courseData = [
         free_link: 'https://us06web.zoom.us/j/92939532748?pwd=d1RMRkFnUy9hM2F6TUlPbXAxNlFBZz09',
         // live_link:'https://zoom.us/wc/84551599695/start',
         live_link: 'https://us06web.zoom.us/j/85815124984?pwd=eWZaK2lmK05laWNCRnFPNWxmazRuQT09',
-        recording_link:'https://cutt.ly/2CNO5pC',
-        instructor_image: ve_i,
-        image: videoImage,
-        promo_poster:ve400,
+        recording_link: 'https://cutt.ly/2CNO5pC',
+        instructor_image: 'https://cdn.skillshikhun.com/images/ve_i.jpg',
+        image: 'https://cdn.skillshikhun.com/images/courses/ve.jpg',
+        promo_poster: 'https://cdn.skillshikhun.com/images/courses/wd400.png',
         feature_alt: [
             {
                 id: 1,
@@ -900,10 +881,10 @@ const courseData = [
         free_link: 'https://us06web.zoom.us/j/85672086625?pwd=cm5ubFIyZ2ZJWnYzTGlrYTNKUDdtZz09',
         // live_link:'https://zoom.us/wc/84821206594/start',
         live_link: 'https://us06web.zoom.us/j/83880494715?pwd=eW1aOUV3Y1B1Y2ZtbUtyWTZGMUNWdz09',
-        recording_link:'https://cutt.ly/fCNO9R4',
-        instructor_image: dm_i,
-        image: digitalImage,
-        promo_poster:dm400,
+        recording_link: 'https://cutt.ly/fCNO9R4',
+        instructor_image: 'https://cdn.skillshikhun.com/images/dm_i.jpg',
+        image: 'https://cdn.skillshikhun.com/images/courses/dm.jpg',
+        promo_poster: 'https://cdn.skillshikhun.com/images/courses/dm400.png',
         feature_alt: [
             {
                 id: 1,
@@ -1391,10 +1372,10 @@ const courseData = [
         free_link: 'https://us06web.zoom.us/j/96089920440?pwd=Z003Um5VV0RsZHloblJoN3JtL013dz09',
         // live_link:'https://zoom.us/wc/87039970025/start',
         live_link: 'https://us06web.zoom.us/j/87943558014?pwd=N0VhVXByWmY4OXlqaVZYSGh3NTJ2Zz09',
-        recording_link:'https://cutt.ly/OCNOXCq',
-        instructor_image: gd_i,
-        image: graphicsImage,
-        promo_poster:gd400,
+        recording_link: 'https://cutt.ly/OCNOXCq',
+        instructor_image: 'https://cdn.skillshikhun.com/images/gd_i.jpg',
+        image: 'https://cdn.skillshikhun.com/images/courses/gd.jpg',
+        promo_poster: 'https://cdn.skillshikhun.com/images/courses/gd400.png',
         feature_alt: [
             {
                 id: 1,
@@ -1839,10 +1820,10 @@ const courseData = [
         free_link: 'https://us06web.zoom.us/j/83489456820?pwd=SjNTaTVnQkNEWkdtaXRXcW13VWVXZz09',
         // live_link:'https://zoom.us/wc/85770635754/start',
         live_link: 'https://us06web.zoom.us/j/83444144897?pwd=L0pOVEF1U2VPemo3SUdjUjhSNExNZz09',
-        recording_link:'https://cutt.ly/4CNOMmJ',
-        instructor_image: wd_i,
-        image: webImage,
-        promo_poster: wd400,
+        recording_link: 'https://cutt.ly/4CNOMmJ',
+        instructor_image: 'https://cdn.skillshikhun.com/images/wd_i.jpg',
+        image: 'https://cdn.skillshikhun.com/images/courses/wd.jpg',
+        promo_poster: 'https://cdn.skillshikhun.com/images/courses/wd400.png',
         feature_alt: [
             {
                 id: 1,

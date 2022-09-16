@@ -1,20 +1,7 @@
-import gd1 from '../../images/reviewImages/Aayat Aroni.jpg';
-import gd2 from '../../images/reviewImages/SM Nihal Ahmed.jpg';
-import gd3 from '../../images/reviewImages/Tutul Ahmed.jpg';
-import dm1 from '../../images/reviewImages/Fowzia Yasmin.jpg';
-import dm2 from '../../images/reviewImages/Shazzad Uz Zaman.jpg';
-import dm3 from '../../images/reviewImages/2.jpg';
-import ve1 from '../../images/reviewImages/Abed Hossain.jpg';   
-import ve2 from '../../images/reviewImages/Ramisa Anjum.jpg';   
-import ve3 from '../../images/reviewImages/Supto Khan.jpg';
-import wd1 from '../../images/reviewImages/Niloy Ahmed.jpg';   
-import wd2 from '../../images/reviewImages/3.jpg';   
-import wd3 from '../../images/reviewImages/1.jpg';
-
 const reviewData = [
     {
         id: 1,
-        image:wd1,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/Niloy Ahmed.jpg',
         name:'Nabil Bin Md. Mizan Chowdhury',
         courseName:'Full Stack Web Development',
         route:'/web-development',
@@ -22,7 +9,7 @@ const reviewData = [
     },     
     {
         id: 2,
-        image:gd1,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/Aayat Aroni.jpg',
         name:'Aayat Aroni',
         courseName:'Graphics Design',
         route:'/graphics-design',
@@ -30,7 +17,7 @@ const reviewData = [
     },      
     {
         id: 3,
-        image:wd2,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/3.jpg',
         name:'A.S.M. Abu Bokor Siddique',
         courseName:'Full Stack Web Development',
         route:'/web-development',
@@ -38,7 +25,7 @@ const reviewData = [
     },
     {
         id: 4,
-        image:dm3,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/2.jpg',
         name:'Ramim Bin Quraishi',
         courseName:'Digital Marketing',
         route:'/digital-marketing',
@@ -46,7 +33,7 @@ const reviewData = [
     },
     {
         id: 5,
-        image:wd3,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/1.jpg',
         name:'Mohammad AM shuman',
         courseName:'Full Stack Web Development',
         route:'/web-development',
@@ -54,7 +41,7 @@ const reviewData = [
     },
     {
         id: 6,
-        image:dm2,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/Shazzad Uz Zaman.jpg',
         name:'Riaz Mahamud Ovy',
         courseName:'Digital Marketing',
         route:'/digital-marketing',
@@ -62,7 +49,7 @@ const reviewData = [
     },
     {
         id: 7,
-        image:dm1,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/Fowzia Yasmin.jpg',
         name:'Fowzia Yasmin',
         courseName:'Digital Marketing',
         route:'/digital-marketing',
@@ -70,7 +57,7 @@ const reviewData = [
     },
     {
         id: 8,
-        image:gd2,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/SM Nihal Ahmed.jpg',
         name:'SM Nihal Ahmed',
         courseName:'Graphics Design',
         route:'/graphics-design',
@@ -78,7 +65,7 @@ const reviewData = [
     },
     {
         id: 9,
-        image:gd3,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/Tutul Ahmed.jpg',
         name:'Tutul Ahmed',
         courseName:'Graphics Design',
         route:'/graphics-design',
@@ -86,7 +73,7 @@ const reviewData = [
     },
     {
         id: 10,
-        image:ve1,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/Abed Hossain.jpg',
         name:'Abed Hossain',
         courseName:'Video Editing',
         route:'/video-editing',
@@ -94,7 +81,7 @@ const reviewData = [
     },
     {
         id: 11,
-        image:ve2,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/Ramisa Anjum.jpg',
         name:'Ramisa Anjum',
         courseName:'Video Editing',
         route:'/video-editing',
@@ -102,7 +89,7 @@ const reviewData = [
     },
     {
         id: 12,
-        image:ve3,
+        image: 'https://cdn.skillshikhun.com/images/reviewImages/Supto Khan.jpg',
         name:'Supto Khan',
         courseName:'Video Editing',
         route:'/video-editing',

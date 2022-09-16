@@ -1,11 +1,7 @@
 import React from 'react';
-import logo from '../../../images/logo.png';
 import footerData from '../../../data/Footer/footerData';
 import groupsData from '../../../data/Footer/groupsData';
 import links from '../../../data/Footer/links';
-// import play from '../../../images/play.svg';
-// import app from '../../../images/app.svg';
-import play from '../../../images/play_store.png';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -15,7 +11,7 @@ const Footer = () => {
 
                 <div className="row">
                     <div className="col-lg-4">
-                        <img src={logo} alt="" width={80} className="img-fluid" />
+                        <img src='https://cdn.skillshikhun.com/images/logo.png' alt="" width={80} className="img-fluid" />
                         <h5 className=" mt-3">Registered Address</h5>
                         <p className="text-muted mt-3">15/1 Lake Circus, Kalabagan, North Dhanmondi, Dhaka - 1205.</p>
 
@@ -27,7 +23,7 @@ const Footer = () => {
                     <div className="col-lg-2">
                         <h5 style={{ marginTop: '75px' }} className="">Important Links</h5>
                         <div className="row">
-                            {footerData.map((data, index) => <Link key={index+1} onClick={()=>{window.scrollTo(0, 0);}} className='text-muted mt-2 text-decoration-none' to={data.link}>{data.name}</Link>)}
+                            {footerData.map((data, index) => <Link key={index + 1} onClick={() => { window.scrollTo(0, 0); }} className='text-muted mt-2 text-decoration-none' to={data.link}>{data.name}</Link>)}
                         </div>
                     </div>
 
@@ -37,28 +33,22 @@ const Footer = () => {
 
                         <h5 className='mt-4'>Skill Shikhun</h5>
                         {links.map((data, index) =>
-                            <a key={index+1} href={data.link} className='text-muted mt-2 text-decoration-none' target="_blank" rel="noreferrer">
+                            <a key={index + 1} href={data.link} className='text-muted mt-2 text-decoration-none' target="_blank" rel="noreferrer">
                                 <img src={data.icon} alt={data.name} className='img-fluid mt-2 px-2' style={{ width: '50px' }} /></a>)}
                         <h5 className=' mt-4'>Groups</h5>
-                        <div className="row">{groupsData.map((data, index) => <a key={index+1} href={data.link} className='text-muted mt-2 text-decoration-none' target="_blank" rel="noreferrer">{data.name}</a>)}</div>
+                        <div className="row">{groupsData.map((data, index) => <a key={index + 1} href={data.link} className='text-muted mt-2 text-decoration-none' target="_blank" rel="noreferrer">{data.name}</a>)}</div>
                     </div>
 
                     <div className="col-lg-3">
                         <h4 className=' mt-4 text-center'>Download Skill Shikhun App</h4>
                         <a href="https://play.google.com/store/apps/details?id=com.skillshikhun.skillshikhun" target="_blank" rel="noreferrer">
-                            <img src={play} alt="Download Official App" className="img-fluid mx-auto d-block my-4" style={{ width: '150px' }} />
+                            <img src='https://cdn.skillshikhun.com/images/play_store.png' alt="Download Official App" className="img-fluid mx-auto d-block my-4" style={{ width: '150px' }} />
                         </a>
-
-                        {/* <a href="/" target="_blank" rel="noreferrer">
-                            <img src={app} alt="Download Official App" className="img-fluid mx-auto d-block my-4" style={{ width: '150px' }} />
-                        </a> */}
                     </div>
                 </div>
             </div>
-            <p style={{marginBottom:'0', paddingBottom:'10px'}} className='text-center text-muted'>স্বত্ব &copy; ২০২১ - ২০২২ স্কিল শিখুন কতৃক সর্বস্বত্ব সংরক্ষিত
+            <p style={{ marginBottom: '0', paddingBottom: '10px' }} className='text-center text-muted'>স্বত্ব &copy; ২০২১ - ২০২২ স্কিল শিখুন কতৃক সর্বস্বত্ব সংরক্ষিত
             </p>
-            {/* <p style={{marginBottom:'0', paddingBottom:'10px'}} className='text-center'>Developed by <a href="https://www.google.com/search?q=eftykhar+rahman" className="text-decoration-none text-muted ps-1" target="_blank" rel="noreferrer"> Eftykhar Rahman</a>
-            </p> */}
         </div>
     );
 };
