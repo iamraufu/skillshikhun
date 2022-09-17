@@ -57,7 +57,7 @@ const DLiveCourseVideo = () => {
                     videos.length > 0 ?
                         videos.map((item, index) =>
                             <div key={item.Key} className="ratio ratio-16x9 mt-5 p-5">
-                                {/* <h4 className='fw-bold'>ক্লাস {index+1}</h4> */}
+                                <h4 className='fw-bold'>ক্লাস {index+1}</h4>
                                 <video src={`https://cdn.skillshikhun.com/${item.Key}`} controls controlsList="nodownload" className='mx-auto d-block mt-3'></video>
                             </div>
                         )

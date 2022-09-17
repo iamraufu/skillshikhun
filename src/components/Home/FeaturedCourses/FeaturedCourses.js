@@ -1,9 +1,9 @@
 import React from 'react';
 import './FeaturedCourses.css';
 import courseData from '../../../data/course/courseData';
-import { Link } from 'react-router-dom';
-import live from '../../../images/live.png';
-import liveClass from '../../../images/liveClass.svg';
+// import { Link } from 'react-router-dom';
+// import live from '../../../images/live.png';
+// import liveClass from '../../../images/liveClass.svg';
 import FeaturedSlider from './FeaturedSlider';
 
 const FeaturedCourses = () => {
@@ -15,7 +15,9 @@ const FeaturedCourses = () => {
             <div className='container'>
                 <h2 style={{ fontSize: '32px', lineHeight: '46px', color: '#343b6d', fontWeight: '600' }} className='pt-5 text-center'>ঘরে বসেই ক্যারিয়ার তৈরির সহজ সমাধান এখানেই</h2>
                 <h3 style={{ fontSize: '22px', lineHeight: '34px', color: '#343b6d', fontWeight: '600' }} className='text-center'>আমাদের কোর্সগুলো থেকে বাছাই করুন আপনার পছন্দের স্কিল</h3>
-                <div className="row">
+
+                {/* course contents */}
+                {/* <div className="row">
                     {
                         courseData.map(course => {
                             return (
@@ -50,8 +52,8 @@ const FeaturedCourses = () => {
                             );
                         }
                         )}
-                    <FeaturedSlider />
-                </div>
+                </div> */}
+                <FeaturedSlider course={courseData} />
             </div>
         </div>
     );
