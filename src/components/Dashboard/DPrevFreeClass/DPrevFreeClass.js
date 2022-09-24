@@ -62,22 +62,22 @@ const DPrevFreeClass = () => {
                 <div className="prev_free_live_course_container row">
                     <div style={{ position: 'absolute', zIndex: '4', top: '55px', backgroundColor: '#f3f5f9' }} className="col-md-8 position-sticky">
                         <h1
-                            style={{fontSize:'18px'}} 
+                            style={{ fontSize: '18px' }}
                             className='pt-3 mb-3 ps-2 fw-bold'>{course[0]?.title} ফ্রি লাইভ ক্লাস</h1>
                         <div className="freeClass-responsive-embed-youtube">
                             {
-                                videoId === '' ? 
-                                <div style={{height:'', width:'100%'}} className="bg-white text-danger">
-                                    বাকি লাইভ ক্লাস গুলো সরাসরি ইন্সট্রাক্টর এর সাথে করার জন্য ভর্তি হয়ে যান এখনই
-                                </div> :
-                                <iframe
-                                style={{ borderRadius: '15px' }}
-                                src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-                                title="Free Class Video"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen>
-                            </iframe>
+                                videoId === '' ?
+                                    <div style={{ height: '', width: '100%' }} className="bg-white text-danger">
+                                        বাকি লাইভ ক্লাস গুলো সরাসরি ইন্সট্রাক্টর এর সাথে করার জন্য ভর্তি হয়ে যান এখনই
+                                    </div> :
+                                    <iframe
+                                        style={{ borderRadius: '15px' }}
+                                        src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                                        title="Free Class Video"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen>
+                                    </iframe>
                             }
                         </div>
 
@@ -100,10 +100,11 @@ const DPrevFreeClass = () => {
                         {/* Smaller Screen */}
                         <div style={{
                             // backgroundColor: '#f3f5f9', 
-                            boxShadow: '0 3px 10px 3px #0003', borderTop:'1px solid lightgrey'}} className="bg-white d-flex align-items-end justify-content-center d-lg-none fixed-bottom p-2">
+                            boxShadow: '0 3px 10px 3px #0003', borderTop: '1px solid lightgrey'
+                        }} className="bg-white d-flex align-items-end justify-content-center d-lg-none fixed-bottom p-2">
                             <div className="col-12">
                                 <h3 className='fs-6 text-center'>বাকি ক্লাসগুলো ইন্সট্রাক্টর এর সাথে লাইভ এ হবে </h3>
-                                <button style={{boxShadow: '0 3px 10px 3px #0003'}} id='free-class-video_btn' onClick={() => { navigate(`/checkout/${course[0].id}`) }} className='btn-buy p-3'>এখনই ভর্তি হয়ে যান</button>
+                                <button style={{ boxShadow: '0 3px 10px 3px #0003' }} id='free-class-video_btn' onClick={() => { navigate(`/checkout/${course[0].id}`) }} className='btn-buy p-3'>এখনই ভর্তি হয়ে যান</button>
                             </div>
                         </div>
 
@@ -135,7 +136,7 @@ const DPrevFreeClass = () => {
                                         <h2
                                             onClick={() => moduleHandler(item)}
                                             className="accordion-header" id={`flush-heading${item.id}`}>
-                                            <button style={{ backgroundColor: 'white', borderRadius: '15px', fontSize: '13px', fontWeight: '500', textAlign: 'justify'}} className="accordion-button collapsed course-video-title_hover" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
+                                            <button style={{ backgroundColor: 'white', borderRadius: '15px', fontSize: '13px', fontWeight: '500', textAlign: 'justify' }} className="accordion-button collapsed course-video-title_hover" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
                                                 {/* Module {index + 1}: {item.title}
                                                 {
                                                     !item.isFree === true ? <img className='img-fluid ms-1 mb-1' width={18} src={lock} alt="Enroll to See the Full Course" /> : null
@@ -149,7 +150,7 @@ const DPrevFreeClass = () => {
                                                             !item.isFree === true ? <img className='img-fluid mb-1' width={18} src={lock} alt="Enroll to See the Full Course" /> : <img className='img-fluid mb-1' width={18} src={play} alt="Play" />
                                                         }
                                                     </div>
-                                                        <div className="">Module {index + 1}: {item.title}</div>
+                                                    <div className="">Module {index + 1}: {item.title}</div>
                                                 </div>
 
                                             </button>

@@ -934,7 +934,7 @@ const courseData = [
         ],
         outline: [
             {
-                id: 'One',
+                id: 'one',
                 title: 'ইন্ট্রডাকশন (Introduction)',
                 description: 'এই ক্লাস এ আমরা একে অপরের সাথে পরিচিত হব এবং ডিজিটাল মার্কেটিং এর সম্পর্কে একটি বিস্তৃত ধারনা নিবো।',
                 isFree: true,
@@ -952,7 +952,7 @@ const courseData = [
                 ]
             },
             {
-                id: 'Two',
+                id: 'two',
                 title: 'মার্কেট রিসার্চ (Market Research)',
                 description: 'এই ক্লাসে আমরা শিখবো, মার্কেট রিসার্চ কি, কেন প্রয়োজন, এবং কিভাবে করবেন।',
                 isFree: true,
@@ -980,7 +980,7 @@ const courseData = [
                 ]
             },
             {
-                id: 'Three',
+                id: 'three',
                 title: 'ওয়েবসাইট তৈরি (Setting up a Website)',
                 description: 'এই ক্লাসে আমরা শিখবো, কোন কোডিং নলেজ ছাড়াই ওয়ার্ডপ্রেস এর মাধ্যমে কিভাবে একটি ই-কমার্স ওয়েবসাইট তৈরি করা যায়।',
                 isFree: true,
