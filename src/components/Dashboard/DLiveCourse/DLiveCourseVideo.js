@@ -31,7 +31,7 @@ const DLiveCourseVideo = () => {
     const [videoId, setVideoId] = useState("");
 
     useEffect(() => {
-        fetch(`http://localhost:5000/${category}-live-class`)
+        fetch(`https://api-skillshikhun.herokuapp.com/${category}-live-class`)
             .then(response => response.json())
             .then(data => {
                 setVideos(data)
