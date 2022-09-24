@@ -66,7 +66,7 @@ const FeaturedSlider = (props) => {
             <SwiperSlide className='d-none d-lg-block'>
                 <div className="d-flex">
                     {
-                        courseData.slice(4, 8).map(course =>
+                        courseData.slice(1, 5).map(course =>
                             <div key={course.id} className='featured-courses col-xl-3 col-md-6 col-md-3 my-5 px-2'>
                                 <Link className='text-decoration-none' onClick={() => { window.scrollTo(0, 0); }} to={course.route}>
                                     <div style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}>
