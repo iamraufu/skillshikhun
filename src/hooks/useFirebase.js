@@ -82,7 +82,7 @@ const useFirebase = () => {
         localStorage.setItem('email', newUser.email);
         // localStorage.setItem('user', JSON.stringify(newUser));
         setUser(newUser);
-        fetch('https://api-skillshikhun.herokuapp.com/addUser',{
+        fetch('https://skillshikhun.herokuapp.com/addUser',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

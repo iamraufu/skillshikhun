@@ -12,7 +12,6 @@ const Navbar = () => {
     return (
         <div style={{ backgroundColor: 'white', boxShadow: '0 5px 15px #c4c4c44d', marginTop:'-5px' }} className="sticky-top">
             <div style={{ height: '75px' }} className="container-xl navbar-container">
-
                 <nav className="navbar navbar-expand-lg navbar-light">
                     <div className="container-fluid navbar-container">
 

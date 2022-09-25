@@ -19,7 +19,7 @@ const DClassRecordings = () => {
     // fetching user paid info
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://api-skillshikhun.herokuapp.com/api/get-payments/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payments/${phone}`);
             const data = await res.json();
             setPayments(data);
         }
@@ -28,7 +28,7 @@ const DClassRecordings = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://api-skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
             const data = await res.json();
             setDemoClasses(data);
         }
