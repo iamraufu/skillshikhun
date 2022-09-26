@@ -519,9 +519,9 @@ const Dashboard = () => {
                     <Menu />
                 </div>
             </div>
-            <div id="meetingSDKElement">
+            {/* <div id="meetingSDKElement">
 
-            </div>
+            </div> */}
         </div>
     );
 };

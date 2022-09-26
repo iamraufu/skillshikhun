@@ -2,20 +2,25 @@ import React, { useEffect, useState } from 'react';
 import DNavbar from '../DNavbar/DNavbar';
 import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
-// import courseData from '../../../data/course/courseData';
+import courseData from '../../../data/course/courseData';
 
 const DPaymentHistory = () => {
 
     const phone = localStorage.getItem('phone');
-    const [liveCourses, setLiveCourses] = useState([]);
+    const [payments, setPayments] = useState([]);
     const [userPhoneData, setUserPhoneData] = useState({})
     const [disabled, setDisabled] = useState(false);
+    const [webDevelopment, setWebDevelopment] = useState([])
+    const [digitalMarketing, setDigitalMarketing] = useState([]);
+    const [videoEditing, setVideoEditing] = useState([]);
+    const [graphicsDesign, setGraphicsDesign] = useState([]);
+    const [shobarJnnoFreelancing, setShobarJnnoFreelancing] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch(`https://skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
             const data = await res.json();
-            setLiveCourses(data);
+            setPayments(data);
         }
         fetchData();
     }, [phone])
@@ -26,9 +31,43 @@ const DPaymentHistory = () => {
             .then(data => setUserPhoneData(data))
     }, [phone])
 
-    const handleClick = (data) => {
+    // Web Development
+    useEffect(() => {
+        if (payments.filter(payment => payment.course === 'Web Development')) {
+            setWebDevelopment(payments.filter(payment => payment.course === 'Web Development'))
+        }
+    }, [payments])
+
+    // Digital Marketing
+    useEffect(() => {
+        if (payments.filter(payment => payment.course === 'Digital Marketing')) {
+            setDigitalMarketing(payments.filter(payment => payment.course === 'Digital Marketing'))
+        }
+    }, [payments])
+
+    // Video Editing
+    useEffect(() => {
+        if (payments.filter(payment => payment.course === 'Video Editing')) {
+            setVideoEditing(payments.filter(payment => payment.course === 'Video Editing'))
+        }
+    }, [payments])
+
+    // Graphics Design
+    useEffect(() => {
+        if (payments.filter(payment => payment.course === 'Graphics Design')) {
+            setGraphicsDesign(payments.filter(payment => payment.course === 'Graphics Design'))
+        }
+    }, [payments])
+
+    // Shobar Jnno Freelancing
+    useEffect(() => {
+        setShobarJnnoFreelancing(payments.filter(payment => payment.course === 'সবার জন্য ফ্রিল্যান্সিং'))
+    }, [payments])
+
+    const handleClick = (data, months) => {
+        // console.log(data, months)
         // document.getElementById('top_payment_history').style.display = 'none';
-        proceedToPayment(data)
+        // proceedToPayment(data)
     }
 
     const proceedToPayment = async (data) => {
@@ -69,10 +108,8 @@ const DPaymentHistory = () => {
         })
             .then(res => res.json())
             .then(data => {
-                localStorage.removeItem('code');
                 window.location.replace(data.payment_url);
             })
-
     }
 
     return (
@@ -89,52 +126,266 @@ const DPaymentHistory = () => {
                     {/* right container */}
                     <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px', marginBottom: '5rem' }} className="col-xl-9 col-lg-9 col-md-12 pb-5">
 
+                        {/* Total Taka due */}
+                        {
+                            payments.length > 0 &&
+                            <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px', backgroundColor: '#13338b' }} className="row align-items-center col-md-2 ms-auto me-2 mt-3">
+                                <h2 style={{ fontSize: '14px' }} className='text-center text-white'><span style={{ fontSize: '34px', fontWeight: '700', color: '#b94a8f' }}>{payments.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span><br />বাকি</h2>
+                            </div>
+                        }
 
                         {
-                            liveCourses.length === 0 ?
-                                <p className='text-center fw-bold mt-5 text-danger'>আপনার কোনো পেমেন্ট ইতিহাস পাওয়া যায় নি</p>
-                                :
-                                liveCourses.map(purchased =>
-                                    <div className='mt-5'>
-                                        <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}>আপনার <span style={{ color: '#b94a8f' }}>{purchased.course}</span> কোর্সের পেমেন্ট ইতিহাস</h2>
-                                        <div id='top_payment_history' key={purchased._id} className="row justify-content-center align-items-center mb-5">
-                                            <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
-                                                <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(purchased.remaining_course_fee)} টাকা</span>
-                                                    <br />বাকি
-                                                </h2>
-                                                {
-                                                    parseInt(purchased.remaining_course_fee) === 0 ?
-                                                        <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>Pay Now</button>
-                                                        :
-                                                        <button onClick={() => handleClick(purchased)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>Pay Now</button>
-                                                }
-                                            </div>
-
-                                            <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
-                                                <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#425ca2' }}>{parseInt(purchased.amount)} টাকা</span>
-                                                    <br />পরিশোধ
-                                                </h2>
-                                            </div>
-
-                                            <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
-                                                <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{parseInt(purchased.amount) + parseInt(purchased.remaining_course_fee)} টাকা</span>
-                                                    <br />মোট
-                                                </h2>
-                                            </div>
-                                        </div>
-
-                                        <div style={{ border: '1px solid lightgrey', borderRadius: '10px' }} key={purchased._id} className="p-3 col-lg-4 bg-white">
-                                            <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
-                                            <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
-
-                                            <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
-
-                                            <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ: <b>{parseInt(purchased.amount)} টাকা</b></h5>
-
-                                        </div>
-                                    </div>
-                                )
+                            payments.length === 0 && <p className='text-center fw-bold mt-5 text-danger'> কোনো পেমেন্ট ইতিহাস পাওয়া যায় নি</p>
                         }
+
+                        {/* Web Development */}
+                        {
+                            webDevelopment.length > 0 &&
+                            <div id='web-development_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
+                                    {/* Baki Taka */}
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{webDevelopment.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} টাকা</span>
+                                        <br />বাকি
+                                    </h2>
+
+                                    {
+                                        parseInt(webDevelopment[webDevelopment.length - 1]?.remaining_course_fee) === 0 ?
+                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>Pay Now</button>
+                                            :
+                                            <button onClick={() => handleClick(webDevelopment, 3)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>Pay Now</button>
+                                    }
+                                </div>
+
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
+                                    {/* Mot dewa taka */}
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#425ca2' }}>{webDevelopment.reduce((a, b) => { return a + parseInt(b.amount); }, 0)} টাকা</span>
+                                        <br />পরিশোধ
+                                    </h2>
+                                </div>
+
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
+                                    {/* Mot course er dam */}
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{webDevelopment.reduce((a, b) => { return a + parseInt(b.amount); }, 0) + webDevelopment.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span>
+                                        <br />মোট
+                                    </h2>
+                                </div>
+                            </div>
+                        }
+
+                        {
+                            webDevelopment.length > 0 &&
+                            webDevelopment.map(purchased =>
+                                <div key={purchased._id} className='mt-5'>
+                                    <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>{purchased.course}</span> কোর্সের পেমেন্ট ইতিহাস</h2>
+
+                                    <div style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white">
+                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
+                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
+                                        <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
+                                        <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ: <b>{parseInt(purchased.amount)} টাকা</b></h5>
+                                    </div>
+                                    <hr />
+                                </div>
+                            )}
+
+
+                        {/* Video Editing */}
+                        {
+                            videoEditing.length > 0 &&
+                            <div id='video-editing_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
+                                    {/* Baki taka */}
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{videoEditing.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} টাকা</span>
+                                        <br />বাকি
+                                    </h2>
+
+                                    {
+                                        parseInt(videoEditing[videoEditing.length - 1]?.remaining_course_fee) === 0 ?
+                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>Pay Now</button>
+                                            :
+                                            <button onClick={() => handleClick(videoEditing, 2)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>Pay Now</button>
+                                    }
+                                </div>
+
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
+                                    {/* Mot dewa taka */}
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#425ca2' }}>{videoEditing.reduce((a, b) => { return a + parseInt(b.amount); }, 0)} টাকা</span>
+                                        <br />পরিশোধ
+                                    </h2>
+                                </div>
+
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
+                                    {/* Mot course er dam */}
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{videoEditing.reduce((a, b) => { return a + parseInt(b.amount); }, 0) + videoEditing.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span>
+                                        <br />মোট
+                                    </h2>
+                                </div>
+                            </div>
+                        }
+
+                        {
+                            videoEditing.length > 0 &&
+                            videoEditing.map(purchased =>
+                                <div key={purchased._id} className='mt-5'>
+                                    <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>{purchased.course}</span> কোর্সের পেমেন্ট ইতিহাস</h2>
+
+                                    <div style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white">
+                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
+                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
+                                        <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
+                                        <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ: <b>{parseInt(purchased.amount)} টাকা</b></h5>
+                                    </div>
+                                    <hr />
+                                </div>
+                            )}
+
+
+                        {/* Digital Marketing */}
+                        {
+                            digitalMarketing.length > 0 &&
+                            <div id='digital-marketing_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
+                                    {/* baki taka */}
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{digitalMarketing.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} টাকা</span>
+                                        <br />বাকি
+                                    </h2>
+
+                                    {
+                                        parseInt(digitalMarketing[digitalMarketing.length - 1]?.remaining_course_fee) === 0 ?
+                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>Pay Now</button>
+                                            :
+                                            <button onClick={() => handleClick(digitalMarketing, 2)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>Pay Now</button>
+                                    }
+                                </div>
+
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
+                                    {/* mot dewa taka */}
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#425ca2' }}>{digitalMarketing.reduce((a, b) => { return a + parseInt(b.amount); }, 0)} টাকা</span>
+                                        <br />পরিশোধ
+                                    </h2>
+                                </div>
+
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
+                                    {/* Mot course er dam */}
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{digitalMarketing.reduce((a, b) => { return a + parseInt(b.amount); }, 0) + digitalMarketing.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span>
+                                        <br />মোট
+                                    </h2>
+                                </div>
+                            </div>
+                        }
+
+                        {
+                            digitalMarketing.length > 0 &&
+                            digitalMarketing.map(purchased =>
+                                <div key={purchased._id} className='mt-5'>
+                                    <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>{purchased.course}</span> কোর্সের পেমেন্ট ইতিহাস</h2>
+
+                                    <div style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white">
+                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
+                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
+                                        <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
+                                        <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ: <b>{parseInt(purchased.amount)} টাকা</b></h5>
+                                    </div>
+                                    <hr />
+                                </div>
+                            )}
+
+
+                        {/* Graphics Design */}
+                        {
+                            graphicsDesign.length > 0 &&
+                            <div id='graphics-design_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{graphicsDesign.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} টাকা</span>
+                                        <br />বাকি
+                                    </h2>
+
+                                    {
+                                        parseInt(graphicsDesign[graphicsDesign.length - 1]?.remaining_course_fee) === 0 ?
+                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>Pay Now</button>
+                                            :
+                                            <button onClick={() => handleClick(graphicsDesign, 3)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>Pay Now</button>
+                                    }
+                                </div>
+
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#425ca2' }}>{graphicsDesign.reduce((a, b) => { return a + parseInt(b.amount); }, 0)} টাকা</span>
+                                        <br />পরিশোধ
+                                    </h2>
+                                </div>
+
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{graphicsDesign.reduce((a, b) => { return a + parseInt(b.amount); }, 0) + graphicsDesign.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span>
+                                        <br />মোট
+                                    </h2>
+                                </div>
+                            </div>
+                        }
+
+                        {
+                            graphicsDesign.length > 0 &&
+                            graphicsDesign.map(purchased =>
+                                <div key={purchased._id} className='mt-5'>
+                                    <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>{purchased.course}</span> কোর্সের পেমেন্ট ইতিহাস</h2>
+
+                                    <div style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white">
+                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
+                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
+                                        <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
+                                        <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ: <b>{parseInt(purchased.amount)} টাকা</b></h5>
+                                    </div>
+                                    <hr />
+                                </div>
+                            )}
+
+
+                        {/* Shobar Jnno Freelancing */}
+                        {
+                            shobarJnnoFreelancing.length > 0 &&
+                            <div id='shobar-jnno-freelancing_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
+                                    {/* baki taka */}
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{shobarJnnoFreelancing.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} টাকা</span>
+                                        <br />বাকি
+                                    </h2>
+
+                                    {
+                                        parseInt(shobarJnnoFreelancing[shobarJnnoFreelancing.length - 1]?.remaining_course_fee) === 0 ?
+                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>Pay Now</button>
+                                            :
+                                            <button onClick={() => handleClick(shobarJnnoFreelancing, 7)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>Pay Now</button>
+                                    }
+                                </div>
+
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#425ca2' }}>{shobarJnnoFreelancing.reduce((a, b) => { return a + parseInt(b.amount); }, 0)} টাকা</span>
+                                        <br />পরিশোধ
+                                    </h2>
+                                </div>
+
+                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{shobarJnnoFreelancing.reduce((a, b) => { return a + parseInt(b.amount); }, 0) + shobarJnnoFreelancing.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span>
+                                        <br />মোট
+                                    </h2>
+                                </div>
+                            </div>
+                        }
+
+                        {
+                            shobarJnnoFreelancing.length > 0 &&
+                            shobarJnnoFreelancing.map(purchased =>
+                                <div key={purchased._id} className='mt-5'>
+                                    <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>{purchased.course}</span> কোর্সের পেমেন্ট ইতিহাস</h2>
+
+                                    <div style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white">
+                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
+                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
+                                        <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
+                                        <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ: <b>{parseInt(purchased.amount)} টাকা</b></h5>
+                                    </div>
+                                </div>
+                            )}
+
                     </div>
                 </div>
                 <Menu />
