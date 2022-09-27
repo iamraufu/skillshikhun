@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import DNavbar from '../DNavbar/DNavbar';
 import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar/Sidebar';
-import courseData from '../../../data/course/courseData';
 
 const DPaymentHistory = () => {
 
@@ -64,12 +63,6 @@ const DPaymentHistory = () => {
         setShobarJnnoFreelancing(payments.filter(payment => payment.course === 'সবার জন্য ফ্রিল্যান্সিং'))
     }, [payments])
 
-    const handleClick = (data, months) => {
-        // console.log(data, months)
-        // document.getElementById('top_payment_history').style.display = 'none';
-        // proceedToPayment(data)
-    }
-
     const proceedToPayment = async (data) => {
         setDisabled(true);
 
@@ -90,7 +83,7 @@ const DPaymentHistory = () => {
                 cus_add2: "Dhaka",
                 cus_city: "Dhaka",
                 cus_country: "Bangladesh",
-                amount: `${parseInt(data.remaining_course_fee)}`,
+                amount: `${data[0].amount}`,
                 // amount: 1,  // test
                 tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
                 currency: "BDT",
@@ -102,7 +95,7 @@ const DPaymentHistory = () => {
                 type: "json",
                 opt_a: `${data.course}`,
                 opt_b: `${data.type}`,
-                opt_c: `0`,
+                opt_c: `${data[data.length - 1]?.remaining_course_fee - data[0].amount}`,
                 opt_d: ``
             })
         })
@@ -127,12 +120,12 @@ const DPaymentHistory = () => {
                     <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px', marginBottom: '5rem' }} className="col-xl-9 col-lg-9 col-md-12 pb-5">
 
                         {/* Total Taka due */}
-                        {
+                        {/* {
                             payments.length > 0 &&
                             <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px', backgroundColor: '#13338b' }} className="row align-items-center col-md-2 ms-auto me-2 mt-3">
                                 <h2 style={{ fontSize: '14px' }} className='text-center text-white'><span style={{ fontSize: '34px', fontWeight: '700', color: '#b94a8f' }}>{payments.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span><br />বাকি</h2>
                             </div>
-                        }
+                        } */}
 
                         {
                             payments.length === 0 && <p className='text-center fw-bold mt-5 text-danger'> কোনো পেমেন্ট ইতিহাস পাওয়া যায় নি</p>
@@ -144,15 +137,17 @@ const DPaymentHistory = () => {
                             <div id='web-development_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
                                     {/* Baki Taka */}
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{webDevelopment.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} টাকা</span>
-                                        <br />বাকি
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(webDevelopment[0].amount)} টাকা 
+                                        {/* {webDevelopment.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} */}
+                                        </span>
+                                        <br />এক মাসের ফী
                                     </h2>
 
                                     {
                                         parseInt(webDevelopment[webDevelopment.length - 1]?.remaining_course_fee) === 0 ?
-                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>Pay Now</button>
+                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>পরিশোধ করুন</button>
                                             :
-                                            <button onClick={() => handleClick(webDevelopment, 3)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>Pay Now</button>
+                                            <button onClick={() => proceedToPayment(webDevelopment)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>পরিশোধ করুন</button>
                                     }
                                 </div>
 
@@ -195,15 +190,15 @@ const DPaymentHistory = () => {
                             <div id='video-editing_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
                                     {/* Baki taka */}
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{videoEditing.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} টাকা</span>
-                                        <br />বাকি
-                                    </h2>
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(videoEditing[0].amount)} টাকা</span>
+                                        <br />এক মাসের ফী
+                                    </h2> 
 
                                     {
                                         parseInt(videoEditing[videoEditing.length - 1]?.remaining_course_fee) === 0 ?
-                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>Pay Now</button>
+                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>পরিশোধ করুন</button>
                                             :
-                                            <button onClick={() => handleClick(videoEditing, 2)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>Pay Now</button>
+                                            <button onClick={() => proceedToPayment(videoEditing)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>পরিশোধ করুন</button>
                                     }
                                 </div>
 
@@ -246,15 +241,15 @@ const DPaymentHistory = () => {
                             <div id='digital-marketing_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
                                     {/* baki taka */}
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{digitalMarketing.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} টাকা</span>
-                                        <br />বাকি
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(digitalMarketing[0].amount)} টাকা</span>
+                                        <br />এক মাসের ফী
                                     </h2>
 
                                     {
                                         parseInt(digitalMarketing[digitalMarketing.length - 1]?.remaining_course_fee) === 0 ?
-                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>Pay Now</button>
+                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>পরিশোধ করুন</button>
                                             :
-                                            <button onClick={() => handleClick(digitalMarketing, 2)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>Pay Now</button>
+                                            <button onClick={() => proceedToPayment(digitalMarketing)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>পরিশোধ করুন</button>
                                     }
                                 </div>
 
@@ -296,15 +291,15 @@ const DPaymentHistory = () => {
                             graphicsDesign.length > 0 &&
                             <div id='graphics-design_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{graphicsDesign.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} টাকা</span>
-                                        <br />বাকি
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(graphicsDesign[0].amount)} টাকা</span>
+                                        <br />এক মাসের ফী
                                     </h2>
 
                                     {
                                         parseInt(graphicsDesign[graphicsDesign.length - 1]?.remaining_course_fee) === 0 ?
-                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>Pay Now</button>
+                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>পরিশোধ করুন</button>
                                             :
-                                            <button onClick={() => handleClick(graphicsDesign, 3)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>Pay Now</button>
+                                            <button onClick={() => proceedToPayment(graphicsDesign)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>পরিশোধ করুন</button>
                                     }
                                 </div>
 
@@ -345,15 +340,15 @@ const DPaymentHistory = () => {
                             <div id='shobar-jnno-freelancing_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
                                     {/* baki taka */}
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{shobarJnnoFreelancing.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} টাকা</span>
-                                        <br />বাকি
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(shobarJnnoFreelancing[0].amount)} টাকা</span>
+                                        <br />ফী
                                     </h2>
 
                                     {
                                         parseInt(shobarJnnoFreelancing[shobarJnnoFreelancing.length - 1]?.remaining_course_fee) === 0 ?
-                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>Pay Now</button>
+                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>পরিশোধ করুন</button>
                                             :
-                                            <button onClick={() => handleClick(shobarJnnoFreelancing, 7)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>Pay Now</button>
+                                            <button onClick={() => proceedToPayment(shobarJnnoFreelancing)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>পরিশোধ করুন</button>
                                     }
                                 </div>
 

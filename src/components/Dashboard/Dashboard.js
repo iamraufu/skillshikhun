@@ -494,7 +494,7 @@ const Dashboard = () => {
                                                 </div>
                                                 <div className="ps-5">
                                                     <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }}>Total Paid <br />{payments.reduce((a, b) => { return a + parseInt(b.amount); }, 0)}</h2>
-                                                    <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }}>Total Due <br />{payments.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)}</h2>
+                                                    <button onClick={()=> navigate('/dashboard/payment-history')} className='btn btn-success mb-2 btn-sm'>ফী পরিশোধ করুন</button>
                                                 </div>
 
                                                 {/* {
