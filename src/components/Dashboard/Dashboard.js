@@ -47,6 +47,37 @@ const Dashboard = () => {
     // get name from localStorage user 
     // const name = JSON.parse(localStorage.getItem('name'));
 
+    const [webDevelopment, setWebDevelopment] = useState([])
+    const [digitalMarketing, setDigitalMarketing] = useState([]);
+    const [videoEditing, setVideoEditing] = useState([]);
+    const [graphicsDesign, setGraphicsDesign] = useState([]);
+    const [shobarJnnoFreelancing, setShobarJnnoFreelancing] = useState([]);
+
+    // Web Development
+    useEffect(() => {
+        setWebDevelopment(payments.filter(payment => payment.course === 'Web Development'))
+    }, [payments])
+
+    // Digital Marketing
+    useEffect(() => {
+        setDigitalMarketing(payments.filter(payment => payment.course === 'Digital Marketing'))
+    }, [payments])
+
+    // Video Editing
+    useEffect(() => {
+        setVideoEditing(payments.filter(payment => payment.course === 'Video Editing'))
+    }, [payments])
+
+    // Graphics Design
+    useEffect(() => {
+        setGraphicsDesign(payments.filter(payment => payment.course === 'Graphics Design'))
+    }, [payments])
+
+    // Shobar Jnno Freelancing
+    useEffect(() => {
+        setShobarJnnoFreelancing(payments.filter(payment => payment.course === 'সবার জন্য ফ্রিল্যান্সিং'))
+    }, [payments])
+
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
@@ -281,15 +312,15 @@ const Dashboard = () => {
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-3">
                                                                     {
-                                                                        userPhoneData?.name ? 
-                                                                        // <button onClick={() => {
-                                                                        //     // getSignature(course.live_number, course.live_password)
-                                                                        // }}
+                                                                        userPhoneData?.name ?
+                                                                            // <button onClick={() => {
+                                                                            //     // getSignature(course.live_number, course.live_password)
+                                                                            // }}
 
-                                                                        //     className='see-details'> জয়েন ক্লাস</button> 
-                                                                        <a href={course.live_link} target='_blank' rel="noreferrer" className='see-details'
-                                                                        // onClick={() => { window.scrollTo(0, 0); }}
-                                                                        >জয়েন ক্লাস</a>
+                                                                            //     className='see-details'> জয়েন ক্লাস</button> 
+                                                                            <a href={course.live_link} target='_blank' rel="noreferrer" className='see-details'
+                                                                            // onClick={() => { window.scrollTo(0, 0); }}
+                                                                            >জয়েন ক্লাস</a>
                                                                             :
                                                                             <button className='see-details-fade'><div className="spinner-border" style={{ height: '15px', width: '15px' }} role="status">
                                                                             </div> জয়েন ক্লাস</button>
@@ -333,15 +364,15 @@ const Dashboard = () => {
 
                                                                 <div style={{ justifyContent: 'space-between', backgroundColor: 'rgb(236,238,255)' }} className="d-flex p-2">
                                                                     {
-                                                                        userPhoneData?.name ?      
-                                                                        // <button onClick={() => {
-                                                                        //     // getSignature(course.live_number, course.live_password)
-                                                                        // }}
+                                                                        userPhoneData?.name ?
+                                                                            // <button onClick={() => {
+                                                                            //     // getSignature(course.live_number, course.live_password)
+                                                                            // }}
 
-                                                                        //     className='see-details'>জয়েন ক্লাস</button> 
-                                                                        <a href={course.live_link} target='_blank' rel="noreferrer" className='see-details'
-                                                                        // onClick={() => { window.scrollTo(0, 0); }}
-                                                                        >জয়েন ক্লাস</a>
+                                                                            //     className='see-details'>জয়েন ক্লাস</button> 
+                                                                            <a href={course.live_link} target='_blank' rel="noreferrer" className='see-details'
+                                                                            // onClick={() => { window.scrollTo(0, 0); }}
+                                                                            >জয়েন ক্লাস</a>
                                                                             :
                                                                             <button className='see-details-fade'><div className="spinner-border" style={{ height: '15px', width: '15px' }} role="status">
                                                                             </div> জয়েন ক্লাস</button>
@@ -455,7 +486,7 @@ const Dashboard = () => {
 
                                 <div style={{ borderRadius: '10px', marginBottom: '5rem' }} className="col-md-5 bg-white mt-4 dashboard-content-card d-flex justify-content-center">
                                     <div style={{ margin: 'auto' }}>
-                                        <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }} className='mt-3'>
+                                        <h2 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }} className='my-3'>
                                             <img src={payment} width={40} className='img-fluid me-2 mb-2' alt="Billing" />
                                             পেমেন্ট</h2>
 
@@ -463,7 +494,7 @@ const Dashboard = () => {
                                             payments?.length === 0 &&
 
                                             <div className="">
-                                                <p className='text-danger text-muted'>আপনার কোনো পেমেন্ট ইতিহাস নেই </p>
+                                                <p className='text-danger text-muted'>আপনার কোনো পেমেন্ট ইতিহাস নেই</p>
 
                                                 <div className="">
 
@@ -486,28 +517,73 @@ const Dashboard = () => {
                                                 </div>
                                             </div>
                                         }
+
+                                        {
+                                            webDevelopment.length > 0 ?
+                                                parseInt(webDevelopment[webDevelopment.length - 1]?.remaining_course_fee) === 0 ?
+                                                    <p><b>ওয়েব ডেভেলপমেন্ট</b> কোর্সের সম্পূর্ণ ফি পরিশোধ করা হয়েছে</p>
+                                                    :
+                                                    <h2 style={{ fontSize: '18px', lineHeight: '24px', color: '#343b6d', textAlign: 'center' }}><b>ওয়েব ডেভেলপমেন্ট</b> কোর্সের <b style={{ color: '#b94a8f' }}>{parseInt(webDevelopment[webDevelopment.length - 1]?.remaining_course_fee)} টাকা</b> বাকি</h2>
+                                                :
+                                                null
+                                        }
+
+                                        {
+                                            videoEditing.length > 0 ?
+                                                parseInt(videoEditing[videoEditing.length - 1]?.remaining_course_fee) === 0 ?
+                                                    <p><b>ভিডিও এডিটিং</b> কোর্সের সম্পূর্ণ ফি পরিশোধ করা হয়েছে</p>
+                                                    :
+                                                    <h2 style={{ fontSize: '18px', lineHeight: '24px', color: '#343b6d', textAlign: 'center' }}><b>ভিডিও এডিটিং</b> কোর্সের <b style={{ color: '#b94a8f' }}>{parseInt(videoEditing[videoEditing.length - 1]?.remaining_course_fee)} টাকা</b> বাকি</h2>
+                                                :
+                                                null
+                                        }
+
+                                        {
+                                            digitalMarketing.length > 0 ?
+                                                parseInt(digitalMarketing[digitalMarketing.length - 1]?.remaining_course_fee) === 0 ?
+                                                    <p><b>ডিজিটাল মার্কেটিং</b> কোর্সের সম্পূর্ণ ফি পরিশোধ করা হয়েছে</p>
+                                                    :
+                                                    <h2 style={{ fontSize: '18px', lineHeight: '24px', color: '#343b6d', textAlign: 'center' }}><b>ডিজিটাল মার্কেটিং</b> কোর্সের <b style={{ color: '#b94a8f' }}>{parseInt(digitalMarketing[digitalMarketing.length - 1]?.remaining_course_fee)} টাকা</b> বাকি</h2>
+                                                :
+                                                null
+                                        }
+
+                                        {
+                                            graphicsDesign.length > 0 ?
+                                                parseInt(graphicsDesign[graphicsDesign.length - 1]?.remaining_course_fee) === 0 ?
+                                                    <p><b>গ্রাফিক্স ডিজাইন</b> কোর্সের সম্পূর্ণ ফি পরিশোধ করা হয়েছে</p>
+                                                    :
+                                                    <h2 style={{ fontSize: '18px', lineHeight: '24px', color: '#343b6d', textAlign: 'center' }}><b>গ্রাফিক্স ডিজাইন</b> কোর্সের <b style={{ color: '#b94a8f' }}>{parseInt(graphicsDesign[graphicsDesign.length - 1]?.remaining_course_fee)} টাকা</b> বাকি</h2>
+                                                :
+                                                null
+                                        }
+
+                                        {
+                                            shobarJnnoFreelancing.length > 0 &&
+                                            parseInt(shobarJnnoFreelancing[shobarJnnoFreelancing.length - 1]?.remaining_course_fee) === 0 &&
+                                            <p><b>সবার জন্য ফ্রিল্যান্সিং</b> কোর্সের সম্পূর্ণ ফি পরিশোধ করা হয়েছে</p>
+                                        }
+
                                         {
                                             payments?.length > 0 &&
-                                            <div className="d-flex justify-content-center align-items-center">
-                                                <div className="">
-                                                    <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }}>Courses <br />{payments.length}</h2>
-                                                </div>
-                                                <div className="ps-5">
-                                                    <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', fontWeight: '700', textAlign: 'center' }}>Total Paid <br />{payments.reduce((a, b) => { return a + parseInt(b.amount); }, 0)}</h2>
-                                                    <button onClick={()=> navigate('/dashboard/payment-history')} className='btn btn-success mb-2 btn-sm'>ফী পরিশোধ করুন</button>
+                                            <div className="mt-5">
+                                                <div className="d-flex justify-content-center align-items-center mb-3">
+                                                    <div className="px-5">
+                                                        <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', textAlign: 'center' }}>সর্বমোট দিয়েছেন<br /><b>{payments.reduce((a, b) => { return a + parseInt(b.amount); }, 0)} টাকা</b></h2>
+                                                    </div>
+
+                                                    <div className="px-5">
+                                                        <h2 style={{ fontSize: '16px', lineHeight: '22px', color: '#343b6d', textAlign: 'center' }}>মোট বাকি আছে<br /><b style={{ color: '#b94a8f' }}>
+                                                            {
+                                                                parseInt(webDevelopment[webDevelopment.length - 1]?.remaining_course_fee ? webDevelopment[webDevelopment.length - 1]?.remaining_course_fee : 0) +
+                                                                parseInt(videoEditing[videoEditing.length - 1]?.remaining_course_fee ? videoEditing[videoEditing.length - 1]?.remaining_course_fee : 0) +
+                                                                parseInt(digitalMarketing[digitalMarketing.length - 1]?.remaining_course_fee ? digitalMarketing[digitalMarketing.length - 1]?.remaining_course_fee : 0) +
+                                                                parseInt(graphicsDesign[graphicsDesign.length - 1]?.remaining_course_fee ? graphicsDesign[graphicsDesign.length - 1]?.remaining_course_fee : 0)
+                                                            }  টাকা</b></h2>
+                                                    </div>
                                                 </div>
 
-                                                {/* {
-                                                payments.map(pd => {
-                                                    return (
-                                                        <div style={{border:'1px solid grey', borderRadius:'15px'}} className="d-flex justify-content-center align-items-center my-2 p-2" key={pd._id}>
-                                                            <p>Course Name: {pd.course}</p>
-                                                            <p>Paid: {pd.amount}</p>
-                                                            <p>Remaining Course Fee: {pd.remaining_course_fee}</p>
-                                                        </div>
-                                                    )
-                                                })
-                                            } */}
+                                                <button onClick={() => navigate('/dashboard/payment-history')} className='btn btn-success btn-sm mx-auto d-block my-3'>ফী পরিশোধ করুন</button>
                                             </div>
                                         }
                                     </div>

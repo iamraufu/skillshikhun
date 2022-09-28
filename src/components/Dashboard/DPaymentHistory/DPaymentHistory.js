@@ -32,30 +32,22 @@ const DPaymentHistory = () => {
 
     // Web Development
     useEffect(() => {
-        if (payments.filter(payment => payment.course === 'Web Development')) {
-            setWebDevelopment(payments.filter(payment => payment.course === 'Web Development'))
-        }
+        setWebDevelopment(payments.filter(payment => payment.course === 'Web Development'))
     }, [payments])
 
     // Digital Marketing
     useEffect(() => {
-        if (payments.filter(payment => payment.course === 'Digital Marketing')) {
-            setDigitalMarketing(payments.filter(payment => payment.course === 'Digital Marketing'))
-        }
+        setDigitalMarketing(payments.filter(payment => payment.course === 'Digital Marketing'))
     }, [payments])
 
     // Video Editing
     useEffect(() => {
-        if (payments.filter(payment => payment.course === 'Video Editing')) {
-            setVideoEditing(payments.filter(payment => payment.course === 'Video Editing'))
-        }
+        setVideoEditing(payments.filter(payment => payment.course === 'Video Editing'))
     }, [payments])
 
     // Graphics Design
     useEffect(() => {
-        if (payments.filter(payment => payment.course === 'Graphics Design')) {
-            setGraphicsDesign(payments.filter(payment => payment.course === 'Graphics Design'))
-        }
+        setGraphicsDesign(payments.filter(payment => payment.course === 'Graphics Design'))
     }, [payments])
 
     // Shobar Jnno Freelancing
@@ -119,49 +111,41 @@ const DPaymentHistory = () => {
                     {/* right container */}
                     <div style={{ minHeight: '800px', backgroundColor: '#f3f5f9', borderRadius: '15px', marginBottom: '5rem' }} className="col-xl-9 col-lg-9 col-md-12 pb-5">
 
-                        {/* Total Taka due */}
-                        {/* {
-                            payments.length > 0 &&
-                            <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px', backgroundColor: '#13338b' }} className="row align-items-center col-md-2 ms-auto me-2 mt-3">
-                                <h2 style={{ fontSize: '14px' }} className='text-center text-white'><span style={{ fontSize: '34px', fontWeight: '700', color: '#b94a8f' }}>{payments.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span><br />বাকি</h2>
-                            </div>
-                        } */}
-
                         {
-                            payments.length === 0 && <p className='text-center fw-bold mt-5 text-danger'> কোনো পেমেন্ট ইতিহাস পাওয়া যায় নি</p>
+                            payments.length === 0 && <p className='text-center fw-bold mt-5 text-danger'>কোনো পেমেন্ট ইতিহাস পাওয়া যায় নি</p>
                         }
 
                         {/* Web Development */}
                         {
                             webDevelopment.length > 0 &&
-                            <div id='web-development_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
+                            <div id='web-development_payment_history' className="row justify-content-center align-items-center mt-5 p-3">
+                                <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>ওয়েব ডেভেলপমেন্ট</span> কোর্সের পেমেন্ট ইতিহাস</h2>
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
-                                    {/* Baki Taka */}
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(webDevelopment[0].amount)} টাকা 
-                                        {/* {webDevelopment.reduce((a, b) => { return a + parseInt(b?.remaining_course_fee); }, 0)} */}
-                                        </span>
-                                        <br />এক মাসের ফী
-                                    </h2>
-
+                                    {/* Baki Taka dewar button*/}
                                     {
                                         parseInt(webDevelopment[webDevelopment.length - 1]?.remaining_course_fee) === 0 ?
-                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>পরিশোধ করুন</button>
+                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো টাকা<br />বাকি নাই</h2>
                                             :
-                                            <button onClick={() => proceedToPayment(webDevelopment)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>পরিশোধ করুন</button>
+                                            <div>
+                                                <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(webDevelopment[0].amount)} টাকা</span>
+                                                    <br />
+                                                </h2>
+                                                <button onClick={() => proceedToPayment(webDevelopment)} className='btn btn-success mx-auto d-block px-5 btn-sm' disabled={disabled}>পরিশোধ করুন</button>
+                                            </div>
                                     }
                                 </div>
 
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
                                     {/* Mot dewa taka */}
                                     <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#425ca2' }}>{webDevelopment.reduce((a, b) => { return a + parseInt(b.amount); }, 0)} টাকা</span>
-                                        <br />পরিশোধ
+                                        <br />পরিশোধ করেছেন
                                     </h2>
                                 </div>
 
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
                                     {/* Mot course er dam */}
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{webDevelopment.reduce((a, b) => { return a + parseInt(b.amount); }, 0) + webDevelopment.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span>
-                                        <br />মোট
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{parseInt(webDevelopment[0].amount) + parseInt(webDevelopment[0].remaining_course_fee)} টাকা</span>
+                                        <br />কোর্সের মূল্য
                                     </h2>
                                 </div>
                             </div>
@@ -170,49 +154,45 @@ const DPaymentHistory = () => {
                         {
                             webDevelopment.length > 0 &&
                             webDevelopment.map(purchased =>
-                                <div key={purchased._id} className='mt-5'>
-                                    <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>{purchased.course}</span> কোর্সের পেমেন্ট ইতিহাস</h2>
-
-                                    <div style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white">
-                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
-                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
-                                        <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
-                                        <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ: <b>{parseInt(purchased.amount)} টাকা</b></h5>
-                                    </div>
-                                    <hr />
+                                <div key={purchased._id} style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white mt-3">
+                                    <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
+                                    <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
+                                    <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
+                                    <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ করেছেন: <b>{parseInt(purchased.amount)} টাকা</b></h5>
                                 </div>
                             )}
-
 
                         {/* Video Editing */}
                         {
                             videoEditing.length > 0 &&
-                            <div id='video-editing_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
+                            <div id='video-editing_payment_history' className="row justify-content-center align-items-center mt-5 p-3">
+                                <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>ভিডিও এডিটিং</span> কোর্সের পেমেন্ট ইতিহাস</h2>
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
-                                    {/* Baki taka */}
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(videoEditing[0].amount)} টাকা</span>
-                                        <br />এক মাসের ফী
-                                    </h2> 
-
+                                    {/* Baki taka dewar button*/}
                                     {
                                         parseInt(videoEditing[videoEditing.length - 1]?.remaining_course_fee) === 0 ?
-                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>পরিশোধ করুন</button>
+                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো টাকা<br />বাকি নাই</h2>
                                             :
-                                            <button onClick={() => proceedToPayment(videoEditing)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>পরিশোধ করুন</button>
+                                            <div>
+                                                <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(videoEditing[0].amount)} টাকা</span>
+                                                    <br />
+                                                </h2>
+                                                <button onClick={() => proceedToPayment(videoEditing)} className='btn btn-success mx-auto d-block px-5 btn-sm' disabled={disabled}>পরিশোধ করুন</button>
+                                            </div>
                                     }
                                 </div>
 
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
                                     {/* Mot dewa taka */}
                                     <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#425ca2' }}>{videoEditing.reduce((a, b) => { return a + parseInt(b.amount); }, 0)} টাকা</span>
-                                        <br />পরিশোধ
+                                        <br />পরিশোধ করেছেন
                                     </h2>
                                 </div>
 
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
                                     {/* Mot course er dam */}
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{videoEditing.reduce((a, b) => { return a + parseInt(b.amount); }, 0) + videoEditing.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span>
-                                        <br />মোট
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{parseInt(videoEditing[0].amount) + parseInt(videoEditing[0].remaining_course_fee)} টাকা</span>
+                                        <br />কোর্সের মূল্য
                                     </h2>
                                 </div>
                             </div>
@@ -221,49 +201,45 @@ const DPaymentHistory = () => {
                         {
                             videoEditing.length > 0 &&
                             videoEditing.map(purchased =>
-                                <div key={purchased._id} className='mt-5'>
-                                    <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>{purchased.course}</span> কোর্সের পেমেন্ট ইতিহাস</h2>
-
-                                    <div style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white">
-                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
-                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
-                                        <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
-                                        <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ: <b>{parseInt(purchased.amount)} টাকা</b></h5>
-                                    </div>
-                                    <hr />
+                                <div key={purchased._id} style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white mt-3">
+                                    <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
+                                    <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
+                                    <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
+                                    <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ করেছেন: <b>{parseInt(purchased.amount)} টাকা</b></h5>
                                 </div>
                             )}
-
 
                         {/* Digital Marketing */}
                         {
                             digitalMarketing.length > 0 &&
-                            <div id='digital-marketing_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
+                            <div id='digital-marketing_payment_history' className="row justify-content-center align-items-center mt-5 p-3">
+                                <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>ডিজিটাল মার্কেটিং</span> কোর্সের পেমেন্ট ইতিহাস</h2>
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
                                     {/* baki taka */}
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(digitalMarketing[0].amount)} টাকা</span>
-                                        <br />এক মাসের ফী
-                                    </h2>
-
                                     {
                                         parseInt(digitalMarketing[digitalMarketing.length - 1]?.remaining_course_fee) === 0 ?
-                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>পরিশোধ করুন</button>
+                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো টাকা<br />বাকি নাই</h2>
                                             :
-                                            <button onClick={() => proceedToPayment(digitalMarketing)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>পরিশোধ করুন</button>
+                                            <div>
+                                                <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(digitalMarketing[0].amount)} টাকা</span>
+                                                    <br />
+                                                </h2>
+                                                <button onClick={() => proceedToPayment(digitalMarketing)} className='btn btn-success mx-auto d-block px-5 btn-sm' disabled={disabled}>পরিশোধ করুন</button>
+                                            </div>
                                     }
                                 </div>
 
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
                                     {/* mot dewa taka */}
                                     <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#425ca2' }}>{digitalMarketing.reduce((a, b) => { return a + parseInt(b.amount); }, 0)} টাকা</span>
-                                        <br />পরিশোধ
+                                        <br />পরিশোধ করেছেন
                                     </h2>
                                 </div>
 
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
                                     {/* Mot course er dam */}
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{digitalMarketing.reduce((a, b) => { return a + parseInt(b.amount); }, 0) + digitalMarketing.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span>
-                                        <br />মোট
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{parseInt(digitalMarketing[0].amount) + parseInt(digitalMarketing[0].remaining_course_fee)} টাকা</span>
+                                        <br />কোর্সের মূল্য
                                     </h2>
                                 </div>
                             </div>
@@ -272,46 +248,42 @@ const DPaymentHistory = () => {
                         {
                             digitalMarketing.length > 0 &&
                             digitalMarketing.map(purchased =>
-                                <div key={purchased._id} className='mt-5'>
-                                    <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>{purchased.course}</span> কোর্সের পেমেন্ট ইতিহাস</h2>
-
-                                    <div style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white">
-                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
-                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
-                                        <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
-                                        <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ: <b>{parseInt(purchased.amount)} টাকা</b></h5>
-                                    </div>
-                                    <hr />
+                                <div key={purchased._id} style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white mt-3">
+                                    <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
+                                    <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
+                                    <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
+                                    <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ করেছেন: <b>{parseInt(purchased.amount)} টাকা</b></h5>
                                 </div>
                             )}
-
 
                         {/* Graphics Design */}
                         {
                             graphicsDesign.length > 0 &&
-                            <div id='graphics-design_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
+                            <div id='graphics-design_payment_history' className="row justify-content-center align-items-center mt-5 p-3">
+                                <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>গ্রাফিক্স ডিজাইন</span> কোর্সের পেমেন্ট ইতিহাস</h2>
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(graphicsDesign[0].amount)} টাকা</span>
-                                        <br />এক মাসের ফী
-                                    </h2>
-
                                     {
                                         parseInt(graphicsDesign[graphicsDesign.length - 1]?.remaining_course_fee) === 0 ?
-                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>পরিশোধ করুন</button>
+                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো টাকা<br />বাকি নাই</h2>
                                             :
-                                            <button onClick={() => proceedToPayment(graphicsDesign)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>পরিশোধ করুন</button>
+                                            <div>
+                                                <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(graphicsDesign[0].amount)} টাকা</span>
+                                                    <br />
+                                                </h2>
+                                                <button onClick={() => proceedToPayment(graphicsDesign)} className='btn btn-success mx-auto d-block px-5 btn-sm' disabled={disabled}>পরিশোধ করুন</button>
+                                            </div>
                                     }
                                 </div>
 
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
                                     <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#425ca2' }}>{graphicsDesign.reduce((a, b) => { return a + parseInt(b.amount); }, 0)} টাকা</span>
-                                        <br />পরিশোধ
+                                        <br />পরিশোধ করেছেন
                                     </h2>
                                 </div>
 
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{graphicsDesign.reduce((a, b) => { return a + parseInt(b.amount); }, 0) + graphicsDesign.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span>
-                                        <br />মোট
+                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{parseInt(graphicsDesign[0].amount) + parseInt(graphicsDesign[0].remaining_course_fee)} টাকা</span>
+                                        <br />কোর্সের মূল্য
                                     </h2>
                                 </div>
                             </div>
@@ -320,64 +292,31 @@ const DPaymentHistory = () => {
                         {
                             graphicsDesign.length > 0 &&
                             graphicsDesign.map(purchased =>
-                                <div key={purchased._id} className='mt-5'>
-                                    <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>{purchased.course}</span> কোর্সের পেমেন্ট ইতিহাস</h2>
-
-                                    <div style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white">
-                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
-                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
-                                        <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
-                                        <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ: <b>{parseInt(purchased.amount)} টাকা</b></h5>
-                                    </div>
-                                    <hr />
+                                <div key={purchased._id} style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white mt-3">
+                                    <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
+                                    <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
+                                    <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
+                                    <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ করেছেন: <b>{parseInt(purchased.amount)} টাকা</b></h5>
                                 </div>
-                            )}
-
+                            )
+                        }
 
                         {/* Shobar Jnno Freelancing */}
                         {
                             shobarJnnoFreelancing.length > 0 &&
-                            <div id='shobar-jnno-freelancing_payment_history' className="row justify-content-center align-items-center mb-5 mx-2">
-                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
-                                    {/* baki taka */}
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(shobarJnnoFreelancing[0].amount)} টাকা</span>
-                                        <br />ফী
-                                    </h2>
-
-                                    {
-                                        parseInt(shobarJnnoFreelancing[shobarJnnoFreelancing.length - 1]?.remaining_course_fee) === 0 ?
-                                            <button className='btn btn-secondary mx-auto d-block px-5' disabled={true}>পরিশোধ করুন</button>
-                                            :
-                                            <button onClick={() => proceedToPayment(shobarJnnoFreelancing)} className='btn btn-success mx-auto d-block px-5' disabled={disabled}>পরিশোধ করুন</button>
-                                    }
-                                </div>
-
-                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#425ca2' }}>{shobarJnnoFreelancing.reduce((a, b) => { return a + parseInt(b.amount); }, 0)} টাকা</span>
-                                        <br />পরিশোধ
-                                    </h2>
-                                </div>
-
-                                <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="d-flex justify-content-center align-items-center col-sm-3 p-3 bg-white m-3">
-                                    <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700' }}>{shobarJnnoFreelancing.reduce((a, b) => { return a + parseInt(b.amount); }, 0) + shobarJnnoFreelancing.reduce((a, b) => { return a + parseInt(b.remaining_course_fee); }, 0)} টাকা</span>
-                                        <br />মোট
-                                    </h2>
-                                </div>
+                            <div id='shobar-jnno-freelancing_payment_history' className="row justify-content-center align-items-center mt-5 p-3">
+                                <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>সবার জন্য ফ্রিল্যান্সিং</span> কোর্সের পেমেন্ট ইতিহাস</h2>
                             </div>
                         }
 
                         {
                             shobarJnnoFreelancing.length > 0 &&
                             shobarJnnoFreelancing.map(purchased =>
-                                <div key={purchased._id} className='mt-5'>
-                                    <h2 style={{ fontSize: '20px', lineHeight: '24px', color: '#343b6d', fontWeight: '700' }}> <span style={{ color: '#b94a8f' }}>{purchased.course}</span> কোর্সের পেমেন্ট ইতিহাস</h2>
-
-                                    <div style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white">
-                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
-                                        <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
-                                        <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
-                                        <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ: <b>{parseInt(purchased.amount)} টাকা</b></h5>
-                                    </div>
+                                <div key={purchased._id} style={{ border: '1px solid lightgrey', borderRadius: '10px' }} className="p-3 col-lg-4 bg-white">
+                                    <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.purchased.slice(0, 10)}</h2>
+                                    <h2 style={{ fontSize: '11px', color: '#050400' }}>{purchased.payment_mode} - {purchased.card_number}</h2>
+                                    <h3 style={{ fontSize: '15px', color: '#696866' }}>{purchased.course}</h3>
+                                    <h5 style={{ fontSize: '18px', color: '#696866' }}>পরিশোধ করেছেন: <b>{parseInt(purchased.amount)} টাকা</b></h5>
                                 </div>
                             )}
 

@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import './DNavbar.css';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 // import user from '../../../images/dashboard/user.svg';
 import web from '../../../images/dashboard/web.svg';
 import out from '../../../images/dashboard/out.svg';
+import back from '../../../images/dashboard/back.svg';
 import useAuth from '../../../hooks/useAuth';
 import { useEffect } from 'react';
 
 const DNavbar = () => {
 
     const { logOut } = useAuth();
+    const navigate = useNavigate();
 
     // const phone = localStorage.getItem('phone');
     const name = JSON.parse(localStorage.getItem('name'));
@@ -44,25 +44,37 @@ const DNavbar = () => {
         <div style={{ borderWidth: '1px', boxShadow: '0 5px 15px #c4c4c44d' }} className="bg-white fixed-top">
             <div className="container-xl navbar-container">
 
-                <nav style={{paddingTop:'0', paddingBottom:'0'}} className="navbar navbar-expand-lg navbar-light">
+                <nav style={{ paddingTop: '0', paddingBottom: '0' }} className="navbar navbar-expand-lg navbar-light">
                     <div className="container-fluid navbar-container">
 
                         <Link
                             // className='text-decoration-none text-black' 
                             onClick={() => { window.scrollTo(0, 0); }} to='/dashboard'>
-                            <img src={logo} className='img-fluid' width={90} alt="Skill শিখুন" loading="lazy" />
+                            <img src={logo} className='img-fluid py-2' width={90} alt="Skill শিখুন" loading="lazy" />
                             {/* ড্যাশবোর্ড */}
                         </Link>
 
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            {/* <span className="navbar-toggler-icon"></span> */}
-                            {
-                                user?.email ?
-                                    <><img style={{ borderRadius: '50%' }} className='img-fluid' width={50} src={user?.photo} alt="" /> <FontAwesomeIcon icon={faAngleDown} /></>
-                                    : <FontAwesomeIcon icon={faAngleDown} />
-                                    // <span className="navbar-toggler-icon"></span>
-                            }
-                        </button>
+                        <div className="d-flex justify-content-center align-items-center d-lg-none ms-auto">
+                            <div onClick={()=> {
+                                navigate('/')
+                                window.scrollTo(0, 0)
+                                }} className="">
+                                <img src={web} width={20} className='img-fluid mx-2' alt="Homepage" />
+                            </div>
+
+                            <div onClick={()=> {
+                                navigate(-1)
+                                window.scrollTo(0, 0)
+                                }} 
+                                className="d-flex justify-content-center align-items-center mx-2">
+                                <img src={back} width={20} className='img-fluid me-1' alt="Go Back" />
+                                <p className='pt-3'>Back</p>
+                            </div>
+                        </div>
+
+                        {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+                        </button> */}
 
                         <div className="collapse navbar-collapse navbar-menu" id="navbarNavAltMarkup">
                             {/* <div className="accordion accordion-flush ms-auto" id="accordionFlushExample">
@@ -96,29 +108,29 @@ const DNavbar = () => {
                             </div> */}
 
                             {/* <div className="d-flex justify-content-center align-items-center"> */}
-                            
+
                             {/* </div> */}
 
                             <div className="d-none d-lg-block ms-auto">
-                            {
-                                user?.email ?
-                                    <Link to='/dashboard/profile' className='text-decoration-none'><h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center pt-2 me-2'><img style={{ borderRadius: '50%' }} width={50} src={user?.photo} alt="" /> {user?.name}</h2></Link>
-                                    :
-                                    <Link to='/dashboard/profile' className='text-decoration-none'><h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center pt-2 me-2'>{name}</h2></Link>
-                            }
+                                {
+                                    user?.email ?
+                                        <Link to='/dashboard/profile' className='text-decoration-none'><h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center pt-2 me-2'><img style={{ borderRadius: '50%' }} width={50} src={user?.photo} alt="" /> {user?.name}</h2></Link>
+                                        :
+                                        <Link to='/dashboard/profile' className='text-decoration-none'><h2 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className='text-center pt-2 me-2'>{name}</h2></Link>
+                                }
                             </div>
 
                             <div className="d-lg-none">
-                            <Link to="/" className='text-black text-decoration-none'>
-                                                <div className="d-flex justify-content-center align-items-center">
-                                                <img src={web} width={20} className='img-fluid me-2 pb-3' alt="Homepage" />
-                                                <p>হোমপেইজে ফিরে যান</p>
-                                                </div>
-                            </Link>
-                            <div style={{cursor: 'pointer'}} onClick = {()=> logOut()} className="d-flex justify-content-center align-items-center">
-                                                <img src={out} width={20} className='img-fluid me-2 pb-3' alt="Homepage" />
-                                                <p>লগ আউট করুন</p>
-                                            </div>
+                                <Link to="/" className='text-black text-decoration-none'>
+                                    <div className="d-flex justify-content-center align-items-center">
+                                        <img src={web} width={20} className='img-fluid me-2 pb-3' alt="Homepage" />
+                                        <p>হোমপেইজে ফিরে যান</p>
+                                    </div>
+                                </Link>
+                                <div style={{ cursor: 'pointer' }} onClick={() => logOut()} className="d-flex justify-content-center align-items-center">
+                                    <img src={out} width={20} className='img-fluid me-2 pb-3' alt="Homepage" />
+                                    <p>লগ আউট করুন</p>
+                                </div>
                             </div>
 
                         </div>
