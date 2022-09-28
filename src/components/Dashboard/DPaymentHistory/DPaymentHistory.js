@@ -91,10 +91,10 @@ const DPaymentHistory = () => {
                 // success_url: `http://localhost:5000/api/make-payment`,   // test
                 fail_url: `https://skillshikhun.herokuapp.com/api/payment-failure`,
                 cancel_url: `https://skillshikhun.com/dashboard/payment-history`,
-                desc: `${data.course} Course`,
+                desc: `${data[0].course} Course Installment`,
                 type: "json",
-                opt_a: `${data.course}`,
-                opt_b: `${data.type}`,
+                opt_a: `${data[0].course}`,
+                opt_b: `${data[0].type}`,
                 opt_c: `${data[data.length - 1]?.remaining_course_fee - data[0].amount}`,
                 opt_d: ``
             })
