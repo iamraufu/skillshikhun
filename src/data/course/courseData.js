@@ -1787,7 +1787,7 @@ const courseData = [
         price_per_month_bn: '১৫০০',
         price_saved: '২৫০',
         course_done: '২৩৪',
-        next_batch: 'সেপ্টেম্বর',
+        next_batch: 'নভেম্বর',
         next_batch_eng: '2022-09-11T09:00:00.000+06:00',
         seat_left: '১১',
         course_instructor: 'ইফতিখার রহমান',
