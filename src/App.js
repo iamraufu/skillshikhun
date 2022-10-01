@@ -22,6 +22,7 @@ import logo from './images/logo.png';
 import Privacy from './components/Privacy/Privacy';
 import Terms from './components/Terms/Terms';
 import DLiveCourseVideo from './components/Dashboard/DLiveCourse/DLiveCourseVideo';
+import DLiveCourseVideoB2 from './components/Dashboard/DLiveCourse/DLiveCourseVideoB2';
 import DPrevFreeClass from './components/Dashboard/DPrevFreeClass/DPrevFreeClass';
 import User from './components/User/User';
 import DClassRecordings from './components/Dashboard/DClassRecordings/DClassRecordings';
@@ -75,6 +76,7 @@ function App() {
             <Route path="/success" element={<Success />} />
             <Route path="/checkout/:courseId" element={<Checkout />} />
             <Route path="course/live/video/:courseId" element={<DLiveCourseVideo />} />
+            <Route path="course/live/video/batch-2/:courseId" element={<DLiveCourseVideoB2 />} />
             <Route path="courses/:courseId" element={<VideoPlayer />} />
             {/* <Route path="/:username" element={<User />} /> */}
 
