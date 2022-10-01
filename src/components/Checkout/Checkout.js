@@ -27,7 +27,7 @@ const Checkout = () => {
     let navigate = useNavigate();
 
     const { courseId } = useParams();
-    const course = courseData.filter(course => course.id === courseId);
+    const course = courseData.filter(course => course?.id === courseId);
     const [discount, setDiscount] = useState(0);
     const [remainingPrice, setRemainingPrice] = useState(0);
 
@@ -37,7 +37,7 @@ const Checkout = () => {
     // useEffect(()=>{
     //     if (course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং') {
     //         basePrice = 550;
-            
+
     //     }
     //     else {
     //         basePrice = 1500;
@@ -64,8 +64,8 @@ const Checkout = () => {
     const name = JSON.parse(localStorage.getItem('name'));
     const [userPhoneData, setUserPhoneData] = useState({})
     // const [price, setPrice] = useState(basePrice - discount);
-    const [price, setPrice] = useState(course[0].price_per_month - discount);
-    const [total, setTotal] = useState(course[0].course_duration_eng * price);
+    const [price, setPrice] = useState(course[0]?.price_per_month - discount);
+    const [total, setTotal] = useState(course[0]?.course_duration_eng * price);
     // const [paymentGateway, setPaymentGateway] = useState([]);
 
     const [payments, setPayments] = useState([]);
@@ -84,10 +84,10 @@ const Checkout = () => {
         fetchData();
     }, [phone])
 
-    payments.map(paid => paid.course).find(paid => paid === course[0].name) && navigate('/dashboard');
+    payments.map(paid => paid.course).find(paid => paid === course[0]?.name) && navigate('/dashboard');
 
     useEffect(() => {
-        if (promo?.course === course[0].name) {
+        if (promo?.course === course[0]?.name) {
             setDiscount(promo?.discount)
         }
     }, [course, promo?.course, promo?.discount])
@@ -112,9 +112,9 @@ const Checkout = () => {
             document.getElementById('monthly').style.border = "1px solid #dde7f3";
             document.getElementById('monthly').style.backgroundColor = "transparent";
             // setPrice(course[0].offer_price);
-            
+
             // setPrice((basePrice * course[0].course_duration_eng) - (discount * course[0].course_duration_eng))
-            setPrice((course[0].price_per_month * course[0].course_duration_eng) - (discount * course[0].course_duration_eng))
+            setPrice((course[0]?.price_per_month * course[0]?.course_duration_eng) - (discount * course[0]?.course_duration_eng))
             setDisabled(false);
         }
         else {
@@ -135,9 +135,9 @@ const Checkout = () => {
             document.getElementById('monthly').style.border = "1px solid green";
             document.getElementById('monthly').style.backgroundColor = "#f0f7ff";
             // setPrice(course[0].price_per_month);
-            
+
             // setPrice(basePrice - discount);
-            setPrice(course[0].price_per_month - discount);
+            setPrice(course[0]?.price_per_month - discount);
             setDisabled(false);
         }
     }
@@ -183,7 +183,49 @@ const Checkout = () => {
             timeLeft -= 1;
         }, 1000);
 
-        // Aamar Pay Payment Gateway
+        // payment info for freelancing course
+        if (course[0].name === 'সবার জন্য ফ্রিল্যান্সিং') {
+            // Aamar Pay Payment Gateway
+            // await fetch('https://sandbox.aamarpay.com/jsonpost.php', {   // test
+            await fetch('https://secure.aamarpay.com/jsonpost.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+                body: JSON.stringify({
+                    store_id: "skillshikhun",
+                    // store_id: "aamarpaytest", // test
+                    signature_key: "7445cc98363b6b9cae4af766ef0f0186",
+                    // signature_key: "dbb74894e82415a2f7ff0ec3a97e4183",  // test
+                    cus_name: `${userPhoneData?.name}`,
+                    cus_email: `${userPhoneData?.email}`,
+                    cus_phone: `${userPhoneData?.phone}`,
+                    cus_add1: "Skill Shikhun, Dhaka, Bangladesh",
+                    cus_add2: "Dhaka",
+                    cus_city: "Dhaka",
+                    cus_country: "Bangladesh",
+                    amount: `${price}`,
+                    // amount: 1,  // test
+                    tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
+                    currency: "BDT",
+                    success_url: `https://skillshikhun.herokuapp.com/api/make-payment`,
+                    fail_url: `https://skillshikhun.herokuapp.com/api/payment-failure`,
+                    cancel_url: `https://www.skillshikhun.com/checkout/${courseId}`,
+                    desc: `${course[0]?.slug} Course`,
+                    type: "json",
+                    opt_a: `${course[0]?.name}`,
+                    opt_b: "1", // batch number
+                    opt_c: `0` // remaining amount
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    localStorage.removeItem('code');
+                    window.location.replace(data.payment_url);
+                })
+        }
+
+        // payment info for other coursers
+        else {
+            // Aamar Pay Payment Gateway
         // await fetch('https://sandbox.aamarpay.com/jsonpost.php', {   // test
         await fetch('https://secure.aamarpay.com/jsonpost.php', {
             method: 'POST',
@@ -193,9 +235,9 @@ const Checkout = () => {
                 // store_id: "aamarpaytest", // test
                 signature_key: "7445cc98363b6b9cae4af766ef0f0186",
                 // signature_key: "dbb74894e82415a2f7ff0ec3a97e4183",  // test
-                cus_name: `${userPhoneData.name}`,
-                cus_email: `${userPhoneData.email}`,
-                cus_phone: `${userPhoneData.phone}`,
+                cus_name: `${userPhoneData?.name}`,
+                cus_email: `${userPhoneData?.email}`,
+                cus_phone: `${userPhoneData?.phone}`,
                 cus_add1: "Skill Shikhun, Dhaka, Bangladesh",
                 cus_add2: "Dhaka",
                 cus_city: "Dhaka",
@@ -208,12 +250,11 @@ const Checkout = () => {
                 // success_url: `http://localhost:5000/api/make-payment`,   // test
                 fail_url: `https://skillshikhun.herokuapp.com/api/payment-failure`,
                 cancel_url: `https://www.skillshikhun.com/checkout/${courseId}`,
-                desc: `${course[0].slug} Course`,
+                desc: `${course[0]?.slug} Course`,
                 type: "json",
-                opt_a: `${course[0].name}`,
-                opt_b: `${course[0].type}`,
-                opt_c: `${remainingPrice}`,
-                opt_d: `${promo.discount}`
+                opt_a: `${course[0]?.name}`,
+                opt_b: "2", // batch number
+                opt_c: `${remainingPrice}` 
             })
         })
             .then(res => res.json())
@@ -221,8 +262,7 @@ const Checkout = () => {
                 localStorage.removeItem('code');
                 window.location.replace(data.payment_url);
             })
-
-
+        }
 
         // SSL Payment Gateway
         // fetch('https://skillshikhun.herokuapp.com/ssl-request'
@@ -266,20 +306,19 @@ const Checkout = () => {
         //         // window.location.replace(data.payment_url)
         //     }
         //     )
-
     }
 
     useEffect(() => {
         if (promo.discount && promo.course === course[0].name) {
             // setPrice(basePrice - promo.discount)
-            setPrice(course[0].price_per_month - promo.discount)
+            setPrice(course[0]?.price_per_month - promo.discount)
         }
         // eslint-disable-next-line
     }, [promo?.discount])
 
     useEffect(() => {
         // setTotal(basePrice * course[0].course_duration_eng - discount * course[0].course_duration_eng);
-        setTotal(course[0].price_per_month * course[0].course_duration_eng - discount * course[0].course_duration_eng);
+        setTotal(course[0]?.price_per_month * course[0]?.course_duration_eng - discount * course[0]?.course_duration_eng);
     }, [course, discount, price])
 
     useEffect(() => {
@@ -325,7 +364,7 @@ const Checkout = () => {
             })
     }
 
-    // console.log(basePrice, price, course[0].price_per_month);
+    console.log(course[0])
 
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)' }}>
@@ -351,23 +390,23 @@ const Checkout = () => {
 
                         <div style={{ borderRadius: '10px', boxShadow: '0 3px 10px 3px rgba(127, 127, 127, 0.2)', height: '180px' }} className="d-flex justify-content-center align-items-center bg-white p-3">
                             <div className="col-sm-6">
-                                <img src={course[0].image} style={{ borderRadius: '10px' }} width={400} height={100} className='img-fluid' alt={course[0].slug} loading="lazy" />
+                                <img src={course[0]?.image} style={{ borderRadius: '10px' }} width={400} height={100} className='img-fluid' alt={course[0]?.slug} loading="lazy" />
                             </div>
                             <div className="ps-3 col-sm-6 text-center">
-                                <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold'>{course[0].slug}</h2>
+                                <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold'>{course[0]?.slug}</h2>
                                 {/* <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].price_per_month_bn} প্রতি মাস</h3> */}
                                 {
                                     course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
                                         <>
-                                            <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].price_per_month_bn}</h3>
-                                            <h6><span className='fw-bold'>{course[0].course_duration} দিনের</span> কোর্স</h6>
-                                            <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
+                                            <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0]?.price_per_month_bn}</h3>
+                                            <h6><span className='fw-bold'>{course[0]?.course_duration} দিনের</span> কোর্স</h6>
+                                            <h6>ব্যাচ <span className='fw-bold'>{course[0]?.next_batch} ২০২২</span></h6>
                                         </> :
                                         <>
                                             {/* <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {basePrice - discount} প্রতি মাস</h3> */}
-                                            <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].price_per_month - discount} প্রতি মাস</h3>
-                                            <h6><span className='fw-bold'>{course[0].course_duration} মাসের</span> কোর্স | কোর্সটি করেছেন <span className='fw-bold'>{course[0].course_done}</span> জন</h6>
-                                            <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
+                                            <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0]?.price_per_month - discount} প্রতি মাস</h3>
+                                            <h6><span className='fw-bold'>{course[0]?.course_duration} মাসের</span> কোর্স | কোর্সটি করেছেন <span className='fw-bold'>{course[0]?.course_done}</span> জন</h6>
+                                            <h6>ব্যাচ <span className='fw-bold'>{course[0]?.next_batch} ২০২২</span></h6>
                                         </>
                                 }
                             </div>
@@ -435,14 +474,14 @@ const Checkout = () => {
                                         </div>
 
                                         <div className="col-sm-7">
-                                            <h3 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }}>{course[0].next_batch} মাসের ফি</h3>
+                                            <h3 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }}>{course[0]?.next_batch} মাসের ফি</h3>
                                             <p style={{ fontSize: '14px', lineHeight: '22px' }}>মাসিক ভিত্তিতে একমাসের ফি</p>
                                         </div>
 
                                         <div style={{ textAlign: 'right' }} className="col-sm-3">
                                             {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].price_per_month_bn}</h4> */}
                                             {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {basePrice - discount}</h4> */}
-                                            <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].price_per_month - discount}</h4>
+                                            <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0]?.price_per_month - discount}</h4>
                                         </div>
 
                                     </button>
@@ -455,16 +494,16 @@ const Checkout = () => {
                                         </div>
 
                                         <div className="col-sm-7">
-                                            <h3 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }}>{course[0].course_duration} মাসের ফি</h3>
-                                            <p style={{ fontSize: '14px', lineHeight: '22px' }}>একত্রে {course[0].next_batch} মাস সহ {course[0].course_duration} মাসের ফি</p>
+                                            <h3 style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }}>{course[0]?.course_duration} মাসের ফি</h3>
+                                            <p style={{ fontSize: '14px', lineHeight: '22px' }}>একত্রে {course[0]?.next_batch} মাস সহ {course[0]?.course_duration} মাসের ফি</p>
                                         </div>
 
                                         <div style={{ textAlign: 'right' }} className="col-sm-3">
                                             {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {course[0].offer_price_bn}</h4> */}
-                                            
+
                                             {/* <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {(basePrice * course[0].course_duration_eng) - (discount * course[0].course_duration_eng)}</h4> */}
-                                            <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {(course[0].price_per_month * course[0].course_duration_eng) - (discount * course[0].course_duration_eng)}</h4>
-                                            
+                                            <h4 style={{ fontSize: '16px', lineHeight: "24px", color: '#3f3f3f', fontWeight: 'bold' }}>&#2547; {(course[0]?.price_per_month * course[0]?.course_duration_eng) - (discount * course[0]?.course_duration_eng)}</h4>
+
                                             {/* <small className='text-success fw-bold'>খরচ বাঁচবে &#2547; {course[0].price_saved}</small> */}
                                         </div>
 
@@ -566,8 +605,8 @@ const Checkout = () => {
                                     <div className="ps-3 col-sm-6 text-center">
                                         <h2 style={{ fontSize: '16px', lineHeight: '24px', color: '#3f3f3f' }} className='fw-bold'>{course[0].slug}</h2>
                                         <h3 style={{ fontSize: '20px', lineHeight: "28px", color: '#3f3f3f' }} className='fw-bold'>&#2547; {course[0].offer_price_bn}</h3>
-                                        <h6><span className='fw-bold'>{course[0].course_duration} দিনের</span> কোর্স</h6>
-                                        <h6>ব্যাচ <span className='fw-bold'>{course[0].next_batch} ২০২২</span></h6>
+                                        <h6><span className='fw-bold'>{course[0]?.course_duration} দিনের</span> কোর্স</h6>
+                                        <h6>ব্যাচ <span className='fw-bold'>{course[0]?.next_batch} ২০২২</span></h6>
                                     </div>
                                 </div> :
                                 <CourseReview course={course[0]} />
@@ -604,7 +643,7 @@ const Checkout = () => {
                     }>
                         {
                             course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং' ? null :
-                            <span style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold text-center mt-3'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /></span>
+                                <span style={{ textDecoration: 'underline', cursor: 'pointer', color: '#653dae' }} className='fs-6 mx-auto d-block fw-bold text-center mt-3'>প্রোমো কোড <img width={25} className='img-fluid' src={clickImage} alt="Promo" /></span>
                         }
                     </div>
                 }

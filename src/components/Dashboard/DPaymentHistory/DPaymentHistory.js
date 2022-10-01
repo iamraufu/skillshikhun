@@ -86,9 +86,8 @@ const DPaymentHistory = () => {
                 desc: `${data[0].course} Course Installment`,
                 type: "json",
                 opt_a: `${data[0].course}`,
-                opt_b: `${data[0].type}`,
-                opt_c: `${data[data.length - 1]?.remaining_course_fee - data[0].amount}`,
-                opt_d: ``
+                opt_b: "Installment",  // Installment 
+                opt_c: `${data[data.length - 1]?.remaining_course_fee - data[0].amount}`
             })
         })
             .then(res => res.json())
@@ -130,7 +129,7 @@ const DPaymentHistory = () => {
                                                 <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(webDevelopment[0].amount)} টাকা</span>
                                                     <br />
                                                 </h2>
-                                                <button onClick={() => proceedToPayment(webDevelopment)} className='btn btn-success mx-auto d-block px-5 btn-sm' disabled={disabled}>পরিশোধ করুন</button>
+                                                <button onClick={() => proceedToPayment(webDevelopment)} className='btn btn-success mx-auto d-block px-5 btn-sm py-2' disabled={disabled}>পরিশোধ করুন</button>
                                             </div>
                                     }
                                 </div>

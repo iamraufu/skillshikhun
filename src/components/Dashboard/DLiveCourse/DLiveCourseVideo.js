@@ -35,14 +35,14 @@ const DLiveCourseVideo = () => {
             .then(response => response.json())
             .then(data => {
                 setVideos(data)
-                setVideoTitle(data[0].title)
-                setVideoId(data[0].videoId)
+                setVideoTitle(data[0]?.title)
+                setVideoId(data[0]?.videoId)
             })
     }, [category])
 
     const clickHandler = (item) => {
-        setVideoTitle(item.title)
-        setVideoId(item.videoId)
+        setVideoTitle(item?.title)
+        setVideoId(item?.videoId)
     }
 
     // const getVideos = async () => {
@@ -61,7 +61,12 @@ const DLiveCourseVideo = () => {
             <DNavbar />
             <div className='container-fluid mt-5'>
                 <div className='row'>
-                    <h1 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='text-center mt-4'>{course.title}</h1>
+                    <h1 style={{ fontSize: '24px', lineHeight: '36px', color: '#343b6d', fontWeight: '700' }} className='text-center mt-5'>{course?.title}</h1>
+
+                    {
+                        course?.name === 'সবার জন্য ফ্রিল্যান্সিং' &&
+                        videos.length === 0 && <p className="text-center text-danger fw-bold">আপনার ব্যাচ এখনো শুরু হয় নি</p>
+                    }
 
                     {/* <div className="p-5">
                         <div style={{ position: 'relative', 'paddingTop': '56.25%' }}>
@@ -113,7 +118,7 @@ const DLiveCourseVideo = () => {
                         videos.length > 0 ?
                             <div className="col-md-4 pt-2">
                                 {videos.map(item =>
-                                    <h2 onClick={() => clickHandler(item)} style={{ cursor: 'pointer' }} className="fs-6 fw-bold">
+                                    <h2 key={item._id} onClick={() => clickHandler(item)} style={{ cursor: 'pointer' }} className="fs-6 fw-bold">
                                         <img width={25} src={rounded_play} alt={item.title} /> {item.title}
                                     </h2>
                                 )}

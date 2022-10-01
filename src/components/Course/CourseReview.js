@@ -9,7 +9,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const CourseReview = (props) => {
     const course = props.course;
-    const review = reviewData.filter(review => review.courseName === course.slug);
+    const review = reviewData.filter(review => review.courseName === course?.slug);
     const AutoplaySlider = withAutoplay(AwesomeSlider);
 
     return (

@@ -8,10 +8,10 @@
 .see-details-fade {
     background-color: transparent;
     color: #343b6d;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 6px 10px;
     font-size: 12px;
-    line-height: 24px;
+    line-height: 20px;
     font-weight: 400;
     outline: none;
     border: 1px solid #5468ff;

@@ -17,6 +17,7 @@ import clickImage from '../../images/promo/click.png';
 import call from '../../images/courses/call.svg';
 import messenger from '../../images/courses/messenger.svg';
 import whatsapp from '../../images/courses/whatsapp.svg';
+import Swal from 'sweetalert2';
 // import Countdown from '../Countdown/Countdown';
 const HowToPayment = React.lazy(() => import('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
@@ -91,7 +92,6 @@ const Course = (props) => {
         fetchData();
     }, [phone])
 
-
     useEffect(() => {
         liveCourses.filter(lc => lc.course === courseName).map(lc => setPurchasedLiveCourses([lc]))
     }, [liveCourses, courseName])
@@ -100,6 +100,18 @@ const Course = (props) => {
         setPpm(ppm - discount);
         // eslint-disable-next-line
     }, [discount])
+
+    const nextBatchAlert = () => {
+        Swal.fire({
+            icon:'info',
+            title:'আপনার ব্যাচ এখনো শুরু হয়নি',
+            text:`ব্যাচ শুরু হওয়ার সম্ভাব্য তারিখ ৬ নভেম্বর`,
+            timer: 3000,
+            confirmButtonText: 'আচ্ছা',
+        })
+    }
+
+    console.log(purchasedLiveCourses)
 
     return (
         <>
@@ -131,20 +143,36 @@ const Course = (props) => {
                             }} className="container position-sticky">
 
                                 {
-                                    purchasedLiveCourses.length ?
-                                        <>
-                                            <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block my-3 w-100'
-                                            // onClick={() => { window.scrollTo(0, 0); }}
-                                            >জয়েন ক্লাস</a>
+                                    purchasedLiveCourses.length > 0 ?
+                                        purchasedLiveCourses[0]?.batch === '1' ?
                                             <div className="">
-                                                <button onClick={() => {
-                                                    window.scrollTo(0, 0);
-                                                    navigate('/course/live/video/' + course.id)
-                                                    // window.location.replace(course.recording_link)
-                                                }} className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white d-none d-lg-block w-100'>ক্লাস রেকর্ডিংস</button>
-                                                {/* <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a> */}
+                                                <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block my-3 w-100'
+                                                // onClick={() => { window.scrollTo(0, 0); }}
+                                                >জয়েন ক্লাস</a>
+                                                <div className="">
+                                                    <button onClick={() => {
+                                                        window.scrollTo(0, 0);
+                                                        navigate('/course/live/video/' + course.id)
+                                                        // window.location.replace(course.recording_link)
+                                                    }} className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white d-none d-lg-block w-100'>ক্লাস রেকর্ডিংস</button>
+                                                    {/* <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a> */}
+                                                </div>
                                             </div>
-                                        </>
+                                            :
+                                            <div className="">
+                                                {/* <a href={course.live_link_batch2} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block my-3 w-100'
+                                                >জয়েন ক্লাস</a> */}
+                                                <button onClick={()=> nextBatchAlert()} className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block my-3 w-100'>জয়েন ক্লাস</button>
+                                                <div className="">
+                                                    <button onClick={() => {
+                                                        window.scrollTo(0, 0);
+                                                        navigate('/course/live/video/batch-2/' + course.id)
+                                                        // window.location.replace(course.recording_link)
+                                                    }} className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white d-none d-lg-block w-100'>ক্লাস রেকর্ডিংস</button>
+                                                    {/* <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a> */}
+                                                </div>
+                                            </div>
+
                                         :
 
                                         <div className="row py-3">
@@ -446,20 +474,34 @@ const Course = (props) => {
 
                     <div id="sm-info">
                         {
-                            purchasedLiveCourses.length ?
-                                <>
-                                    <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center'
-                                    // onClick={() => { window.scrollTo(0, 0); }}
-                                    >জয়েন ক্লাস</a>
-                                    <div className="px-1">
-                                        <button onClick={() => {
-                                            window.scrollTo(0, 0);
-                                            navigate('/course/live/video/' + course.id)
-                                            // window.location.replace(course.recording_link)
-                                        }} className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white w-100'>ক্লাস রেকর্ডিংস</button>
-                                        {/* <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a> */}
+                            purchasedLiveCourses.length > 0 ?
+                                purchasedLiveCourses[0]?.batch === '1' ?
+                                    <div className="">
+                                        <a href={course.live_link} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center'
+                                        >জয়েন ক্লাস</a>
+                                        <div className="px-1">
+                                            <button onClick={() => {
+                                                window.scrollTo(0, 0);
+                                                navigate('/course/live/video/' + course.id)
+                                                // window.location.replace(course.recording_link)
+                                            }} className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white w-100'>ক্লাস রেকর্ডিংস</button>
+                                            {/* <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a> */}
+                                        </div>
                                     </div>
-                                </>
+                                    :
+                                    <div className="">
+                                        {/* <a href={course.live_link_batch2} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center'
+                                        >জয়েন ক্লাস</a> */}
+                                        <button onClick={()=> nextBatchAlert()} className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center'>জয়েন ক্লাস</button>
+                                        <div className="px-1">
+                                            <button onClick={() => {
+                                                window.scrollTo(0, 0);
+                                                navigate('/course/live/video/batch-2/' + course.id)
+                                                // window.location.replace(course.recording_link)
+                                            }} className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white w-100'>ক্লাস রেকর্ডিংস</button>
+                                            {/* <a href={course.recording_link} target='_blank' rel="noreferrer" className='class-video mx-auto d-block p-3 my-2 text-decoration-none text-center fs-6 text-white'>ক্লাস রেকর্ডিংস</a> */}
+                                        </div>
+                                    </div>
                                 :
                                 <div className="my-3">
                                     <h2 style={{ fontSize: '14px', lineHeight: '18px' }} className='text-center'>ক্লাস শুরু হচ্ছে : ৬ {course.next_batch} ২০২২</h2>

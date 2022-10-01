@@ -3,15 +3,16 @@ import './DNavbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 // import user from '../../../images/dashboard/user.svg';
-import web from '../../../images/dashboard/web.svg';
-import out from '../../../images/dashboard/out.svg';
+// import web from '../../../images/dashboard/web.svg';
+// import out from '../../../images/dashboard/out.svg';
+import home from '../../../images/dashboard/home2.svg';
 import back from '../../../images/dashboard/back.svg';
-import useAuth from '../../../hooks/useAuth';
+// import useAuth from '../../../hooks/useAuth';
 import { useEffect } from 'react';
 
 const DNavbar = () => {
 
-    const { logOut } = useAuth();
+    // const { logOut } = useAuth();
     const navigate = useNavigate();
 
     // const phone = localStorage.getItem('phone');
@@ -59,7 +60,7 @@ const DNavbar = () => {
                                 navigate('/')
                                 window.scrollTo(0, 0)
                                 }} className="">
-                                <img src={web} width={20} className='img-fluid mx-2' alt="Homepage" />
+                                <img src={home} width={25} className='img-fluid mb-1' alt="Homepage" />
                             </div>
 
                             <div onClick={()=> {
@@ -120,7 +121,7 @@ const DNavbar = () => {
                                 }
                             </div>
 
-                            <div className="d-lg-none">
+                            {/* <div className="d-lg-none">
                                 <Link to="/" className='text-black text-decoration-none'>
                                     <div className="d-flex justify-content-center align-items-center">
                                         <img src={web} width={20} className='img-fluid me-2 pb-3' alt="Homepage" />
@@ -131,7 +132,7 @@ const DNavbar = () => {
                                     <img src={out} width={20} className='img-fluid me-2 pb-3' alt="Homepage" />
                                     <p>লগ আউট করুন</p>
                                 </div>
-                            </div>
+                            </div> */}
 
                         </div>
 
