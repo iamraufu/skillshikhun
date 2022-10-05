@@ -48,8 +48,6 @@ const DClassRecordings = () => {
         setPurchasedLiveCourses(courseData.filter(course => live_courses.includes(course.name)))
     }, [payments])
 
-    console.log(payments, purchasedLiveCourses)
-
     const [webDevelopment, setWebDevelopment] = useState([])
     const [digitalMarketing, setDigitalMarketing] = useState([]);
     const [videoEditing, setVideoEditing] = useState([]);
