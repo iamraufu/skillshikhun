@@ -6,6 +6,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import courseData from '../../../data/course/courseData';
 import { useNavigate } from 'react-router-dom';
 import live from '../../../images/dashboard/live.svg';
+import Swal from 'sweetalert2';
 
 const DClassRecordings = () => {
 
@@ -80,6 +81,22 @@ const DClassRecordings = () => {
         setShobarJnnoFreelancing(payments.filter(payment => payment.course === 'সবার জন্য ফ্রিল্যান্সিং'))
     }, [payments])
 
+    const duePayAlert = () => {
+        Swal.fire({
+            icon: 'info',
+            title: 'অনুগ্রহ করে আপনার বকেয়া ফী পরিশোধ করুন',
+            text: `লাইভ ক্লাসে নিরবচ্ছিন্ন যোগদান এবং ক্লাস রেকর্ডিং নিশ্চিত করতে, অনুগ্রহ করে আপনার বকেয়া কোর্স ফি প্রদান করুন`,
+            confirmButtonText: 'ফি প্রদান করুন',
+            confirmButtonColor: '#198754',
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                navigate('/dashboard/payment-history')
+                window.scrollTo(0,0)
+            }
+        })
+    }
+
     return (
         <div>
             <DNavbar />
@@ -150,80 +167,95 @@ const DClassRecordings = () => {
                                                     {/* Web Development */}
                                                     {
                                                         course.name === 'Web Development' ?
-                                                            webDevelopment[0].batch === '1' ?
-                                                                <button onClick={() => {
-                                                                    window.scrollTo(0, 0);
-                                                                    navigate('/course/live/video/' + course.id)
-                                                                }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                            webDevelopment[0]?.payment_status === 'PAID' ?
+                                                                webDevelopment[0].batch === '1' ?
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                    }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                                    :
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/batch-2/' + course.id)
+                                                                    }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
                                                                 :
-                                                                <button onClick={() => {
-                                                                    window.scrollTo(0, 0);
-                                                                    navigate('/course/live/video/batch-2/' + course.id)
-                                                                }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                                <button onClick={() => duePayAlert()} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
                                                             : null
                                                     }
 
                                                     {/* Digital Marketing */}
                                                     {
                                                         course.name === 'Digital Marketing' ?
-                                                            digitalMarketing[0].batch === '1' ?
-                                                                <button onClick={() => {
-                                                                    window.scrollTo(0, 0);
-                                                                    navigate('/course/live/video/' + course.id)
-                                                                }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                            digitalMarketing[0]?.payment_status === 'PAID' ?
+                                                                digitalMarketing[0].batch === '1' ?
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                    }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                                    :
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/batch-2/' + course.id)
+                                                                    }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
                                                                 :
-                                                                <button onClick={() => {
-                                                                    window.scrollTo(0, 0);
-                                                                    navigate('/course/live/video/batch-2/' + course.id)
-                                                                }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                                <button onClick={() => duePayAlert()} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
                                                             : null
                                                     }
 
                                                     {/* Video Editing */}
                                                     {
                                                         course.name === 'Video Editing' ?
-                                                            videoEditing[0].batch === '1' ?
-                                                                <button onClick={() => {
-                                                                    window.scrollTo(0, 0);
-                                                                    navigate('/course/live/video/' + course.id)
-                                                                }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                            videoEditing[0]?.payment_status === 'PAID' ?
+                                                                videoEditing[0].batch === '1' ?
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                    }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                                    :
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/batch-2/' + course.id)
+                                                                    }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
                                                                 :
-                                                                <button onClick={() => {
-                                                                    window.scrollTo(0, 0);
-                                                                    navigate('/course/live/video/batch-2/' + course.id)
-                                                                }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                                <button onClick={() => duePayAlert()} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
                                                             : null
                                                     }
 
                                                     {/* Graphics Design */}
                                                     {
                                                         course.name === 'Graphics Design' ?
-                                                            graphicsDesign[0].batch === '1' ?
-                                                                <button onClick={() => {
-                                                                    window.scrollTo(0, 0);
-                                                                    navigate('/course/live/video/' + course.id)
-                                                                }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                            graphicsDesign[0]?.payment_status === 'PAID' ?
+                                                                graphicsDesign[0].batch === '1' ?
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                    }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                                    :
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/batch-2/' + course.id)
+                                                                    }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
                                                                 :
-                                                                <button onClick={() => {
-                                                                    window.scrollTo(0, 0);
-                                                                    navigate('/course/live/video/batch-2/' + course.id)
-                                                                }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                                <button onClick={() => duePayAlert()} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
                                                             : null
                                                     }
 
                                                     {/* সবার জন্য ফ্রিল্যান্সিং */}
                                                     {
                                                         course.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
-                                                            shobarJnnoFreelancing[0].batch === '1' ?
-                                                                <button onClick={() => {
-                                                                    window.scrollTo(0, 0);
-                                                                    navigate('/course/live/video/' + course.id)
-                                                                }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                            shobarJnnoFreelancing[0]?.payment_status === 'PAID' ?
+                                                                shobarJnnoFreelancing[0].batch === '1' ?
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/' + course.id)
+                                                                    }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                                    :
+                                                                    <button onClick={() => {
+                                                                        window.scrollTo(0, 0);
+                                                                        navigate('/course/live/video/batch-2/' + course.id)
+                                                                    }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
                                                                 :
-                                                                <button onClick={() => {
-                                                                    window.scrollTo(0, 0);
-                                                                    navigate('/course/live/video/batch-2/' + course.id)
-                                                                }} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
+                                                                <button onClick={() => duePayAlert()} className='class-video w-100 my-2'>ভিডিও দেখুন</button>
                                                             : null
                                                     }
                                                 </div>

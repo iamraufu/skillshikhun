@@ -86,7 +86,7 @@ const DPaymentHistory = () => {
                 desc: `${data[0].course} Course Installment`,
                 type: "json",
                 opt_a: `${data[0].course}`,
-                opt_b: "Installment",  // Installment 
+                opt_b: "1",  // batch no (should be modified later batch no)
                 opt_c: `${data[data.length - 1]?.remaining_course_fee - data[0].amount}`
             })
         })
