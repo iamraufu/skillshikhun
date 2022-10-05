@@ -123,7 +123,7 @@ const DPaymentHistory = () => {
                                     {/* Baki Taka dewar button*/}
                                     {
                                         parseInt(webDevelopment[webDevelopment.length - 1]?.remaining_course_fee) === 0 ?
-                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো টাকা<br />বাকি নাই</h2>
+                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো ফি<br />বাকি নেই</h2>
                                             :
                                             <div>
                                                 <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(webDevelopment[0].amount)} টাকা</span>
@@ -170,7 +170,7 @@ const DPaymentHistory = () => {
                                     {/* Baki taka dewar button*/}
                                     {
                                         parseInt(videoEditing[videoEditing.length - 1]?.remaining_course_fee) === 0 ?
-                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো টাকা<br />বাকি নাই</h2>
+                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো ফি<br />বাকি নেই</h2>
                                             :
                                             <div>
                                                 <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(videoEditing[0].amount)} টাকা</span>
@@ -217,7 +217,7 @@ const DPaymentHistory = () => {
                                     {/* baki taka */}
                                     {
                                         parseInt(digitalMarketing[digitalMarketing.length - 1]?.remaining_course_fee) === 0 ?
-                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো টাকা<br />বাকি নাই</h2>
+                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো ফি<br />বাকি নেই</h2>
                                             :
                                             <div>
                                                 <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(digitalMarketing[0].amount)} টাকা</span>
@@ -263,7 +263,7 @@ const DPaymentHistory = () => {
                                 <div style={{ border: '1px solid lightgrey', borderRadius: '10px', minHeight: '120px' }} className="col-sm-3 p-3 bg-white m-3">
                                     {
                                         parseInt(graphicsDesign[graphicsDesign.length - 1]?.remaining_course_fee) === 0 ?
-                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো টাকা<br />বাকি নাই</h2>
+                                            <h2 style={{ fontSize: '20px' }} className='text-center fw-bold text-success pt-3'>আপনার কোনো ফি<br />বাকি নেই</h2>
                                             :
                                             <div>
                                                 <h2 style={{ fontSize: '14px', color: '#696866' }} className='text-center'><span style={{ fontSize: '24px', fontWeight: '700', color: '#b94a8f' }}>{parseInt(graphicsDesign[0].amount)} টাকা</span>
