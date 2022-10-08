@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import installmentPhoto from '../../../images/Installments.png'
 
 const FeaturedInstallment = () => {
     return (
@@ -11,7 +12,7 @@ const FeaturedInstallment = () => {
                     <Link to='/courses' onClick={() => { window.scrollTo(0, 0); }} ><button className='see-details fw-bold px-5 py-2'>কোর্স সমূহ</button></Link>
                 </div>
                 <div className="col-md-6 my-4">
-                    <img width={400} style={{ borderRadius: '15px' }} className="img-fluid mx-auto d-block" src='https://cdn.skillshikhun.com/images/Installments.png' alt="Installments Pay" />
+                    <img width={400} style={{ borderRadius: '15px' }} className="img-fluid mx-auto d-block" src={installmentPhoto} alt="Installments Pay" />
                 </div>
             </div>
         </section>

@@ -7,6 +7,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { Link } from 'react-router-dom';
 
+import FG from '../../../images/courses/fg/FG.png'
+import VE from '../../../images/courses/1_9/VE.png'
+import DM from '../../../images/courses/1_9/DM.png'
+import GD from '../../../images/courses/1_9/GD.png'
+import WD from '../../../images/courses/1_9/WD.png'
+
 const HeroSlider = () => {
 
     return (
@@ -29,31 +35,31 @@ const HeroSlider = () => {
                     <div className="d-flex justify-content-center ">
                         <div className="col-sm-2">
                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/shobar-jnno-freelancing'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src='https://cdn.skillshikhun.com/images/courses/fg/FG.png' alt='Course' />
-                            </Link>
-                        </div>
-
-                        <div className="col-sm-2">
-                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/video-editing'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src='https://cdn.skillshikhun.com/images/courses/1500/VE.png' alt='Course' />
-                            </Link>
-                        </div>
-
-                        <div className="col-sm-2">
-                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/graphics-design'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src='https://cdn.skillshikhun.com/images/courses/1500/GD.png' alt='Course' />
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={FG} alt='Course' />
                             </Link>
                         </div>
 
                         <div className="col-sm-2">
                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/web-development'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src='https://cdn.skillshikhun.com/images/courses/1500/WD.png' alt='Course' />
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={WD} alt='Course' />
+                            </Link>
+                        </div>
+
+                        <div className="col-sm-2">
+                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/video-editing'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={VE} alt='Course' />
+                            </Link>
+                        </div>
+
+                        <div className="col-sm-2">
+                            <Link onClick={() => { window.scrollTo(0, 0); }} to='/graphics-design'>
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={GD} alt='Course' />
                             </Link>
                         </div>
 
                         <div className="col-sm-2">
                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/digital-marketing'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src='https://cdn.skillshikhun.com/images/courses/1500/DM.png' alt='Course' />
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={DM} alt='Course' />
                             </Link>
                         </div>
 
@@ -64,13 +70,13 @@ const HeroSlider = () => {
                     <div className="d-flex justify-content-center ">
                         <div className="col-sm-6">
                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/shobar-jnno-freelancing'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src='https://cdn.skillshikhun.com/images/courses/fg/FG.png' alt='Course' />
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={FG} alt='Course' />
                             </Link>
                         </div>
 
                         <div className="col-sm-6">
                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/web-development'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src='https://cdn.skillshikhun.com/images/courses/1500/WD.png' alt='Course' />
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={WD} alt='Course' />
                             </Link>
                         </div>
 
@@ -81,13 +87,13 @@ const HeroSlider = () => {
                     <div className="d-flex justify-content-center ">
                         <div className="col-sm-6">
                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/digital-marketing'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src='https://cdn.skillshikhun.com/images/courses/1500/DM.png' alt='Course' />
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={DM} alt='Course' />
                             </Link>
                         </div>
 
                         <div className="col-sm-6">
                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/graphics-design'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src='https://cdn.skillshikhun.com/images/courses/1500/GD.png' alt='Course' />
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={GD} alt='Course' />
                             </Link>
                         </div>
                     </div>
@@ -97,13 +103,13 @@ const HeroSlider = () => {
                     <div className="d-flex justify-content-center ">
                         <div className="col-sm-6">
                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/shobar-jnno-freelancing'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src='https://cdn.skillshikhun.com/images/courses/fg/FG.png' alt='Course' />
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={FG} alt='Course' />
                             </Link>
                         </div>
 
                         <div className="col-sm-6">
                             <Link onClick={() => { window.scrollTo(0, 0); }} to='/video-editing'>
-                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src='https://cdn.skillshikhun.com/images/courses/1500/VE.png' alt='Course' />
+                                <img width={200} style={{ borderRadius: '15px' }} className='img-fluid mx-auto d-block swiper_image p-2' src={VE} alt='Course' />
                             </Link>
                         </div>
                     </div>

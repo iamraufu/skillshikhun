@@ -1,30 +1,35 @@
 import React from 'react';
 import './SSFeatures.css';
 
+import hq from '../../../images/highQuality.svg'
+import sm from '../../../images/socialMedia.svg'
+import hr from '../../../images/24Hour.svg'
+import ep from '../../../images/easyToPractice.svg'
+
 const SSFeatures = () => {
 
     const featuresData = [
         {
             id: 1,
-            image: 'https://cdn.skillshikhun.com/images/highQuality.svg',
+            image: hq,
             title: 'এক্সক্লুসিভ কন্টেন্ট',
             description: 'সেরা এবং অভিজ্ঞ মেন্টরদের দ্বারা তৈরি ও যাচাইকৃত মানসম্মত কন্টেন্ট'
         },
         {
             id: 2,
-            image: 'https://cdn.skillshikhun.com/images/socialMedia.svg',
+            image: sm,
             title: 'সোশ্যাল মিডিয়ায় নিয়মিত আপডেট',
             description: 'কোর্স সম্পর্কিত আপডেট এবং তথ্য পাবেন নিয়মিত'
         },
         {
             id: 3,
-            image: 'https://cdn.skillshikhun.com/images/24Hour.svg',
+            image: hr,
             title: '২৪ ঘন্টা সাপোর্ট সিস্টেম',
             description: 'সব প্রয়োজনে সহায়তার জন্য থাকছে সার্বক্ষনিক এক্টিভ সাপোর্ট টিম'
         },
         {
             id: 4,
-            image: 'https://cdn.skillshikhun.com/images/easyToPractice.svg',
+            image: ep,
             title: 'হাতে-কলমে শেখানো',
             description: 'কোর্সগুলো সাজানো হয়েছে পূর্ব অভিজ্ঞতা ছাড়া সকল মেধার শিক্ষার্থীর জন্য'
         }

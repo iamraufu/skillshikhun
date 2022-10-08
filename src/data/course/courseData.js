@@ -1,3 +1,13 @@
+import dm_i from '../../images/dm_i.jpg'
+import ve_i from '../../images/ve_i.jpg'
+import gd_i from '../../images/gd_i.jpg'
+import wd_i from '../../images/wd_i.jpg'
+import dm from '../../images/courses/dm.jpg'
+import wd from '../../images/courses/wd.jpg'
+import ve from '../../images/courses/ve.jpg'
+import gd from '../../images/courses/gd.jpg'
+import sjf from '../../images/courses/sjf.png'
+
 const courseData = [
     // Freelancing for All
     {
@@ -59,9 +69,9 @@ const courseData = [
         live_link: '',
         live_link_batch2:'',
         recording_link: '',
-        instructor_image: 'https://cdn.skillshikhun.com/images/dm_i.jpg',
-        image: 'https://cdn.skillshikhun.com/images/courses/sjf.png',
-        promo_poster: 'https://cdn.skillshikhun.com/images/courses/fg/FG.png',
+        instructor_image: dm_i,
+        image: sjf,
+        promo_poster: '',
         feature_alt: [
             {
                 id: 1,
@@ -390,73 +400,73 @@ const courseData = [
             }
         ]
     },
-    // Video Editing
+    // Web Development
     {
-        name: 'Video Editing',
-        id: 'video-editing',
-        title: 'ভিডিও এডিটিং',
-        slug: 'Video Editing',
-        route: '/video-editing',
-        alt_title: 'ভিডিও এডিটিং (বেসিক থেকে প্রোফেশনাল)',
-        description: 'ইন্টারনেট জগতের সব চমকপ্রদ ভিডিও দেখে আপনি মুগ্ধ, কিন্তু চিন্তিত কিভাবে কম সময়ের মধ্যে এই দক্ষতা আয়ত্ত করে ক্যারিয়ার গড়া যায়? তবে এই কোর্সটি করবে আপনার সকল চিন্তার অবসান। বর্তমান অনলাইন মার্কেটপ্লেসে দক্ষ ভিডিও এডিটর এর রয়েছে পাহাড়সম চাহিদা। সেই চাহিদা পূরণের জন্য কিংবা ফ্রিল্যান্সিং এর মাধ্যমে ঘরে বসেই আয় করার জন্যই আমাদের এই মাস্টার ক্লাস কোর্সটি। অল্প সময়ের মধ্যে ভিডিও এডিটিং এর যাবতীয় কলাকৌশল শিখে হয়ে যান একজন প্রফেশনাল!',
-        short_description: 'কিভাবে কম সময়ের মধ্যে ভিডিও এডিটিং আয়ত্ত করে ফ্রিল্যান্সিং এর মাধ্যমে ঘরে বসেই আয় করার জন্যই আমাদের এই মাস্টার ক্লাস কোর্সটি।',
-        source: 'https://www.youtube.com/embed/xop7oG9ga9c?autoplay=1&mute=1',
-        videoId: 'xop7oG9ga9c',
+        name: 'Web Development',
+        id: 'web-development',
+        title: 'ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট',
+        slug: 'Full Stack Web Development',
+        route: '/web-development',
+        alt_title: 'ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট (জিরো টু হিরো)',
+        description: 'আপনি যদি একজন পেশাদার ওয়েব ডেভেলপার হতে চান বা ওয়েব ডেভেলপমেন্টের এর জগতে নিজেকে প্রতিষ্ঠিত করতে চান তবে এই কোর্সটি আপনারই জন্য। কোর্সটি বিশেষভাবে ডিজাইন করা হয়েছে সমস্ত আধুনিক ওয়েব ডেভেলপমেন্ট টেকনোলজির সমন্বয়ে যে দক্ষতাগুলোর মার্কেটপ্লেস এবং প্রযুক্তি কোম্পানিগুলোর রয়েছে বিশাল চাহিদা।',
+        short_description: 'আপনি যদি একজন পেশাদার ওয়েব ডেভেলপার হতে চান বা ওয়েব ডেভেলপমেন্টের এর জগতে নিজেকে প্রতিষ্ঠিত করতে চান তবে এই কোর্সটি আপনারই জন্য।',
+        source: 'https://www.youtube.com/embed/TIxJqXhIvpc?autoplay=1&mute=1',
+        videoId: 'TIxJqXhIvpc',
         type: 'Live',
-        course_duration: '২',
-        course_duration_eng: 2,
-        total_classes: '২৪',
+        course_duration: '৩',
+        course_duration_eng: 3,
+        total_classes: '৩৬',
         regular_price: '৯,৯৯৯',
-        price: 3000,
-        price_bn: '৩০০০',
-        offer_price: 2800,
-        offer_price_bn: '২৮০০',
+        price: 4500,
+        price_bn: '৪৫০০',
+        offer_price: 4300,
+        offer_price_bn: '৪৩০০',
         price_per_month: 1500,
         price_per_month_bn: '১৫০০',
-        price_saved: '২০০',
-        course_done: '১৫০',
-        seat_left: '১৭',
+        price_saved: '২৫০',
+        course_done: '২৩৪',
         next_batch: 'নভেম্বর',
-        next_batch_eng: '2022-09-11T21:00:00.000+06:00',
-        course_instructor: 'সাব্বির আহমেদ',
-        instructor_designation: 'Professional Film Editor of BFDC and PhD Researcher on Film Marketing in Malaysia.',
+        next_batch_eng: '2022-09-11T09:00:00.000+06:00',
+        seat_left: '১১',
+        course_instructor: 'ইফতিখার রহমান',
+        instructor_designation: 'Head of Development at Step 2 Digital, Senior Web Developer at Skill Shikhun',
         class_date: [
             {
                 id: 1,
-                date: '2022-05-13'
+                date: '2022-05-20'
             },
             {
                 id: 2,
-                date: '2022-05-27'
+                date: '2022-03-06'
             }
         ],
-        class_time: '9PM - 10:00PM',
+        class_time: '10:30PM - 12:00PM',
         class_date_1: '6, 8, 10 (August 2022)',
         class_date_1_value: '2022-08-06',
-        class_date_1_deadline: '2022-08-06T21:00:00.000+06:00',
+        class_date_1_deadline: '2022-08-06T22:30:00.000+06:00',
         // class_date_1_deadline:'July 30th 2022, 9:00:00 pm',
         class_date_2: '6, 8, 10 (August 2022)',
         class_date_2_value: '2022-08-06',
-        class_date_2_deadline: '2022-08-06T21:00:00.000+06:00',
+        class_date_2_deadline: '2022-08-06T22:30:00.000+06:00',
         // class_date_2_deadline:'August 6th 2022, 9:00:00 pm',
-        free_number: '92939532748',
-        free_password: '153338',
-        free_video_count: '৪',
-        live_number: '84551599695',
-        live_password: '870201',
-        // free_link:'https://zoom.us/wc/92939532748/start',
-        free_link: 'https://us06web.zoom.us/j/92939532748?pwd=d1RMRkFnUy9hM2F6TUlPbXAxNlFBZz09',
-        // live_link:'https://zoom.us/wc/84551599695/start',
-        live_link: 'https://us06web.zoom.us/j/85815124984?pwd=eWZaK2lmK05laWNCRnFPNWxmazRuQT09',
+        free_number: '83489456820',
+        free_password: '297121',
+        free_video_count: '১২',
+        live_number: '85770635754',
+        live_password: '351625',
+        // free_link:'https://us06web.zoom.us/wc/83489456820/start',
+        free_link: 'https://us06web.zoom.us/j/83489456820?pwd=SjNTaTVnQkNEWkdtaXRXcW13VWVXZz09',
+        // live_link:'https://zoom.us/wc/85770635754/start',
+        live_link: 'https://us06web.zoom.us/j/83444144897?pwd=L0pOVEF1U2VPemo3SUdjUjhSNExNZz09',
         live_link_batch2:'',
-        recording_link: 'https://cutt.ly/2CNO5pC',
-        instructor_image: 'https://cdn.skillshikhun.com/images/ve_i.jpg',
-        image: 'https://cdn.skillshikhun.com/images/courses/ve.jpg',
-        promo_poster: 'https://cdn.skillshikhun.com/images/courses/wd400.png',
+        recording_link: 'https://cutt.ly/4CNOMmJ',
+        instructor_image: wd_i,
+        image: wd,
+        promo_poster: '',
         feature_alt: [
             {
                 id: 1,
-                item: 'এই কোর্সটি সম্পূর্ণ নতুনদের জন্য। ভিডিও এডিটিং সম্পর্কে আপনার পূর্ব কোনো ধারনা থাকার দরকার নেই।'
+                item: 'এই কোর্সটি সম্পূর্ণ নতুনদের জন্য। ওয়েব ডেভেলপমেন্ট সম্পর্কে আপনার পূর্ব কোনো ধারনা থাকার দরকার নেই।'
             },
             {
                 id: 2,
@@ -474,22 +484,22 @@ const courseData = [
         features: [
             {
                 id: 1,
-                item: 'Adobe Premiere Pro এবং Adobe After Effects যেভাবে ব্যবহার করবেন।'
+                item: 'ওয়েব ডেভেলপমেন্ট ব্যবহার করে যেভাবে ক্যারিয়ার গড়বেন।'
             },
             {
                 id: 2,
-                item: 'বেসিক থেকে অ্যাডভান্স লেভেল পর্যন্ত ভিডিও এডিটিং এবং মোশন ডিজাইন এর সকল খুঁটিনাটি।'
+                item: 'রিয়েক্ট এবং নোডের মতো উন্নত প্রযুক্তি ব্যবহার করে যেভাবে নিজস্ব ওয়েব অ্যাপ্লিকেশন তৈরি করবেন।'
             },
             {
                 id: 3,
-                item: 'লোকাল এবং ইন্টারন্যাশনাল মার্কেটে ভিডিও এডিটিং দক্ষতা কাজে লাগিয়ে যেভাবে ক্যারিয়ার গড়বেন।'
+                item: 'ওয়েব ডেভেলপমেন্ট ব্যবহার করে যেভাবে ফ্রীল্যান্সিং এর মাধ্যমে আয় করবেন।'
             },
             {
                 id: 4,
-                item: 'ফ্রিল্যান্সার হিসেবে রিমোট জব এর মাধ্যমে যেভাবে ঘরে বসেই আয় করবেন।'
+                item: 'প্রোগ্রামিং এর মাধ্যমে যেভাবে নিজের দক্ষতা বাড়াবেন।'
             }
         ],
-        featuresDescription: '২ মাসে ২৪ টি ক্লাসের এই কোর্সটি সাজানো হয়েছে যেন সহজভাবে ভিডিও এডিটিং এর প্রধান বিষয়গুলো নিয়ে আলোচনা করা হয় এবং সেগুলোর উপর কুইজের মাধ্যমে হাতে-কলমে নিজেকে যাচাই করা যায়।',
+        featuresDescription: '৩ মাসে ৩৬ টি ক্লাসের ওয়েব ডেভেলপমেন্ট কোর্সটি সাজানো হয়েছে যেন এই কোর্সের শেষে আপনি একজন দক্ষ ওয়েব ডেভেলপার হিসেবে নিজেকে প্রতিষ্ঠিত করতে পারবেন',
         featureBonus: [
             {
                 id: 1,
@@ -503,326 +513,283 @@ const courseData = [
         outline: [
             {
                 id: 'One',
-                title: 'ইন্ট্রডাকশন (Introduction)',
-                description: 'এই ক্লাসটি হবে মূলত আমার এবং শিক্ষার্থীদের পরিচয়পর্ব। আমি নিজেকে পরিচয় করিয়ে দিব- আমি কে, আমি Fiverr এবং অন্যান্য ফ্রিল্যান্স প্ল্যাটফর্মে ভিডিও এডিটিং এর মাধ্যমে কীভাবে আয় করছি, একইসাথে শিক্ষার্থীদের সম্পর্কে জানবো উপযুক্ত পরিবেশে শেখানোর জন্য যোগাযোগ গুরুত্বপূর্ণ।',
+                title: 'সূচনা (Introduction)',
+                description: 'এই ক্লাসটি হবে মূলত আমার এবং শিক্ষার্থীদের পরিচয়পর্ব। আমি নিজেকে পরিচয় করিয়ে দিব- আমি কে, আমি বিভিন্ন প্ল্যাটফর্মে ওয়েব ডেভেলপমেন্ট এর মাধ্যমে কীভাবে আয় করছি, একইসাথে শিক্ষার্থীদের সম্পর্কে জানবো যা উপযুক্ত পরিবেশে শেখানোর জন্য যোগাযোগ গুরুত্বপূর্ণ।',
                 isFree: true,
                 video: [
                     {
                         isFree: true,
-                        subtitle: 'ক্লাস ১ - ইন্ট্রডাকশন (Introduction)',
-                        videoId: 'KrXq8LAvmzk'
+                        subtitle: 'ক্লাস ১ - সূচনা (Introduction)',
+                        videoId: '9J9CUJlIu3k'
                     }
                 ]
             },
             {
                 id: 'Two',
-                title: 'ইনস্টলেশন এবং শুরু',
-                description: 'এই ক্লাসে, আমি দেখাবো কিভাবে আমরা অ্যাডবি প্রিমিয়ার প্রো ইন্সটল করে তার মাধ্যমে কাজ শুরু করতে পারি।',
-                isFree: false,
+                title: 'এইচ টি এম এল ৫ (HTML5)',
+                description: 'আমরা কোর্সটি শুরু করবো ওয়েব ডেভেলপমেন্ট এর বেসিক শেখার এবং HTML5 কোড লেখার জন্য প্রয়োজনীয় টুল ইন্সটল করার মাধ্যমে। এই ক্লাসে আমরা HTML5 এর প্রায় সব ধারণা শিখবো এবং ওয়েবপেজে HTML উপাদানগুলোর গঠন বিন্যাস কিভাবে সাজাবো তা শিখবো।',
+                isFree: true,
                 video: [
                     {
-                        isFree: false,
-                        subtitle: 'ক্লাস ২ - ইনস্টলেশন এবং শুরু',
-                        videoId: ''
+                        isFree: true,
+                        subtitle: 'ক্লাস ২ - এইচ টি এম এল ৫ (HTML5)',
+                        videoId: 'roPdqQ4X0n0'
                     }
                 ]
             },
             {
                 id: 'Three',
-                title: 'প্রোজেক্ট তৈরি',
-                description: 'এই ক্লাসে আমরা শিখবো কিভাবে প্রিমিয়ার প্রো এ এডিট করার জন্য প্রোজেক্ট তৈরি করতে হয়।',
+                title: 'সিএসএস 3 (CSS3)',
+                description: 'এই ক্লাসে আমরা CSS3 এর মৌলিক বিষয়গুলি শিখবো যা আমাদের ওয়েবসাইট তৈরি এবং আকর্ষণীয় করতে সাহায্য করবে। এছাড়াও আমরা শিখবো কিভাবে আপনার বিদ্যমান HTML পেজগুলোতে CSS যোগ করে আরো আকর্ষণীয় করতে পারি।',
                 isFree: true,
                 video: [
                     {
                         isFree: true,
-                        subtitle: 'ক্লাস ২ - প্রোজেক্ট তৈরি',
-                        videoId: 'cCBuVRGuUq8'
+                        subtitle: 'ক্লাস ৩ - এইচ টি এম এল ৫ (HTML5) এবং সিএসএস 3 (CSS3)',
+                        videoId: '3EJEZgnoiUM'
+                    },
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ৪ - সিএসএস 3 (CSS3)',
+                        videoId: 'D6TVgqIT4mA'
                     }
                 ]
             },
             {
                 id: 'Four',
-                title: 'ওয়ার্কস্পেস এবং পানেল',
-                description: 'নির্ভুল এবং দ্রুত এডিটিং এর জন্য সঠিক ওয়ার্কস্পেস থাকা খুবই গুরুত্বপূর্ণ। এই ক্লাসে আমি দেখাবো কিভাবে আমরা সেরা এডিটিং অভিজ্ঞতার জন্য সবচেয়ে সুবিধাজনক ওয়ার্কস্পেস ব্যবহার করতে পারি।',
-                isFree: false,
+                title: 'প্রফেশনাল ওয়েবসাইট তৈরি (Building A Professional Website)',
+                description: 'এই ক্লাসে আমরা আমাদের এই পর্যন্ত শেখা দক্ষতাকে কাজে লাগিয়ে HTML এবং CSS সহ একটি পোর্টফোলিও সাইট তৈরি করব।',
+                isFree: true,
                 video: [
                     {
-                        isFree: false,
-                        subtitle: 'ক্লাস ৪ - ওয়ার্কস্পেস এবং পানেল',
-                        videoId: 't5Mp65o6edM'
+                        isFree: true,
+                        subtitle: 'ক্লাস ৫ - পোর্টফোলিও ওয়েবসাইট প্রজেক্ট পার্ট ১ (Portfolio Website Project Part 1)',
+                        videoId: 'b_QJ2m_xDIE'
                     },
                     {
-                        isFree: false,
-                        subtitle: 'ক্লাস ৫ - Q and A',
-                        videoId: 'JuYP_e9q7hE'
+                        isFree: true,
+                        subtitle: 'ক্লাস ৬ - পোর্টফোলিও ওয়েবসাইট প্রজেক্ট পার্ট ২ (Portfolio Website Project Part 2)',
+                        videoId: 'WNgRyuKum8A'
                     }
                 ]
             },
             {
                 id: 'Five',
-                title: 'মিডিয়া ইম্পোর্ট',
-                description: 'একটি প্রজেক্টে কাজ শুরু করার জন্য আমাদের মিডিয়া ফাইল আমদানি করতে হয়। আমি দেখাবো কিভাবে কম্পিউটার থেকে প্রিমিয়ার প্রো প্রোজেক্টে মিডিয়া ইম্পোর্ট করতে হয়।',
+                title: 'গিট, গিটহাব এবং হোস্টিং (Git, GitHub, Hosting)',
+                description: 'এই ক্লাসে আমরা সারা বিশ্ব জুড়ে ওয়েব ডেভেলপারদের মধ্যে সবচেয়ে জনপ্রিয় টুল গিট এবং গিটহাব সম্পর্কে জানবো। Git এবং কিভাবে Git সংস্করণ নিয়ন্ত্রণের জন্য ব্যবহার করা যেতে পারে, Git এর সাথে কাজ করার জন্য প্রয়োজনীয় গুরুত্বপূর্ণ কমান্ড এবং GitHub এর সহযোগিতায় দলগত প্রজেক্ট এর কাজের সুবিধাগুলো শিখবো।',
                 isFree: true,
                 video: [
                     {
                         isFree: true,
-                        subtitle: 'ক্লাস ৩ - মিডিয়া ইম্পোর্ট',
-                        videoId: 'psSMJ0YvtoQ'
+                        subtitle: 'ক্লাস ৭ - গিট, গিটহাব এবং হোস্টিং (Git, GitHub, Hosting)',
+                        videoId: '8ukjw7v4ErA'
                     }
                 ]
             },
             {
                 id: 'Six',
-                title: 'সিকুয়েন্স কি?',
-                description: 'এই ক্লাসে আমি আপনাদের সিকুয়েন্স এর সাথে পরিচয় করিয়ে দিব এবং কোর্স আগানোর সাথে সাথে আমরা এটি সম্পর্কে আরও শিখবো।',
+                title: 'বুটস্ট্র্যাপ 5 (Bootstrap 5)',
+                description: 'এই ক্লাসে আমরা বুটস্ট্র্যাপ 5 এবং বুটস্ট্র্যাপ গ্রিড সিস্টেম সম্পর্কে জানবো এবং এটির সাহায্যে কীভাবে প্রতিক্রিয়াশীল লেআউট তৈরি করতে হয় তা শিখবো।',
                 isFree: true,
                 video: [
                     {
                         isFree: true,
-                        subtitle: 'ক্লাস ৪ - সিকুয়েন্স',
-                        videoId: 'Ksz5tWgAEmM'
+                        subtitle: 'ক্লাস ৮ - বুটস্ট্র্যাপ 5 পার্ট ১ (Bootstrap 5 Part 1)',
+                        videoId: '54qYgoDWcZ8'
                     },
                     {
                         isFree: true,
-                        subtitle: 'ক্লাস ৫ - কিভাবে ভিডিও এডিট করবেন?',
-                        videoId: 'hfsl1YPrmXI'
+                        subtitle: 'ক্লাস ৮ - বুটস্ট্র্যাপ 5 পার্ট ২ (Bootstrap 5 Part 2)',
+                        videoId: 'VQKd6WVteTU'
+                    },
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ৯ - ব্লগ ওয়েবসাইট প্রজেক্ট (Blog Website Project)',
+                        videoId: 'CMCnsy_w9Xs'
+                    },
+                    {
+                        isFree: true,
+                        subtitle: 'ক্লাস ১০ - মুভি ল্যান্ডিং পেজ প্রজেক্ট (Movie Landing Page Project)',
+                        videoId: 'ZafP43Oduas'
                     }
                 ]
             },
             {
                 id: 'Seven',
-                title: 'অফলাইন ফুটেজ রি-লিঙ্ক',
-                description: 'কখনও কখনও প্রিমিয়ার প্রো আমাদের ইম্পোর্ট করা ভিডিও এবং অ্যাসেটগুলো খুঁজে পেতে ব্যর্থ হয়। এই ক্লাসে কীভাবে সেগুলি পুনরায় লিঙ্ক করতে হয় এবং হারিয়ে যাওয়া ফাইলগুলি খুঁজে পেতে হয় তা শেখাবো।',
-                isFree: false,
+                title: 'ই-কমার্স ওয়েবসাইট তৈরি (Building an E-commerce Website)',
+                description: 'এই ক্লাসে আমরা CSS এর সাহায্য ছাড়াই সম্পূর্ণরূপে বুটস্ট্র্যাপ এবং এর উপাদানগুলি ব্যবহার করে সম্পূর্ণরূপে মোবাইল প্রতিক্রিয়াশীল ওয়েবসাইট তৈরি করবো যা কম্পিউটার, ট্যাবলেট এবং স্মার্টফোনের মতো সমস্ত ডিভাইসে কাজ করবে এবং দেখতে চমৎকার হবে।',
+                isFree: true,
                 video: [
                     {
-                        isFree: false,
-                        subtitle: 'ক্লাস - ',
-                        videoId: ''
+                        isFree: true,
+                        subtitle: 'ক্লাস ১১ - ই-কমার্স ওয়েবসাইট তৈরি (Building an E-commerce Website)',
+                        videoId: 'Z2SQX_3VNYg'
                     }
                 ]
             },
             {
                 id: 'Eight',
-                title: 'সোর্স এবং প্রোগ্রাম মনিটর',
-                description: 'প্রিমিয়ার প্রো এডিটিং আরও দক্ষতার সাথে করার জন্য একটি দুর্দান্ত এবং সহজ পদ্ধতি ব্যবহার করে দুটি মনিটর ব্যবহার করে। এই ক্লাসে আমি শিক্ষার্থীদের এই পদ্ধতির সাথে পরিচয় করিয়ে দিবো এবং আমরা এগিয়ে যাওয়ার সাথে সাথে এটি সম্পর্কে আরও জানবো।',
+                title: 'জাভাস্ক্রিপ্ট (JavaScript)',
+                description: 'এই ক্লাসে আমরা ফ্রন্ট এন্ড ওয়েব ডেভেলপমেন্টের সবচেয়ে জনপ্রিয় ভাষা, জাভাস্ক্রিপ্ট এর বেসিক সকল খুঁটিনাটি শিখবো ।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস - ',
+                        subtitle: 'ক্লাস ১২ - জাভাস্ক্রিপ্ট স্ট্রিং, নাম্বারস (JavaScript String, Number)',
+                        videoId: ''
+                    },
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস ১৩ - জাভাস্ক্রিপ্ট এরে, কন্ডিশনাল স্টেটমেন্টস, ফর লুপ, ওয়াইল লুপ, ফাঙ্কশন, অব্জেক্টস, সুইচ (JavaScript Array, Conditional Statements, For Loop, While Loop, Object, Function, Switch)',
+                        videoId: ''
+                    },
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস ১৪ - জাভাস্ক্রিপ্ট প্রব্লেম সলভিং (JavaScript Problem Solving)',
+                        videoId: ''
+                    },
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস ১৫ - জাভাস্ক্রিপ্ট রিয়েল লাইফ প্রব্লেম সলভিং (JavaScript Real Life Problem Solving)',
+                        videoId: ''
+                    },
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস ১৬ - জাভাস্ক্রিপ্ট ডোম, ইভেন্টস, ইভেন্ট বাবল (JavaScript DOM, Event, Event Bubbling)',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Nine',
-                title: 'কী-বাইন্ড এবং শর্টকাট',
-                description: 'দ্রুত এডিট করার জন্য কী-বাইন্ড এবং শর্টকাট গুলো খুবই জরুরী। আমি এই ক্লাসে কীভাবে শর্টকাট দিয়ে দ্রুত এডিট করতে পারি তার প্রো টিপস শেয়ার করবো।',
+                title: 'ইএস৬ (ES6)',
+                description: 'এই ক্লাসে আমরা জাভাস্ক্রিপ্ট এর সর্বশেষ সংস্করণ ES6 সম্পর্কে শিখবো এবং এর নতুন ফিচারগুলো সম্পর্কে জানবো। ',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস - ',
+                        subtitle: 'ক্লাস ১৮ - ইএস৬ (ES6)',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Ten',
-                title: 'ট্রিমিং',
-                description: 'ভিডিওগুলোকে একত্রিত করতে এবং তা থেকে একটি গল্প তৈরি করতে ট্রিমিং প্রয়োজন। এই ক্লাসে আমি ট্রিমিং এর সবচেয়ে কার্যকর টুল এবং কৌশলগুলোর ব্যবহারর শেখাবো। ',
+                title: 'ইন্টের‍্যাক্টিভ ওয়েবসাইট (Interactive Website)',
+                description: 'এই ক্লাসে আমরা জাভাস্ক্রিপ্ট এবং বুটস্ট্র্যাপ ব্যবহার করে একটি সাধারণ ইন্টারেক্টিভ ওয়েবসাইট তৈরি করা শিখবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস - ',
+                        subtitle: 'ক্লাস ১৭ - বার্থডে কাউন্টডাউন প্রজেক্ট (Birthday Countdown Project) এবং সিম্পল জাভাস্ক্রিপ্ট বুটস্ট্র্যাপ শপিং কার্ট প্রজেক্ট (Simple JavaScript Bootstrap Shopping Cart Project)',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Eleven',
-                title: 'L কাট এবং J কাট',
-                description: 'এই ক্লাসে আমি  L কাট এবং J কাট ব্যবহার করে একটি ভিডিও বা মুভিকে কীভাবে আরও আকর্ষনীয় করা যায় সেসব কার্যকর পদ্ধতিগুলো শেখাবো। এছাড়াও অন্যান্য বিভিন্ন পদ্ধতি সম্পর্কেও ধারনা দিবো।',
+                title: 'এপিআই, জেএসওএন, সার্ভার, ডেটা লোড, ডাইনামিক ওয়েবসাইট এবং এইচটিটিপি (API JSON, Server, Data Load, Dynamic Website, http)',
+                description: 'এই ক্লাসে আমরা এপিআই, জেএসওএন, সার্ভার, ডেটা লোড, ডাইনামিক ওয়েবসাইট এবং এইচটিটিপি সম্পর্কে জানবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস - ',
+                        subtitle: 'ক্লাস ১৯ - এপিআই, জেসন স্ট্রিংগিফাই, পার্স, গেট, পোস্ট মেথড',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Twelve',
-                title: 'অডিও ইফেক্ট এবং ওয়েভফর্ম',
-                description: 'একটি ভিডিওকে আকর্ষনীয় করার জন্য অডিও এর কাজও সমান গুরুত্বপূর্ণ। এই ক্লাসে আমরা শিখবো কীভাবে ভিডিও এর অডিও বর্ধিত করে একে আরও চিত্তাকর্ষক বানানো যায়।',
+                title: 'এপিআই ব্যবহার করে ওয়েবসাইট তৈরি (Building a Website Using API)',
+                description: 'এই ক্লাসে আমরা এপিআই ব্যবহার করে একটি ওয়েবসাইট তৈরি করবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস - ',
+                        subtitle: 'ক্লাস ২০ - রেন্ডম এপিআই, COVID-19 প্রজেক্ট (Rendom API, COVID-19 Project)',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Thirteen',
-                title: 'ট্রানজিশন',
-                description: 'ট্রানজিশন হল ভিডিও এডিটিং এর সবচেয়ে গুরুত্বপূর্ণ প্রভাবগুলির মধ্যে একটি। এই ক্লাসে আমরা নিখুতঁভাবে ভিডিও এর একটি দৃশ্য থেকে অন্য দৃশ্যে মসৃণভাবে সরানো শিখবো।',
+                title: 'রিয়েক্ট জেএস (ReactJS)',
+                description: 'এই ক্লাসে আমরা ReactJS সম্পর্কে শিখব যা একটি প্রগতিশীল ফ্রন্ট-এন্ড লাইব্রেরি যা আপনাদেরকে দক্ষ উপায়ে ইউজার ইন্টারফেস উপাদান তৈরি করতে সাহায্য করে।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস - ',
+                        subtitle: 'ক্লাস ২১ - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Fourteen',
-                title: 'কী-ফ্রেম এবং পজিশনিং',
-                description: 'এই ক্লাসে আমরা কী-ফ্রেম এবং পজিশনিং সম্পর্কে শিখবো এবং এগিয়ে যাওয়ার সাথে সাথে এটি সম্পর্কে আরও বিস্তারিত জানতে পারবো।',
+                title: 'রিয়েক্ট অথেনটিকেশন (ফায়ারবেস) (React Authentication (Firebase)',
+                description: 'এই ক্লাসে আমরা রিয়েক্ট অথেনটিকেশন এবং এর ব্যবহার সম্পর্কে শিখবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস - ',
+                        subtitle: 'ক্লাস ২২ - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Fifteen',
-                title: 'মোশন এবং অপ্যাসিটি',
-                description: 'এই ক্লাসে আমরা ভিডিও এর দুটি প্রয়োজনীয় বিষয়, মোশন এবং অপ্যাসিটি সম্পর্কে শিখবো এবং এগিয়ে যাওয়ার সাথে সাথে এটি সম্পর্কে আরও বিস্তারিত জানতে পারবো।',
+                title: 'রিয়েক্ট অথেনটিকেশন ব্যবহার করে ওয়েবসাইট তৈরি (Building a website using React Authentication)',
+                description: 'এই ক্লাসে আমরা রিয়েক্ট অথেনটিকেশন ব্যবহার করে একটি ওয়েবসাইট তৈরি করবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস - ',
+                        subtitle: 'ক্লাস ২৩ - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Sixteen',
-                title: 'ভিডিও স্পীড এবং ফ্রিজ ফ্রেম',
-                description: 'এই ক্লাসে আমরা শিখবো কিভাবে একটি ভিডিওতে ফাস্ট ফরওয়ার্ড এবং স্লো মোশন ব্যবহার করতে হয়। এছাড়াও ভিডিও এর গতি বিষয়ক অন্যান্য টুল সম্পর্কে জানবো।',
+                title: 'নোড জেএস (Node JS) এবং এক্সপ্রেস জেএস (Express JS)',
+                description: 'এই ক্লাস থেকে আমরা ব্যাকএন্ড সম্পর্কে শেখা শুরু করবো। আমরা Node JS এর মূল বিষয়গুলি থেকে নোড এবং নোড জেএস এর ওয়েব ফ্রেমওয়ার্ক এক্সপ্রেস জেএস শেখা শুরু করব এবং নিজস্ব সার্ভার তৈরি করা শিখবো। আমরা নোড প্যাকেজ ম্যানেজার এবং কীভাবে এটি বিভিন্ন নোড প্যাকেজ ইনস্টল এবং ব্যবহার সম্পর্কেও জানবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস - ',
+                        subtitle: 'ক্লাস ২৪ - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Seventeen',
-                title: 'টাইম রিম্যাপিং',
-                description: 'এই ক্লাসে আমরা শিখবো কিভাবে ভিডিও স্পীড ব্যবহার করে একটি ভিডিওকে আরো প্রফেশনাল এবং ডাইনামিক দেখাতে হয়।',
+                title: 'মঙ্গোডিবি (MongoDB)',
+                description: 'এই ক্লাসে আমরা MongoDB সম্পর্কে জানবো যা একটি ডেটাবেস যেটি বৃহৎ সফ্টওয়্যার কোম্পানীগুলো দ্বারা ব্যবহৃত এবং বিশ্বস্ত। আমরা শিখবো কীভাবে স্ক্র্যাচ থেকে নিজস্ব ডেটাবেস তৈরি করতে হয় এবং কীভাবে আমাদের ডেটা সংরক্ষণ এবং পরিচালনা করার জন্য কাঠামো সেটআপ করতে হয়।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস - ',
+                        subtitle: 'ক্লাস ২৫ - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Eighteen',
-                title: 'ওয়ার্প স্ট্যাবিলাইজার',
-                description: 'এই ক্লাসে আমি শিক্ষার্থীদের শেখাবো কিভাবে শুধু এক ক্লিকে একটি নড়বড়ে ফুটেজ ঠিক করতে হয়।',
+                title: 'ফুল স্ট্যাক ওয়েবসাইট (Full Stack Website)',
+                description: 'এই ক্লাসে আমরা পুরো কোর্সে যা কিছু শিখেছি তা প্রয়োগ করে একটি সম্পূর্ণ কার্যকরী ওয়েব অ্যাপ্লিকেশন নির্মাণ করবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস - ',
+                        subtitle: 'ক্লাস ২৬ - ',
                         videoId: ''
                     }
                 ]
-            },
-            {
-                id: 'Nineteen',
-                title: 'টাইটেল এবং আনিমেটেড গ্রাফিক্স',
-                description: 'এই ক্লাসে আমি বিভিন্ন পেশাদার টাইটেল অ্যানিমেশন এবং গ্রাফিক্স টুলগুলোর ব্যবহার শেখাবো।',
-                isFree: false,
-                video: [
-                    {
-                        isFree: false,
-                        subtitle: 'ক্লাস - ',
-                        videoId: ''
-                    }
-                ]
-            },
-            {
-                id: 'Tweenty',
-                title: 'গ্রীন স্ক্রীনের বাবহার-বিধি',
-                description: 'এই ক্লাসে আমি শিক্ষার্থীদের শেখাবো কিভাবে গ্রীন স্ক্রীনের ব্যাকগ্রাউন্ড অপসারণ করতে হয় এবং সেগুলোকে সবচেয়ে কার্যকরী উপায়ে ব্যবহার করতে হয়।',
-                isFree: false,
-                video: [
-                    {
-                        isFree: false,
-                        subtitle: 'ক্লাস - ',
-                        videoId: ''
-                    }
-                ]
-            },
-            {
-                id: 'Tweentyone',
-                title: 'প্রক্সি কেন ও কীভাবে?',
-                description: '4k ফু্টেজ এডিট করার মতো শক্তিশালি সিস্টেমের সকলের কাছে নেই। এই ক্লাসে আমি দেখাবো কিভাবে আমরা কম্পিউটার সরঞ্জামগুলিতে প্রচুর অর্থ ব্যয় না করে 4k ফুটেজ এডিট করতে পারি। ',
-                isFree: false,
-                video: [
-                    {
-                        isFree: false,
-                        subtitle: 'ক্লাস - ',
-                        videoId: ''
-                    }
-                ]
-            },
-            {
-                id: 'Tweentytwo',
-                title: 'কালার কারেকশন',
-                description: 'কালার গ্রেডিং এবং কালার কারেকশন ভিডিও এডিটিং এর সবচেয়ে গুরুত্বপূর্ণ ও আকর্ষণীয় অংশ। এই ক্লাসে আমি শেখাবো কিভাবে প্রফেশনাল ভাবে কালার কারেকশন করতে হয়।',
-                isFree: false,
-                video: [
-                    {
-                        isFree: false,
-                        subtitle: 'ক্লাস - ',
-                        videoId: ''
-                    }
-                ]
-            },
-            {
-                id: 'Tweentythree',
-                title: 'এক্সপোর্টিং',
-                description: 'ভিডিও এডিট করে কী লাভ যদি না আমরা আমাদের সেই ভিডিওটি সফ্টওয়্যারের বাইরেই দেখতে না পাই? এই ক্লাসে আমি দেখাবো কিভাবে প্রিমিয়ার প্রো এ এক্সপোর্ট করা যায়।',
-                isFree: false,
-                video: [
-                    {
-                        isFree: false,
-                        subtitle: 'ক্লাস - ',
-                        videoId: ''
-                    }
-                ]
-            },
-            {
-                id: 'Tweentyfour',
-                title: 'উপসংহার এবং সারসংক্ষেপ',
-                description: 'এই ক্লাসে আমরা পূর্ববর্তী যা শিখেছি তার সারাংশ দেখব এবং কীভাবে প্রকৃত ক্লায়েন্টদের সাথে এই দক্ষতাগুলিকে কাজে লাগাতে হয় এবং ভিডিও এডিটিং থেকে অর্থ উপার্জন করতে হয় তার সম্পর্কে বিস্তারিত জানবো।',
-                isFree: false,
-                video: [
-                    {
-                        isFree: false,
-                        subtitle: 'ক্লাস - ',
-                        videoId: ''
-                    }
-                ]
-            },
+            }
         ]
     },
     // Digital Marketing
@@ -885,9 +852,9 @@ const courseData = [
         live_link: 'https://us06web.zoom.us/j/83880494715?pwd=eW1aOUV3Y1B1Y2ZtbUtyWTZGMUNWdz09',
         live_link_batch2:'',
         recording_link: 'https://cutt.ly/fCNO9R4',
-        instructor_image: 'https://cdn.skillshikhun.com/images/dm_i.jpg',
-        image: 'https://cdn.skillshikhun.com/images/courses/dm.jpg',
-        promo_poster: 'https://cdn.skillshikhun.com/images/courses/dm400.png',
+        instructor_image: dm_i,
+        image: dm,
+        promo_poster: '',
         feature_alt: [
             {
                 id: 1,
@@ -1377,9 +1344,9 @@ const courseData = [
         live_link: 'https://us06web.zoom.us/j/87943558014?pwd=N0VhVXByWmY4OXlqaVZYSGh3NTJ2Zz09',
         live_link_batch2:'',
         recording_link: 'https://cutt.ly/OCNOXCq',
-        instructor_image: 'https://cdn.skillshikhun.com/images/gd_i.jpg',
-        image: 'https://cdn.skillshikhun.com/images/courses/gd.jpg',
-        promo_poster: 'https://cdn.skillshikhun.com/images/courses/gd400.png',
+        instructor_image: gd_i,
+        image: gd,
+        promo_poster: '',
         feature_alt: [
             {
                 id: 1,
@@ -1766,73 +1733,73 @@ const courseData = [
             }
         ]
     },
-    // Web Development
+    // Video Editing
     {
-        name: 'Web Development',
-        id: 'web-development',
-        title: 'ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট',
-        slug: 'Full Stack Web Development',
-        route: '/web-development',
-        alt_title: 'ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট (জিরো টু হিরো)',
-        description: 'আপনি যদি একজন পেশাদার ওয়েব ডেভেলপার হতে চান বা ওয়েব ডেভেলপমেন্টের এর জগতে নিজেকে প্রতিষ্ঠিত করতে চান তবে এই কোর্সটি আপনারই জন্য। কোর্সটি বিশেষভাবে ডিজাইন করা হয়েছে সমস্ত আধুনিক ওয়েব ডেভেলপমেন্ট টেকনোলজির সমন্বয়ে যে দক্ষতাগুলোর মার্কেটপ্লেস এবং প্রযুক্তি কোম্পানিগুলোর রয়েছে বিশাল চাহিদা।',
-        short_description: 'আপনি যদি একজন পেশাদার ওয়েব ডেভেলপার হতে চান বা ওয়েব ডেভেলপমেন্টের এর জগতে নিজেকে প্রতিষ্ঠিত করতে চান তবে এই কোর্সটি আপনারই জন্য।',
-        source: 'https://www.youtube.com/embed/TIxJqXhIvpc?autoplay=1&mute=1',
-        videoId: 'TIxJqXhIvpc',
+        name: 'Video Editing',
+        id: 'video-editing',
+        title: 'ভিডিও এডিটিং',
+        slug: 'Video Editing',
+        route: '/video-editing',
+        alt_title: 'ভিডিও এডিটিং (বেসিক থেকে প্রোফেশনাল)',
+        description: 'ইন্টারনেট জগতের সব চমকপ্রদ ভিডিও দেখে আপনি মুগ্ধ, কিন্তু চিন্তিত কিভাবে কম সময়ের মধ্যে এই দক্ষতা আয়ত্ত করে ক্যারিয়ার গড়া যায়? তবে এই কোর্সটি করবে আপনার সকল চিন্তার অবসান। বর্তমান অনলাইন মার্কেটপ্লেসে দক্ষ ভিডিও এডিটর এর রয়েছে পাহাড়সম চাহিদা। সেই চাহিদা পূরণের জন্য কিংবা ফ্রিল্যান্সিং এর মাধ্যমে ঘরে বসেই আয় করার জন্যই আমাদের এই মাস্টার ক্লাস কোর্সটি। অল্প সময়ের মধ্যে ভিডিও এডিটিং এর যাবতীয় কলাকৌশল শিখে হয়ে যান একজন প্রফেশনাল!',
+        short_description: 'কিভাবে কম সময়ের মধ্যে ভিডিও এডিটিং আয়ত্ত করে ফ্রিল্যান্সিং এর মাধ্যমে ঘরে বসেই আয় করার জন্যই আমাদের এই মাস্টার ক্লাস কোর্সটি।',
+        source: 'https://www.youtube.com/embed/xop7oG9ga9c?autoplay=1&mute=1',
+        videoId: 'xop7oG9ga9c',
         type: 'Live',
-        course_duration: '৩',
-        course_duration_eng: 3,
-        total_classes: '৩৬',
+        course_duration: '২',
+        course_duration_eng: 2,
+        total_classes: '২৪',
         regular_price: '৯,৯৯৯',
-        price: 4500,
-        price_bn: '৪৫০০',
-        offer_price: 4300,
-        offer_price_bn: '৪৩০০',
+        price: 3000,
+        price_bn: '৩০০০',
+        offer_price: 2800,
+        offer_price_bn: '২৮০০',
         price_per_month: 1500,
         price_per_month_bn: '১৫০০',
-        price_saved: '২৫০',
-        course_done: '২৩৪',
+        price_saved: '২০০',
+        course_done: '১৫০',
+        seat_left: '১৭',
         next_batch: 'নভেম্বর',
-        next_batch_eng: '2022-09-11T09:00:00.000+06:00',
-        seat_left: '১১',
-        course_instructor: 'ইফতিখার রহমান',
-        instructor_designation: 'Head of Development at Step 2 Digital, Senior Web Developer at Skill Shikhun',
+        next_batch_eng: '2022-09-11T21:00:00.000+06:00',
+        course_instructor: 'সাব্বির আহমেদ',
+        instructor_designation: 'Professional Film Editor of BFDC and PhD Researcher on Film Marketing in Malaysia.',
         class_date: [
             {
                 id: 1,
-                date: '2022-05-20'
+                date: '2022-05-13'
             },
             {
                 id: 2,
-                date: '2022-03-06'
+                date: '2022-05-27'
             }
         ],
-        class_time: '10:30PM - 12:00PM',
+        class_time: '9PM - 10:00PM',
         class_date_1: '6, 8, 10 (August 2022)',
         class_date_1_value: '2022-08-06',
-        class_date_1_deadline: '2022-08-06T22:30:00.000+06:00',
+        class_date_1_deadline: '2022-08-06T21:00:00.000+06:00',
         // class_date_1_deadline:'July 30th 2022, 9:00:00 pm',
         class_date_2: '6, 8, 10 (August 2022)',
         class_date_2_value: '2022-08-06',
-        class_date_2_deadline: '2022-08-06T22:30:00.000+06:00',
+        class_date_2_deadline: '2022-08-06T21:00:00.000+06:00',
         // class_date_2_deadline:'August 6th 2022, 9:00:00 pm',
-        free_number: '83489456820',
-        free_password: '297121',
-        free_video_count: '১২',
-        live_number: '85770635754',
-        live_password: '351625',
-        // free_link:'https://us06web.zoom.us/wc/83489456820/start',
-        free_link: 'https://us06web.zoom.us/j/83489456820?pwd=SjNTaTVnQkNEWkdtaXRXcW13VWVXZz09',
-        // live_link:'https://zoom.us/wc/85770635754/start',
-        live_link: 'https://us06web.zoom.us/j/83444144897?pwd=L0pOVEF1U2VPemo3SUdjUjhSNExNZz09',
+        free_number: '92939532748',
+        free_password: '153338',
+        free_video_count: '৪',
+        live_number: '84551599695',
+        live_password: '870201',
+        // free_link:'https://zoom.us/wc/92939532748/start',
+        free_link: 'https://us06web.zoom.us/j/92939532748?pwd=d1RMRkFnUy9hM2F6TUlPbXAxNlFBZz09',
+        // live_link:'https://zoom.us/wc/84551599695/start',
+        live_link: 'https://us06web.zoom.us/j/85815124984?pwd=eWZaK2lmK05laWNCRnFPNWxmazRuQT09',
         live_link_batch2:'',
-        recording_link: 'https://cutt.ly/4CNOMmJ',
-        instructor_image: 'https://cdn.skillshikhun.com/images/wd_i.jpg',
-        image: 'https://cdn.skillshikhun.com/images/courses/wd.jpg',
-        promo_poster: 'https://cdn.skillshikhun.com/images/courses/wd400.png',
+        recording_link: 'https://cutt.ly/2CNO5pC',
+        instructor_image: ve_i,
+        image: ve,
+        promo_poster: '',
         feature_alt: [
             {
                 id: 1,
-                item: 'এই কোর্সটি সম্পূর্ণ নতুনদের জন্য। ওয়েব ডেভেলপমেন্ট সম্পর্কে আপনার পূর্ব কোনো ধারনা থাকার দরকার নেই।'
+                item: 'এই কোর্সটি সম্পূর্ণ নতুনদের জন্য। ভিডিও এডিটিং সম্পর্কে আপনার পূর্ব কোনো ধারনা থাকার দরকার নেই।'
             },
             {
                 id: 2,
@@ -1850,22 +1817,22 @@ const courseData = [
         features: [
             {
                 id: 1,
-                item: 'ওয়েব ডেভেলপমেন্ট ব্যবহার করে যেভাবে ক্যারিয়ার গড়বেন।'
+                item: 'Adobe Premiere Pro এবং Adobe After Effects যেভাবে ব্যবহার করবেন।'
             },
             {
                 id: 2,
-                item: 'রিয়েক্ট এবং নোডের মতো উন্নত প্রযুক্তি ব্যবহার করে যেভাবে নিজস্ব ওয়েব অ্যাপ্লিকেশন তৈরি করবেন।'
+                item: 'বেসিক থেকে অ্যাডভান্স লেভেল পর্যন্ত ভিডিও এডিটিং এবং মোশন ডিজাইন এর সকল খুঁটিনাটি।'
             },
             {
                 id: 3,
-                item: 'ওয়েব ডেভেলপমেন্ট ব্যবহার করে যেভাবে ফ্রীল্যান্সিং এর মাধ্যমে আয় করবেন।'
+                item: 'লোকাল এবং ইন্টারন্যাশনাল মার্কেটে ভিডিও এডিটিং দক্ষতা কাজে লাগিয়ে যেভাবে ক্যারিয়ার গড়বেন।'
             },
             {
                 id: 4,
-                item: 'প্রোগ্রামিং এর মাধ্যমে যেভাবে নিজের দক্ষতা বাড়াবেন।'
+                item: 'ফ্রিল্যান্সার হিসেবে রিমোট জব এর মাধ্যমে যেভাবে ঘরে বসেই আয় করবেন।'
             }
         ],
-        featuresDescription: '৩ মাসে ৩৬ টি ক্লাসের ওয়েব ডেভেলপমেন্ট কোর্সটি সাজানো হয়েছে যেন এই কোর্সের শেষে আপনি একজন দক্ষ ওয়েব ডেভেলপার হিসেবে নিজেকে প্রতিষ্ঠিত করতে পারবেন',
+        featuresDescription: '২ মাসে ২৪ টি ক্লাসের এই কোর্সটি সাজানো হয়েছে যেন সহজভাবে ভিডিও এডিটিং এর প্রধান বিষয়গুলো নিয়ে আলোচনা করা হয় এবং সেগুলোর উপর কুইজের মাধ্যমে হাতে-কলমে নিজেকে যাচাই করা যায়।',
         featureBonus: [
             {
                 id: 1,
@@ -1879,283 +1846,326 @@ const courseData = [
         outline: [
             {
                 id: 'One',
-                title: 'সূচনা (Introduction)',
-                description: 'এই ক্লাসটি হবে মূলত আমার এবং শিক্ষার্থীদের পরিচয়পর্ব। আমি নিজেকে পরিচয় করিয়ে দিব- আমি কে, আমি বিভিন্ন প্ল্যাটফর্মে ওয়েব ডেভেলপমেন্ট এর মাধ্যমে কীভাবে আয় করছি, একইসাথে শিক্ষার্থীদের সম্পর্কে জানবো যা উপযুক্ত পরিবেশে শেখানোর জন্য যোগাযোগ গুরুত্বপূর্ণ।',
+                title: 'ইন্ট্রডাকশন (Introduction)',
+                description: 'এই ক্লাসটি হবে মূলত আমার এবং শিক্ষার্থীদের পরিচয়পর্ব। আমি নিজেকে পরিচয় করিয়ে দিব- আমি কে, আমি Fiverr এবং অন্যান্য ফ্রিল্যান্স প্ল্যাটফর্মে ভিডিও এডিটিং এর মাধ্যমে কীভাবে আয় করছি, একইসাথে শিক্ষার্থীদের সম্পর্কে জানবো উপযুক্ত পরিবেশে শেখানোর জন্য যোগাযোগ গুরুত্বপূর্ণ।',
                 isFree: true,
                 video: [
                     {
                         isFree: true,
-                        subtitle: 'ক্লাস ১ - সূচনা (Introduction)',
-                        videoId: '9J9CUJlIu3k'
+                        subtitle: 'ক্লাস ১ - ইন্ট্রডাকশন (Introduction)',
+                        videoId: 'KrXq8LAvmzk'
                     }
                 ]
             },
             {
                 id: 'Two',
-                title: 'এইচ টি এম এল ৫ (HTML5)',
-                description: 'আমরা কোর্সটি শুরু করবো ওয়েব ডেভেলপমেন্ট এর বেসিক শেখার এবং HTML5 কোড লেখার জন্য প্রয়োজনীয় টুল ইন্সটল করার মাধ্যমে। এই ক্লাসে আমরা HTML5 এর প্রায় সব ধারণা শিখবো এবং ওয়েবপেজে HTML উপাদানগুলোর গঠন বিন্যাস কিভাবে সাজাবো তা শিখবো।',
-                isFree: true,
+                title: 'ইনস্টলেশন এবং শুরু',
+                description: 'এই ক্লাসে, আমি দেখাবো কিভাবে আমরা অ্যাডবি প্রিমিয়ার প্রো ইন্সটল করে তার মাধ্যমে কাজ শুরু করতে পারি।',
+                isFree: false,
                 video: [
                     {
-                        isFree: true,
-                        subtitle: 'ক্লাস ২ - এইচ টি এম এল ৫ (HTML5)',
-                        videoId: 'roPdqQ4X0n0'
+                        isFree: false,
+                        subtitle: 'ক্লাস ২ - ইনস্টলেশন এবং শুরু',
+                        videoId: ''
                     }
                 ]
             },
             {
                 id: 'Three',
-                title: 'সিএসএস 3 (CSS3)',
-                description: 'এই ক্লাসে আমরা CSS3 এর মৌলিক বিষয়গুলি শিখবো যা আমাদের ওয়েবসাইট তৈরি এবং আকর্ষণীয় করতে সাহায্য করবে। এছাড়াও আমরা শিখবো কিভাবে আপনার বিদ্যমান HTML পেজগুলোতে CSS যোগ করে আরো আকর্ষণীয় করতে পারি।',
+                title: 'প্রোজেক্ট তৈরি',
+                description: 'এই ক্লাসে আমরা শিখবো কিভাবে প্রিমিয়ার প্রো এ এডিট করার জন্য প্রোজেক্ট তৈরি করতে হয়।',
                 isFree: true,
                 video: [
                     {
                         isFree: true,
-                        subtitle: 'ক্লাস ৩ - এইচ টি এম এল ৫ (HTML5) এবং সিএসএস 3 (CSS3)',
-                        videoId: '3EJEZgnoiUM'
-                    },
-                    {
-                        isFree: true,
-                        subtitle: 'ক্লাস ৪ - সিএসএস 3 (CSS3)',
-                        videoId: 'D6TVgqIT4mA'
+                        subtitle: 'ক্লাস ২ - প্রোজেক্ট তৈরি',
+                        videoId: 'cCBuVRGuUq8'
                     }
                 ]
             },
             {
                 id: 'Four',
-                title: 'প্রফেশনাল ওয়েবসাইট তৈরি (Building A Professional Website)',
-                description: 'এই ক্লাসে আমরা আমাদের এই পর্যন্ত শেখা দক্ষতাকে কাজে লাগিয়ে HTML এবং CSS সহ একটি পোর্টফোলিও সাইট তৈরি করব।',
-                isFree: true,
+                title: 'ওয়ার্কস্পেস এবং পানেল',
+                description: 'নির্ভুল এবং দ্রুত এডিটিং এর জন্য সঠিক ওয়ার্কস্পেস থাকা খুবই গুরুত্বপূর্ণ। এই ক্লাসে আমি দেখাবো কিভাবে আমরা সেরা এডিটিং অভিজ্ঞতার জন্য সবচেয়ে সুবিধাজনক ওয়ার্কস্পেস ব্যবহার করতে পারি।',
+                isFree: false,
                 video: [
                     {
-                        isFree: true,
-                        subtitle: 'ক্লাস ৫ - পোর্টফোলিও ওয়েবসাইট প্রজেক্ট পার্ট ১ (Portfolio Website Project Part 1)',
-                        videoId: 'b_QJ2m_xDIE'
+                        isFree: false,
+                        subtitle: 'ক্লাস ৪ - ওয়ার্কস্পেস এবং পানেল',
+                        videoId: 't5Mp65o6edM'
                     },
                     {
-                        isFree: true,
-                        subtitle: 'ক্লাস ৬ - পোর্টফোলিও ওয়েবসাইট প্রজেক্ট পার্ট ২ (Portfolio Website Project Part 2)',
-                        videoId: 'WNgRyuKum8A'
+                        isFree: false,
+                        subtitle: 'ক্লাস ৫ - Q and A',
+                        videoId: 'JuYP_e9q7hE'
                     }
                 ]
             },
             {
                 id: 'Five',
-                title: 'গিট, গিটহাব এবং হোস্টিং (Git, GitHub, Hosting)',
-                description: 'এই ক্লাসে আমরা সারা বিশ্ব জুড়ে ওয়েব ডেভেলপারদের মধ্যে সবচেয়ে জনপ্রিয় টুল গিট এবং গিটহাব সম্পর্কে জানবো। Git এবং কিভাবে Git সংস্করণ নিয়ন্ত্রণের জন্য ব্যবহার করা যেতে পারে, Git এর সাথে কাজ করার জন্য প্রয়োজনীয় গুরুত্বপূর্ণ কমান্ড এবং GitHub এর সহযোগিতায় দলগত প্রজেক্ট এর কাজের সুবিধাগুলো শিখবো।',
+                title: 'মিডিয়া ইম্পোর্ট',
+                description: 'একটি প্রজেক্টে কাজ শুরু করার জন্য আমাদের মিডিয়া ফাইল আমদানি করতে হয়। আমি দেখাবো কিভাবে কম্পিউটার থেকে প্রিমিয়ার প্রো প্রোজেক্টে মিডিয়া ইম্পোর্ট করতে হয়।',
                 isFree: true,
                 video: [
                     {
                         isFree: true,
-                        subtitle: 'ক্লাস ৭ - গিট, গিটহাব এবং হোস্টিং (Git, GitHub, Hosting)',
-                        videoId: '8ukjw7v4ErA'
+                        subtitle: 'ক্লাস ৩ - মিডিয়া ইম্পোর্ট',
+                        videoId: 'psSMJ0YvtoQ'
                     }
                 ]
             },
             {
                 id: 'Six',
-                title: 'বুটস্ট্র্যাপ 5 (Bootstrap 5)',
-                description: 'এই ক্লাসে আমরা বুটস্ট্র্যাপ 5 এবং বুটস্ট্র্যাপ গ্রিড সিস্টেম সম্পর্কে জানবো এবং এটির সাহায্যে কীভাবে প্রতিক্রিয়াশীল লেআউট তৈরি করতে হয় তা শিখবো।',
+                title: 'সিকুয়েন্স কি?',
+                description: 'এই ক্লাসে আমি আপনাদের সিকুয়েন্স এর সাথে পরিচয় করিয়ে দিব এবং কোর্স আগানোর সাথে সাথে আমরা এটি সম্পর্কে আরও শিখবো।',
                 isFree: true,
                 video: [
                     {
                         isFree: true,
-                        subtitle: 'ক্লাস ৮ - বুটস্ট্র্যাপ 5 পার্ট ১ (Bootstrap 5 Part 1)',
-                        videoId: '54qYgoDWcZ8'
+                        subtitle: 'ক্লাস ৪ - সিকুয়েন্স',
+                        videoId: 'Ksz5tWgAEmM'
                     },
                     {
                         isFree: true,
-                        subtitle: 'ক্লাস ৮ - বুটস্ট্র্যাপ 5 পার্ট ২ (Bootstrap 5 Part 2)',
-                        videoId: 'VQKd6WVteTU'
-                    },
-                    {
-                        isFree: true,
-                        subtitle: 'ক্লাস ৯ - ব্লগ ওয়েবসাইট প্রজেক্ট (Blog Website Project)',
-                        videoId: 'CMCnsy_w9Xs'
-                    },
-                    {
-                        isFree: true,
-                        subtitle: 'ক্লাস ১০ - মুভি ল্যান্ডিং পেজ প্রজেক্ট (Movie Landing Page Project)',
-                        videoId: 'ZafP43Oduas'
+                        subtitle: 'ক্লাস ৫ - কিভাবে ভিডিও এডিট করবেন?',
+                        videoId: 'hfsl1YPrmXI'
                     }
                 ]
             },
             {
                 id: 'Seven',
-                title: 'ই-কমার্স ওয়েবসাইট তৈরি (Building an E-commerce Website)',
-                description: 'এই ক্লাসে আমরা CSS এর সাহায্য ছাড়াই সম্পূর্ণরূপে বুটস্ট্র্যাপ এবং এর উপাদানগুলি ব্যবহার করে সম্পূর্ণরূপে মোবাইল প্রতিক্রিয়াশীল ওয়েবসাইট তৈরি করবো যা কম্পিউটার, ট্যাবলেট এবং স্মার্টফোনের মতো সমস্ত ডিভাইসে কাজ করবে এবং দেখতে চমৎকার হবে।',
-                isFree: true,
+                title: 'অফলাইন ফুটেজ রি-লিঙ্ক',
+                description: 'কখনও কখনও প্রিমিয়ার প্রো আমাদের ইম্পোর্ট করা ভিডিও এবং অ্যাসেটগুলো খুঁজে পেতে ব্যর্থ হয়। এই ক্লাসে কীভাবে সেগুলি পুনরায় লিঙ্ক করতে হয় এবং হারিয়ে যাওয়া ফাইলগুলি খুঁজে পেতে হয় তা শেখাবো।',
+                isFree: false,
                 video: [
                     {
-                        isFree: true,
-                        subtitle: 'ক্লাস ১১ - ই-কমার্স ওয়েবসাইট তৈরি (Building an E-commerce Website)',
-                        videoId: 'Z2SQX_3VNYg'
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
                     }
                 ]
             },
             {
                 id: 'Eight',
-                title: 'জাভাস্ক্রিপ্ট (JavaScript)',
-                description: 'এই ক্লাসে আমরা ফ্রন্ট এন্ড ওয়েব ডেভেলপমেন্টের সবচেয়ে জনপ্রিয় ভাষা, জাভাস্ক্রিপ্ট এর বেসিক সকল খুঁটিনাটি শিখবো ।',
+                title: 'সোর্স এবং প্রোগ্রাম মনিটর',
+                description: 'প্রিমিয়ার প্রো এডিটিং আরও দক্ষতার সাথে করার জন্য একটি দুর্দান্ত এবং সহজ পদ্ধতি ব্যবহার করে দুটি মনিটর ব্যবহার করে। এই ক্লাসে আমি শিক্ষার্থীদের এই পদ্ধতির সাথে পরিচয় করিয়ে দিবো এবং আমরা এগিয়ে যাওয়ার সাথে সাথে এটি সম্পর্কে আরও জানবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস ১২ - জাভাস্ক্রিপ্ট স্ট্রিং, নাম্বারস (JavaScript String, Number)',
-                        videoId: ''
-                    },
-                    {
-                        isFree: false,
-                        subtitle: 'ক্লাস ১৩ - জাভাস্ক্রিপ্ট এরে, কন্ডিশনাল স্টেটমেন্টস, ফর লুপ, ওয়াইল লুপ, ফাঙ্কশন, অব্জেক্টস, সুইচ (JavaScript Array, Conditional Statements, For Loop, While Loop, Object, Function, Switch)',
-                        videoId: ''
-                    },
-                    {
-                        isFree: false,
-                        subtitle: 'ক্লাস ১৪ - জাভাস্ক্রিপ্ট প্রব্লেম সলভিং (JavaScript Problem Solving)',
-                        videoId: ''
-                    },
-                    {
-                        isFree: false,
-                        subtitle: 'ক্লাস ১৫ - জাভাস্ক্রিপ্ট রিয়েল লাইফ প্রব্লেম সলভিং (JavaScript Real Life Problem Solving)',
-                        videoId: ''
-                    },
-                    {
-                        isFree: false,
-                        subtitle: 'ক্লাস ১৬ - জাভাস্ক্রিপ্ট ডোম, ইভেন্টস, ইভেন্ট বাবল (JavaScript DOM, Event, Event Bubbling)',
+                        subtitle: 'ক্লাস - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Nine',
-                title: 'ইএস৬ (ES6)',
-                description: 'এই ক্লাসে আমরা জাভাস্ক্রিপ্ট এর সর্বশেষ সংস্করণ ES6 সম্পর্কে শিখবো এবং এর নতুন ফিচারগুলো সম্পর্কে জানবো। ',
+                title: 'কী-বাইন্ড এবং শর্টকাট',
+                description: 'দ্রুত এডিট করার জন্য কী-বাইন্ড এবং শর্টকাট গুলো খুবই জরুরী। আমি এই ক্লাসে কীভাবে শর্টকাট দিয়ে দ্রুত এডিট করতে পারি তার প্রো টিপস শেয়ার করবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস ১৮ - ইএস৬ (ES6)',
+                        subtitle: 'ক্লাস - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Ten',
-                title: 'ইন্টের‍্যাক্টিভ ওয়েবসাইট (Interactive Website)',
-                description: 'এই ক্লাসে আমরা জাভাস্ক্রিপ্ট এবং বুটস্ট্র্যাপ ব্যবহার করে একটি সাধারণ ইন্টারেক্টিভ ওয়েবসাইট তৈরি করা শিখবো।',
+                title: 'ট্রিমিং',
+                description: 'ভিডিওগুলোকে একত্রিত করতে এবং তা থেকে একটি গল্প তৈরি করতে ট্রিমিং প্রয়োজন। এই ক্লাসে আমি ট্রিমিং এর সবচেয়ে কার্যকর টুল এবং কৌশলগুলোর ব্যবহারর শেখাবো। ',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস ১৭ - বার্থডে কাউন্টডাউন প্রজেক্ট (Birthday Countdown Project) এবং সিম্পল জাভাস্ক্রিপ্ট বুটস্ট্র্যাপ শপিং কার্ট প্রজেক্ট (Simple JavaScript Bootstrap Shopping Cart Project)',
+                        subtitle: 'ক্লাস - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Eleven',
-                title: 'এপিআই, জেএসওএন, সার্ভার, ডেটা লোড, ডাইনামিক ওয়েবসাইট এবং এইচটিটিপি (API JSON, Server, Data Load, Dynamic Website, http)',
-                description: 'এই ক্লাসে আমরা এপিআই, জেএসওএন, সার্ভার, ডেটা লোড, ডাইনামিক ওয়েবসাইট এবং এইচটিটিপি সম্পর্কে জানবো।',
+                title: 'L কাট এবং J কাট',
+                description: 'এই ক্লাসে আমি  L কাট এবং J কাট ব্যবহার করে একটি ভিডিও বা মুভিকে কীভাবে আরও আকর্ষনীয় করা যায় সেসব কার্যকর পদ্ধতিগুলো শেখাবো। এছাড়াও অন্যান্য বিভিন্ন পদ্ধতি সম্পর্কেও ধারনা দিবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস ১৯ - এপিআই, জেসন স্ট্রিংগিফাই, পার্স, গেট, পোস্ট মেথড',
+                        subtitle: 'ক্লাস - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Twelve',
-                title: 'এপিআই ব্যবহার করে ওয়েবসাইট তৈরি (Building a Website Using API)',
-                description: 'এই ক্লাসে আমরা এপিআই ব্যবহার করে একটি ওয়েবসাইট তৈরি করবো।',
+                title: 'অডিও ইফেক্ট এবং ওয়েভফর্ম',
+                description: 'একটি ভিডিওকে আকর্ষনীয় করার জন্য অডিও এর কাজও সমান গুরুত্বপূর্ণ। এই ক্লাসে আমরা শিখবো কীভাবে ভিডিও এর অডিও বর্ধিত করে একে আরও চিত্তাকর্ষক বানানো যায়।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস ২০ - রেন্ডম এপিআই, COVID-19 প্রজেক্ট (Rendom API, COVID-19 Project)',
+                        subtitle: 'ক্লাস - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Thirteen',
-                title: 'রিয়েক্ট জেএস (ReactJS)',
-                description: 'এই ক্লাসে আমরা ReactJS সম্পর্কে শিখব যা একটি প্রগতিশীল ফ্রন্ট-এন্ড লাইব্রেরি যা আপনাদেরকে দক্ষ উপায়ে ইউজার ইন্টারফেস উপাদান তৈরি করতে সাহায্য করে।',
+                title: 'ট্রানজিশন',
+                description: 'ট্রানজিশন হল ভিডিও এডিটিং এর সবচেয়ে গুরুত্বপূর্ণ প্রভাবগুলির মধ্যে একটি। এই ক্লাসে আমরা নিখুতঁভাবে ভিডিও এর একটি দৃশ্য থেকে অন্য দৃশ্যে মসৃণভাবে সরানো শিখবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস ২১ - ',
+                        subtitle: 'ক্লাস - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Fourteen',
-                title: 'রিয়েক্ট অথেনটিকেশন (ফায়ারবেস) (React Authentication (Firebase)',
-                description: 'এই ক্লাসে আমরা রিয়েক্ট অথেনটিকেশন এবং এর ব্যবহার সম্পর্কে শিখবো।',
+                title: 'কী-ফ্রেম এবং পজিশনিং',
+                description: 'এই ক্লাসে আমরা কী-ফ্রেম এবং পজিশনিং সম্পর্কে শিখবো এবং এগিয়ে যাওয়ার সাথে সাথে এটি সম্পর্কে আরও বিস্তারিত জানতে পারবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস ২২ - ',
+                        subtitle: 'ক্লাস - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Fifteen',
-                title: 'রিয়েক্ট অথেনটিকেশন ব্যবহার করে ওয়েবসাইট তৈরি (Building a website using React Authentication)',
-                description: 'এই ক্লাসে আমরা রিয়েক্ট অথেনটিকেশন ব্যবহার করে একটি ওয়েবসাইট তৈরি করবো।',
+                title: 'মোশন এবং অপ্যাসিটি',
+                description: 'এই ক্লাসে আমরা ভিডিও এর দুটি প্রয়োজনীয় বিষয়, মোশন এবং অপ্যাসিটি সম্পর্কে শিখবো এবং এগিয়ে যাওয়ার সাথে সাথে এটি সম্পর্কে আরও বিস্তারিত জানতে পারবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস ২৩ - ',
+                        subtitle: 'ক্লাস - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Sixteen',
-                title: 'নোড জেএস (Node JS) এবং এক্সপ্রেস জেএস (Express JS)',
-                description: 'এই ক্লাস থেকে আমরা ব্যাকএন্ড সম্পর্কে শেখা শুরু করবো। আমরা Node JS এর মূল বিষয়গুলি থেকে নোড এবং নোড জেএস এর ওয়েব ফ্রেমওয়ার্ক এক্সপ্রেস জেএস শেখা শুরু করব এবং নিজস্ব সার্ভার তৈরি করা শিখবো। আমরা নোড প্যাকেজ ম্যানেজার এবং কীভাবে এটি বিভিন্ন নোড প্যাকেজ ইনস্টল এবং ব্যবহার সম্পর্কেও জানবো।',
+                title: 'ভিডিও স্পীড এবং ফ্রিজ ফ্রেম',
+                description: 'এই ক্লাসে আমরা শিখবো কিভাবে একটি ভিডিওতে ফাস্ট ফরওয়ার্ড এবং স্লো মোশন ব্যবহার করতে হয়। এছাড়াও ভিডিও এর গতি বিষয়ক অন্যান্য টুল সম্পর্কে জানবো।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস ২৪ - ',
+                        subtitle: 'ক্লাস - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Seventeen',
-                title: 'মঙ্গোডিবি (MongoDB)',
-                description: 'এই ক্লাসে আমরা MongoDB সম্পর্কে জানবো যা একটি ডেটাবেস যেটি বৃহৎ সফ্টওয়্যার কোম্পানীগুলো দ্বারা ব্যবহৃত এবং বিশ্বস্ত। আমরা শিখবো কীভাবে স্ক্র্যাচ থেকে নিজস্ব ডেটাবেস তৈরি করতে হয় এবং কীভাবে আমাদের ডেটা সংরক্ষণ এবং পরিচালনা করার জন্য কাঠামো সেটআপ করতে হয়।',
+                title: 'টাইম রিম্যাপিং',
+                description: 'এই ক্লাসে আমরা শিখবো কিভাবে ভিডিও স্পীড ব্যবহার করে একটি ভিডিওকে আরো প্রফেশনাল এবং ডাইনামিক দেখাতে হয়।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস ২৫ - ',
+                        subtitle: 'ক্লাস - ',
                         videoId: ''
                     }
                 ]
             },
             {
                 id: 'Eighteen',
-                title: 'ফুল স্ট্যাক ওয়েবসাইট (Full Stack Website)',
-                description: 'এই ক্লাসে আমরা পুরো কোর্সে যা কিছু শিখেছি তা প্রয়োগ করে একটি সম্পূর্ণ কার্যকরী ওয়েব অ্যাপ্লিকেশন নির্মাণ করবো।',
+                title: 'ওয়ার্প স্ট্যাবিলাইজার',
+                description: 'এই ক্লাসে আমি শিক্ষার্থীদের শেখাবো কিভাবে শুধু এক ক্লিকে একটি নড়বড়ে ফুটেজ ঠিক করতে হয়।',
                 isFree: false,
                 video: [
                     {
                         isFree: false,
-                        subtitle: 'ক্লাস ২৬ - ',
+                        subtitle: 'ক্লাস - ',
                         videoId: ''
                     }
                 ]
-            }
+            },
+            {
+                id: 'Nineteen',
+                title: 'টাইটেল এবং আনিমেটেড গ্রাফিক্স',
+                description: 'এই ক্লাসে আমি বিভিন্ন পেশাদার টাইটেল অ্যানিমেশন এবং গ্রাফিক্স টুলগুলোর ব্যবহার শেখাবো।',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Tweenty',
+                title: 'গ্রীন স্ক্রীনের বাবহার-বিধি',
+                description: 'এই ক্লাসে আমি শিক্ষার্থীদের শেখাবো কিভাবে গ্রীন স্ক্রীনের ব্যাকগ্রাউন্ড অপসারণ করতে হয় এবং সেগুলোকে সবচেয়ে কার্যকরী উপায়ে ব্যবহার করতে হয়।',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Tweentyone',
+                title: 'প্রক্সি কেন ও কীভাবে?',
+                description: '4k ফু্টেজ এডিট করার মতো শক্তিশালি সিস্টেমের সকলের কাছে নেই। এই ক্লাসে আমি দেখাবো কিভাবে আমরা কম্পিউটার সরঞ্জামগুলিতে প্রচুর অর্থ ব্যয় না করে 4k ফুটেজ এডিট করতে পারি। ',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Tweentytwo',
+                title: 'কালার কারেকশন',
+                description: 'কালার গ্রেডিং এবং কালার কারেকশন ভিডিও এডিটিং এর সবচেয়ে গুরুত্বপূর্ণ ও আকর্ষণীয় অংশ। এই ক্লাসে আমি শেখাবো কিভাবে প্রফেশনাল ভাবে কালার কারেকশন করতে হয়।',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Tweentythree',
+                title: 'এক্সপোর্টিং',
+                description: 'ভিডিও এডিট করে কী লাভ যদি না আমরা আমাদের সেই ভিডিওটি সফ্টওয়্যারের বাইরেই দেখতে না পাই? এই ক্লাসে আমি দেখাবো কিভাবে প্রিমিয়ার প্রো এ এক্সপোর্ট করা যায়।',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
+            {
+                id: 'Tweentyfour',
+                title: 'উপসংহার এবং সারসংক্ষেপ',
+                description: 'এই ক্লাসে আমরা পূর্ববর্তী যা শিখেছি তার সারাংশ দেখব এবং কীভাবে প্রকৃত ক্লায়েন্টদের সাথে এই দক্ষতাগুলিকে কাজে লাগাতে হয় এবং ভিডিও এডিটিং থেকে অর্থ উপার্জন করতে হয় তার সম্পর্কে বিস্তারিত জানবো।',
+                isFree: false,
+                video: [
+                    {
+                        isFree: false,
+                        subtitle: 'ক্লাস - ',
+                        videoId: ''
+                    }
+                ]
+            },
         ]
     }
 ];

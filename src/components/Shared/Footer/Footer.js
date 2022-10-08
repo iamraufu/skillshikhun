@@ -3,6 +3,8 @@ import footerData from '../../../data/Footer/footerData';
 import groupsData from '../../../data/Footer/groupsData';
 import links from '../../../data/Footer/links';
 import { Link } from 'react-router-dom';
+import logo from '../../../images/logo.png'
+import googlePlay from '../../../images/play_store.png'
 
 const Footer = () => {
     return (
@@ -11,7 +13,7 @@ const Footer = () => {
 
                 <div className="row">
                     <div className="col-lg-4">
-                        <img src='https://cdn.skillshikhun.com/images/logo.png' alt="" width={80} className="img-fluid" />
+                        <img src={logo} alt="" width={80} className="img-fluid" />
                         <h5 className=" mt-3">Registered Address</h5>
                         <p className="text-muted mt-3">15/1 Lake Circus, Kalabagan, North Dhanmondi, Dhaka - 1205.</p>
 
@@ -42,7 +44,7 @@ const Footer = () => {
                     <div className="col-lg-3">
                         <h4 className=' mt-4 text-center'>Download Skill Shikhun App</h4>
                         <a href="https://play.google.com/store/apps/details?id=com.skillshikhun.skillshikhun" target="_blank" rel="noreferrer">
-                            <img src='https://cdn.skillshikhun.com/images/play_store.png' alt="Download Official App" className="img-fluid mx-auto d-block my-4" style={{ width: '150px' }} />
+                            <img src={googlePlay} alt="Download Official App" className="img-fluid mx-auto d-block my-4" style={{ width: '150px' }} />
                         </a>
                     </div>
                 </div>
