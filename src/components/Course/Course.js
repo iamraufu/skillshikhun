@@ -10,9 +10,9 @@ import CourseDemoClass from '../DemoClass/CourseDemoClass';
 import Tracker from '../Tracker/Tracker';
 import Footer from '../Shared/Footer/Footer';
 import { useForm } from 'react-hook-form';
-// import PromoMessage from '../PromoMessage/PromoMessage';
+import PromoMessage from '../PromoMessage/PromoMessage';
 // import fri500_sm from '../../images/promo/promo_sm.png';
-// import skill999_sm from '../../images/promo/skill999_sm.png';
+import skill999_sm from '../../images/promo/skill999_sm.png';
 import clickImage from '../../images/promo/click.png';
 import call from '../../images/courses/call.svg';
 import messenger from '../../images/courses/messenger.svg';
@@ -129,7 +129,7 @@ const Course = (props) => {
 
     return (
         <>
-            {/* <PromoMessage /> */}
+            <PromoMessage />
             <div style={{ backgroundColor: '#f8f9fa' }}>
                 <Navbar />
                 <div className="container py-5">
@@ -207,7 +207,7 @@ const Course = (props) => {
                                                     }
                                                 </div>
                                             </div>
-                                            {/* <img className='img-fluid' src={skill999_sm} alt="" /> */}
+                                            <img className='img-fluid' src={skill999_sm} alt="" />
 
                                             {
                                                 !course.name === 'সবার জন্য ফ্রিল্যান্সিং' &&
