@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import HeroDemo from './HeroDemo';
 import RegisterFromDemoClass from './RegisterFromDemoClass';
+import checkbox from '../../images/checkbox.svg'
+import checkbox_purple from '../../images/checkbox_purple.svg'
 
 const DemoClass = (props) => {
 
@@ -69,15 +71,15 @@ const DemoClass = (props) => {
                         <div className="progress-info-container">
                             <div className="d-flex justify-content-center">
                                 <div className="col-sm-4 progress-select mx-auto">
-                                    <img className='img-fluid progress-info-image' width={30} src='https://cdn.skillshikhun.com/images/checkbox.svg' alt="course selected" />
+                                    <img className='img-fluid progress-info-image' width={30} src={checkbox} alt="course selected" />
                                 </div>
 
                                 <div className="col-sm-4 progress-select mx-auto">
-                                    <img className='img-fluid progress-info-image' width={30} src='https://cdn.skillshikhun.com/images/checkbox.svg' alt="your info" />
+                                    <img className='img-fluid progress-info-image' width={30} src={checkbox} alt="your info" />
                                 </div>
 
                                 <div className="col-sm-4 progress-select mx-auto">
-                                    <img className='img-fluid progress-info-image' width={30} src='https://cdn.skillshikhun.com/images/checkbox_purple.svg' alt="payment" />
+                                    <img className='img-fluid progress-info-image' width={30} src={checkbox_purple} alt="payment" />
                                 </div>
 
                             </div>

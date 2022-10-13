@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 import useAuth from '../../../hooks/useAuth';
+import logo from '../../../images/logo.png'
 
 const Navbar = () => {
 
@@ -22,7 +23,7 @@ const Navbar = () => {
                         <Link onClick={() => { window.scrollTo(0, 0); }} to='/' className='mx-auto d-block'>
                             <img onClick={()=>{
                             document.addEventListener('contextmenu', event => event.preventDefault());
-                            }} src='https://cdn.skillshikhun.com/images/logo.png' className='img-fluid' width={90} alt="Skill শিখুন" loading="lazy" />
+                            }} src={logo} className='img-fluid' width={90} alt="Skill শিখুন" loading="lazy" />
                         </Link>
 
                         {
