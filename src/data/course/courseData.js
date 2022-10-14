@@ -2,11 +2,11 @@ import dm_i from '../../images/dm_i.jpg'
 import ve_i from '../../images/ve_i.jpg'
 import gd_i from '../../images/gd_i.jpg'
 import wd_i from '../../images/wd_i.jpg'
-import dm from '../../images/courses/dm.jpg'
-import wd from '../../images/courses/wd.jpg'
-import ve from '../../images/courses/ve.jpg'
-import gd from '../../images/courses/gd.jpg'
-import sjf from '../../images/courses/sjf.png'
+import dm from '../../images/courses/thumbnails/DM.png'
+import wd from '../../images/courses/thumbnails/WD.png'
+import ve from '../../images/courses/thumbnails/VE.png'
+import gd from '../../images/courses/thumbnails/GD.png'
+import sjf from '../../images/courses/thumbnails/FL.png'
 
 const courseData = [
     // Freelancing for All
