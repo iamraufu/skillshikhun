@@ -21,8 +21,9 @@ const DemoClass = (props) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/users/userBy/phone/${phone}`);
             const data = await res.json();
+            console.log(data);
             setUserPhone(data)
         }
         fetchData();

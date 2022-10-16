@@ -70,7 +70,7 @@ const Checkout = () => {
 
     const [payments, setPayments] = useState([]);
     useEffect(() => {
-        fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`)
+        fetch(`https://skillshikhun.herokuapp.com/users/userBy/phone/${phone}`)
             .then(res => res.json())
             .then(data => setUserPhoneData(data))
     }, [phone])

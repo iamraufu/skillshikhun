@@ -23,7 +23,7 @@ const DNavbar = () => {
 
     // useEffect(() => {
     //     const fetchData = async () => {
-    //         const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
+    //         const res = await fetch(`https://skillshikhun.herokuapp.com/users/userBy/phone/${phone}`);
     //         const data = await res.json();
     //         setUserPhoneData(data);
     //     }
@@ -34,7 +34,7 @@ const DNavbar = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/users/phone/${phone}`);
+            const res = await fetch(`https://skillshikhun.herokuapp.com/users/userBy/phone/${phone}`);
             const data = await res.json();
             setUser(data);
         }
