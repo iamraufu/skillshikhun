@@ -210,7 +210,7 @@ const Course = (props) => {
                                             <img className='img-fluid' src={skill999_sm} alt="" />
 
                                             {
-                                                !course.name === 'সবার জন্য ফ্রিল্যান্সিং' &&
+                                            course.name === 'সবার জন্য ফ্রিল্যান্সিং' ? null :
                                                 <div className="d-none d-lg-block">
                                                     <span onClick={() => {
                                                         document.getElementById('lg-promo-container').style.display === 'block' ?
