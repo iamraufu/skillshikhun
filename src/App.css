@@ -114,3 +114,29 @@ colors:
 .cursor-pointer {
     cursor: pointer;
 }
+
+.swiper-pagination-bullet {
+    background-color: #ececec !important;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet .swiper-pagination-bullet-active {
+    background-color: #fff !important;
+    opacity: 1;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    margin-top: 5rem !important;
+    background-color: #adabae;
+    color: #000 !important;
+    font-weight: bold !important;
+    border-radius: 50% !important;
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 16px !important;
+}

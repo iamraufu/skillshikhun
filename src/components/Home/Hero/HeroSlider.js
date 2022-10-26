@@ -1,5 +1,4 @@
 import React from 'react';
-import './HeroSlider.css';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
