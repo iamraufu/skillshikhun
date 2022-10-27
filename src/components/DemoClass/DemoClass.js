@@ -12,7 +12,7 @@ const DemoClass = (props) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
+            const res = await fetch(`https://backend-skill-shikhun.herokuapp.com/demoClasses/phone/${phone}`);
             const data = await res.json();
             setDemoClasses(data);
         }
@@ -21,7 +21,7 @@ const DemoClass = (props) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/users/userBy/phone/${phone}`);
+            const res = await fetch(`https://backend-skill-shikhun.herokuapp.com/users/userBy/phone/${phone}`);
             const data = await res.json();
             console.log(data);
             setUserPhone(data)

@@ -27,7 +27,7 @@ const DFreeClass = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/demoClasses/phone/${phone}`);
+            const res = await fetch(`https://backend-skill-shikhun.herokuapp.com/demoClasses/phone/${phone}`);
             const data = await res.json();
             setDemoClasses(data);
         }
@@ -36,7 +36,7 @@ const DFreeClass = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://skillshikhun.herokuapp.com/users/userBy/phone/${phone}`);
+            const res = await fetch(`https://backend-skill-shikhun.herokuapp.com/users/userBy/phone/${phone}`);
             const data = await res.json();
             setUserPhoneData(data);
         }
@@ -48,7 +48,7 @@ const DFreeClass = () => {
         setFreeClasses(courseData.filter(course => demo_classes.includes(course.name)))
     }, [demoClasses])
 
-    // let signatureEndpoint = 'https://skillshikhun.herokuapp.com/liveClass'
+    // let signatureEndpoint = 'https://backend-skill-shikhun.herokuapp.com/liveClass'
     // let sdkKey = '87rXfpYIpyQYMZSrjmcYKvF72lEqinAuroje'
     // let meetingNumber = ''
     // let role = 0

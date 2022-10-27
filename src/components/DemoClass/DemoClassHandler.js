@@ -69,7 +69,7 @@
 //         }
 
 //         // send otp to user
-//         await fetch('https://skillshikhun.herokuapp.com/api/send-otp-demo', {
+//         await fetch('https://backend-skill-shikhun.herokuapp.com/api/send-otp-demo', {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json'
@@ -97,7 +97,7 @@
 
 //         const otp = otpData.otp;
 
-//         fetch('https://skillshikhun.herokuapp.com/api/otp-verification-demo', {
+//         fetch('https://backend-skill-shikhun.herokuapp.com/api/otp-verification-demo', {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json'
@@ -144,7 +144,7 @@
 //             date: `${day}-${month}-${year} at ${time}`
 //         };
 
-//         fetch('https://skillshikhun.herokuapp.com/registerForDemoClass', {
+//         fetch('https://backend-skill-shikhun.herokuapp.com/registerForDemoClass', {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json'

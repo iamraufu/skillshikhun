@@ -8,7 +8,7 @@ const User = () => {
     // const username = useParams();
 
     // useEffect(() => {
-    //     fetch(`https://skillshikhun.herokuapp.com/users/userBy/phone/${phone}`)
+    //     fetch(`https://backend-skill-shikhun.herokuapp.com/users/userBy/phone/${phone}`)
     //         .then(res => res.json())
     //         .then(data => )
     // },[phone])
