@@ -12,12 +12,14 @@ import Footer from '../Shared/Footer/Footer';
 import { useForm } from 'react-hook-form';
 import PromoMessage from '../PromoMessage/PromoMessage';
 // import fri500_sm from '../../images/promo/promo_sm.png';
-import skill999_sm from '../../images/promo/skill999_sm.png';
+// import skill999_sm from '../../images/promo/skill999_sm.png';
 import clickImage from '../../images/promo/click.png';
 import call from '../../images/courses/call.svg';
 import messenger from '../../images/courses/messenger.svg';
 import whatsapp from '../../images/courses/whatsapp.svg';
 import Swal from 'sweetalert2';
+import CourseGroup from './CourseGroup';
+import CourseTime from './CourseTime';
 // import Countdown from '../Countdown/Countdown';
 const HowToPayment = React.lazy(() => import('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
@@ -207,7 +209,9 @@ const Course = (props) => {
                                                     }
                                                 </div>
                                             </div>
-                                            <img className='img-fluid' src={skill999_sm} alt="" />
+                                            {/* <img className='img-fluid' src={skill999_sm} alt="" /> */}
+                                            
+                                            <CourseTime course={course} />
 
                                             {
                                             course.name === 'সবার জন্য ফ্রিল্যান্সিং' ? null :
@@ -405,6 +409,9 @@ const Course = (props) => {
 
                             {/* How to payment */}
                             <HowToPayment />
+
+                            {/* Course Group */}
+                            <CourseGroup course={course} />
 
                             {/* Demo Class Registration Form */}
                             <CourseDemoClass course={course} refProp={myRef} />
