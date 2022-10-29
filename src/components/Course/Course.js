@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Course.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faClock, faCalendarDays, faPhone, faCheck, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { 
+    // faUsers, faClock, faCalendarDays, 
+    faPhone, faCheck, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import courseData from '../../data/course/courseData.js';
-import live from '../../images/liveClass.svg';
+import content from '../../images/content.svg';
+import user from '../../images/user.svg';
+import certificate from '../../images/certificate.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import CourseReview from './CourseReview';
 import CourseDemoClass from '../DemoClass/CourseDemoClass';
@@ -198,7 +202,7 @@ const Course = (props) => {
                                         <div className="row py-3">
                                             <div style={{ justifyContent: 'space-between' }} className="d-flex">
                                                 <div className="py-3 d-none d-lg-block">
-                                                    <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>৬ {course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
+                                                    <h2 style={{ fontSize: '20px', lineHeight: '24px' }} className='text-center'>৭ {course.next_batch} ২০২২ ব্যাচ এ ভর্তি চলছে</h2>
                                                 </div>
                                                 <div className="py-3 d-none d-lg-block">
                                                     {/* <h2 style={{ textAlign: 'right', fontSize: '20px', lineHeight: '24px' }} className='fw-bold'>&#2547; {course.price_per_month_bn}/মাস</h2> */}
@@ -242,7 +246,7 @@ const Course = (props) => {
                                                 </div>
                                             }
 
-                                            <div style={{ justifyContent: 'space-between' }} className="d-flex py-2">
+                                            {/* <div style={{ justifyContent: 'space-between' }} className="d-flex py-2">
                                                 <div className="col-md-6">
                                                     {
                                                         course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ?
@@ -286,7 +290,7 @@ const Course = (props) => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> */}
 
                                             <div className="container d-none d-lg-block">
                                                 <div className="row">
@@ -342,7 +346,7 @@ const Course = (props) => {
                             <h2 style={{
                                 marginTop: '0.5rem',
                                 fontSize: '22px'
-                            }} className="text-center pb-3 fw-bold">কোর্স মডিউল</h2>
+                            }} className="text-center pb-3 fw-bold"><img src={content} width={20} className='img-fluid' alt="" /> কোর্স মডিউল</h2>
                             {
                                 showMore ?
                                     <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -383,7 +387,7 @@ const Course = (props) => {
 
                             {/* What you'll learn in this course */}
                             <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="mt-5">
-                                <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'>এই কোর্সে আপনি কি শিখবেন?</h2>
+                                <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'><img src={certificate} width={35} className='img-fluid pb-1' alt="" /> এই কোর্সে আপনি কি শিখবেন?</h2>
                                 <ul className='p-4'>
                                     {
                                         course.features.map(item => <li key={item.id} style={{ color: '#454c7e', textAlign: 'justify', listStyle: 'none', fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className="mt-2" ><FontAwesomeIcon className='text-success' icon={faCheck} /> {item.item}</li>)
@@ -393,7 +397,7 @@ const Course = (props) => {
 
                             {/* ▶ Instructor Profile */}
                             <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="container course-instructor mt-5">
-                                <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'>ইনস্ট্রাক্টর</h2>
+                                <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'><img src={user} width={20} className='img-fluid pb-2' alt="" /> ইনস্ট্রাক্টর</h2>
                                 <div className="d-flex m-2 justify-content-center align-items-center">
                                     <div className="py-2 col-sm-3">
                                         <img style={{ borderRadius: '50%' }} width={100} src={course.instructor_image} alt={course.course_instructor} />
@@ -537,7 +541,7 @@ const Course = (props) => {
                                     </>
                                 :
                                 <div className="my-3">
-                                    <h2 style={{ fontSize: '14px', lineHeight: '18px' }} className='text-center'>ক্লাস শুরু হচ্ছে : ৬ {course.next_batch} ২০২২</h2>
+                                    <h2 style={{ fontSize: '14px', lineHeight: '18px' }} className='text-center'>ক্লাস শুরু হচ্ছে : ৭ {course.next_batch} ২০২২</h2>
                                     <div className="container-fluid d-flex justify-content-between px-2 align-items-center">
 
                                         <div style={{ border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} className="col-sm-3 p-2 d-flex justify-content-center align-items-center mx-1">
