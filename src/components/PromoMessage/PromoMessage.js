@@ -13,7 +13,7 @@ const PromoMessage = () => {
     // const [reducerValue, forceUpdate] = useReducer(x => x + 1, 0);
 
     // useEffect(() => {
-    //     fetch('https://backend-skill-shikhun.herokuapp.com/marketingMessages')
+    //     fetch('https://api-skillshikhun.herokuapp.com/marketingMessages')
     //         .then(res => res.json())
     //         .then(data => {
     //             setMarketingMessage(data[0].message)

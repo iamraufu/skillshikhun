@@ -17,7 +17,7 @@ const DPaymentHistory = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://backend-skill-shikhun.herokuapp.com/api/get-payment/Live/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
             const data = await res.json();
             setPayments(data);
         }
@@ -25,7 +25,7 @@ const DPaymentHistory = () => {
     }, [phone])
 
     useEffect(() => {
-        fetch(`https://backend-skill-shikhun.herokuapp.com/users/userBy/phone/${phone}`)
+        fetch(`https://api-skillshikhun.herokuapp.com/users/userBy/phone/${phone}`)
             .then(res => res.json())
             .then(data => setUserPhoneData(data))
     }, [phone])
@@ -79,9 +79,9 @@ const DPaymentHistory = () => {
                 // amount: 1,  // test
                 tran_id: `SkillShikhun_${Math.floor(Math.random() * 900000 + 100000)}`,
                 currency: "BDT",
-                success_url: `https://backend-skill-shikhun.herokuapp.com/api/make-payment`,
+                success_url: `https://api-skillshikhun.herokuapp.com/api/make-payment`,
                 // success_url: `http://localhost:5000/api/make-payment`,   // test
-                fail_url: `https://backend-skill-shikhun.herokuapp.com/api/payment-failure`,
+                fail_url: `https://api-skillshikhun.herokuapp.com/api/payment-failure`,
                 cancel_url: `https://skillshikhun.com/dashboard/payment-history`,
                 desc: `${data[0].course} Course Installment`,
                 type: "json",

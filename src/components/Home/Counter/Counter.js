@@ -10,25 +10,25 @@ const Counter = () => {
     const [free, setFree] = useState(0);
 
     useEffect(() => {
-        fetch('https://backend-skill-shikhun.herokuapp.com/getTrackedLoggedInUsers')
+        fetch('https://api-skillshikhun.herokuapp.com/getTrackedLoggedInUsers')
             .then(response => response.json())
             .then(data => setlg(data.length))
     }, [])
 
     useEffect(() => {
-        fetch('https://backend-skill-shikhun.herokuapp.com/getTrackedLoggedOutUsers')
+        fetch('https://api-skillshikhun.herokuapp.com/getTrackedLoggedOutUsers')
             .then(response => response.json())
             .then(data => setnlg(data.length))
     }, [])
 
     useEffect(() => {
-        fetch('https://backend-skill-shikhun.herokuapp.com/users')
+        fetch('https://api-skillshikhun.herokuapp.com/users')
             .then(response => response.json())
             .then(data => setUsers(data.length))
     }, [])
 
     useEffect(() => {
-        fetch('https://backend-skill-shikhun.herokuapp.com/demoClasses')
+        fetch('https://api-skillshikhun.herokuapp.com/demoClasses')
             .then(response => response.json())
             .then(data => setFree(data.length))
     }, [])

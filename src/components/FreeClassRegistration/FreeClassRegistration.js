@@ -58,7 +58,7 @@ const FreeClassRegistration = () => {
         }
 
         // send otp to user
-        await fetch('https://backend-skill-shikhun.herokuapp.com/api/send-otp-demo', {
+        await fetch('https://api-skillshikhun.herokuapp.com/api/send-otp-demo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ const FreeClassRegistration = () => {
 
         const otp = otpData.otp;
 
-        fetch('https://backend-skill-shikhun.herokuapp.com/api/otp-verification-demo', {
+        fetch('https://api-skillshikhun.herokuapp.com/api/otp-verification-demo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

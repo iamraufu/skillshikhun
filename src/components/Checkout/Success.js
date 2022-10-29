@@ -11,7 +11,7 @@ const Success = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://backend-skill-shikhun.herokuapp.com/users/userBy/phone/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/users/userBy/phone/${phone}`);
             const data = await res.json();
             setUserPhoneData(data);
         }

@@ -61,7 +61,7 @@ const Course = (props) => {
     }
 
     const verifyPromoCode = (code, course) => {
-        fetch('https://backend-skill-shikhun.herokuapp.com/validatePromoCode', {
+        fetch('https://api-skillshikhun.herokuapp.com/validatePromoCode', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ code, course })
@@ -87,7 +87,7 @@ const Course = (props) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://backend-skill-shikhun.herokuapp.com/api/get-payment/Live/${phone}`);
+            const res = await fetch(`https://api-skillshikhun.herokuapp.com/api/get-payment/Live/${phone}`);
             const data = await res.json();
             setLiveCourses(data);
         }
