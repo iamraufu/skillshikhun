@@ -20,7 +20,7 @@ const CourseTime = ({ course }) => {
                     // style={{ borderLeft: '1px solid lightgrey' }}
                     style={{ backgroundColor: 'rgba(13, 39, 122, 0.1)', paddingLeft: '0', paddingRight:'0', borderRadius:'10px' }}
                     className="col-sm-3 px-1 pt-2 mt-3">
-                        <p style={{ fontSize: '12px' }} className="text-muted text-center"><img src={calendar} width={20} className='img-fluid' alt="" /> ক্লাস শুরু তারিখ<br /><span style={{ fontSize: '13px' }} className='fw-bold text-black'>৭ {course.next_batch}, সোমবার</span></p>
+                        <p style={{ fontSize: '12px' }} className="text-muted text-center"><img src={calendar} width={20} className='img-fluid' alt="" /> ক্লাস শুরু তারিখ<br /><span style={{ fontSize: '13px' }} className='fw-bold text-black'>১৪ {course.next_batch}, সোমবার</span></p>
                     </div>
 
                     <div 
@@ -39,12 +39,12 @@ const CourseTime = ({ course }) => {
                 </div>
             </div>
 
-            <div style={{margin:'0'}} className="row justify-content-around align-items-center">
-                <div style={{ backgroundColor: 'rgba(13, 39, 122, 0.1)', borderRadius:'10px' }} className="col-sm-4 pt-3 mt-3">
+            <div style={{margin:'0', padding:'0'}} className="row justify-content-around align-items-center">
+                <div style={{ backgroundColor: 'rgba(13, 39, 122, 0.1)', borderRadius:'10px', paddingLeft: '0', paddingRight:'0' }} className="col-sm-4 pt-3 mt-3">
                     <p style={{ fontSize: '12px' }} className="text-muted text-center"><img src={clock} width={20} className='img-fluid' alt="" /> কোর্স সময়কাল<br /><span style={{ fontSize: '13px' }} className='fw-bold text-black'>{course.course_duration} {course?.name === 'সবার জন্য ফ্রিল্যান্সিং' ? "দিন" : "মাস"}</span></p>
                 </div>
 
-                <div style={{ backgroundColor: 'rgba(13, 39, 122, 0.1)', borderRadius:'10px' }} className="col-sm-4 mt-3 pt-2">
+                <div style={{ backgroundColor: 'rgba(13, 39, 122, 0.1)', borderRadius:'10px',paddingLeft: '0', paddingRight:'0' }} className="col-sm-4 mt-3 pt-2">
                     <p style={{ fontSize: '12px' }} className="text-muted text-center"><img src={live} width={30} className='img-fluid' alt="" /> লাইভ ক্লাসের সংখ্যা<br /><span style={{ fontSize: '13px' }} className='fw-bold text-black'>{course.total_classes} টি</span></p>
                 </div>
             </div>
