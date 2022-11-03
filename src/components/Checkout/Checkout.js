@@ -41,7 +41,6 @@ const Checkout = () => {
     //     }
     //     else {
     //         basePrice = 1500;
-    //         console.log("first")
     //     }
     // },[course])
 
@@ -98,7 +97,6 @@ const Checkout = () => {
             // basePrice = 1500;
             // if (course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং') {
             //     basePrice = 550;
-            //     console.log("full");
             // }
             // else {
             //     basePrice = 1500;
@@ -121,7 +119,6 @@ const Checkout = () => {
             // basePrice = 1500;
             // if (course[0]?.name === 'সবার জন্য ফ্রিল্যান্সিং') {
             //     basePrice = 550;
-            //     console.log("half")
             // }
             // else {
             //     basePrice = 1500;
@@ -363,8 +360,6 @@ const Checkout = () => {
                 }
             })
     }
-
-    console.log(course[0])
 
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)' }}>
