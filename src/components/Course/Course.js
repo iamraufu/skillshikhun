@@ -541,7 +541,7 @@ const Course = (props) => {
                                     </>
                                 :
                                 <div className="my-3">
-                                    <h2 style={{ fontSize: '14px', lineHeight: '18px' }} className='text-center'>ক্লাস শুরু হচ্ছে : ৭ {course.next_batch} ২০২২</h2>
+                                    <h2 style={{ fontSize: '14px', lineHeight: '18px' }} className='text-center'>ক্লাস শুরু হচ্ছে : ১৪ {course.next_batch} ২০২২</h2>
                                     <div className="container-fluid d-flex justify-content-between px-2 align-items-center">
 
                                         <div style={{ border: '1px solid lightgrey', borderRadius: '8px', boxShadow: '0 0px 1px 0px #0003' }} className="col-sm-3 p-2 d-flex justify-content-center align-items-center mx-1">
