@@ -133,8 +133,6 @@ const Course = (props) => {
         })
     }
 
-    // console.log(course)
-
     useEffect(()=> {
         window.MC_PIXEL.fireLogConversionEvent(`course_${course.id}`)
     },[course.id])
