@@ -133,10 +133,6 @@ const Course = (props) => {
         })
     }
 
-    useEffect(()=> {
-        window.MC_PIXEL.fireLogConversionEvent(`course_${course.id}`)
-    },[course.id])
-
     return (
         <>
             <PromoMessage />
