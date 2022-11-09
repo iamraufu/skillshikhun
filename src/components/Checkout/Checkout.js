@@ -360,10 +360,10 @@ const Checkout = () => {
                 }
             })
     }
-
+    
     useEffect(()=> {
-        window.MC_PIXEL.fireLogConversionEvent(`checkout_${course.id}`)
-    },[course.id])
+        window.MC_PIXEL.fireLogConversionEvent(`checkout_${course[0]?.id}`)
+    },[course])
 
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)' }}>

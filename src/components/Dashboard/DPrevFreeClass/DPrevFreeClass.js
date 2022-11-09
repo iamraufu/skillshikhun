@@ -54,6 +54,10 @@ const DPrevFreeClass = () => {
             document.getElementById('free-class-video_btn').classList.add("shake");
     }
 
+    useEffect(()=> {
+        window.MC_PIXEL.fireLogConversionEvent(`fc-visit_${course[0]?.id}`)
+    },[course])
+
     return (
         <div style={{ backgroundColor: '#f3f5f9', minHeight: "100vh" }}>
             <DNavbar />

@@ -18,6 +18,10 @@ const Success = () => {
         fetchData();
     }, [phone])
 
+    useEffect(()=> {
+        window.MC_PIXEL.fireLogConversionEvent(`purchased`)
+    },[])
+
     return (
         <div className="success-container">
             {/* <Navbar /> */}
