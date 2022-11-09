@@ -299,14 +299,23 @@ const Course = (props) => {
                                             <div className="container d-none d-lg-block">
                                                 <div className="row">
                                                     <div className="col-md-6 mt-1">
-                                                        <Link to='' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3' onClick={() => myRef.current.scrollIntoView()}>ক্লাসের ভিডিও দেখুন &#8594;</button></Link>
+                                                        <Link to='' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3' onClick={() => {
+                                                            myRef.current.scrollIntoView()
+                                                            window.MC_PIXEL.fireLogConversionEvent(`free_class_button_clicked_${course?.id}`)
+                                                            }}>ক্লাসের ভিডিও দেখুন &#8594;</button></Link>
                                                     </div>
                                                     {
                                                         localStorage.getItem('token') && purchasedLiveCourses.length === 0 ? <div className="col-md-6 mt-1">
-                                                            <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
+                                                            <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { 
+                                                                window.scrollTo(0, 0); 
+                                                                window.MC_PIXEL.fireLogConversionEvent(`bhorti_hoye_jan_clicked_${course?.id}`)
+                                                                }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
                                                         </div> :
                                                             <div className="col-md-6 mt-1">
-                                                                <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { window.scrollTo(0, 0); }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
+                                                                <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { 
+                                                                    window.scrollTo(0, 0); 
+                                                                    window.MC_PIXEL.fireLogConversionEvent(`bhorti_hoye_jan_clicked_${course?.id}`)
+                                                                    }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
                                                             </div>
                                                     }
                                                 </div>

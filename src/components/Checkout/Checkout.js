@@ -587,7 +587,10 @@ const Checkout = () => {
                         <p style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }} className='text-center mt-4 d-block d-none d-lg-block'><FontAwesomeIcon className='text-success' icon={faUserShield} /> নিরাপদ ও দ্রুত পেমেন্ট নিশ্চয়তা</p>
 
                         <button
-                            onClick={() => proceedToPayment()}
+                            onClick={() => {
+                                proceedToPayment()
+                                window.MC_PIXEL.fireLogConversionEvent(`initiate_checkout_${course[0]?.id}`)
+                            }}
                             id='payment_proceed'
                             className='btn-buy mx-auto d-block d-none d-lg-block' disabled={disabled}>ফি প্রদান করুন</button>
 
@@ -672,7 +675,10 @@ const Checkout = () => {
                 {promo?.code && <p className='mt-3 text-center mx-auto d-block bg-success fw-bold w-50 text-white p-2'>প্রোমো একটিভ হয়েছে</p>}
                 <p style={{ fontSize: '16px', lineHeight: '24px', fontWeight: 'bold' }} className='text-center mt-4'><FontAwesomeIcon className='text-success' icon={faUserShield} /> নিরাপদ ও দ্রুত পেমেন্ট নিশ্চয়তা</p>
                 <button style={{ height: '60px', backgroundImage: 'linear-gradient(to right , #13338b , #b94a8f)', margin: '10px 0' }}
-                    onClick={() => proceedToPayment()}
+                    onClick={() => {
+                        proceedToPayment()
+                        window.MC_PIXEL.fireLogConversionEvent(`initiate_checkout_${course[0]?.id}`)
+                    }}
                     id='payment_proceed'
                     className='btn-buy mx-auto d-block mx-auto d-block fw-bold fs-5' disabled={disabled}>ফি প্রদান করুন</button>
             </div>

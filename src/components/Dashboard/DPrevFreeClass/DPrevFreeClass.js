@@ -97,7 +97,10 @@ const DPrevFreeClass = () => {
                         <div className="d-flex align-items-end justify-content-center mt-3 d-none d-lg-block">
                             <div className="col-12">
                                 <h3 className='fs-6 text-center'>বাকি লাইভ ক্লাস গুলো সরাসরি ইন্সট্রাক্টর এর সাথে করার জন্য ভর্তি হয়ে যান এখনই</h3>
-                                <button id='free-class-video_btn' onClick={() => { navigate(`/checkout/${course[0].id}`) }} className='btn-buy p-3'>এখনই ভর্তি হয়ে যান</button>
+                                <button id='free-class-video_btn' onClick={() => { 
+                                    navigate(`/checkout/${course[0].id}`) 
+                                    window.MC_PIXEL.fireLogConversionEvent(`demo_page_bhorti_button_${course[0]?.id}`)
+                                    }} className='btn-buy p-3'>এখনই ভর্তি হয়ে যান</button>
                             </div>
                         </div>
 
@@ -108,7 +111,10 @@ const DPrevFreeClass = () => {
                         }} className="bg-white d-flex align-items-end justify-content-center d-lg-none fixed-bottom p-2">
                             <div className="col-12">
                                 <h3 className='fs-6 text-center'>বাকি ক্লাসগুলো ইন্সট্রাক্টর এর সাথে লাইভ এ হবে </h3>
-                                <button style={{ boxShadow: '0 3px 10px 3px #0003' }} id='free-class-video_btn' onClick={() => { navigate(`/checkout/${course[0].id}`) }} className='btn-buy p-3'>এখনই ভর্তি হয়ে যান</button>
+                                <button style={{ boxShadow: '0 3px 10px 3px #0003' }} id='free-class-video_btn' onClick={() => { 
+                                    navigate(`/checkout/${course[0].id}`) 
+                                    window.MC_PIXEL.fireLogConversionEvent(`demo_page_bhorti_button_${course[0]?.id}`)
+                                    }} className='btn-buy p-3'>এখনই ভর্তি হয়ে যান</button>
                             </div>
                         </div>
 
