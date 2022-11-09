@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PromoImages from '../PromoMessage/PromoImages';
 import PromoMessage from '../PromoMessage/PromoMessage';
 import Footer from '../Shared/Footer/Footer';
@@ -14,6 +14,10 @@ import SSFeatures from './SSFeatures/SSFeatures';
 // import SSModels from './SSModels';
 
 const Home = () => {
+
+    useEffect(() => {
+        window.MC_PIXEL.fireLogConversionEvent(`homepage`)
+    },)
 
     return (
         <div>
