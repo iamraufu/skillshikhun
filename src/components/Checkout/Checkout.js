@@ -466,7 +466,10 @@ const Checkout = () => {
                                 {/* <p id='subscription_mode_warning' className="text-danger mt-3 fw-bold ms-2">* সাবস্ক্রিপশন মোড নির্বাচন করুন</p> */}
 
                                 <div className="row course-fee-container">
-                                    <button style={{ border: '1px solid green', backgroundColor: '#f0f7ff' }} onClick={() => handleSubscriptionStyle('monthly')} id='monthly' className='d-flex p-2 justify-content-around align-items-center subscription-btn'>
+                                    <button style={{ border: '1px solid green', backgroundColor: '#f0f7ff' }} onClick={() => {
+                                        handleSubscriptionStyle('monthly')
+                                        window.MC_PIXEL.fireLogConversionEvent(`1_month_fee_click_${course[0]?.id}`)
+                                        }} id='monthly' className='d-flex p-2 justify-content-around align-items-center subscription-btn'>
                                         <div className="col-sm-2">
                                             <img id='monthly_tick' src={checkbox} width={25} className='img-fluid' alt="tick svg" />
                                             <img id='monthly_untick' src={untick} style={{ display: 'none' }} width={20} className='img-fluid' alt="untick svg" />
@@ -485,7 +488,10 @@ const Checkout = () => {
 
                                     </button>
 
-                                    <button onClick={() => handleSubscriptionStyle('full')} id='full' className='d-flex p-2 justify-content-around align-items-center mt-2 subscription-btn'>
+                                    <button onClick={() => {
+                                        handleSubscriptionStyle('full')
+                                        window.MC_PIXEL.fireLogConversionEvent(`full_fee_click_${course[0]?.id}`)
+                                        }} id='full' className='d-flex p-2 justify-content-around align-items-center mt-2 subscription-btn'>
 
                                         <div className="col-sm-2">
                                             <img id='full_tick' src={checkbox} style={{ display: 'none' }} width={25} className='img-fluid' alt="tick svg" />
