@@ -144,7 +144,10 @@ const DPrevFreeClass = () => {
                                         borderRadius: '15px', boxShadow: '0 5px 15px #c4c4c44d'
                                     }} className="accordion-item mx-2 my-3" key={item.id}>
                                         <h2
-                                            onClick={() => moduleHandler(item)}
+                                            onClick={() => {
+                                                moduleHandler(item)
+                                                window.MC_PIXEL.fireLogConversionEvent(`module${index+1}_${course[0]?.id}`)
+                                            }}
                                             className="accordion-header" id={`flush-heading${item.id}`}>
                                             <button style={{ backgroundColor: 'white', borderRadius: '15px', fontSize: '13px', fontWeight: '500', textAlign: 'justify' }} className="accordion-button collapsed course-video-title_hover" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
                                                 {/* Module {index + 1}: {item.title}
@@ -155,7 +158,7 @@ const DPrevFreeClass = () => {
 
                                                 <div className="d-flex justify-content-between align-items-center">
 
-                                                    <div className=" me-2">
+                                                    <div className="me-2">
                                                         {
                                                             !item.isFree === true ? <img className='img-fluid mb-1' width={18} src={lock} alt="Enroll to See the Full Course" /> : <img className='img-fluid mb-1' width={18} src={play} alt="Play" />
                                                         }
@@ -170,6 +173,7 @@ const DPrevFreeClass = () => {
                                             onClick={() => {
                                                 setVideoDescription(item.description)
                                                 setModuleNumber(index + 1)
+                                                window.MC_PIXEL.fireLogConversionEvent(`module${index+1}_${course[0]?.id}`)
                                             }}
                                             id={`flush-collapse${item.id}`} className="accordion-collapse collapse p-2" aria-labelledby={`flush-heading${item.id}`} data-bs-parent="#accordionFlushExample">
 
