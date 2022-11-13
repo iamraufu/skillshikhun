@@ -51,6 +51,13 @@ function App() {
           <Route path="/web-development" element={<Course color='#13338b' name="Web Development" />} />
           <Route path="/graphics-design" element={<Course color='#df8254' name="Graphics Design" />} />
 
+          {/* For SEO */}
+          <Route path="/freelancing-course-in-bangladesh" element={<Course color='#2c3493' name="সবার জন্য ফ্রিল্যান্সিং" />} />
+          <Route path="/best-digital-marketing-course-in-bangladesh" element={<Course color='#2c3493' name="Digital Marketing" />} />
+          <Route path="/video-editing-course-in-bangladesh" element={<Course color='#653dae' name="Video Editing" />} />
+          <Route path="/web-design-and-development-course-in-bangladesh" element={<Course color='#13338b' name="Web Development" />} />
+          <Route path="/graphic-design-course-in-bangladesh" element={<Course color='#df8254' name="Graphics Design" />} />
+
           <Route path="/admission" element={<Admission />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/courses" element={<AllCourses />} />

@@ -3,32 +3,36 @@ import { Helmet } from 'react-helmet-async';
 
 const CourseSEO = (props) => {
 
-    console.log(props)
+    const course = props.course
+    let today = new Date().toISOString()
 
     return (
         <Helmet>
-        <title>{}</title>
-        <meta name="description" content='' />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
-        <link rel="canonical" href="https://skillshikhun.com/" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Skill Shikhun - Learn Digital Skills via LIVE Online Class" />
-        <meta property="og:description" content="Learn Digital Skills via LIVE Online classes from Great Instructors and build a career in Digital Marketing, Video Editing, Graphics Design or Web Development." />
-        <meta property="og:url" content="https://skillshikhun.com/" />
-        <meta property="og:site_name" content="Skill Shikhun" />
-        <meta property="og:updated_time" content="2022-03-01T10:41:31+00:00" />
-        <meta property="og:image" content="https://i.ibb.co/9H0D8ky/logo.png" />
-        <meta property="og:image:secure_url" content="https://i.ibb.co/9H0D8ky/logo.png" />
-        <meta property="og:image:width" content="361" />
-        <meta property="og:image:height" content="361" />
-        <meta property="og:image:alt" content="Skill Shikhun" />
-        <meta property="og:image:type" content="image/png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Skill Shikhun - Learn Digital Skills via LIVE Online Class" />
-        <meta name="twitter:description" content="Learn Digital Skills via LIVE Online classes from Great Instructors and build a career in Digital Marketing, Video Editing, Graphics Design or Web Development." />
-        <meta name="twitter:image" content="https://i.ibb.co/9H0D8ky/logo.png" />
-      </Helmet>
+            <title>{course.seo_title}</title>
+            <meta name="description" content={course.seo_description} />
+            <meta name='keywords' content={course.seo_keywords} />
+            <meta name='author' content = 'Skill Shikhun' />
+            <meta name='publisher' content = 'Skill Shikhun' />
+            <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+            <link rel="canonical" href={`https://skillshikhun.com${course.seo_URL}`} />
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content={course.seo_title} />
+            <meta property="og:description" content={course.seo_description} />
+            <meta property="og:url" content={`https://skillshikhun.com${course.seo_URL}`} />
+            <meta property="og:site_name" content={course.seo_title} />
+            <meta property="og:updated_time" content={today} />
+            <meta property="og:image" content={course.image} />
+            <meta property="og:image:secure_url" content={course.image} />
+            <meta property="og:image:width" content="361" />
+            <meta property="og:image:height" content="361" />
+            <meta property="og:image:alt" content={course.seo_title} />
+            <meta property="og:image:type" content="image/png" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={course.seo_title} />
+            <meta name="twitter:description" content={course.seo_description} />
+            <meta name="twitter:image" content={course.image} />
+        </Helmet>
     );
 };
 

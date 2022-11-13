@@ -1,3 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+https://www.skillshikhun.com/dashboard/*
+http://www.skillshikhun.com/purchase/checkout/shobar-jnno-freelancing

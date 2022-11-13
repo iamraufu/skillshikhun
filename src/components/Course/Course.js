@@ -147,7 +147,7 @@ const Course = (props) => {
                 <div className="container py-5">
                     <div className="row">
                         <div className="col-lg-6">
-                            <h1 style={{ fontSize: '22px' }} className='text-center course-alt-title fw-bold'>{course.alt_title}</h1>
+                            <h1 style={{ fontSize: '22px' }} className='text-center course-alt-title fw-bold'>{course.title}</h1>
                             <div style={{
                                 // top: '100px', 
                                 borderTopRightRadius: '25px',
@@ -156,7 +156,7 @@ const Course = (props) => {
                             // className="position-sticky"
                             >
                                 <div className="responsive-embed-youtube">
-                                    <iframe className='' width="100%" height='auto' src={`${course.source}?controls=0`} title={course.slug} style={{ borderTopRightRadius: '22px', borderTopLeftRadius: '22px' }} allowFullScreen srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${course.source}?controls=0><img src=${course.image} alt=${course.alt_title} loading="lazy"><span>▶</span></a>`}
+                                    <iframe className='' width="100%" height='auto' src={`${course.source}?controls=0`} title={course.slug} style={{ borderTopRightRadius: '22px', borderTopLeftRadius: '22px' }} allowFullScreen srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${course.source}?controls=0><img src=${course.image} alt=${course.seo_title} loading="lazy"><span>▶</span></a>`}
                                     ></iframe>
                                     {/* <img src={play} style={{position:'relative', zIndex:1, top:'50%', left:'50%', transform:'translate(-50%, -50%'}} className='img-fluid' width={45} alt={course.slug} /> */}
                                 </div>
@@ -361,7 +361,7 @@ const Course = (props) => {
                             <h2 style={{
                                 marginTop: '0.5rem',
                                 fontSize: '22px'
-                            }} className="text-center pb-3 fw-bold"><img src={content} width={20} className='img-fluid' alt="" /> কোর্স মডিউল</h2>
+                            }} className="text-center pb-3 fw-bold"><img src={content} width={20} className='img-fluid' alt={course.seo_title} /> কোর্স মডিউল</h2>
                             {
                                 showMore ?
                                     <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -402,7 +402,7 @@ const Course = (props) => {
 
                             {/* What you'll learn in this course */}
                             <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="mt-5">
-                                <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'><img src={certificate} width={35} className='img-fluid pb-1' alt="" /> এই কোর্সে আপনি কি শিখবেন?</h2>
+                                <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'><img src={certificate} width={35} className='img-fluid pb-1' alt={course.seo_title} /> এই কোর্সে আপনি কি শিখবেন?</h2>
                                 <ul className='p-4'>
                                     {
                                         course.features.map(item => <li key={item.id} style={{ color: '#454c7e', textAlign: 'justify', listStyle: 'none', fontSize: '16px', lineHeight: '24px', fontWeight: '400' }} className="mt-2" ><FontAwesomeIcon className='text-success' icon={faCheck} /> {item.item}</li>)
@@ -412,7 +412,7 @@ const Course = (props) => {
 
                             {/* ▶ Instructor Profile */}
                             <div style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec' }} className="container course-instructor mt-5">
-                                <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'><img src={user} width={20} className='img-fluid pb-2' alt="" /> ইনস্ট্রাক্টর</h2>
+                                <h2 style={{ color: '#343b6d', fontSize: '22px' }} className='fw-bold text-center mt-3'><img src={user} width={20} className='img-fluid pb-2' alt={course.seo_title} /> ইনস্ট্রাক্টর</h2>
                                 <div className="d-flex m-2 justify-content-center align-items-center">
                                     <div className="py-2 col-sm-3">
                                         <img style={{ borderRadius: '50%' }} width={100} src={course.instructor_image} alt={course.course_instructor} />
@@ -458,7 +458,7 @@ const Course = (props) => {
                                             style={{ border: '1px solid #dde7f3', borderTopRightRadius: '15px', borderTopLeftRadius: '15px' }}
                                             // style={{ backgroundColor: 'white', borderRadius: '15px', border: '1px solid #ececec', boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19)' }} 
                                             className='bg-white'>
-                                            <img style={{ borderRadius: '15px' }} className='img-fluid' src={otherCourse.image} alt={otherCourse.title} loading="lazy" />
+                                            <img style={{ borderRadius: '15px' }} className='img-fluid' src={otherCourse.image} alt={otherCourse.seo_title} loading="lazy" />
                                             <h3 style={{ fontSize: '18px', lineHeight: '28px', color: '#343b6d' }} className='fw-bold pt-4 ps-2'>{otherCourse.title}</h3>
 
                                             <div

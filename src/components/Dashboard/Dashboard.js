@@ -15,6 +15,7 @@ import payment from '../../images/dashboard/payment.svg';
 import Menu from './Menu/Menu';
 import courseData from '../../data/course/courseData';
 import Swal from 'sweetalert2';
+import DashboardSEO from '../SEO/DashboardSEO';
 // import liveClassData from '../../data/course/liveClassData';
 
 // import { ZoomMtg } from '@zoomus/websdk';
@@ -226,6 +227,7 @@ const Dashboard = () => {
 
     return (
         <div>
+            <DashboardSEO />
             <div id='dashboard' className='dashboard'>
                 <DNavbar />
                 <div className="container-fluid">

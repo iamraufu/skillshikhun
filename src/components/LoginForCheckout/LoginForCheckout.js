@@ -6,11 +6,13 @@ import checkbox from '../../images/checkbox.svg';
 import checkbox_purple from '../../images/checkbox_purple.svg';
 import checkbox_grey from '../../images/checkbox_grey.svg';
 import LoginSlider from '../Login/LoginSlider';
+import LoginSEO from '../SEO/LoginSEO';
 // import Footer from '../Shared/Footer/Footer';
 
 const LoginForCheckout = () => {
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)', paddingTop: '1px' }} className="">
+            <LoginSEO />
             <Navbar />
 
             <div className="container">

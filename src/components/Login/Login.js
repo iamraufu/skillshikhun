@@ -1,4 +1,5 @@
 import React from 'react';
+import LoginSEO from '../SEO/LoginSEO';
 import './Login.css';
 import LoginHandler from './LoginHandler';
 import LoginSlider from './LoginSlider';
@@ -7,6 +8,7 @@ const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
 const Login = () => {
     return (
         <div>
+            <LoginSEO />
             <div className="fixed-top">
                 <Navbar />
             </div>

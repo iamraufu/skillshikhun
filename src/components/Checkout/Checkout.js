@@ -19,6 +19,7 @@ import Typewriter from 'typewriter-effect';
 import { useForm } from 'react-hook-form';
 import clickImage from '../../images/promo/click.png';
 import HowToPayment from '../Course/HowToPayment';
+import CheckoutSEO from '../SEO/CheckoutSEO';
 
 // let basePrice = 1500;
 
@@ -367,7 +368,7 @@ const Checkout = () => {
 
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'rgb(243, 245, 249)' }}>
-
+            <CheckoutSEO course={course[0]} />
             <Navbar />
             <div style={{ marginTop: '-5px' }} className="fixed-top">
             </div>
