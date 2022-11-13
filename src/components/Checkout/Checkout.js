@@ -362,7 +362,7 @@ const Checkout = () => {
     }
 
     useEffect(() => {
-        window.MC_PIXEL.fireLogConversionEvent(`course_${course[0]?.id}`)
+        window?.MC_PIXEL?.fireLogConversionEvent(`course_${course[0]?.id}`)
     },)
 
     return (
@@ -468,7 +468,7 @@ const Checkout = () => {
                                 <div className="row course-fee-container">
                                     <button style={{ border: '1px solid green', backgroundColor: '#f0f7ff' }} onClick={() => {
                                         handleSubscriptionStyle('monthly')
-                                        window.MC_PIXEL.fireLogConversionEvent(`1_month_fee_click_${course[0]?.id}`)
+                                        window?.MC_PIXEL?.fireLogConversionEvent(`1_month_fee_click_${course[0]?.id}`)
                                         }} id='monthly' className='d-flex p-2 justify-content-around align-items-center subscription-btn'>
                                         <div className="col-sm-2">
                                             <img id='monthly_tick' src={checkbox} width={25} className='img-fluid' alt="tick svg" />
@@ -490,7 +490,7 @@ const Checkout = () => {
 
                                     <button onClick={() => {
                                         handleSubscriptionStyle('full')
-                                        window.MC_PIXEL.fireLogConversionEvent(`full_fee_click_${course[0]?.id}`)
+                                        window?.MC_PIXEL?.fireLogConversionEvent(`full_fee_click_${course[0]?.id}`)
                                         }} id='full' className='d-flex p-2 justify-content-around align-items-center mt-2 subscription-btn'>
 
                                         <div className="col-sm-2">
@@ -595,7 +595,7 @@ const Checkout = () => {
                         <button
                             onClick={() => {
                                 proceedToPayment()
-                                window.MC_PIXEL.fireLogConversionEvent(`initiate_checkout_${course[0]?.id}`)
+                                window?.MC_PIXEL?.fireLogConversionEvent(`initiate_checkout_${course[0]?.id}`)
                             }}
                             id='payment_proceed'
                             className='btn-buy mx-auto d-block d-none d-lg-block' disabled={disabled}>ফি প্রদান করুন</button>
@@ -683,7 +683,7 @@ const Checkout = () => {
                 <button style={{ height: '60px', backgroundImage: 'linear-gradient(to right , #13338b , #b94a8f)', margin: '10px 0' }}
                     onClick={() => {
                         proceedToPayment()
-                        window.MC_PIXEL.fireLogConversionEvent(`initiate_checkout_${course[0]?.id}`)
+                        window?.MC_PIXEL?.fireLogConversionEvent(`initiate_checkout_${course[0]?.id}`)
                     }}
                     id='payment_proceed'
                     className='btn-buy mx-auto d-block mx-auto d-block fw-bold fs-5' disabled={disabled}>ফি প্রদান করুন</button>

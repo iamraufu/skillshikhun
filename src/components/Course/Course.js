@@ -24,6 +24,7 @@ import whatsapp from '../../images/courses/whatsapp.svg';
 import Swal from 'sweetalert2';
 import CourseGroup from './CourseGroup';
 import CourseTime from './CourseTime';
+import CourseSEO from '../SEO/CourseSEO';
 // import Countdown from '../Countdown/Countdown';
 const HowToPayment = React.lazy(() => import('./HowToPayment'));
 const Navbar = React.lazy(() => import('../Shared/Navbar/Navbar'));
@@ -134,11 +135,12 @@ const Course = (props) => {
     }
 
     useEffect(() => {
-        window.MC_PIXEL.fireLogConversionEvent(`course_${course?.id}`)
+        window?.MC_PIXEL?.fireLogConversionEvent(`course_${course?.id}`)
     },)
 
     return (
         <>
+            <CourseSEO course={course} />
             <PromoMessage />
             <div style={{ backgroundColor: '#f8f9fa' }}>
                 <Navbar />
@@ -301,20 +303,20 @@ const Course = (props) => {
                                                     <div className="col-md-6 mt-1">
                                                         <Link to='' className='text-decoration-none'><button className='btn-demo mx-auto d-block p-3' onClick={() => {
                                                             myRef.current.scrollIntoView()
-                                                            window.MC_PIXEL.fireLogConversionEvent(`free_class_button_clicked_${course?.id}`)
+                                                            window?.MC_PIXEL?.fireLogConversionEvent(`free_class_button_clicked_${course?.id}`)
                                                             }}>ক্লাসের ভিডিও দেখুন &#8594;</button></Link>
                                                     </div>
                                                     {
                                                         localStorage.getItem('token') && purchasedLiveCourses.length === 0 ? <div className="col-md-6 mt-1">
                                                             <Link to={`/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { 
                                                                 window.scrollTo(0, 0); 
-                                                                window.MC_PIXEL.fireLogConversionEvent(`bhorti_hoye_jan_clicked_${course?.id}`)
+                                                                window?.MC_PIXEL?.fireLogConversionEvent(`bhorti_hoye_jan_clicked_${course?.id}`)
                                                                 }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
                                                         </div> :
                                                             <div className="col-md-6 mt-1">
                                                                 <Link to={`/purchase/checkout/${course.id}`} className='text-decoration-none'><button className='btn-buy mx-auto d-block p-3' onClick={() => { 
                                                                     window.scrollTo(0, 0); 
-                                                                    window.MC_PIXEL.fireLogConversionEvent(`bhorti_hoye_jan_clicked_${course?.id}`)
+                                                                    window?.MC_PIXEL?.fireLogConversionEvent(`bhorti_hoye_jan_clicked_${course?.id}`)
                                                                     }}>এখনই ভর্তি হয়ে যান &#8594;</button></Link>
                                                             </div>
                                                     }

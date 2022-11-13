@@ -19,7 +19,7 @@ const Success = () => {
     }, [phone])
 
     useEffect(()=> {
-        window.MC_PIXEL.fireLogConversionEvent(`purchased`)
+        window?.MC_PIXEL?.fireLogConversionEvent(`purchased`)
     },[])
 
     return (

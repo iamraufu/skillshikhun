@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PromoImages from '../PromoMessage/PromoImages';
 import PromoMessage from '../PromoMessage/PromoMessage';
+import IndexSEO from '../SEO/IndexSEO';
 import Footer from '../Shared/Footer/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
 import Tracker from '../Tracker/Tracker';
@@ -11,16 +12,17 @@ import Hero from './Hero/Hero';
 import HomeDemo from './HomeDemo';
 import MainReviews from './MainReviews/MainReviews';
 import SSFeatures from './SSFeatures/SSFeatures';
-// import SSModels from './SSModels';
+// import SSModels from './SSModels'
 
 const Home = () => {
 
     useEffect(() => {
-        window.MC_PIXEL.fireLogConversionEvent(`homepage`)
+        window?.MC_PIXEL?.fireLogConversionEvent(`homepage`)
     },)
 
     return (
         <div>
+            <IndexSEO />
             <PromoMessage />
             <Navbar />
             <Hero />

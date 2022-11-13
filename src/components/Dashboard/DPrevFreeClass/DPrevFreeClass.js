@@ -55,7 +55,7 @@ const DPrevFreeClass = () => {
     }
 
     useEffect(() => {
-        window.MC_PIXEL.fireLogConversionEvent(`course_${course[0]?.id}`)
+        window?.MC_PIXEL?.fireLogConversionEvent(`course_${course[0]?.id}`)
     },)
 
     return (
@@ -99,7 +99,7 @@ const DPrevFreeClass = () => {
                                 <h3 className='fs-6 text-center'>বাকি লাইভ ক্লাস গুলো সরাসরি ইন্সট্রাক্টর এর সাথে করার জন্য ভর্তি হয়ে যান এখনই</h3>
                                 <button id='free-class-video_btn' onClick={() => { 
                                     navigate(`/checkout/${course[0].id}`) 
-                                    window.MC_PIXEL.fireLogConversionEvent(`demo_page_bhorti_button_${course[0]?.id}`)
+                                    window?.MC_PIXEL?.fireLogConversionEvent(`demo_page_bhorti_button_${course[0]?.id}`)
                                     }} className='btn-buy p-3'>এখনই ভর্তি হয়ে যান</button>
                             </div>
                         </div>
@@ -113,7 +113,7 @@ const DPrevFreeClass = () => {
                                 <h3 className='fs-6 text-center'>বাকি ক্লাসগুলো ইন্সট্রাক্টর এর সাথে লাইভ এ হবে </h3>
                                 <button style={{ boxShadow: '0 3px 10px 3px #0003' }} id='free-class-video_btn' onClick={() => { 
                                     navigate(`/checkout/${course[0].id}`) 
-                                    window.MC_PIXEL.fireLogConversionEvent(`demo_page_bhorti_button_${course[0]?.id}`)
+                                    window?.MC_PIXEL?.fireLogConversionEvent(`demo_page_bhorti_button_${course[0]?.id}`)
                                     }} className='btn-buy p-3'>এখনই ভর্তি হয়ে যান</button>
                             </div>
                         </div>
@@ -146,7 +146,7 @@ const DPrevFreeClass = () => {
                                         <h2
                                             onClick={() => {
                                                 moduleHandler(item)
-                                                window.MC_PIXEL.fireLogConversionEvent(`module${index+1}_${course[0]?.id}`)
+                                                window?.MC_PIXEL?.fireLogConversionEvent(`module${index+1}_${course[0]?.id}`)
                                             }}
                                             className="accordion-header" id={`flush-heading${item.id}`}>
                                             <button style={{ backgroundColor: 'white', borderRadius: '15px', fontSize: '13px', fontWeight: '500', textAlign: 'justify' }} className="accordion-button collapsed course-video-title_hover" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
@@ -173,7 +173,7 @@ const DPrevFreeClass = () => {
                                             onClick={() => {
                                                 setVideoDescription(item.description)
                                                 setModuleNumber(index + 1)
-                                                window.MC_PIXEL.fireLogConversionEvent(`module${index+1}_${course[0]?.id}`)
+                                                window?.MC_PIXEL?.fireLogConversionEvent(`module${index+1}_${course[0]?.id}`)
                                             }}
                                             id={`flush-collapse${item.id}`} className="accordion-collapse collapse p-2" aria-labelledby={`flush-heading${item.id}`} data-bs-parent="#accordionFlushExample">
 
