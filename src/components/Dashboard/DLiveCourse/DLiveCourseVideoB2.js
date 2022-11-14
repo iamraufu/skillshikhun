@@ -43,7 +43,7 @@ const DLiveCourseVideo = () => {
                 <div className="row my-5">
 
                     {
-                        videos.length === 0 && <p className="text-center text-danger fw-bold">আপনার ব্যাচ এখনো শুরু হয় নি</p>
+                        videos.length === 0 && <p className="text-center text-danger fw-bold">আপনার ব্যাচ এর রেকর্ডিং এখনো আপলোড করা হয়নি</p>
                     }
 
                     {

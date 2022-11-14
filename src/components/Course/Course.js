@@ -108,15 +108,15 @@ const Course = (props) => {
         // eslint-disable-next-line
     }, [discount])
 
-    const nextBatchAlert = () => {
-        Swal.fire({
-            icon: 'info',
-            title: 'আপনার ব্যাচ এখনো শুরু হয়নি',
-            text: `ব্যাচ শুরু হওয়ার সম্ভাব্য তারিখ ৬ নভেম্বর`,
-            timer: 3000,
-            confirmButtonText: 'আচ্ছা',
-        })
-    }
+    // const nextBatchAlert = () => {
+    //     Swal.fire({
+    //         icon: 'info',
+    //         title: 'আপনার ব্যাচ এখনো শুরু হয়নি',
+    //         text: `ব্যাচ শুরু হওয়ার সম্ভাব্য তারিখ ৬ নভেম্বর`,
+    //         timer: 3000,
+    //         confirmButtonText: 'আচ্ছা',
+    //     })
+    // }
 
     const duePayAlert = () => {
         Swal.fire({
@@ -187,9 +187,9 @@ const Course = (props) => {
                                                 </div>
                                                 :
                                                 <div className="">
-                                                    {/* <a href={course.live_link_batch2} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block my-3 w-100'
-                                                >জয়েন ক্লাস</a> */}
-                                                    <button onClick={() => nextBatchAlert()} className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block my-3 w-100'>জয়েন ক্লাস</button>
+                                                    <a href={course.live_link_batch2} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block my-3 w-100'
+                                                >জয়েন ক্লাস</a>
+                                                    {/* <button onClick={() => nextBatchAlert()} className='btn-buy mx-auto d-block p-3 text-decoration-none text-center d-none d-lg-block my-3 w-100'>জয়েন ক্লাস</button> */}
                                                     <div className="">
                                                         <button onClick={() => {
                                                             window.scrollTo(0, 0);
@@ -535,9 +535,9 @@ const Course = (props) => {
                                         </div>
                                         :
                                         <div className="">
-                                            {/* <a href={course.live_link_batch2} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center'
-                                        >জয়েন ক্লাস</a> */}
-                                            <button onClick={() => nextBatchAlert()} className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center'>জয়েন ক্লাস</button>
+                                            <a href={course.live_link_batch2} target='_blank' rel="noreferrer" className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center'
+                                        >জয়েন ক্লাস</a>
+                                            {/* <button onClick={() => nextBatchAlert()} className='btn-buy mx-auto d-block p-3 my-2 text-decoration-none text-center'>জয়েন ক্লাস</button> */}
                                             <div className="px-1">
                                                 <button onClick={() => {
                                                     window.scrollTo(0, 0);

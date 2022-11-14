@@ -160,15 +160,15 @@ const DLiveCourse = () => {
     //     })
     // }
 
-    const nextBatchAlert = () => {
-        Swal.fire({
-            icon: 'info',
-            title: 'আপনার ব্যাচ এখনো শুরু হয়নি',
-            text: `ব্যাচ শুরু হওয়ার সম্ভাব্য তারিখ ৬ নভেম্বর`,
-            timer: 3000,
-            confirmButtonText: 'আচ্ছা',
-        })
-    }
+    // const nextBatchAlert = () => {
+    //     Swal.fire({
+    //         icon: 'info',
+    //         title: 'আপনার ব্যাচ এখনো শুরু হয়নি',
+    //         text: `ব্যাচ শুরু হওয়ার সম্ভাব্য তারিখ ৬ নভেম্বর`,
+    //         timer: 3000,
+    //         confirmButtonText: 'আচ্ছা',
+    //     })
+    // }
 
     const duePayAlert = () => {
         Swal.fire({
@@ -240,7 +240,8 @@ const DLiveCourse = () => {
                                                                                     // onClick={() => { window.scrollTo(0, 0); }}
                                                                                     >জয়েন ক্লাস</a>
                                                                                     :
-                                                                                    <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    // <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    <a href={course.live_link_batch2} className='see-details'>জয়েন ক্লাস</a>
                                                                                 :
                                                                                 <button onClick={() => duePayAlert()} className='see-details'>জয়েন ক্লাস</button>
                                                                             :
@@ -256,7 +257,8 @@ const DLiveCourse = () => {
                                                                                     // onClick={() => { window.scrollTo(0, 0); }}
                                                                                     >জয়েন ক্লাস</a>
                                                                                     :
-                                                                                    <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    // <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    <a href={course.live_link_batch2} className='see-details'>জয়েন ক্লাস</a>
                                                                                 :
                                                                                 <button onClick={() => duePayAlert()} className='see-details'>জয়েন ক্লাস</button>
                                                                             :
@@ -272,7 +274,8 @@ const DLiveCourse = () => {
                                                                                     // onClick={() => { window.scrollTo(0, 0); }}
                                                                                     >জয়েন ক্লাস</a>
                                                                                     :
-                                                                                    <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    // <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    <a href={course.live_link_batch2} className='see-details'>জয়েন ক্লাস</a>
                                                                                 :
                                                                                 <button onClick={() => duePayAlert()} className='see-details'>জয়েন ক্লাস</button>
                                                                             :
@@ -288,7 +291,8 @@ const DLiveCourse = () => {
                                                                                     // onClick={() => { window.scrollTo(0, 0); }}
                                                                                     >জয়েন ক্লাস</a>
                                                                                     :
-                                                                                    <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    // <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    <a href={course.live_link_batch2} className='see-details'>জয়েন ক্লাস</a>
                                                                                 :
                                                                                 <button onClick={() => duePayAlert()} className='see-details'>জয়েন ক্লাস</button>
                                                                             :
@@ -304,7 +308,8 @@ const DLiveCourse = () => {
                                                                                     // onClick={() => { window.scrollTo(0, 0); }}
                                                                                     >জয়েন ক্লাস</a>
                                                                                     :
-                                                                                    <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    // <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    <a href={course.live_link_batch2} className='see-details'>জয়েন ক্লাস</a>
                                                                                 :
                                                                                 <button onClick={() => duePayAlert()} className='see-details'>জয়েন ক্লাস</button>
                                                                             :
@@ -463,7 +468,8 @@ const DLiveCourse = () => {
                                                                                     // onClick={() => { window.scrollTo(0, 0); }}
                                                                                     >জয়েন ক্লাস</a>
                                                                                     :
-                                                                                    <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    // <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    <a href={course.live_link_batch2} className='see-details'>জয়েন ক্লাস</a>
                                                                                 :
                                                                                 <button onClick={() => duePayAlert()} className='see-details'>জয়েন ক্লাস</button>
                                                                             :
@@ -479,7 +485,8 @@ const DLiveCourse = () => {
                                                                                     // onClick={() => { window.scrollTo(0, 0); }}
                                                                                     >জয়েন ক্লাস</a>
                                                                                     :
-                                                                                    <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    // <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    <a href={course.live_link_batch2} className='see-details'>জয়েন ক্লাস</a>
                                                                                 :
                                                                                 <button onClick={() => duePayAlert()} className='see-details'>জয়েন ক্লাস</button>
                                                                             :
@@ -495,7 +502,8 @@ const DLiveCourse = () => {
                                                                                     // onClick={() => { window.scrollTo(0, 0); }}
                                                                                     >জয়েন ক্লাস</a>
                                                                                     :
-                                                                                    <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    // <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    <a href={course.live_link_batch2} className='see-details'>জয়েন ক্লাস</a>
                                                                                 :
                                                                                 <button onClick={() => duePayAlert()} className='see-details'>জয়েন ক্লাস</button>
                                                                             :
@@ -511,7 +519,8 @@ const DLiveCourse = () => {
                                                                                     // onClick={() => { window.scrollTo(0, 0); }}
                                                                                     >জয়েন ক্লাস</a>
                                                                                     :
-                                                                                    <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    // <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    <a href={course.live_link_batch2} className='see-details'>জয়েন ক্লাস</a>
                                                                                 :
                                                                                 <button onClick={() => duePayAlert()} className='see-details'>জয়েন ক্লাস</button>
                                                                             :
@@ -527,7 +536,8 @@ const DLiveCourse = () => {
                                                                                     // onClick={() => { window.scrollTo(0, 0); }}
                                                                                     >জয়েন ক্লাস</a>
                                                                                     :
-                                                                                    <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    // <button onClick={() => nextBatchAlert()} className='see-details'>জয়েন ক্লাস</button>
+                                                                                    <a href={course.live_link_batch2} className='see-details'>জয়েন ক্লাস</a>
                                                                                 :
                                                                                 <button onClick={() => duePayAlert()} className='see-details'>জয়েন ক্লাস</button>
                                                                             :
